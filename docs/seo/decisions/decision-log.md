@@ -23,6 +23,10 @@ An approved scope is not permission to deploy; a source observation is not a com
 
 | BF-SEO-D016 | 2026-11-21 | Decide whether to prerender full Persian article bodies and internal links rather than continue current client-only content | PROPOSED / EVIDENCE-GATED | Vite Preview JS-enabled full article content PASS; JS-disabled only H1/summary (0 article body/related links); Google renders JS, and real IIS/GSC indexing evidence is missing. No architecture change approved. |
 | BF-SEO-D017 | 2026-11-21 | Investigate production public HTTP/TLS reachability before changing canonical redirects | INVESTIGATION REQUIRED | GitHub runner apex A resolved, TCP ports 80/443 connected, but 12 apex GETs timed out and TLS reset; www DNS unresolved. This is runner-specific evidence, not global outage. Hosting owner must verify target-market behavior and cert/bindings. No live configuration change authorized. |
+| BF-SEO-D018 | 2026-11-21 | Stop expecting Google FAQ rich results while preserving useful visible Q&A | APPROVED (documented official feature status) | Google Search Central: rich result ended 2026-05-07, feature documentation removed 2026-06-15; no schema penalty asserted |
+| BF-SEO-D019 | 2026-11-21 | Establish genuine authorship/reviewer and dateModified governance | PROPOSED | Seven articles use permitted institutional Organization author and real datePublished; qualified reviewers/actual revision timestamps not established |
+| BF-SEO-D020 | 2026-11-21 | Correct one legacy CDC exercise-intensity reference | REVIEW — [Draft PR #4](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/4) | Current CDC page verified; actual build and 254 SEO checks PASS on pinned revision, browser/deployment/editorial merge approval outstanding |
+
 
 ## Future decision record standard
 

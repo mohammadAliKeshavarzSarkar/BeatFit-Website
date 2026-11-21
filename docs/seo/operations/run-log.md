@@ -197,3 +197,19 @@ Every new work session will append an entry with exact revision, findings, test 
 **Artifacts:** [live evidence](../verification/2026-11-21-public-http-and-network-evidence.md), [request matrix](../verification/2026-11-21-public-http-probe-results.csv), [hosting checklist](../strategy/2026-11-21-hosting-readiness-checklist.md).
 
 **Next gate:** Authorized hosting owner validates DNS/site bindings/certificate and target-market HTTP reachability; then independently verify deployed SEO pages and GSC rendering.
+
+## BF-SEO-RUN-014 — 2026-11-21 — Article evidence inventory, FAQ retirement and citation QA
+
+**Source revision:** `4eb3d6914eeddb2ffea9e8414cbbf218606cdcc1`. **Change scope:** English documentation on main; a separate unmerged one-URL Draft PR #4.
+
+- Read the seven Persian article modules plus shared article renderer and `BlogPosting`/`FAQPage` JSON-LD serializer.
+- Recorded **47 citation rows, 43 unique external URLs, 46 FAQ questions** and publication dates in source inventories. Eight selected external citations were spot-checked, not all 47.
+- Confirmed from **official Google Search Central** that FAQ rich results stopped appearing on 2026-05-07; deprecation notice 2026-05-08; feature documentation removed 2026-06-15. Visible FAQs may still benefit readers; no FAQ markup change was made.
+- Confirmed institutional author `تیم محتوای بیت‌فیت` is source-visible and `BlogPosting.author` Organization is supported. Actual qualified reviewers, correction policy and `dateModified` governance are not established; no identity or revision date was invented.
+- External spot checks identified an older CDC exercise-intensity URL rendering SSI template errors; the current CDC page displayed the relevant guidance.
+- Created [Draft PR #4](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/4), changing exactly one citation URL in `src/content/blog/groupClassIntensity.ts`, and adding a preflight note. No copy, author, article date, canonical or schema changes.
+- Ran independent pinned-revision [GitHub Actions 44876593273](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/44876593273). **Actual `npm ci`, TypeScript/Vite build, 254 SEO output checks, CDC link assertion and tracked-public drift check all PASS.** Browser click and deployed/GSC tests NOT RUN.
+- Wrote an English source-reliability, scientific-review and structured-data backlog. PR #4 remains Draft; no merge or deployment.
+- Production DNS/HTTP/SSL/GSC blockers remain separate and unresolved.
+
+**Artifacts:** [editorial audit](../audits/2026-11-21-article-editorial-evidence-audit.md), [reference register](../inventory/2026-11-21-article-citation-register.csv), [FAQ guidance](../research/2026-11-21-google-faq-rich-result-retirement.md), [CI record](../verification/2026-11-21-cdc-citation-ci-evidence.md), [editorial backlog](../strategy/2026-11-21-editorial-evidence-backlog.md).

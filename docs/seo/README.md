@@ -17,6 +17,12 @@ This is the **single source of truth for BeatFit-specific SEO documentation**: r
 | Audit | [Baseline Audit 001](audits/2026-11-21-source-baseline.md) | Six findings grounded in a pinned source snapshot |
 | Audit | [Page intent and conversion review](audits/2026-11-21-page-intent-and-conversion-review.md) | Six marketing pages, seven articles, three further review findings |
 | Audit | [Persian article internal-link review](audits/2026-11-21-internal-link-source-review.md) | Validated catalog/home/related source graph and low-inbound related-card articles |
+| Audit | [Seven-article editorial evidence audit](audits/2026-11-21-article-editorial-evidence-audit.md) | Seven posts, 47 citations, 46 FAQs and review gaps |
+| Inventory | [Article citation register](inventory/2026-11-21-article-citation-register.csv) | 47 source rows / 43 distinct URLs; verification scope explicit |
+| Inventory | [Article editorial metadata](inventory/2026-11-21-article-editorial-inventory.csv) | Dates, FAQ/source counts and unknown reviewer fields |
+| Research | [2026 Google FAQ feature retirement](research/2026-11-21-google-faq-rich-result-retirement.md) | Official Google updates and BeatFit interpretation |
+| Strategy | [Editorial evidence backlog](strategy/2026-11-21-editorial-evidence-backlog.md) | Claim review, provenance and date governance |
+| Verification | [Draft PR #4 real CI gate](verification/2026-11-21-cdc-citation-ci-evidence.md) | Actual build and 254 SEO checks for one citation URL update |
 | Inventory | [Article link graph](inventory/2026-11-21-article-link-graph.csv) | 28 source-declared edges with evidence types |
 | Strategy | [Related-article editorial proposal](strategy/2026-11-21-related-article-link-proposal.md) | Two narrowly scoped, review-only link substitutions |
 | Inventory | [Source URL inventory](inventory/source-route-inventory.csv) | Six marketing and seven Persian article URLs |

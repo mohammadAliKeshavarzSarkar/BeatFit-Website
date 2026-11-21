@@ -1,0 +1,8 @@
+article_slug,source_file,article_title,date_published,citation_entries,faq_questions,faq_block,sources_block,individual_reviewer_verified,date_modified_verified,production_page_verified
+زون-های-ضربان-قلب,src/content/blog/heartRateZones.ts,زون‌های ضربان قلب چیست؟ راهنمای ۵ زون تمرینی و روش محاسبه آن‌ها,2026-11-08,6,6,true,true,false,false,false
+کنترل-شدت-تمرین-در-کلاس-گروهی,src/content/blog/groupClassIntensity.ts,چطور شدت تمرین ورزشکاران را در کلاس‌های گروهی کنترل کنیم؟,2026-11-08,7,6,true,true,false,false,false
+پایش-ضربان-قلب-در-باشگاه,src/content/blog/gymHeartRateMonitoring.ts,پایش ضربان قلب در باشگاه چیست و چه کاربردی برای مدیران دارد؟,2026-11-09,7,7,true,true,false,false,false
+تاریخچه-تمرین,src/content/blog/trainingHistory.ts,چطور با بررسی تاریخچه تمرین، روند پیشرفت خود را بشناسیم؟,2026-11-09,6,6,true,true,false,false,false
+بار-تمرینی-چیست,src/content/blog/trainingLoad.ts,بار تمرینی چیست و چطور به شناخت فشار تمرین کمک می‌کند؟,2026-11-09,6,7,true,true,false,false,false
+مقایسه-سنسور-ضربان-قلب,src/content/blog/heartRateSensorComparison.ts,سنسور ضربان قلب بازویی، ساعت هوشمند یا بند سینه‌ای؛ کدام بهتر است؟,2026-11-09,8,7,true,true,false,false,false
+طراحی-تمرین-گروهی,src/content/blog/groupClassDesign.ts,چطور برای ورزشکاران با آمادگی متفاوت یک کلاس گروهی طراحی کنیم؟,2026-11-09,7,7,true,true,false,false,false
