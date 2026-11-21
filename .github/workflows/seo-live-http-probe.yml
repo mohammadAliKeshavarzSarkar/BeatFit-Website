@@ -1,0 +1,20 @@
+name: BeatFit Live HTTP SEO Probe (Read Only)
+on:
+  push:
+    branches: [seo/production-http-diagnostics-2026-11-21]
+permissions:
+  contents: read
+jobs:
+  live-http-probe:
+    name: Public HTTP and HTTPS response checks
+    runs-on: ubuntu-24.04
+    timeout-minutes: 6
+    steps:
+      - name: Check out read-only probe
+        uses: actions/checkout@v4
+      - name: Use Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Probe fixed public BeatFit endpoints
+        run: node scripts/seo-production-http-diagnostic.mjs
