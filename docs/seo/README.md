@@ -28,6 +28,7 @@ This is the **single source of truth for BeatFit-specific SEO documentation**: r
 | Verification | [2017 sensor study claim resolution](verification/2026-11-21-sensor-2017-claim-resolution.md) | PubMed/peer-reviewed review comparison and device-specific caveats |
 | Inventory | [Article-specific CTA destination map](inventory/2026-11-21-article-cta-route-map.csv) | All seven article CTAs, unchanged common footer and Draft PR #10 destination |
 | Verification | [Draft PR #10 build/browser evidence](verification/2026-11-21-zones-cta-pr10-ci.md) | 254 generated SEO checks and successful mobile click-through |
+| Verification | [PR #8 + PR #10 combined integration QA](verification/2026-11-21-zone2-cta-combined-qa.md) | Temporary combined source, real build, 254 checks, Chromium both edits PASS |
 | Operations | [GitHub PR state reconciliation](operations/2026-11-21-repository-state-reconciliation.md) | Actual merged/open state on 2026-11-21, distinct from deployed release |
 | Inventory | [Article citation register](inventory/2026-11-21-article-citation-register.csv) | 47 source rows / 43 distinct URLs; verification scope explicit |
 | Inventory | [Article editorial metadata](inventory/2026-11-21-article-editorial-inventory.csv) | Dates, FAQ/source counts and unknown reviewer fields |
@@ -112,3 +113,7 @@ A bounded Persian public-web discovery sample is now recorded; it is not a geogr
 
 - [Draft PR #10 — Align heart-rate-zones article CTA with athlete journey](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/10) changes **one `href`** from `/demo` to `/athlete` while preserving the template's separate `درخواست دمو` link. Exact source commit `a1d7cecea2547b68ff8c293a197856cb1d5968f5` passed independent real CI/254 SEO checks and mobile Chromium click test [44879013001](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/44879013001). **Open Draft, not merged/deployed**. Audience and conversion effect unmeasured.
 - The 2017 wrist-versus-forearm sensor comparison is supported for the named devices, resolving prior S08 at the narrow claim level. [Dated evidence](verification/2026-11-21-sensor-2017-claim-resolution.md). Product-specific sensor validation remains separate.
+
+## Combined editorial PR #8 + PR #10 compatibility gate
+
+- [Independent GitHub Actions run 44879300759](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/44879300759) **SUCCESS**. PR #8 pinned source + exact PR #10 one-line overlay in temporary CI checkout passed real TypeScript/Vite build, **254 SEO checks**, tracked-public drift, new Zone 2 note/FAQ/reference and actual Chromium click to `/athlete` with separate `/demo` footer retained. The PRs themselves remain **open Draft, unmerged and undeployed**; author/editorial approval, final integration release test, production and GSC remain separate. [Full exact evidence](verification/2026-11-21-zone2-cta-combined-qa.md).

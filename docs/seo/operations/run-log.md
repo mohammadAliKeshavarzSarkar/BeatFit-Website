@@ -263,3 +263,15 @@ Every new work session will append an entry with exact revision, findings, test 
 - No merge/deploy, production IIS, Google indexing, analytics or product-owner conversion review occurred.
 
 **Artifacts:** [2017 claim and CTA audit](../audits/2026-11-21-2017-study-and-cta-audit.md), [source CTA route map](../inventory/2026-11-21-article-cta-route-map.csv), [PR #10 CI record](../verification/2026-11-21-zones-cta-pr10-ci.md), [2017 study resolution](../verification/2026-11-21-sensor-2017-claim-resolution.md).
+
+## BF-SEO-RUN-019 — 2026-11-21 — Verified combined Draft PR #8 + PR #10 preview
+
+**Isolated QA branch:** `seo/combined-zones-editorial-qa-2026-11-21`; workflow run [44879300759](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/44879300759), job `136770848464`, completed **SUCCESS**.
+
+- Checked out exact Draft PR #8 commit `1f486da6bc1f17e73452fefcd77c7189991e96c6` in a temporary runner and overlaid only the reviewed single `/demo` → `/athlete` CTA line from Draft PR #10 source commit `a1d7cecea2547b68ff8c293a197856cb1d5968f5`.
+- Overlay assertion **PASS**, actual `npm ci` **PASS**, TypeScript/Vite build **PASS**, **254 generated SEO integrity checks PASS**, and tracked `public/` files clean.
+- Chromium 390×844 Vite Preview verified the Zone 2 threshold note, original six FAQ questions plus updated answer, PubMed PMID 40225831 reference, correct article CTA and preserved common `/demo` footer. Click navigated to `/athlete` with matching page H1 and canonical; no pageerror.
+- **This was a prospective combined source test, not an actual merge of the PR branches or a deployed production release.** No scientific/marketing owner approval, real HTTP/IIS, Search Console or conversion analytics verified.
+- [Integrated evidence report](../verification/2026-11-21-zone2-cta-combined-qa.md) stored separately from individual PR verification results.
+
+**Next:** Review and decide separately on PR #8 and #10; re-run the final release build if approved. Keep gym demo submission functionality and production network/GSC investigation as independent gates.
