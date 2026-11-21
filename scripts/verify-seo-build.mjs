@@ -43,6 +43,19 @@ function metadata(html, field, value) {
   return findTags(html, 'meta').filter(tag => attribute(tag, field) === value);
 }
 
+// The Sitemap serializes URLs through URL.href (percent-encoding Unicode),
+// while the app's canonical/OG serializer may keep readable Persian slugs.
+// Compare equivalent absolute URL values, not their raw textual form.
+function normalizedAbsoluteUrl(value) {
+  if (!value) return null;
+  try {
+    const url = new URL(value);
+    return ['http:', 'https:'].includes(url.protocol) ? url.href : null;
+  } catch {
+    return null;
+  }
+}
+
 const requiredMarketing = ['/', '/gym', '/coach', '/athlete', '/resources', '/demo'];
 const requiredArticles = [
   'زون-های-ضربان-قلب',
@@ -133,11 +146,11 @@ if (sitemap && robots && webConfig) {
     }
 
     const canonicals = findTags(head, 'link').filter(tag => attribute(tag, 'rel') === 'canonical');
-    check(canonicals.length === 1 && attribute(canonicals[0] ?? '', 'href') === canonical, `Wrong or duplicate canonical: ${pathname}`);
+    check(canonicals.length === 1 && normalizedAbsoluteUrl(attribute(canonicals[0] ?? '', 'href')) === normalizedAbsoluteUrl(canonical), `Wrong or duplicate canonical: ${pathname}`);
     const robotsMeta = metadata(head, 'name', 'robots');
     check(robotsMeta.length === 1 && /\bindex\b/i.test(attribute(robotsMeta[0] ?? '', 'content') ?? '') && !/\bnoindex\b/i.test(attribute(robotsMeta[0] ?? '', 'content') ?? ''), `Invalid robots index directive: ${pathname}`);
     const ogUrls = metadata(head, 'property', 'og:url');
-    check(ogUrls.length === 1 && attribute(ogUrls[0], 'content') === canonical, `Wrong og:url: ${pathname}`);
+    check(ogUrls.length === 1 && normalizedAbsoluteUrl(attribute(ogUrls[0], 'content')) === normalizedAbsoluteUrl(canonical), `Wrong og:url: ${pathname}`);
     check(/<main\b[^>]*id=["']bf-static-seo["'][\s\S]*?<h1\b/i.test(html), `Missing initial SEO H1 shell: ${pathname}`);
 
     const jsonLdMatches = [...head.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)]
