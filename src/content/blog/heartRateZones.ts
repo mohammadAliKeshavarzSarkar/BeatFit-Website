@@ -255,7 +255,7 @@ export const heartRateZonesPost = {
       title: "تمرینت را دقیق‌تر ببین",
       body: "با بیت‌فیت، ضربان قلب و شدت تمرینت را در لحظه ببین و نتیجه هر جلسه را مرور کن.",
       label: "آشنایی با بیت‌فیت",
-      href: "/demo",
+      href: "/athlete",
     },
     {
       kind: "sources",
