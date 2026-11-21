@@ -42,6 +42,8 @@ An approved scope is not permission to deploy; a source observation is not a com
 | BF-SEO-D029 | 2026-11-21 | Investigate public HTTP/TLS resets from sampled Iran and global nodes before calling server deployment verified | P1 HOSTING OWNER INVESTIGATION | Apex A and TCP connect, TLS ECONNRESET; Iran Tehran/Isfahan and non-Iran Check-Host nodes reported HTTP/HTTPS reset, one Qom timeout; root cause and worldwide accessibility unknown |
 | BF-SEO-D030 | 2026-11-21 | Preserve source HTTPS canonical/13-Sitemap configuration pending verified edge redirects | SOURCE ACCEPTED / LIVE NOT VERIFIED | Source uses HTTPS; `web.config` IIS HTTPS redirect intentionally disabled due proxy-loop history; no live Location/header/status chain obtained; do not blindly flip rule |
 
+| BF-SEO-D031 | 2026-11-21 | Keep production HTTP/TLS signoff blocked after differential protocol tests | P1 / AWAIT HOST-OWNER EVIDENCE | GitHub 44882903669: 8 curl variants got zero HTTP statuses, fixed-IP/SNI GET-HEAD all timed out; three OpenSSL variant probes were inconclusive after process timeouts. No verified production HTTP, root cause, or deployed canonical/redirect behavior |
+
 ## Future decision record standard
 
 For every important change, record exact evidence references, affected URLs/templates, alternatives including no change, implementation/release authority, business value, risk, dependent decisions, acceptance tests, rollback, responsible reviewer and review date.

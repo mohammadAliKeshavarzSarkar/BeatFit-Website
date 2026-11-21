@@ -335,3 +335,15 @@ Every new work session will append an entry with exact revision, findings, test 
 - Saved [full audit](../verification/2026-11-21-post-deployment-public-server-audit.md), [27 HTTP cases](../verification/2026-11-21-post-deploy-http-get-results.csv), [10 regional cases](../verification/2026-11-21-post-deploy-regional-results.csv), [pinned source QA](../verification/2026-11-21-current-merged-main-source-qa.md), and [owner handoff](../strategy/2026-11-21-public-server-postdeploy-handoff.md).
 
 **Priority next gate:** The authorized hosting owner compares ordinary user results from Iran and outside against timestamped WAF/proxy/IIS/TLS logs, then repeat real HTTPS redirect, robots, Sitemap, canonicals and 404 tests. The demo form is intentionally inactive in source and still requires a real approved backend/privacy flow. No production changes performed in this audit.
+
+## BF-SEO-RUN-023 — 2026-11-21 — Public HTTP/TLS differential probes without backend changes
+
+- Re-read GitHub `main` and confirmed recent merges #17/#18 brought independent QA/probe tooling, not an independently proven live web-server fix; current source base was `09e5f696bee514224aa70f747392484ffc3001da` at verification.
+- Re-attempted public home, robots and Sitemap retrieval through an external web surface; no usable page content or status was obtained. Do **not** infer a global outage from this.
+- Created a bounded, reproducible public transport diagnostic under `docs/seo/tools/transport-layer-probe.mjs` on isolated QA branch `seo/transport-layer-differential-qa-2026-11-21`, with GitHub Actions [44882903669](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/44882903669), job `136781863103`, conclusion SUCCESS (script execution).
+- Tested 11 network scenarios: ordinary HTTP GET/HEAD, ordinary HTTPS GET/HEAD, forced HTTPS HTTP/1.1, OpenSSL TLS 1.2 with SNI, TLS 1.3 with SNI, no SNI, fixed-IP HTTPS with hostname/SNI, fixed-IP HTTP Host and deliberately labeled untrusted IP-only TLS diagnostic. **Eight curl probes received 0 HTTP statuses; three OpenSSL handshake probes timed out with no conclusive result.**
+- Runner apex DNS A resolved to `87.107.166.140`, with curl TCP connects ~0.23 s and no proxy environment. No response bytes or validated TLS handshake were observed; fixed-IP and GET/HEAD behavior remained unsuccessful. This does **not** prove a specific WAF/IIS/SNI/SSL fault.
+- Preserved [11-case results](../verification/2026-11-21-transport-differential-results.csv) and [full differential interpretation](../verification/2026-11-21-transport-differential-audit.md). Updated hosting owner handoff to begin at the public edge listener, correlate normal-browser requests, and distinguish monitoring IP filtering from public reachability.
+- No server configurations, redirects, SEO code, browser forms, production data or Google Search Console account were changed.
+
+**Open gate:** Actual hosting-side logs with timestamps and successful normal-browser HTTP/TLS verification, followed by production SEO acceptance. Avoid further blind repeated probes until a reported network configuration change.

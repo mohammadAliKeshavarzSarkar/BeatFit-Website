@@ -52,3 +52,11 @@ Do not disable production security globally or modify proxy redirect logic witho
 Current source intentionally shows **demo submission unavailable** above six disabled inputs and submit button. The server accessibility fix will NOT restore lead intake by itself. A secure approved receiver and privacy policy are required before enabling personal-data collection.
 
 **No server modifications or live form submissions were performed as part of this plan.**
+
+## Differential follow-up — 2026-11-21, independent runner
+
+[GitHub Actions run 44882903669](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/44882903669) tested bounded protocol variants after the reported deployment. **Eight curl HTTP/HTTPS GET/HEAD/fixed-IP/HTTP1 variants returned zero HTTP statuses**; TCP connect took about 0.23 seconds. **Three OpenSSL SNI/TLS tests timed out without usable handshake output**, so protocol/certificate/SNI support cannot be specifically classified. No HTTP proxy environment was present. These results do not distinguish intentional security filtering from reverse-proxy/IIS listener issues.
+
+Before modifying source redirect rules or firewall settings, correlate a normal user request and one GitHub monitoring request by exact timestamp and client IP with **the first public listener**. If the edge did not record a request, triage upstream ACL/WAF/routing. If it did, inspect reset reason, TLS SNI certificate selection and edge-to-IIS upstream. A sample IP-only `-k` probe timed out before TLS establishment and must **never** be counted as a verified certificate pass.
+
+See [detailed test matrix and decision](../verification/2026-11-21-transport-differential-audit.md). Do not schedule frequent repeating probes without a reported edge/server change.

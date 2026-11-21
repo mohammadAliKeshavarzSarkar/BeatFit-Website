@@ -1,0 +1,20 @@
+probe_id,method_or_protocol,http_status,curl_or_openssl_exit,signal,remote_ip,connect_seconds,tls_handshake_seconds,total_seconds,error,interpretation
+HTTP_GET,HTTP,0,28,,87.107.166.140,0.231489,0,8.002363,"curl: (28) Operation timed out after 8002 milliseconds with 0 bytes received
+",No HTTP response status; failed network negotiation or response
+HTTP_HEAD,HTTP,0,28,,87.107.166.140,0.230251,0,8.002562,"curl: (28) Operation timed out after 8002 milliseconds with 0 bytes received
+",No HTTP response status; failed network negotiation or response
+HTTPS_GET,HTTPS,0,28,,87.107.166.140,0.229769,0,5.001913,"curl: (28) SSL connection timeout
+",No HTTP response status; failed network negotiation or response
+HTTPS_GET_HTTP1,HTTPS,0,28,,87.107.166.140,0.228021,0,5.002252,"curl: (28) SSL connection timeout
+",No HTTP response status; failed network negotiation or response
+HTTPS_HEAD,HTTPS,0,28,,87.107.166.140,0.234812,0,5.001937,"curl: (28) SSL connection timeout
+",No HTTP response status; failed network negotiation or response
+TLS12_SNI,openssl s_client,,,SIGKILL,,,,,,"Timed out / process terminated, TLS version result inconclusive"
+TLS13_SNI,openssl s_client,,,SIGKILL,,,,,,"Timed out / process terminated, TLS version result inconclusive"
+TLS_DEFAULT_NO_SNI,openssl s_client,,,SIGKILL,,,,,,"Timed out / process terminated, TLS version result inconclusive"
+HTTPS_FIXED_IP_SNI,HTTPS,0,28,,87.107.166.140,0.233031,0,5.000767,"curl: (28) SSL connection timeout
+",No HTTP response status; failed network negotiation or response
+HTTP_FIXED_IP_HOST,HTTP,0,28,,87.107.166.140,0.233879,0,8.002654,"curl: (28) Operation timed out after 8002 milliseconds with 0 bytes received
+",No HTTP response status; failed network negotiation or response
+IP_DIRECT_TLS_DIAGNOSTIC_UNVERIFIED,HTTPS,0,28,,87.107.166.140,0.22708,0,5.002622,"curl: (28) SSL connection timeout
+",No HTTP response status; failed network negotiation or response
