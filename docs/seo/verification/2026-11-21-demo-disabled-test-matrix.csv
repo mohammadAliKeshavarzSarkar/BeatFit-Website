@@ -1,0 +1,15 @@
+id,area,expected,result,evidence_run,releases_lead_collection
+BF-DEMO-V2-01,visible notice,Warning above first input,PASS,44881338714,NO
+BF-DEMO-V2-02,accessible relationship,role=status and aria-describedby,PASS,44881338714,NO
+BF-DEMO-V2-03,truthful copy,No misleading call-back claim in rendered inactive view,PASS,44881338714,NO
+BF-DEMO-V2-04,controls,"Six original form fields exist, disabled",PASS,44881338714,NO
+BF-DEMO-V2-05,submit,Button disabled by fieldset,PASS,44881338714,NO
+BF-DEMO-V2-06,privacy,Cannot type into disabled name control,PASS,44881338714,NO
+BF-DEMO-V2-07,network,No non-GET requests during browser test,PASS,44881338714,NO
+BF-DEMO-V2-08,build,Actual TypeScript/Vite build,PASS,44881338714,NO
+BF-DEMO-V2-09,SEO,254 generated SEO artifact checks,PASS,44881338714;44881644598,NO
+BF-DEMO-V2-10,integration,Merged main article CTA + demo guard browser smoke,PASS,44881644598,NO
+BF-DEMO-V2-11,live TLS,Public production HTTPS and approved origin verified,BLOCKED,,NO
+BF-DEMO-V2-12,privacy,Accessible approved privacy notice/consent,BLOCKED,,NO
+BF-DEMO-V2-13,receiver,Authorized server/CRM accepted and stored synthetic staging request,NOT_IMPLEMENTED,,NO
+BF-DEMO-V2-14,product owner,Approved paused demo/contact-fallback UX,PENDING,,NO
