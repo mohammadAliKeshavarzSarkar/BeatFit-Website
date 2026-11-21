@@ -113,7 +113,7 @@ export const resourcesDocument = page({
   id: "resources",
   path: "/resources",
   fileId: "resources",
-  title: "منابع تمرین و پایش ضربان قلب | بیت‌فیت",
+  title: "آموزش پایش ضربان قلب و تمرین | بیت‌فیت",
   description: resourcesHero.lede,
   h1: resourcesHero.title,
   summary: resourcesHero.lede,

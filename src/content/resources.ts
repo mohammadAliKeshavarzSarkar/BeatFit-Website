@@ -1,6 +1,6 @@
 export const resourcesHero = {
   title: "برای بهتر تمرین‌کردن، بیشتر بدانید.",
-  lede: "در منابع بیت فیت، درباره تمرین، پایش ضربان قلب، تجربه کلاس‌های گروهی و راه‌های ساختن باشگاهی متمایزتر بخوانید.",
+  lede: "در منابع بیت‌فیت، راهنماهایی درباره زون ضربان قلب، شدت و تاریخچه تمرین، حسگرهای پوشیدنی و کلاس‌های گروهی برای ورزشکاران، مربیان و باشگاه‌ها بخوانید.",
 } as const;
 
 export const resourcesFeatured = {
@@ -24,7 +24,7 @@ export const resourcesCatalog = {
   ctaLabel: "ادامه مطلب",
   filters: [
     { id: "all" as const, label: "همه مطالب" },
-    { id: "gym" as const, label: "برای باشگاه ها" },
+    { id: "gym" as const, label: "برای باشگاه‌ها" },
     { id: "coach" as const, label: "برای مربیان" },
     { id: "athlete" as const, label: "برای ورزشکاران" },
   ],
