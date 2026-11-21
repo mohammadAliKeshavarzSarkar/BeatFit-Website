@@ -23,6 +23,9 @@ This is the **single source of truth for BeatFit-specific SEO documentation**: r
 | Verification | [Source check record](verification/2026-11-21-source-checks.md) | Eleven bounded source observations and outstanding tests |
 | Verification | [Actual GitHub Actions CI evidence](verification/2026-11-21-github-actions-ci-gate.md) | Real build, corrected Persian URL check, 10 fixture tests, 254 assertions |
 | Verification | [Pinned PR #1/#3 real build and browser QA](verification/2026-11-21-cross-pr-build-and-browser-qa.md) | Two successful GitHub runner jobs, real build, mobile Chromium and no-JS comparison |
+| Verification | [Live HTTP and network evidence](verification/2026-11-21-public-http-and-network-evidence.md) | 14 public GET attempts; DNS A/TCP and failed HTTP/TLS from CI runner |
+| Verification | [Public HTTP request results](verification/2026-11-21-public-http-probe-results.csv) | Exact sanitized 14-request status/exit matrix |
+| Strategy | [Hosting readiness checklist](strategy/2026-11-21-hosting-readiness-checklist.md) | Owner handoff for DNS, IIS, SSL, HTTP and canonical decision |
 | Verification | [Cross-PR result matrix](verification/2026-11-21-cross-pr-result-matrix.csv) | Reproducible per-commit gate statuses |
 | Strategy | [Rendering architecture decision brief](strategy/2026-11-21-rendering-architecture-decision-brief.md) | Actual JS-enabled/no-JS evidence, options and future gate |
 | Verification | [Production access attempts and test plan](verification/2026-11-21-production-access-and-test-plan.md) | Blocked live checks plus reproducible HTTP/build/browser gate |

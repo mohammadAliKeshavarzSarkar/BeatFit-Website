@@ -22,6 +22,7 @@ An approved scope is not permission to deploy; a source observation is not a com
 | BF-SEO-D015 | 2026-11-21 | Balance two related-article links to cover existing underlinked topics | REVIEW — [Draft PR #3](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/3) | Pinned PR real build, 254 SEO checks, 390px browser/related links PASS (CI 44874359478); editorial approval and deployed behavior pending |
 
 | BF-SEO-D016 | 2026-11-21 | Decide whether to prerender full Persian article bodies and internal links rather than continue current client-only content | PROPOSED / EVIDENCE-GATED | Vite Preview JS-enabled full article content PASS; JS-disabled only H1/summary (0 article body/related links); Google renders JS, and real IIS/GSC indexing evidence is missing. No architecture change approved. |
+| BF-SEO-D017 | 2026-11-21 | Investigate production public HTTP/TLS reachability before changing canonical redirects | INVESTIGATION REQUIRED | GitHub runner apex A resolved, TCP ports 80/443 connected, but 12 apex GETs timed out and TLS reset; www DNS unresolved. This is runner-specific evidence, not global outage. Hosting owner must verify target-market behavior and cert/bindings. No live configuration change authorized. |
 
 ## Future decision record standard
 

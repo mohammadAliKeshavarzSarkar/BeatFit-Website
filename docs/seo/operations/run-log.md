@@ -180,3 +180,20 @@ Every new work session will append an entry with exact revision, findings, test 
 - Sources: [verification report](../verification/2026-11-21-cross-pr-build-and-browser-qa.md), [machine-readable matrix](../verification/2026-11-21-cross-pr-result-matrix.csv), [rendering decision brief](../strategy/2026-11-21-rendering-architecture-decision-brief.md).
 
 **Next gates:** Product/editorial human approval for PR #1/#3, reviewer approval of PR #2, deployed HTTP/IIS/SSL verification, Google Search Console URL Inspection, and demo lead flow ownership.
+
+## BF-SEO-RUN-013 — 2026-11-21 — Public HTTP, DNS, TCP and TLS diagnostic from GitHub Actions
+
+**Scope:** Public unauthenticated probes only. **No merge, deployment, hosting, DNS or SEO source changes.**
+**Runs:** [HTTP 44874973166](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/44874973166); [DNS/TCP/TLS 44875160463](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/44875160463).
+
+- Re-attempted live public web fetches of `beatfit.ir`, `robots.txt` and Sitemap. The public-web tool returned no usable HTTP evidence.
+- Created isolated read-only GitHub Actions branch `seo/production-http-diagnostics-2026-11-21`; probed 14 fixed public endpoints (HTTP/HTTPS home, www variants, robots, Sitemap, /gym, one Persian article, legacy alias and unknown route) with strict timeouts, at most three concurrent GETs, and no authentication.
+- **Result:** 0/14 usable HTTP responses from that CI runner; twelve apex requests timed out (curl 28), and two www requests failed name resolution (curl 6). No HTTP response status or redirect chain was returned; production SEO endpoints remain BLOCKED, not classified as 404 or ranking failure.
+- Created a separate read-only `seo/dns-tcp-diagnostics-2026-11-21` job to narrow the diagnosis. The runner resolved apex A to `87.107.166.140`, matching the current source `public/web.config` comment; www A/AAAA/CNAME queries returned ENOTFOUND; apex TCP ports 80 and 443 connected; TLS handshake returned `ECONNRESET`.
+- Interpreted a successful TCP handshake as transport only, **not** an HTTP/TLS/SEO PASS. These findings are runner-specific; target-market availability, server configuration, indexing and origin choice remain unknown.
+- Created a sanitized request matrix, full English evidence report and owner-facing DNS/SSL/IIS verification checklist.
+- Kept source HTTP canonical fallback and disabled HTTPS redirect unchanged because no valid production HTTPS response/certificate was verified.
+
+**Artifacts:** [live evidence](../verification/2026-11-21-public-http-and-network-evidence.md), [request matrix](../verification/2026-11-21-public-http-probe-results.csv), [hosting checklist](../strategy/2026-11-21-hosting-readiness-checklist.md).
+
+**Next gate:** Authorized hosting owner validates DNS/site bindings/certificate and target-market HTTP reachability; then independently verify deployed SEO pages and GSC rendering.
