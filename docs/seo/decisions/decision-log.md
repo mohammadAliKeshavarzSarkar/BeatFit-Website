@@ -44,6 +44,10 @@ An approved scope is not permission to deploy; a source observation is not a com
 
 | BF-SEO-D031 | 2026-11-21 | Keep production HTTP/TLS signoff blocked after differential protocol tests | P1 / AWAIT HOST-OWNER EVIDENCE | GitHub 44882903669: 8 curl variants got zero HTTP statuses, fixed-IP/SNI GET-HEAD all timed out; three OpenSSL variant probes were inconclusive after process timeouts. No verified production HTTP, root cause, or deployed canonical/redirect behavior |
 
+| BF-SEO-D032 | 2026-11-21 | Give all 13 existing pages distinct Persian branded, commercial or informational keyword owners | DOCUMENTED / QUALITATIVE | 113 keyword candidates and 17 public-web samples, source-specific title/H1 review; no rank, search-volume, GSC or keyword-difficulty claims |
+| BF-SEO-D033 | 2026-11-21 | Clarify homepage brand category in SEO title/meta and keep emotional H1 unchanged | MERGED — [PR #20](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/20) | Real CI 44884239038 and pinned 44884358962 PASS including 254 checks, new meta/OG, preserved H1 and /gym; actual deployment and search impact unverified |
+| BF-SEO-D034 | 2026-11-21 | Distinguish /gym's commercial system intent from the gym HR technology article | NEXT QUALITATIVE REVIEW | Current source topics overlap; do not force title changes or create duplicate URLs without actual query-page and editorial evidence |
+
 ## Future decision record standard
 
 For every important change, record exact evidence references, affected URLs/templates, alternatives including no change, implementation/release authority, business value, risk, dependent decisions, acceptance tests, rollback, responsible reviewer and review date.
