@@ -1,0 +1,45 @@
+name: BeatFit Homepage Keyword PR20 Exact Preview QA
+on:
+  push:
+    branches: [seo/homepage-metadata-pr20-qa-2026-11-21]
+permissions:
+  contents: read
+jobs:
+  homepage-title-check:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Check out isolated QA scripts
+        uses: actions/checkout@v4
+        with:
+          path: qa
+      - name: Check out exact Draft PR20 revision
+        uses: actions/checkout@v4
+        with:
+          ref: 725835ad4353298a6c5835fbeb1c9587a8751b3d
+          path: site
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+      - name: Install pinned app dependencies
+        working-directory: site
+        run: npm ci
+      - name: Real TypeScript and Vite production Build
+        working-directory: site
+        run: npm run build
+      - name: Verify 254 generated SEO artifacts
+        working-directory: site
+        run: node scripts/verify-seo-build.mjs dist
+      - name: Verify tracked generated public assets have not changed
+        working-directory: site
+        run: git diff --exit-code -- public/robots.txt public/sitemap.xml public/web.config
+      - name: Install isolated preview browser dependency
+        working-directory: site
+        run: |
+          npm install --no-save --package-lock=false playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Verify title meta description H1 and gym non-regression
+        working-directory: site
+        run: node ../qa/docs/seo/tools/homepage-metadata-pr20-browser.mjs
