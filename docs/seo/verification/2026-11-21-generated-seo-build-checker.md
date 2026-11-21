@@ -126,3 +126,27 @@ After review, verify the actual Vite output with a pinned checkout; check both n
 **Next CI run after fix:** [44873467188](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/44873467188) — outcome must be fetched and recorded separately. It was in progress when this entry was authored.
 
 **Important:** This is a lesson in regression-check quality, **not evidence of invalid live canonical URLs**. The code that generates SEO canonical/OG metadata was not changed; only the verification comparison logic was corrected.
+
+## Second real GitHub Actions run — fixed check confirmed
+
+**Run:** [44873467188](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/44873467188)  
+**Tested code commit:** `00e65353762e58f123a89caf8c9dd1dfd24456d1`  
+**Date:** 2026-11-21; GitHub runner Node.js 22  
+**Result:** SUCCESS — all workflow steps completed successfully.
+
+| Step | Verified GitHub Actions result |
+|---|---|
+| Checkout and Node.js 22 | PASS |
+| Locked dependency install (`npm ci`) | PASS |
+| `npm run test:seo:fixtures` | **PASS: 10 tests, 0 failures** |
+| Real `npm run build` | **PASS: TypeScript + Vite produced actual distribution output** |
+| `npm run test:seo` | **PASS: 254 generated SEO artifact checks** |
+| `git diff --exit-code -- public/robots.txt public/sitemap.xml public/web.config` | **PASS: no tracked-public drift** |
+
+**Evidence source:** Completed GitHub workflow job `136752936368`; logs explicitly contain `# tests 10`, `# pass 10`, `# fail 0`, and `SEO build verification PASSED: 254 checks`.
+
+**Qualification:** This establishes build-artifact integrity for the tested PR code and fixture suite. It does not establish real server HTTP status, valid HTTPS redirects, browser-rendered core content, Google index inclusion, rich-result eligibility, field speed metrics, or lead conversion.
+
+**Residual warning:** Vite prints a large-chunk size advisory. This is not a failed build or measured Core Web Vitals regression; profile a real mobile/browser experience separately.
+
+**Release status:** PR #2 remains open as draft, not merged or deployed. A documentation-only branch commit after the tested code revision does not alter the checker code verified by the run. Reviewers should still review the full diff and approve merge separately.
