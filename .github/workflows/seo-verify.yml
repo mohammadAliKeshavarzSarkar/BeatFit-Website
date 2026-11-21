@@ -1,0 +1,54 @@
+# Review-only SEO artifact integrity gate.
+# It does not deploy, publish, crawl production, or access external secrets.
+name: SEO Build Verification
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/seo-verify.yml'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'scripts/**'
+      - 'src/**'
+      - 'public/**'
+      - 'index.html'
+      - 'vite.config.ts'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: seo-build-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  generated-seo:
+    name: Build and verify SEO artifacts
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out proposed source
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Verify SEO checker against synthetic fixtures
+        run: npm run test:seo:fixtures
+
+      - name: Build website and generated SEO shells
+        run: npm run build
+
+      - name: Verify generated SEO artifacts
+        run: npm run test:seo
+
+      - name: Detect generated tracked-public drift
+        run: git diff --exit-code -- public/robots.txt public/sitemap.xml public/web.config
