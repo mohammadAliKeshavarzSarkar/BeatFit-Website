@@ -1,0 +1,46 @@
+name: SEO Demo Form Honest-Submission Draft PR 11 (Pinned QA)
+on:
+  push:
+    branches: [seo/demo-form-pr11-qa-2026-11-21]
+permissions:
+  contents: read
+jobs:
+  verify-demo-form:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Check out QA-only scripts
+        uses: actions/checkout@v4
+        with:
+          path: qa
+      - name: Check out exact Draft PR 11 revision
+        uses: actions/checkout@v4
+        with:
+          ref: 1b9571d03296a14694f97af2c8d68d6838a3df81
+          path: site
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+      - name: Install locked app dependencies
+        working-directory: site
+        run: npm ci
+      - name: Build actual application
+        working-directory: site
+        run: npm run build
+      - name: Validate generated SEO outputs on built dist
+        working-directory: site
+        run: node scripts/verify-seo-build.mjs dist
+      - name: Confirm no generator changes to tracked public files
+        working-directory: site
+        run: git diff --exit-code -- public/robots.txt public/sitemap.xml public/web.config
+      - name: Install temporary browser QA dependency
+        working-directory: site
+        run: npm install --no-save --package-lock=false playwright@1.55.0
+      - name: Install Chromium on supported Ubuntu
+        working-directory: site
+        run: npx playwright install --with-deps chromium
+      - name: Test validation, explicit status and zero network submit
+        working-directory: site
+        run: node ../qa/scripts/verify-demo-form-preview.mjs
