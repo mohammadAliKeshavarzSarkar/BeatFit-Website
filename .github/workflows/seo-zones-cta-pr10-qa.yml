@@ -1,0 +1,50 @@
+name: SEO Zones Article CTA Draft PR 10 (Pinned Browser QA)
+on:
+  push:
+    branches: [seo/zones-cta-pr10-qa-2026-11-21]
+permissions:
+  contents: read
+jobs:
+  verify-cta:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    steps:
+      - name: Checkout QA verifier scripts
+        uses: actions/checkout@v4
+        with:
+          path: qa
+      - name: Checkout exact proposed PR 10 revision
+        uses: actions/checkout@v4
+        with:
+          ref: a1d7cecea2547b68ff8c293a197856cb1d5968f5
+          path: site
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+      - name: Install locked dependencies
+        working-directory: site
+        run: npm ci
+      - name: Build exact website source
+        working-directory: site
+        run: npm run build
+      - name: Check generated SEO artifacts
+        working-directory: site
+        run: node ../qa/scripts/verify-seo-build.mjs dist
+      - name: Verify target source and preserved common CTA
+        working-directory: site
+        run: |
+          node --input-type=module -e "import fs from 'node:fs'; import assert from 'node:assert/strict'; const s=fs.readFileSync('src/content/blog/heartRateZones.ts','utf8'); assert.ok(s.includes('label: \"آشنایی با بیت‌فیت\",\\n      href: \"/athlete\"')); const b=fs.readFileSync('src/components/BlogArticle.tsx','utf8'); assert.ok(b.includes('to=\"/demo\"')); console.log('PASS source article CTA target and common footer');"
+      - name: Verify tracked public assets unchanged after build
+        working-directory: site
+        run: git diff --exit-code -- public/robots.txt public/sitemap.xml public/web.config
+      - name: Install Playwright for isolated browser smoke
+        working-directory: site
+        run: npm install --no-save --package-lock=false playwright@1.55.0
+      - name: Install supported Chromium
+        working-directory: site
+        run: npx playwright install --with-deps chromium
+      - name: Test article CTA click in a mobile Chromium viewport
+        working-directory: site
+        run: node ../qa/scripts/verify-zones-cta-preview.mjs
