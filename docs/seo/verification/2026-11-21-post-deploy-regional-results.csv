@@ -1,0 +1,11 @@
+protocol_case,node,country,result_flag,message,http_status,ip,report_url
+HTTPS_APEX,ch1.node.check-host.net,Switzerland,0,Connection reset by peer,,87.107.166.140,https://check-host.net/check-report/597b5aadk293
+HTTPS_APEX,ir1.node.check-host.net,Iran,0,Connection reset by peer,,87.107.166.140,https://check-host.net/check-report/597b5aadk293
+HTTPS_APEX,ir2.node.check-host.net,Iran,0,Connection reset by peer,,87.107.166.140,https://check-host.net/check-report/597b5aadk293
+HTTPS_APEX,ir6.node.check-host.net,Iran,,NO_FINAL_RESULT,,,https://check-host.net/check-report/597b5aadk293
+HTTPS_APEX,us1.node.check-host.net,USA,0,Connection reset by peer,,87.107.166.140,https://check-host.net/check-report/597b5aadk293
+HTTP_APEX,ch1.node.check-host.net,Switzerland,0,Connection reset by peer,,87.107.166.140,https://check-host.net/check-report/597b5db5ka04
+HTTP_APEX,ir1.node.check-host.net,Iran,0,Connection reset by peer,,87.107.166.140,https://check-host.net/check-report/597b5db5ka04
+HTTP_APEX,ir2.node.check-host.net,Iran,0,Connection reset by peer,,87.107.166.140,https://check-host.net/check-report/597b5db5ka04
+HTTP_APEX,ir6.node.check-host.net,Iran,0,Connection timed out,,87.107.166.140,https://check-host.net/check-report/597b5db5ka04
+HTTP_APEX,us1.node.check-host.net,USA,0,Connection reset by peer,,87.107.166.140,https://check-host.net/check-report/597b5db5ka04

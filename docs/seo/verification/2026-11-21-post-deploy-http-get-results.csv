@@ -1,0 +1,28 @@
+set,id,url,http_status,curl_exit,error,run_id
+Replay,HTTP_APEX_HOME,http://beatfit.ir/,0,28,curl: (28) Operation timed out after 16001 milliseconds with 0 bytes received,44881936131
+Replay,HTTPS_APEX_HOME,https://beatfit.ir/,0,28,curl: (28) SSL connection timeout,44881936131
+Replay,HTTP_WWW_HOME,http://www.beatfit.ir/,0,6,curl: (6) Could not resolve host: www.beatfit.ir,44881936131
+Replay,HTTPS_WWW_HOME,https://www.beatfit.ir/,0,6,curl: (6) Could not resolve host: www.beatfit.ir,44881936131
+Replay,HTTP_ROBOTS,http://beatfit.ir/robots.txt,0,28,curl: (28) Operation timed out after 16003 milliseconds with 0 bytes received,44881936131
+Replay,HTTPS_ROBOTS,https://beatfit.ir/robots.txt,0,28,curl: (28) SSL connection timeout,44881936131
+Replay,HTTP_SITEMAP,http://beatfit.ir/sitemap.xml,0,28,curl: (28) Operation timed out after 16002 milliseconds with 0 bytes received,44881936131
+Replay,HTTPS_SITEMAP,https://beatfit.ir/sitemap.xml,0,28,curl: (28) SSL connection timeout,44881936131
+Replay,HTTP_GYM,http://beatfit.ir/gym,0,28,curl: (28) Operation timed out after 16001 milliseconds with 0 bytes received,44881936131
+Replay,HTTPS_GYM,https://beatfit.ir/gym,0,28,curl: (28) SSL connection timeout,44881936131
+Replay,HTTP_ARTICLE,http://beatfit.ir/blog/%D8%B2%D9%88%D9%86-%D9%87%D8%A7%DB%8C-%D8%B6%D8%B1%D8%A8%D8%A7%D9%86-%D9%82%D9%84%D8%A8,0,28,curl: (28) Operation timed out after 16002 milliseconds with 0 bytes received,44881936131
+Replay,HTTPS_ARTICLE,https://beatfit.ir/blog/%D8%B2%D9%88%D9%86-%D9%87%D8%A7%DB%8C-%D8%B6%D8%B1%D8%A8%D8%A7%D9%86-%D9%82%D9%84%D8%A8,0,28,curl: (28) SSL connection timeout,44881936131
+Replay,HTTP_ALIAS,http://beatfit.ir/blog/heart-rate-zones,0,28,curl: (28) Operation timed out after 16003 milliseconds with 0 bytes received,44881936131
+Replay,HTTP_NOT_FOUND,http://beatfit.ir/nonexistent-seo-audit-20261121,0,28,curl: (28) Operation timed out after 16002 milliseconds with 0 bytes received,44881936131
+Postdeploy,HTTPS_HOME,https://beatfit.ir/,0,28,curl: (28) SSL connection timeout,44881936131
+Postdeploy,HTTP_HOME,http://beatfit.ir/,0,28,curl: (28) Operation timed out after 12002 milliseconds with 0 bytes received,44881936131
+Postdeploy,HTTPS_WWW,https://www.beatfit.ir/,0,6,curl: (6) Could not resolve host: www.beatfit.ir,44881936131
+Postdeploy,HTTPS_ROBOTS,https://beatfit.ir/robots.txt,0,28,curl: (28) SSL connection timeout,44881936131
+Postdeploy,HTTPS_SITEMAP,https://beatfit.ir/sitemap.xml,0,28,curl: (28) SSL connection timeout,44881936131
+Postdeploy,HTTPS_GYM,https://beatfit.ir/gym,0,28,curl: (28) SSL connection timeout,44881936131
+Postdeploy,HTTPS_COACH,https://beatfit.ir/coach,0,28,curl: (28) SSL connection timeout,44881936131
+Postdeploy,HTTPS_ATHLETE,https://beatfit.ir/athlete,0,28,curl: (28) SSL connection timeout,44881936131
+Postdeploy,HTTPS_RESOURCES,https://beatfit.ir/resources,0,28,curl: (28) SSL connection timeout,44881936131
+Postdeploy,HTTPS_DEMO,https://beatfit.ir/demo,0,28,curl: (28) SSL connection timeout,44881936131
+Postdeploy,HTTPS_ZONES,https://beatfit.ir/blog/%D8%B2%D9%88%D9%86-%D9%87%D8%A7%DB%8C-%D8%B6%D8%B1%D8%A8%D8%A7%D9%86-%D9%82%D9%84%D8%A8,0,28,curl: (28) SSL connection timeout,44881936131
+Postdeploy,HTTPS_ALIAS,https://beatfit.ir/blog/heart-rate-zones,0,28,curl: (28) SSL connection timeout,44881936131
+Postdeploy,HTTPS_BAD,https://beatfit.ir/nonexistent-seo-postdeploy-20261121,0,28,curl: (28) SSL connection timeout,44881936131
