@@ -1,0 +1,50 @@
+name: SEO Zone 2 Draft PR 8 (Pinned QA)
+on:
+  push:
+    branches: [seo/zone2-pr8-qa-2026-11-21]
+permissions:
+  contents: read
+jobs:
+  verify-zone-2:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    steps:
+      - name: Check out independent corrected SEO verifier and QA helpers
+        uses: actions/checkout@v4
+        with:
+          path: qa
+      - name: Check out exact PR 8 proposed source revision
+        uses: actions/checkout@v4
+        with:
+          ref: 1f486da6bc1f17e73452fefcd77c7189991e96c6
+          path: site
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+      - name: Install locked dependencies
+        working-directory: site
+        run: npm ci
+      - name: Build real TypeScript and Vite application
+        working-directory: site
+        run: npm run build
+      - name: Verify generated SEO outputs with corrected checker
+        working-directory: site
+        run: node ../qa/scripts/verify-seo-build.mjs dist
+      - name: Assert precise Zone 2 scientific scope and source link
+        working-directory: site
+        run: |
+          node --input-type=module -e "import fs from 'node:fs'; import assert from 'node:assert/strict'; const s=fs.readFileSync('src/content/blog/heartRateZones.ts','utf8'); assert.ok(s.includes('آستانه‌های تهویه‌ای یا لاکتات')); assert.ok(s.includes('https://pubmed.ncbi.nlm.nih.gov/40225831/')); assert.equal((s.match(/question: \"/g)||[]).length,6); console.log('PASS source Zone 2 context and six FAQs');"
+      - name: Verify no generated tracked-public drift
+        working-directory: site
+        run: git diff --exit-code -- public/robots.txt public/sitemap.xml public/web.config
+      - name: Install temporary browser QA dependency
+        working-directory: site
+        run: npm install --no-save --package-lock=false playwright@1.55.0
+      - name: Install Chromium on pinned Ubuntu
+        working-directory: site
+        run: npx playwright install --with-deps chromium
+      - name: Verify new note and FAQ in actual mobile browser
+        working-directory: site
+        run: node ../qa/scripts/verify-zone2-preview.mjs
