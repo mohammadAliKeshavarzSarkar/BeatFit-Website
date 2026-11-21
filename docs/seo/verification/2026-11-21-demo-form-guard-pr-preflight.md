@@ -52,3 +52,7 @@ The revised Draft PR intentionally takes the **disabled-unavailable-state** alte
 - Remove the original reactive after-submit alert because it is no longer reachable or useful when the form is disabled. This is **a deliberate behavioral revision**; the earlier 390px Chromium test and 254 checks are historical evidence for the **older commit only**. The new commit must be retested before any PASS claim.
 
 **Still a Draft / owner decision:** This avoids wasted data entry but leaves the gym demo lead channel inactive. Marketing and product must approve the wording and decide whether to publish this temporary state or implement a working receiver first. No production deployment, privacy notice or backend is established.
+
+## Revision 3 — Remove conflicting pre-submit promise (2026-11-21)
+
+The inactive form's previous `demoPage.formLede` text ("اطلاعات باشگاه خود را ثبت کنید تا برای هماهنگی با شما تماس بگیریم.") still invited visitors to submit details for a callback, contradicting the now-visible no-delivery warning. This revision **removes only the rendered lede** from the disabled-unavailable state, preserving the content constant for potential future use after a real receiver is approved. The form title and proactive unavailable notice remain visible; none of the six controls become interactive. A final pinned Chromium run must verify that the false submission promise is absent in the rendered page.

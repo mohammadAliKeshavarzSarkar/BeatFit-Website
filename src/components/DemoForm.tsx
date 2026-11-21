@@ -81,7 +81,6 @@ export function DemoForm() {
             <h2 id="demo-form-title" className="bf-demo__form-title">
               {demoPage.formTitle}
             </h2>
-            <p className="bf-demo__form-lede">{demoPage.formLede}</p>
             <p
               className="bf-demo__availability-note"
               id="demo-form-availability"
