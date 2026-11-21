@@ -15,10 +15,13 @@ This is the **single source of truth for BeatFit-specific SEO documentation**: r
 |---|---|---|
 | Scope | [Project brief](project/project-brief.md) | Business and Persian-language SEO boundaries, approval, workflow |
 | Audit | [Baseline Audit 001](audits/2026-11-21-source-baseline.md) | Six findings grounded in a pinned source snapshot |
+| Audit | [Page intent and conversion review](audits/2026-11-21-page-intent-and-conversion-review.md) | Six marketing pages, seven articles, three further review findings |
 | Inventory | [Source URL inventory](inventory/source-route-inventory.csv) | Six marketing and seven Persian article URLs |
 | Verification | [Source check record](verification/2026-11-21-source-checks.md) | Eleven bounded source observations and outstanding tests |
+| Verification | [Production access attempts and test plan](verification/2026-11-21-production-access-and-test-plan.md) | Blocked live checks plus reproducible HTTP/build/browser gate |
 | Decisions | [Decision log](decisions/decision-log.md) | Approved scope, proposed changes, blockers and review gates |
 | Operations | [Run log](operations/run-log.md) | Dated completed work, blocked tasks and repository writes |
+| Research | [Persian search-intent seed map](research/2026-11-21-persian-intent-seed-map.md) | Candidate queries and existing-page ownership, not SERP evidence |
 | References | [Research Playbook — 2026-11-18](references/2026-11-18-research-playbook.md) | Original English playbook, retained as historical research |
 
 Future research, content strategy, technical implementation plans and verified outcomes belong in appropriately dated Markdown/CSV documents within this folder, with an entry in this index and the activity log.
@@ -37,6 +40,7 @@ Future research, content strategy, technical implementation plans and verified o
 ## Current checkpoint
 
 - **Completed:** Source review at `d11130cef8f941f54b06362bb9bd124f89853adb`; 13 declared Sitemap URLs; seven Persian articles; 12 non-home IIS rewrite entries; eleven static source checks; six source findings.
+- **2026-11-21 next gate:** External live page/robots/sitemap retrieval attempted; no reliable server response in available networks; recorded as BLOCKED rather than failed. Source-only page-intent review and provisional Persian query map completed.
 - **Not verified:** Production HTTP/TLS, actual server redirects, build output, browser JS-off/rendered parity, Search Console indexing, field Core Web Vitals, successful lead submissions and conversions.
 - **Current documentation status:** GitHub writing restored on 2026-11-21. This folder is maintained directly in the website repository.
 - **Application code changes:** None as part of this documentation setup.

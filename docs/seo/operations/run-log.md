@@ -44,3 +44,19 @@ This log records actual operations. Planned work must never be described as comp
 4. Begin real Persian R01–R10 query/intent research and map proposed page ownership.
 
 Every new work session will append an entry with exact revision, findings, test results, blockers, changes and follow-up ownership.
+
+## BF-SEO-RUN-004 — 2026-11-21 — Live access attempt, page-intent audit and Persian seed map
+
+**Reference:** Website application code still at `d11130cef8f941f54b06362bb9bd124f89853adb`; documentation at `baa680cc8e74ed3e2bc3c13e11b1133c74e8ac0e` before this run.
+
+- Attempted read-only public HTTP/HTTPS retrieval of the home page, robots and Sitemap. Available web tool returned no usable HTTP response; an independent container attempt failed DNS resolution from that environment. **No production downtime or indexability conclusion was drawn.**
+- Reviewed `src/seo/marketing.ts`, six marketing page content sources, all seven published article modules, article renderer, resources catalog and demo page content.
+- Identified source-confirmed navigation patterns: athlete CTA points to `/demo` while demo requests gym information; generic article footer CTA points to `/demo`. Logged three candidate page-intent findings BF-SEO-F07–F09 without changing copy or routes.
+- Confirmed seven published article modules contain source-defined related-article links, FAQ blocks and source blocks; content quality and deployed rendering remain untested.
+- Drafted Persian-language intent seed map based only on source copy. **No actual keyword volume, SERP rankings or validated demand were asserted.**
+- Added a structured HTTP, build, rendered-browser, GSC and business-conversion test gate with accurate BLOCKED/NOT RUN statuses.
+- All outputs were written only in `docs/seo/`; no website functional code, infrastructure or analytics changes.
+
+**New artifacts:** [page-intent audit](../audits/2026-11-21-page-intent-and-conversion-review.md), [production test plan](../verification/2026-11-21-production-access-and-test-plan.md), [Persian seed map](../research/2026-11-21-persian-intent-seed-map.md).
+
+**Next gate:** Acquire independently usable authorized production/preview evidence, measure actual HTTP/JS behavior, and proceed from provisional queries to real Persian SERP/GSC research.

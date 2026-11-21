@@ -13,6 +13,7 @@ An approved scope is not permission to deploy; a source observation is not a com
 | BF-SEO-D006 | 2026-11-21 | Implement actual demo/CRM submission with privacy-safe conversion events | PROPOSED | Approve backend/owner/consent contract |
 | BF-SEO-D007 | 2026-11-21 | Replace placeholder privacy, terms and social destinations | PROPOSED | Policy owner and official URLs needed |
 | BF-SEO-D008 | 2026-11-21 | Preserve 18 November Playbook as historical research, not current production audit | APPROVED | New pinned source supersedes several earlier source assertions |
+| BF-SEO-D009 | 2026-11-21 | Route athlete and informational visitors to audience-appropriate next steps instead of default gym demo | PROPOSED | Source review BF-SEO-F07/F08; journey ownership and actual conversion performance need validation |
 
 ## Future decision record standard
 
