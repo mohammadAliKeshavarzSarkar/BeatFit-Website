@@ -1,0 +1,11 @@
+claim_id,claim,classification,source_or_evidence,public_copy_rule,approval_needed
+CAL-01,BeatFit athlete overview shows an estimated calorie metric,VERIFIED_SOURCE,src/content/athlete.ts athleteGlance.cards,May describe as an estimate only,Editorial
+CAL-02,BeatFit homepage presents a kcal tile with 320 as example,VERIFIED_PRESENTATION,src/content/home.ts hero.proof,Do not treat 320 as actual workout data or typical expenditure,Editorial
+CAL-03,Exact BeatFit calorie calculation formula,UNKNOWN,No formula in inspected website content,Do not state formula or inputs as facts,Product owner
+CAL-04,BeatFit accuracy and error rates versus laboratory reference,UNKNOWN,No BeatFit-specific validation in website source,Do not claim measured accuracy or superiority,Product owner plus independent validation
+CAL-05,General wearable energy-expenditure estimates can vary by device and activity,SUPPORTED_GENERAL,pubmed.ncbi.nlm.nih.gov/39080098/;pubmed.ncbi.nlm.nih.gov/30194221/,Explain variability without importing results to BeatFit,Scientific reviewer
+CAL-06,Consumer wearables may combine multiple motion and physiological signals,SUPPORTED_GENERAL,nature.com/articles/s44325-025-00082-6,Describe as some products not BeatFit,Scientific reviewer
+CAL-07,Calorie estimate alone proves workout quality or weight loss,UNSUPPORTED,No such inference from reviewed evidence,Explicitly avoid,Scientific reviewer
+CAL-08,Calorie estimate can be equated to training load,UNSUPPORTED,Distinct constructs in existing training load article,Keep concepts separate,Editorial
+CAL-09,BeatFit uses personal attributes or movement data to calculate calories,UNKNOWN,Not confirmed in inspected BeatFit website source,Do not attribute these inputs to BeatFit,Product owner
+CAL-10,BeatFit recalculates live estimates after workouts,UNKNOWN,No lifecycle details in inspected website source,Do not assert live estimate update semantics,Product owner
