@@ -1,0 +1,17 @@
+name: BeatFit Distributed Iran and External Read Only HTTP Check
+on:
+  push:
+    branches: [seo/live-region-check-host-2026-11-21]
+permissions:
+  contents: read
+jobs:
+  distributed:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Distributed read-only probes Iran and external
+        run: node scripts/seo-check-host-regional.mjs
