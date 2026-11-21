@@ -61,3 +61,10 @@ A bounded Persian public-web discovery sample is now recorded; it is not a geogr
 ## Active review-only implementation
 
 - **Draft [PR #1 — Clarify `/gym` live heart-rate monitoring copy](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/1)**, branch `seo/gym-hero-clarity-2026-11-21`, initial PR commit `ae1b576f89c8cdb21d234064ffa0461f54d817d4`. Two source string values change; H1, layout, routes and canonical are unchanged. Source-level string/binding checks passed. **Build, browser, product confirmation and GSC are outstanding. Not merged or deployed.**
+
+## Active QA review — Draft PR #2
+
+- [Draft PR #2 — Verify generated SEO build artifacts](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/2), feature branch `seo/verify-generated-build-2026-11-21`.
+- Adds `npm run test:seo:fixtures` and `npm run test:seo` without modifying the existing build script.
+- **Fixture-only evidence:** 8/8 Node test cases pass, and the synthetic valid 13-route fixture passes 254 assertions; seven negative fixtures fail as intended.
+- **NOT RUN:** actual BeatFit checkout/build, checker against real dist, rendered browser, deployed HTTP and GSC. The PR is draft and is **not merged or deployed**. Supporting evidence is in the PR at `docs/seo/verification/2026-11-21-generated-seo-build-checker.md`.

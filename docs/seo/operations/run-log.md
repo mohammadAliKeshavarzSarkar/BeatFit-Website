@@ -103,3 +103,20 @@ Every new work session will append an entry with exact revision, findings, test 
 - The first-party Search Console connection was not available during this run; the user was offered an integration option, but no GSC data was read.
 
 **Review gate:** product/engineering owner checks copy and runs trusted build/browser tests before deciding on merge and deployment.
+
+## BF-SEO-RUN-008 — 2026-11-21 — Post-build SEO output regression QA proposal
+
+**Repository baseline:** `ed310762d167f36587bbe421155817ab45fdbab4`. **Mode:** Synthetic verification and review-only feature branch; production code unchanged on main.
+
+- Inspected `package.json`, Vite `closeBundle` SEO generator, SEO head/template serializers, route registry, Sitemap/robots producers and IIS rewrite-map source.
+- Identified a reproducibility gap: generator has local uniqueness/title/canonical checks, but no independently invokable post-build cross-artifact check that compares Sitemap URLs, robots origin, route shell files, IIS rewrite targets, JSON-LD validity and 404 behavior.
+- Built an isolated Node 22 SEO artifact checker with no third-party runtime dependencies. Validated its syntax and behavior using synthetic generated files based on the 13 observed baseline routes, not the actual site build.
+- Recorded **254 source-shape assertions passed on a valid synthetic fixture**, and **8/8 Node fixture tests passed** (one positive + seven expected negative tests: noindex, bad canonical/OG, absent shell, JSON-LD syntax, 404 canonical, duplicate Sitemap, missing rewrite marker).
+- Created branch `seo/verify-generated-build-2026-11-21` and added `scripts/verify-seo-build.mjs`, `scripts/verify-seo-build.test.mjs`, two optional npm scripts and English documentation under `docs/seo/verification/`.
+- Opened **[Draft PR #2](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/2)**. Verified the PR changed exactly four expected files. GitHub commit-status query returned an empty status list; **do not infer successful CI from this**.
+- Left `npm run build` untouched. The real `npm ci && npm run build && npm run test:seo`, generated public/ drift review, browser rendering, IIS HTTP and Google indexing tests are **NOT RUN / BLOCKED**.
+- No merge, deployment, HTTPS preference, robots/canonical rewrite, page copy or functionality change was performed on main.
+
+**PR evidence:** [Draft PR #2](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/2); `docs/seo/verification/2026-11-21-generated-seo-build-checker.md` on its review branch.
+
+**Next gate:** Run trusted actual build and post-build verifier, document any false positives, approve PR #2 separately, then integrate checks into a CI release gate when authorized.
