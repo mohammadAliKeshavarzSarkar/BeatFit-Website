@@ -76,11 +76,12 @@ Future research, content strategy, technical implementation plans and verified o
 
 ## Current checkpoint
 
-- **Completed:** Source review at `d11130cef8f941f54b06362bb9bd124f89853adb`; 13 declared Sitemap URLs; seven Persian articles; 12 non-home IIS rewrite entries; eleven static source checks; six source findings.
-- **2026-11-21 next gate:** External live page/robots/sitemap retrieval attempted; no reliable server response in available networks; recorded as BLOCKED rather than failed. Source-only page-intent review and provisional Persian query map completed.
-- **Not verified:** Production HTTP/TLS, actual server redirects, build output, browser JS-off/rendered parity, Search Console indexing, field Core Web Vitals, successful lead submissions and conversions.
-- **Current documentation status:** GitHub writing restored on 2026-11-21. This folder is maintained directly in the website repository.
-- **Application code changes:** None as part of this documentation setup.
+- **Technical phases (no content):** [active plan](strategy/2026-11-21-technical-phases-no-content.md) — content PRs parked.
+- **T1 PASS** on main: SEO build verifier merged; local fixtures + 254 artifact checks pass.
+- **T2 PARTIAL:** Target-market probe sees live HTTPS and HTTP→HTTPS 301; production HTML is still an older 2026-11-15 build with `http://` canonicals.
+- **T3 SOURCE DONE:** Preferred origin set to `https://beatfit.ir` in app/config, generated sitemap/robots, and IIS HTTPS redirect rule. **Deploy required** before VERIFIED.
+- **T4 PENDING:** Google verification meta/file exist in repo/build; must be deployed then verified in Search Console.
+- **Parked:** Draft content PRs #1, #3, #4, #8 and copy backlog.
 
 ## Next verification gate
 

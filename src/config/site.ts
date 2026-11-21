@@ -1,13 +1,13 @@
 /**
  * Public origin for beatfit.ir.
- * Stays HTTP while the IIS "HTTPS Redirect" rule is disabled.
- * After SSL is installed, set VITE_SITE_ORIGIN=https://beatfit.ir and enable that rule.
+ * Production serves HTTPS and permanently redirects HTTP → HTTPS (verified 2026-11-21).
+ * Override with VITE_SITE_ORIGIN only for non-production builds.
  */
 const configuredOrigin = (
   import.meta as ImportMeta & { env?: { VITE_SITE_ORIGIN?: string } }
 ).env?.VITE_SITE_ORIGIN;
 
-export const SITE_ORIGIN = configuredOrigin?.replace(/\/$/, "") || "http://beatfit.ir";
+export const SITE_ORIGIN = configuredOrigin?.replace(/\/$/, "") || "https://beatfit.ir";
 
 export const SITE_URL = `${SITE_ORIGIN}/`;
 

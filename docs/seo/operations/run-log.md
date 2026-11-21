@@ -214,6 +214,26 @@ Every new work session will append an entry with exact revision, findings, test 
 
 **Artifacts:** [editorial audit](../audits/2026-11-21-article-editorial-evidence-audit.md), [reference register](../inventory/2026-11-21-article-citation-register.csv), [FAQ guidance](../research/2026-11-21-google-faq-rich-result-retirement.md), [CI record](../verification/2026-11-21-cdc-citation-ci-evidence.md), [editorial backlog](../strategy/2026-11-21-editorial-evidence-backlog.md).
 
+## BF-SEO-RUN-015 — 2026-11-21 — Technical SEO phases (no content) kicked off
+
+**Owner instruction:** Proceed with professional SEO phases; park content/copy PRs (#1, #3, #4, #8).
+
+- Synced local `main` to `7d5dddb` (includes merged SEO verifier CI from PR #2).
+- Confirmed T1 locally: `npm run test:seo:fixtures` **10/10 PASS**; `npm run build` PASS; `npm run test:seo` **254 checks PASS**.
+- Collected target-market live evidence (not GitHub runner): HTTP apex **301 → https://beatfit.ir/**; HTTPS home/robots/sitemap **200**; `www.beatfit.ir` DNS **ENOTFOUND**.
+- Observed production HTML still on an older 2026-11-15 build: `http://` canonicals, shared homepage shell for `/gym`, Google verification file **not** deployed (unknown path returned homepage HTML).
+- Implemented source HTTPS canonical policy: `SITE_ORIGIN` / `.env.production` → `https://beatfit.ir`; enabled IIS `HTTPS Redirect`; canonical-host action URL updated to HTTPS.
+- Wrote [technical phases plan](../strategy/2026-11-21-technical-phases-no-content.md). Content backlog remains parked.
+
+**Not done in this run:** production deploy, GSC Verify click, demo CRM, SSR, content PR merges.
+
+## BF-SEO-RUN-016 — 2026-11-21 — Production deploy broke with HTTPS rewrite loop
+
+- After owner uploaded a new build, live probes of `https://beatfit.ir/` returned repeated **301 → `https://beatfit.ir/`** (redirect loop). Same pattern for `/gym`, verification file, and asset URLs.
+- Root cause: source `public/web.config` had rule `HTTPS Redirect` set `enabled="true"`. On this IIS TLS binding/proxy, `{HTTPS}` can still evaluate as off for HTTPS client requests, so the rule redirects forever.
+- Fix: set `HTTPS Redirect` back to `enabled="false"`. Keep HTML/sitemap/robots canonicals on `https://beatfit.ir` (those are correct). Live host already performs HTTP→HTTPS outside this rule.
+- Owner must redeploy at least the fixed `web.config` (or full `dist/`) to restore the site.
+
 ## BF-SEO-RUN-015 — 2026-11-21 — Two-article physiological and wearable-sensor claim review
 
 **Current source snapshot:** `7dbb283a97681597ee0792dd408f0b0734876a7a`, including subsequent third-party main changes that introduced Google Search Console verification assets. Those files are **not evidence of first-party Search Console data access**.

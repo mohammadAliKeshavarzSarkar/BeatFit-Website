@@ -8,7 +8,7 @@ An approved scope is not permission to deploy; a source observation is not a com
 | BF-SEO-D001 | 2026-11-21 | Scope search and content work to Persian (`fa-IR`), excluding English rollout | APPROVED | Direct project-owner instruction |
 | BF-SEO-D002 | 2026-11-21 | Store all BeatFit-specific SEO work in `docs/seo/` | APPROVED / IMPLEMENTED | Owner instruction; files written to GitHub |
 | BF-SEO-D003 | 2026-11-21 | Write documentation in English, retaining original Persian search/website quotations | APPROVED / IMPLEMENTED | Owner instruction; applied to documents and filenames |
-| BF-SEO-D004 | 2026-11-21 | Select final HTTPS and apex/www canonical and redirects | PROPOSED / BLOCKED | Deployed TLS/host observations needed first |
+| BF-SEO-D004 | 2026-11-21 | Select final HTTPS and apex/www canonical and redirects | APPROVED / IMPLEMENTING | Local target-market probe 2026-11-21: `http://beatfit.ir/` → 301 `https://beatfit.ir/`; HTTPS home/robots/sitemap 200; `www` DNS unresolved. Source default origin + IIS HTTPS rule switched to `https://beatfit.ir`. Deploy of new build still required for VERIFIED |
 | BF-SEO-D005 | 2026-11-21 | Evaluate full prerender/SSG/SSR against current SEO shells | PROPOSED / BLOCKED | Need build, JS-off, rendered and GSC evidence |
 | BF-SEO-D006 | 2026-11-21 | Implement actual demo/CRM submission with privacy-safe conversion events | PROPOSED | Approve backend/owner/consent contract |
 | BF-SEO-D007 | 2026-11-21 | Replace placeholder privacy, terms and social destinations | PROPOSED | Policy owner and official URLs needed |
