@@ -9,12 +9,17 @@
 
 This is the **single source of truth for BeatFit-specific SEO documentation**: research, technical audits, evidence, project scope, decisions, implementation plans, verification and activity history. The SEO Engineering repository provides the methodology but is not used for private BeatFit evidence.
 
-**Latest PR state reconciliation:** [2026-11-21 GitHub status](operations/2026-11-21-repository-state-reconciliation.md) — PRs #2, #5, #6, #7 merged; PRs #1, #3, #4, #8 remain open for review. Hosting/GSC not verified.
+**Current verified status, 2026-11-21:** SEO PRs **#1, #3, #4, #8, #10 and #11 are MERGED** into `main`, as confirmed from GitHub PR records. Historical sections below may refer to earlier Draft states; use [current post-deployment audit](verification/2026-11-21-post-deployment-public-server-audit.md) instead. The merged source build, 254 SEO checks and mobile route review PASS; **public HTTP/TLS, deployed revision, redirects and Google indexing have NOT been verified**.
 
 ## Documentation index
 
 | Area | Document | Purpose |
 |---|---|---|
+| Verification | [Reported server update audit](verification/2026-11-21-post-deployment-public-server-audit.md) | Actual public network probes vs source Build; 0/27 responses and Iran/global checks |
+| Verification | [27 external HTTP requests](verification/2026-11-21-post-deploy-http-get-results.csv) | Request URL, curl exit, HTTP status and failure reason |
+| Verification | [Regional Iran + external node matrix](verification/2026-11-21-post-deploy-regional-results.csv) | Per-node HTTPS/HTTP resets, timeout and unknown statuses |
+| Verification | [Current merged source Build and mobile QA](verification/2026-11-21-current-merged-main-source-qa.md) | 254 SEO output checks and seven locally rendered routes |
+| Strategy | [Hosting owner post-deploy handoff](strategy/2026-11-21-public-server-postdeploy-handoff.md) | Exact IIS, TLS, reverse proxy, redirect, DNS and SEO acceptance gates |
 | Scope | [Project brief](project/project-brief.md) | Business and Persian-language SEO boundaries, approval, workflow |
 | Audit | [Baseline Audit 001](audits/2026-11-21-source-baseline.md) | Six findings grounded in a pinned source snapshot |
 | Audit | [Page intent and conversion review](audits/2026-11-21-page-intent-and-conversion-review.md) | Six marketing pages, seven articles, three further review findings |
@@ -127,3 +132,9 @@ A bounded Persian public-web discovery sample is now recorded; it is not a geogr
 
 - [Draft PR #11](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/11) addresses the **source-only silent no-op** form: required fields for name/gym/phone and an accessible truthful **not sent** warning, no new destination or PII transport. Standard [CI 44880438660](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/44880438660) and pinned mobile [CI 44880488104](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/44880488104) **PASS**, including real Build, **254 generated SEO checks**, six-field/three-required Chromium checks, no non-GET request and correct /demo canonical. [Detailed verification](verification/2026-11-21-demo-form-pr11-qa.md).
 - This **is not a working lead receiver**. No HTTPS, policy, actual CRM/server delivery or live conversion verified. Product owner must approve the interim UX and then choose a real secure lead endpoint with an accessible privacy notice. PR #11 remains Draft and unmerged/undeployed.
+
+## Current post-deployment audit summary — 2026-11-21
+
+- Exact source snapshot `ae2eb506845380bc952d80c372851078b297d44f`: [GitHub CI 44882056225](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/44882056225) **PASS** real Vite/TypeScript build, 254 SEO output checks, 7 Chromium routes, current CDC citation and disabled demo form. Production deployment provenance is not established.
+- [GitHub external public probe 44881936131](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/44881936131): DNS apex and TCP 80/443 resolved/connected, but validated TLS reset, HTTP stalled, and **0/27 requests returned an HTTP status**. [Iran/global third-party HTTP](https://check-host.net/check-report/597b5db5ka04) and [HTTPS](https://check-host.net/check-report/597b5aadk293) also produced resets in selected nodes, including Tehran and Isfahan. This is **not** proof of a universal outage or Googlebot behavior; normal client and edge/IIS log correlation remains the next hosting gate.
+- See [post-deployment audit](verification/2026-11-21-post-deployment-public-server-audit.md), [27-case matrix](verification/2026-11-21-post-deploy-http-get-results.csv), [regional matrix](verification/2026-11-21-post-deploy-regional-results.csv), and [hosting owner handoff](strategy/2026-11-21-public-server-postdeploy-handoff.md).

@@ -38,6 +38,10 @@ An approved scope is not permission to deploy; a source observation is not a com
 
 
 
+| BF-SEO-D028 | 2026-11-21 | Treat source build success separately from actual public deployment / crawler access | VERIFIED SOURCE / PUBLIC BLOCKED | GitHub Build 44882056225: 254 SEO checks and 7 Chromium routes PASS; production GETs 0/27 HTTP statuses from GitHub 44881936131 |
+| BF-SEO-D029 | 2026-11-21 | Investigate public HTTP/TLS resets from sampled Iran and global nodes before calling server deployment verified | P1 HOSTING OWNER INVESTIGATION | Apex A and TCP connect, TLS ECONNRESET; Iran Tehran/Isfahan and non-Iran Check-Host nodes reported HTTP/HTTPS reset, one Qom timeout; root cause and worldwide accessibility unknown |
+| BF-SEO-D030 | 2026-11-21 | Preserve source HTTPS canonical/13-Sitemap configuration pending verified edge redirects | SOURCE ACCEPTED / LIVE NOT VERIFIED | Source uses HTTPS; `web.config` IIS HTTPS redirect intentionally disabled due proxy-loop history; no live Location/header/status chain obtained; do not blindly flip rule |
+
 ## Future decision record standard
 
 For every important change, record exact evidence references, affected URLs/templates, alternatives including no change, implementation/release authority, business value, risk, dependent decisions, acceptance tests, rollback, responsible reviewer and review date.
