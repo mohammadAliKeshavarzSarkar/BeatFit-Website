@@ -163,3 +163,20 @@ Every new work session will append an entry with exact revision, findings, test 
 - No main website code modification, production deployment, index submission, redirect, metadata or article text change.
 
 **Next gate:** Editorial review of the two link destinations; run PR #3's own build and browser/rendered-link checks once the verification workflow is available to that branch, then decide on merge separately.
+
+## BF-SEO-RUN-012 — 2026-11-21 — Pinned PR #1 and PR #3 real build, artifact and browser QA
+
+**QA branch:** `seo/cross-pr-qa-2026-11-21`; **final workflow code:** `06dfd4d33fd0cd466c0e5555a40edac31fca0a6a`.
+**Scope:** Independent verification of exact unmerged PR source snapshots; no website code was changed on main or merged to production.
+
+- Created an isolated GitHub Actions `push` workflow with a two-target matrix; checked out pinned commit `ae1b576f89c8cdb21d234064ffa0461f54d817d4` (PR #1) and `ae93c38983870ddd1331e7d5dcbcc58169aba23c` (PR #3). Reused the corrected PR #2 generated SEO checker without copying changes into either content PR.
+- Initial [run 44874303700](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/44874303700) passed the real Build and generated SEO checks but failed browser setup due to **Playwright 1.55.0 not supporting Ubuntu 26.04** on `ubuntu-latest`. Corrected only the QA workflow runner to `ubuntu-24.04`.
+- Successful [run 44874359478](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/44874359478) completed with **2/2 jobs SUCCESS**: both had `npm ci` PASS, actual TypeScript/Vite `npm run build` PASS, **254 generated SEO checks PASS**, specific source assertions PASS, no tracked-`public/` drift, and Playwright Chromium mobile smoke PASS.
+- PR #1 browser: actual `/gym` title, unchanged H1, proposed new body text and canonical all confirmed in the JS-rendered DOM at **390px**.
+- PR #3 browser: `/resources` showed seven distinct article links; both edited article pages rendered full article body, both expected related links and valid canonical, with no page errors in tested navigation.
+- JavaScript-disabled Chromium on a sampled article returned the temporary H1/summary `#bf-static-seo` shell, **0** full article-body elements and **0** related-link anchors, confirming BF-SEO-F02's JavaScript dependence for Vite Preview. This is **NOT evidence of Google indexing failure**; Google can render JS, and first-party URL Inspection is still unavailable.
+- No PR was merged or deployed, and the QA branch is separate from PR #1/#2/#3.
+- Created a rendering architecture decision brief. Deferred SSR/SSG implementation until real production/IIS and Search Console render evidence supports it.
+- Sources: [verification report](../verification/2026-11-21-cross-pr-build-and-browser-qa.md), [machine-readable matrix](../verification/2026-11-21-cross-pr-result-matrix.csv), [rendering decision brief](../strategy/2026-11-21-rendering-architecture-decision-brief.md).
+
+**Next gates:** Product/editorial human approval for PR #1/#3, reviewer approval of PR #2, deployed HTTP/IIS/SSL verification, Google Search Console URL Inspection, and demo lead flow ownership.

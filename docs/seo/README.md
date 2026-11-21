@@ -22,6 +22,9 @@ This is the **single source of truth for BeatFit-specific SEO documentation**: r
 | Inventory | [Source URL inventory](inventory/source-route-inventory.csv) | Six marketing and seven Persian article URLs |
 | Verification | [Source check record](verification/2026-11-21-source-checks.md) | Eleven bounded source observations and outstanding tests |
 | Verification | [Actual GitHub Actions CI evidence](verification/2026-11-21-github-actions-ci-gate.md) | Real build, corrected Persian URL check, 10 fixture tests, 254 assertions |
+| Verification | [Pinned PR #1/#3 real build and browser QA](verification/2026-11-21-cross-pr-build-and-browser-qa.md) | Two successful GitHub runner jobs, real build, mobile Chromium and no-JS comparison |
+| Verification | [Cross-PR result matrix](verification/2026-11-21-cross-pr-result-matrix.csv) | Reproducible per-commit gate statuses |
+| Strategy | [Rendering architecture decision brief](strategy/2026-11-21-rendering-architecture-decision-brief.md) | Actual JS-enabled/no-JS evidence, options and future gate |
 | Verification | [Production access attempts and test plan](verification/2026-11-21-production-access-and-test-plan.md) | Blocked live checks plus reproducible HTTP/build/browser gate |
 | Decisions | [Decision log](decisions/decision-log.md) | Approved scope, proposed changes, blockers and review gates |
 | Operations | [Run log](operations/run-log.md) | Dated completed work, blocked tasks and repository writes |
@@ -64,7 +67,7 @@ A bounded Persian public-web discovery sample is now recorded; it is not a geogr
 
 ## Active review-only implementation
 
-- **Draft [PR #1 — Clarify `/gym` live heart-rate monitoring copy](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/1)**, branch `seo/gym-hero-clarity-2026-11-21`, initial PR commit `ae1b576f89c8cdb21d234064ffa0461f54d817d4`. Two source string values change; H1, layout, routes and canonical are unchanged. Source-level string/binding checks passed. **Build, browser, product confirmation and GSC are outstanding. Not merged or deployed.**
+- **Draft [PR #1 — Clarify `/gym` live heart-rate monitoring copy](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/1)**, branch `seo/gym-hero-clarity-2026-11-21`, initial PR commit `ae1b576f89c8cdb21d234064ffa0461f54d817d4`. Two source string values change; H1, layout, routes and canonical are unchanged. Source string/binding checks passed. **Real build, 254 SEO checks and mobile Chromium smoke PASS** on pinned PR #1 commit, [cross-PR QA run](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/44874359478). **Product owner review, production and GSC remain outstanding. Not merged or deployed.**
 
 ## Active QA review — Draft PR #2
 
@@ -77,5 +80,5 @@ A bounded Persian public-web discovery sample is now recorded; it is not a geogr
 
 - [Draft PR #3 — Rebalance two Persian articles' related links](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/3), branch `seo/rebalance-related-articles-2026-11-21`.
 - Based on [the source graph audit](audits/2026-11-21-internal-link-source-review.md), changes precisely two `relatedSlugs` arrays: training history → training load and gym monitoring → sensor comparison.
-- Source-only checks and PR diff scope verified. **Build, rendered browser, deployed HTTP and Google indexing tests NOT RUN for PR #3**. PR #2's successful CI does not validate this different branch.
+- Source checks and diff verified. **Real build, 254 SEO checks and mobile Chromium preview PASS** on pinned PR #3 commit via [independent cross-PR QA run](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/44874359478). **Editorial approval, production and Google indexing remain unverified.**
 - Open and draft; **not merged or deployed**.
