@@ -44,6 +44,9 @@ jobs:
       - name: Verify SEO checker against synthetic fixtures
         run: npm run test:seo:fixtures
 
+      - name: Verify editorial source link targets
+        run: npm run test:seo:links
+
       - name: Build website and generated SEO shells
         run: npm run build
 
