@@ -295,3 +295,19 @@ Every new work session will append an entry with exact revision, findings, test 
 - [Integrated evidence report](../verification/2026-11-21-zone2-cta-combined-qa.md) stored separately from individual PR verification results.
 
 **Next:** Review and decide separately on PR #8 and #10; re-run the final release build if approved. Keep gym demo submission functionality and production network/GSC investigation as independent gates.
+
+## BF-SEO-RUN-020 — 2026-11-21 — Demo form conversion integrity and lead receiver contract
+
+**Source baseline:** `dee5c47bf33cd35569e88c59c3353e03fa075af6`. **Scope:** Demo form and route content, static Vite/IIS architecture, legal footer links, read-only source review.
+
+- Inspected the full `src/components/DemoForm.tsx` and `src/content/demo.ts`, source config, current static site routing and package/deployment tree. The six-field form's onSubmit only invoked `preventDefault()`; no API/CRM/mail/lead handler was observed in the component. Three essential fields were not required. This is a **source gap**, not observed production lead loss or verified external service absence.
+- Confirmed the footer's privacy/terms links are currently `href="#"` and that public HTTPS/IIS reachability has not passed an external production check. Do **not** collect personal contact information to an unverified HTTP endpoint or invented third party.
+- Created [Draft PR #11](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/11) at exact code commit `1b9571d03296a14694f97af2c8d68d6838a3df81`. It adds native required checks for name/gym/phone, length bounds and a truthful accessible **not sent** message on valid submit. It sends **no PII** and does not pretend a lead succeeded. CSS warning is minimal; six fields and existing CTA preserved.
+- Standard PR GitHub Actions [44880438660](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/44880438660) concluded SUCCESS. Independent pinned mobile Chromium/real build workflow [44880488104](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/44880488104) was launched; its final outcome is recorded only after logs are read.
+- Documented a detailed **proposed and not implemented** first-party `POST /api/demo-requests` contract as one option; no endpoint, credentials or provider was configured. HTTPS, privacy notice, server acknowledgment, secure storage/retention, abuse protection, idempotency and real staging recipient tests are owner gates.
+- Added a 14-case acceptance matrix distinguishing actual source observations and missing backend/production work. Draft PR #11 is not merged/deployed.
+- This work does not change the demo page SEO metadata, redirect rules, CSS outside a narrow status element or any content article.
+
+**Artifacts:** [funnel audit](../audits/2026-11-21-demo-request-funnel-audit.md), [secure receiver contract](../strategy/2026-11-21-demo-lead-submission-contract.md), [acceptance matrix](../verification/2026-11-21-demo-funnel-acceptance-matrix.csv), [PR #11 QA](../verification/2026-11-21-demo-form-pr11-qa.md).
+
+**Next owner gate:** Approve source-to-recipient service, HTTPS and privacy terms before a real intake PR. Never call a frontend-only status transition a successful conversion.

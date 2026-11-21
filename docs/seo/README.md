@@ -29,6 +29,10 @@ This is the **single source of truth for BeatFit-specific SEO documentation**: r
 | Inventory | [Article-specific CTA destination map](inventory/2026-11-21-article-cta-route-map.csv) | All seven article CTAs, unchanged common footer and Draft PR #10 destination |
 | Verification | [Draft PR #10 build/browser evidence](verification/2026-11-21-zones-cta-pr10-ci.md) | 254 generated SEO checks and successful mobile click-through |
 | Verification | [PR #8 + PR #10 combined integration QA](verification/2026-11-21-zone2-cta-combined-qa.md) | Temporary combined source, real build, 254 checks, Chromium both edits PASS |
+| Audit | [Demo request source funnel audit](audits/2026-11-21-demo-request-funnel-audit.md) | Six-field silent submit no-op, missing backend, privacy/HTTPS gates |
+| Strategy | [Proposed secure demo lead API contract](strategy/2026-11-21-demo-lead-submission-contract.md) | First-party/CRM owner choice, validation, consent/privacy, delivery, failure and analytics rules |
+| Verification | [Demo funnel acceptance matrix](verification/2026-11-21-demo-funnel-acceptance-matrix.csv) | 14 checks separating source, browser and missing server implementation |
+| Verification | [Draft PR #11 demo form guard](verification/2026-11-21-demo-form-pr11-qa.md) | Accessible truthful interim state, no PII network, build/browser verification status |
 | Operations | [GitHub PR state reconciliation](operations/2026-11-21-repository-state-reconciliation.md) | Actual merged/open state on 2026-11-21, distinct from deployed release |
 | Inventory | [Article citation register](inventory/2026-11-21-article-citation-register.csv) | 47 source rows / 43 distinct URLs; verification scope explicit |
 | Inventory | [Article editorial metadata](inventory/2026-11-21-article-editorial-inventory.csv) | Dates, FAQ/source counts and unknown reviewer fields |

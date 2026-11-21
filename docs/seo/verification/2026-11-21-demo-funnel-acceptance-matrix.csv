@@ -1,0 +1,15 @@
+id,test_surface,expected,source_baseline,draft_pr11_state,real_backend_needed,evidence_type
+DEMO-001,fullName required,native browser blocks missing name,MISSING,PROPOSED,NO,source
+DEMO-002,gymName required,native browser blocks missing gym name,MISSING,PROPOSED,NO,source
+DEMO-003,phone required and length,native min 7 max 20; no rigid country assumption,MISSING,PROPOSED,NO,source
+DEMO-004,no fake lead success,valid-looking submit says no data sent,SILENT_NO_OP,PROPOSED,NO,source
+DEMO-005,no personal-data request before backend approval,no POST or beacon on interim guard,NO_REQUEST_OBSERVED,PROPOSED,NO,browser
+DEMO-006,real recipient accepted and persisted,201 or 202 only after durable acceptance,NOT_IMPLEMENTED,NOT_IMPLEMENTED,YES,staging integration
+DEMO-007,HTTPS and trusted host,validated TLS and approved receiver,NOT_VERIFIED,NOT_IMPLEMENTED,YES,network
+DEMO-008,privacy policy,"real accurate notice, not # placeholder",PLACEHOLDER,NOT_IMPLEMENTED,YES,legal/product
+DEMO-009,errors and retries,safe 422/429/503/timeout handling,NOT_IMPLEMENTED,NOT_IMPLEMENTED,YES,staging integration
+DEMO-010,rate limit and spam controls,server-side abuse protection,NOT_IMPLEMENTED,NOT_IMPLEMENTED,YES,security
+DEMO-011,measurement without PII,confirmed event only after server receipt,NOT_IMPLEMENTED,NOT_IMPLEMENTED,YES,analytics
+DEMO-012,generated SEO unchanged,"254 post-build checks, no public drift",PRIOR_VERIFIER_AVAILABLE,PENDING_CI,NO,github actions
+DEMO-013,mobile Chromium native validation,"empty blocked, valid shows truthful alert",NOT_RUN,PENDING_CI,NO,playwright
+DEMO-014,rendered page canonical,/demo canonical still correct,SOURCE_CONFIGURED,PENDING_CI,NO,playwright
