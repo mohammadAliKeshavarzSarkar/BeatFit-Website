@@ -29,7 +29,10 @@ function buildFixture() {
     const file = pathname === '/' ? 'index.html' : pathname.startsWith('/blog/') ? `route-html/blog/${++counter}.html` : `route-html/${pathname.slice(1)}.html`;
     routeMap.set(pathname, file);
     const absolute = new URL(pathname, `${origin}/`).href;
-    const html = `<!DOCTYPE html><html lang="fa" dir="rtl"><head><title>Title ${routeMap.size}</title><meta name="description" content="Unique description ${routeMap.size}"/><meta name="robots" content="index, follow"/><link rel="canonical" href="${absolute}"/><meta property="og:url" content="${absolute}"/><script id="bf-jsonld" type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage"}</script></head><body><main id="bf-static-seo"><h1>تیتر</h1></main></body></html>`;
+    // Match the real app: Sitemap URLs are encoded, but article head URLs
+    // can retain raw Persian characters from absoluteUrl().
+    const renderedCanonical = pathname.startsWith('/blog/') ? `${origin}${pathname}` : absolute;
+    const html = `<!DOCTYPE html><html lang="fa" dir="rtl"><head><title>Title ${routeMap.size}</title><meta name="description" content="Unique description ${routeMap.size}"/><meta name="robots" content="index, follow"/><link rel="canonical" href="${renderedCanonical}"/><meta property="og:url" content="${renderedCanonical}"/><script id="bf-jsonld" type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage"}</script></head><body><main id="bf-static-seo"><h1>تیتر</h1></main></body></html>`;
     const destination = join(root, file);
     mkdirSync(dirname(destination), {recursive:true});
     writeFileSync(destination, html);
@@ -109,4 +112,25 @@ test('rejects missing route-map block', () => withFixture(({root}) => {
   const result = run(root);
   assert.notEqual(result.status, 0);
   assert.match(result.stderr, /route-map marker block is missing/);
+}));
+
+test('accepts percent-encoded canonical/OG URL equivalence for Persian article', () => withFixture(({root,routeMap}) => {
+  const pathname = '/blog/زون-های-ضربان-قلب';
+  const filename = join(root, routeMap.get(pathname));
+  const raw = `${origin}${pathname}`;
+  const encoded = new URL(pathname, `${origin}/`).href;
+  writeFileSync(filename, readFileSync(filename, 'utf8').replaceAll(raw, encoded));
+  const result = run(root);
+  assert.equal(result.status, 0, result.stderr);
+}));
+
+test('rejects a genuinely different Persian article canonical after URL normalization', () => withFixture(({root,routeMap}) => {
+  const pathname = '/blog/زون-های-ضربان-قلب';
+  const filename = join(root, routeMap.get(pathname));
+  const raw = `${origin}${pathname}`;
+  writeFileSync(filename, readFileSync(filename, 'utf8').replaceAll(raw, `${origin}/blog/تاریخچه-تمرین`));
+  const result = run(root);
+  assert.notEqual(result.status, 0);
+  assert.match(result.stderr, /Wrong or duplicate canonical/);
+  assert.match(result.stderr, /Wrong og:url/);
 }));
