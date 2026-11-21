@@ -95,3 +95,8 @@ A bounded Persian public-web discovery sample is now recorded; it is not a geogr
 - Based on [the source graph audit](audits/2026-11-21-internal-link-source-review.md), changes precisely two `relatedSlugs` arrays: training history → training load and gym monitoring → sensor comparison.
 - Source checks and diff verified. **Real build, 254 SEO checks and mobile Chromium preview PASS** on pinned PR #3 commit via [independent cross-PR QA run](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/44874359478). **Editorial approval, production and Google indexing remain unverified.**
 - Open and draft; **not merged or deployed**.
+
+## Scientific review — Zone 2 and wearable sensor evidence (2026-11-21)
+
+- [Bounded 22-claim physiological/sensor audit](audits/2026-11-21-zones-and-sensors-claim-review.md), [source-to-claim matrix](inventory/2026-11-21-zones-and-sensors-claim-matrix.csv) and [follow-up backlog](strategy/2026-11-21-zones-sensors-follow-up-backlog.md) are recorded. Existing age-based arithmetic is valid as an estimate; device-specific comparisons do not validate BeatFit's own sensor accuracy.
+- [Draft PR #8 — clarify five-zone vs physiological Zone 2](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/8) has **independent real GitHub Actions QA PASS** at exact source commit `1f486da6bc1f17e73452fefcd77c7189991e96c6`: Build PASS, **254 SEO artifact checks PASS**, six-FAQ/source checks PASS, 390px Chromium note/FAQ/citation/canonical PASS, tracked-public drift PASS. [Verified evidence](verification/2026-11-21-zone2-pr8-qa.md). **Still DRAFT / not merged or deployed; scientific/editorial acceptance and production/GSC verification outstanding.**

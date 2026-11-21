@@ -229,3 +229,14 @@ Every new work session will append an entry with exact revision, findings, test 
 - No site deployment, PR merge, authoritative scientific signoff or lab accuracy certification occurred.
 
 **Artifacts:** [scientific claim review](../audits/2026-11-21-zones-and-sensors-claim-review.md), [claim matrix](../inventory/2026-11-21-zones-and-sensors-claim-matrix.csv), [claim backlog](../strategy/2026-11-21-zones-sensors-follow-up-backlog.md), [PR #8 QA record](../verification/2026-11-21-zone2-pr8-qa.md).
+
+## BF-SEO-RUN-016 — 2026-11-21 — Verified actual Draft PR #8 Build and Chromium results
+
+- Reused independent read-only QA branch `seo/zone2-pr8-qa-2026-11-21` to checkout the exact Draft PR #8 commit `1f486da6bc1f17e73452fefcd77c7189991e96c6`. Did not merge the application PR or deploy.
+- [GitHub Actions run 44877833723](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/44877833723), job `136766358509`, completed **SUCCESS** on pinned Ubuntu 24.04 / Node 22.
+- `npm ci`, actual TypeScript/Vite `npm run build`, corrected **254 generated SEO checks**, one new PubMed citation/six FAQ source assertions, and tracked-public files drift check all PASS.
+- Headless Chromium (390×844 mobile viewport) verified the added Zone 2 explanation, physiological-threshold caveat, unchanged six-question FAQ count, updated FAQ answer, PubMed PMID 40225831 citation anchor, matching canonical and no runtime page errors.
+- Full external exercise-science editorial signoff, user studies, production server/Google Search Console rendering and traffic outcomes remain unverified.
+- Documentation updated with run ID, job ID, exact content commit and evidence link. Draft PR #8 remains open, unmerged and undeployed.
+
+**Full report:** [Pinned PR #8 QA evidence](../verification/2026-11-21-zone2-pr8-qa.md).
