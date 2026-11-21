@@ -149,7 +149,7 @@ export const groupClassDesignPost = {
       kind: "paragraph",
       content: [
         { text: "در کلاس‌هایی با پایش زنده، مربی می‌تواند اطلاعات ضربان قلب را در کنار مشاهده حرکت و بازخورد ورزشکار بررسی کند. برای جزئیات بیشتر، مقاله «" },
-        { text: "کنترل شدت تمرین در کلاس گروهی", href: "/blog/کنترل-شدت-تمرین-در-کلاس-گروهی", strong: true },
+        { text: "کنترل شدت تمرین در کلاس گروهی", href: "/blog/live-class-monitoring", strong: true },
         { text: "» را بخوانید." },
       ],
     },
@@ -159,7 +159,7 @@ export const groupClassDesignPost = {
       kind: "paragraph",
       content: [
         { text: "برای شناخت بهتر زون‌ها، راهنمای «" },
-        { text: "زون‌های ضربان قلب", href: "/blog/زون-های-ضربان-قلب", strong: true },
+        { text: "زون‌های ضربان قلب", href: "/blog/heart-rate-zones", strong: true },
         { text: "» را نیز ببینید." },
       ],
     },
@@ -180,7 +180,7 @@ export const groupClassDesignPost = {
       kind: "paragraph",
       content: [
         { text: "اگر گزارش جلسات در دسترس باشد، از آن برای مرور پاسخ افراد استفاده کنید؛ اما داده را کنار نوع فعالیت و کیفیت حرکت تفسیر کنید. راهنمای «" },
-        { text: "تاریخچه تمرین", href: "/blog/تاریخچه-تمرین", strong: true },
+        { text: "تاریخچه تمرین", href: "/blog/workout-history-progress", strong: true },
         { text: "» این موضوع را کامل‌تر توضیح می‌دهد." },
       ],
     },

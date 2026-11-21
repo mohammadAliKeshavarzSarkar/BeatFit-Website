@@ -1,4 +1,5 @@
 export const gymHero = {
+  // Visible H1 stays brand/editorial; commercial intent lives in title/meta (gym-copy-proposal + PR#1).
   title: "تجربه‌ای بسازید که اعضا ارزشش را در هر جلسه ببینند.",
   body: "با بیت‌فیت، ضربان قلب و شدت تمرین اعضای کلاس را با حسگرهای پوشیدنی به‌صورت زنده روی نمایشگر باشگاه و پنل مربی ببینید؛ نتیجه هر جلسه هم برای پیگیری بعدی ثبت می‌شود.",
   image: "/assets/gym/dashboard-tablet.webp",

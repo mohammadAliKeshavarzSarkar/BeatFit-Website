@@ -1,5 +1,9 @@
 import { SITE_ORIGIN } from "../config/site";
-import { blogAliases } from "../content/blog";
+import {
+  blogContentSlugByPublicSlug,
+  blogPublicSlugByContentSlug,
+  type BlogSlug,
+} from "../content/blog";
 import { articleDocumentBySlug, articleDocuments } from "./articles";
 import { marketingDocuments } from "./marketing";
 import type { SeoDocument } from "./types";
@@ -64,10 +68,19 @@ export function classifyAppPath(pathname: string): AppRoute | null {
   if (pathname.startsWith("/blog/")) {
     const slug = pathname.slice("/blog/".length);
     if (!slug || slug.includes("/")) return { kind: "not-found" };
-    const alias = blogAliases[slug as keyof typeof blogAliases];
-    if (alias) return { kind: "redirect", url: encodedPath(`/blog/${alias}`) };
-    const article = articleDocumentBySlug(slug);
-    if (article) return { kind: "rewrite", url: `/${distHtmlPath(article)}` };
+
+    // Legacy Persian paths permanently redirect to ASCII public slugs.
+    if (slug in blogPublicSlugByContentSlug) {
+      const publicSlug =
+        blogPublicSlugByContentSlug[slug as BlogSlug];
+      return { kind: "redirect", url: `/blog/${publicSlug}` };
+    }
+
+    if (slug in blogContentSlugByPublicSlug) {
+      const article = articleDocumentBySlug(slug);
+      if (article) return { kind: "rewrite", url: `/${distHtmlPath(article)}` };
+    }
+
     return { kind: "not-found" };
   }
 

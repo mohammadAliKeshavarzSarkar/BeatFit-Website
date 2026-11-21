@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import type { BlogPost } from "../content/blog";
-import { getBlogPost } from "../content/blog";
+import { blogPath, getBlogPost } from "../content/blog";
 import { BlogContentBlocks } from "./BlogContentBlocks";
 
 type BlogArticleProps = {
@@ -84,7 +84,7 @@ export function BlogArticle({ post }: BlogArticleProps) {
             <ul className="bf-blog-post__related-list">
               {related.slice(0, 2).map((item) => (
                 <li key={item.slug}>
-                  <Link className="bf-blog-post__related-link" to={`/blog/${item.slug}`}>
+                  <Link className="bf-blog-post__related-link" to={blogPath(item.slug)}>
                     {item.title}
                   </Link>
                 </li>

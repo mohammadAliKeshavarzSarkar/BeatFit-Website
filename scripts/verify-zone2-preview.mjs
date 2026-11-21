@@ -5,7 +5,7 @@ import { createRequire } from "node:module";
 import { join } from "node:path";
 const require=createRequire(join(process.cwd(),"package.json"));
 const {chromium}=require("playwright");
-const base="http://127.0.0.1:4173",path="/blog/زون-های-ضربان-قلب";
+const base="http://127.0.0.1:4173",path="/blog/heart-rate-zones";
 const note="در این راهنما، «زون ۲» به بازه ۶۰ تا ۷۰ درصد HRmax در مدل پنج‌زونی اشاره دارد.";
 const url="https://pubmed.ncbi.nlm.nih.gov/40225831/";
 const preview=spawn(process.execPath,["node_modules/vite/bin/vite.js","preview","--host","127.0.0.1","--port","4173","--strictPort"],{stdio:["ignore","pipe","pipe"]});

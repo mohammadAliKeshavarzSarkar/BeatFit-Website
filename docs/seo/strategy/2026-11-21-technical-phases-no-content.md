@@ -39,12 +39,13 @@
 
 ## Immediate execution order
 
-1. Confirm T1 on current `main` (fixtures + build + 254 checks).  
-2. Collect T2 evidence from an Iran / target-market vantage (not only GitHub runners).  
-3. Align source canonicals to HTTPS once T2 proves TLS (completed in source 2026-11-21).  
-4. **Deploy** latest `dist` (route shells, HTTPS canonicals, GSC verification file/meta); complete T4 Verify.  
-5. Spec T6 demo API under separate approval; do not invent endpoints.  
-6. Keep T5 observational until GSC URL Inspection exists.
+1. Confirm T1 on current `main` (fixtures + build + 254 checks). ✅  
+2. Collect T2 evidence from an Iran / target-market vantage (not only GitHub runners). ✅  
+3. Align source canonicals to HTTPS once T2 proves TLS (completed in source 2026-11-21). ✅  
+4. **Deploy** latest `dist`; complete T4 Verify. ✅ ownership; ⏳ sitemap submit + URL Inspection  
+5. Spec T6 demo API under separate approval; do not invent endpoints. ✅ contract drafted — implementation blocked on owner API  
+6. Keep T5 observational until GSC URL Inspection exists. ✅ shell parity; Inspection still owner action  
+7. Run T7 weekly GSC loop once sitemap is submitted.
 
 ## Progress snapshot — 2026-11-21
 
@@ -53,11 +54,11 @@
 | T0 Sync | PASS | Local `main` at `7d5dddb` |
 | T1 Artifact integrity | PASS | 10/10 fixtures; build; 254 SEO checks |
 | T2 Live reachability | PASS (Iran) / FAIL (external) | Live HTTPS 200 for shells; HTTP→HTTPS 301; external fetch/GSC HTML verify cannot reach host |
-| T3 Canonical HTTPS | PASS (source + live) | Live titles/canonicals use `https://beatfit.ir`; IIS in-app HTTPS rewrite kept **disabled** (loop); host-level HTTPS redirect OK |
-| T4 GSC | DEFERRED | Owner will use Domain + DNS later; HTML file assets are live |
+| T3 Canonical HTTPS | PASS (live) | HTTPS canonicals; IIS HTTPS rewrite **disabled**; aliases/trailing-slash/`/blog` now **301 → https://beatfit.ir/...** after redeploy (RUN-020) |
+| T4 GSC | PARTIAL | Ownership verified (DNS TXT). Live sitemap **200** / 13 URLs; robots declares Sitemap. **Owner still needs:** submit sitemap + sample URL Inspection |
 | T5 Render shells | PASS | Preview↔live shell parity for home/gym/article/404; JS-on full content on preview |
-| T6 Conversion | NOT STARTED | Needs CRM/API + consent |
-| T7 Measurement | BLOCKED | Needs GSC/DNS verify |
+| T6 Conversion | SPEC READY | [Demo conversion contract](2026-11-21-demo-conversion-contract.md); form still `preventDefault` only — needs approved endpoint |
+| T7 Measurement | READY | [Weekly GSC ops checklist](../operations/2026-11-21-gsc-weekly-measurement-loop.md); first real data pass after sitemap submit |
 
 ## Non-goals
 

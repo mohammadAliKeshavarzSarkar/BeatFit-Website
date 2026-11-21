@@ -44,7 +44,7 @@ export const heartRateSensorComparisonPost = {
       kind: "paragraph",
       content: [
         { text: "برای تفسیر عدد ضربان قلب در تمرین، راهنمای «" },
-        { text: "زون‌های ضربان قلب چیست؟", href: "/blog/زون-های-ضربان-قلب", strong: true },
+        { text: "زون‌های ضربان قلب چیست؟", href: "/blog/heart-rate-zones", strong: true },
         { text: "» را نیز ببینید." },
       ],
     },
@@ -149,7 +149,7 @@ export const heartRateSensorComparisonPost = {
       kind: "paragraph",
       content: [
         { text: "در مقاله «" },
-        { text: "پایش ضربان قلب در باشگاه", href: "/blog/پایش-ضربان-قلب-در-باشگاه", strong: true },
+        { text: "پایش ضربان قلب در باشگاه", href: "/blog/connected-training-system", strong: true },
         { text: "» مسیر اتصال حسگر به پنل مربی و تاریخچه جلسه توضیح داده شده است." },
       ],
     },

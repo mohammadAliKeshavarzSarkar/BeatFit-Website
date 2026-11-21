@@ -82,7 +82,7 @@ export const groupClassIntensityPost = {
     {
       kind: "paragraph",
       content: [
-        { text: "زون‌های ضربان قلب", href: "/blog/زون-های-ضربان-قلب", strong: true },
+        { text: "زون‌های ضربان قلب", href: "/blog/heart-rate-zones", strong: true },
         { text: " کمک می‌کنند شدت تمرین به محدوده‌هایی از بسیار سبک تا بسیار شدید تقسیم شود. برای مثال، در یک مدل رایج مبتنی بر درصد حداکثر ضربان قلب، زون ۳ محدوده ۷۰ تا ۸۰ درصد و زون ۴ محدوده ۸۰ تا ۹۰ درصد HRmax است." },
       ],
     },

@@ -23,16 +23,16 @@ assert.match(article, /kind:\s*["']chart["']/, "Relative-intensity chart is miss
 assert.match(article, /kind:\s*["']faq["']/, "Coach FAQ is missing");
 assert.match(article, /kind:\s*["']sources["']/, "Coach sources are missing");
 assert.match(article, /پایش-زنده-ضربان-قلب-ورزشکاران\.png/, "Inline coach dashboard image is missing");
-assert.match(article, /href:\s*["']\/blog\/زون-های-ضربان-قلب["']/, "Internal link to article one is missing");
+assert.match(article, /href:\s*["']\/blog\/heart-rate-zones["']/, "Internal link to article one is missing");
 assert.match(article, /href:\s*["']\/coach["']/, "Internal coach-page link is missing");
 assert.equal((article.match(/https:\/\//g) ?? []).length >= 7, true, "Seven coach article sources are required");
 assert.match(types, /href\?:\s*string/, "Rich inline links are not typed");
 assert.match(renderer, /<Link[^>]+to=\{part\.href\}/, "Internal rich inline links are not rendered with React Router");
 
 assert.match(home, /image:\s*["']\/beatfitImages\/blog-live-class\.png["']/, "Homepage coach image must remain unchanged");
-assert.match(home, /href:\s*["']\/blog\/کنترل-شدت-تمرین-در-کلاس-گروهی["']/, "Homepage coach article link is missing");
+assert.match(home, /href:\s*["']\/blog\/live-class-monitoring["']/, "Homepage coach article link is missing");
 assert.match(resources, /image:\s*["']\/beatfitImages\/articles\/کنترل-شدت-تمرین-در-کلاس-گروهی\.png["']/, "Resources coach image is missing");
-assert.match(resources, /href:\s*["']\/blog\/کنترل-شدت-تمرین-در-کلاس-گروهی["']/, "Resources coach link is missing");
+assert.match(resources, /href:\s*["']\/blog\/live-class-monitoring["']/, "Resources coach link is missing");
 
 for (const asset of [
   "public/beatfitImages/articles/کنترل-شدت-تمرین-در-کلاس-گروهی.png",

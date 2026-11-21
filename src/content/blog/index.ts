@@ -1,9 +1,14 @@
 export {
   blogAliases,
+  blogContentSlugByPublicSlug,
+  blogPath,
   blogPosts,
+  blogPublicSlugByContentSlug,
   getBlogPost,
+  getBlogPublicSlug,
   getPublishedBlogPosts,
   resolveBlogSlug,
+  type BlogPublicSlug,
   type BlogSlug,
 } from "./posts";
 

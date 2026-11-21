@@ -25,8 +25,8 @@ assert.match(article, /kind:\s*["']chart["']/, "Session RPE chart is missing");
 assert.match(article, /kind:\s*["']faq["']/, "Training-load FAQ is missing");
 assert.match(article, /kind:\s*["']sources["']/, "Training-load sources are missing");
 assert.equal((article.match(/https:\/\//g) ?? []).length >= 6, true, "Six training-load sources are required");
-assert.match(article, /href:\s*["']\/blog\/زون-های-ضربان-قلب["']/, "Internal zones link is missing");
-assert.match(article, /href:\s*["']\/blog\/تاریخچه-تمرین["']/, "Internal history link is missing");
+assert.match(article, /href:\s*["']\/blog\/heart-rate-zones["']/, "Internal zones link is missing");
+assert.match(article, /href:\s*["']\/blog\/workout-history-progress["']/, "Internal history link is missing");
 assert.match(article, /href:\s*["']\/athlete["']/, "Athlete CTA is missing");
 assert.match(article, /\/beatfitImages\/blog-workout-history\.png/, "Portrait product image is missing");
 assert.match(article, /layout:\s*["']portrait["']/, "Portrait layout is not selected");
@@ -36,9 +36,9 @@ assert.match(renderer, /bf-blog-block-figure--/, "Figure layout modifier is not 
 assert.match(css, /\.bf-blog-block-figure--portrait/, "Portrait figure layout is not styled");
 
 assert.match(home, /image:\s*["']\/beatfitImages\/blog-live-tv\.png["']/, "Homepage fifth-card image must remain unchanged");
-assert.match(home, /href:\s*["']\/blog\/بار-تمرینی-چیست["']/, "Homepage training-load link is missing");
+assert.match(home, /href:\s*["']\/blog\/live-tv-group-training["']/, "Homepage training-load link is missing");
 assert.match(resources, /image:\s*["']\/beatfitImages\/articles\/بار-تمرینی-چیست\.png["']/, "Resources training-load hero is missing");
-assert.match(resources, /href:\s*["']\/blog\/بار-تمرینی-چیست["']/, "Resources training-load link is missing");
+assert.match(resources, /href:\s*["']\/blog\/live-tv-group-training["']/, "Resources training-load link is missing");
 
 for (const asset of [
   "public/beatfitImages/articles/بار-تمرینی-چیست.png",

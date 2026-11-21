@@ -13,8 +13,8 @@ const home = read("src/content/home.ts");
 const resources = read("src/content/resources.ts");
 const page = read("src/pages/BlogPostPage.tsx");
 
-assert.match(posts, /["']زون-های-ضربان-قلب["']\s*:/, "Persian canonical slug is missing");
-assert.match(posts, /heart-rate-zones["']\s*:\s*["']زون-های-ضربان-قلب/, "English legacy alias is missing");
+assert.match(posts, /["']زون-های-ضربان-قلب["']\s*:/, "Persian content slug is missing");
+assert.match(posts, /heart-rate-zones["']\s*:\s*["']زون-های-ضربان-قلب/, "English public slug mapping is missing");
 assert.match(posts, /kind:\s*["']table["']/, "Rich article table block is missing");
 assert.match(posts, /kind:\s*["']chart["']/, "Rich article chart block is missing");
 assert.match(posts, /kind:\s*["']faq["']/, "Rich article FAQ block is missing");
@@ -23,8 +23,8 @@ assert.match(posts, /نمایش-زون-های-تمرین-در-بیت-فیت\.png
 assert.equal((posts.match(/https:\/\//g) ?? []).length >= 6, true, "Six article sources are required");
 
 assert.match(home, /image:\s*["']\/beatfitImages\/blog-heart-rate-zones\.png["']/, "Homepage image must remain unchanged");
-assert.match(home, /href:\s*["']\/blog\/زون-های-ضربان-قلب["']/, "Homepage Persian article link is missing");
-assert.match(resources, /\/blog\/زون-های-ضربان-قلب/, "Resources Persian article link is missing");
+assert.match(home, /href:\s*["']\/blog\/heart-rate-zones["']/, "Homepage public article link is missing");
+assert.match(resources, /\/blog\/heart-rate-zones/, "Resources public article link is missing");
 assert.match(page, /resolveBlogSlug/, "Canonical slug resolution is not connected to the page");
 
 for (const asset of [

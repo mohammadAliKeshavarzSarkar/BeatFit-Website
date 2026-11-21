@@ -3,8 +3,8 @@ const routes = [
   ["gym", "http://localhost:4173/gym", "https://beatfit.ir/gym"],
   [
     "article",
-    `http://localhost:4173/blog/${encodeURIComponent("زون-های-ضربان-قلب")}`,
-    `https://beatfit.ir/blog/${encodeURIComponent("زون-های-ضربان-قلب")}`,
+    "http://localhost:4173/blog/heart-rate-zones",
+    "https://beatfit.ir/blog/heart-rate-zones",
   ],
   ["missing", "http://localhost:4173/no-such-page-xyz", "https://beatfit.ir/no-such-page-xyz"],
 ];

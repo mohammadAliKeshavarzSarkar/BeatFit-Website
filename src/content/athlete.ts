@@ -1,4 +1,5 @@
 export const athleteHero = {
+  // Visible H1 stays editorial; product intent lives in title/meta (SEO team PR #24).
   title: "از لحظه تمرین تا مسیر پیشرفت، همراهت هستیم.",
   body: "با بیت‌فیت، ضربان قلب و زون تمرینی‌ات را هنگام تمرین به‌صورت زنده ببین؛ بعد از هر جلسه هم نتیجه و تاریخچه تمرین‌هایت را در اپلیکیشن مرور کن تا روند فعالیتت را بهتر بشناسی.",
   image: "/assets/contact/app-mockup.webp",

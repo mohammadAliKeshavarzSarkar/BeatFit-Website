@@ -6,11 +6,26 @@ const ORGANIZATION_ID = `${SITE_ORIGIN}/#organization`;
 const WEBSITE_ID = `${SITE_ORIGIN}/#website`;
 const LOGO = absoluteAsset("/assets/brand/beatfit-logo-horizontal.webp");
 
+/** Brand spellings users type in Google (sitelinks / brand SERP). */
+export const BRAND_ALTERNATE_NAMES = [
+  "بیت فیت",
+  "بیتفیت",
+  "BeatFit",
+  "beatfit",
+  "Beat Fit",
+  "BEATFIT",
+] as const;
+
+const BRAND_POSITIONING =
+  "سیستم پایش زنده ضربان قلب و تمرین گروهی";
+
 export function organizationNode(): JsonLdNode {
   return {
     "@type": "Organization",
     "@id": ORGANIZATION_ID,
     name: "بیت‌فیت",
+    alternateName: [...BRAND_ALTERNATE_NAMES],
+    description: BRAND_POSITIONING,
     url: `${SITE_ORIGIN}/`,
     email: "hello@beatfit.ir",
     logo: {
@@ -26,23 +41,39 @@ export function websiteNode(): JsonLdNode {
     "@id": WEBSITE_ID,
     url: `${SITE_ORIGIN}/`,
     name: "بیت‌فیت",
+    alternateName: [...BRAND_ALTERNATE_NAMES],
+    description: BRAND_POSITIONING,
     inLanguage: "fa-IR",
     publisher: { "@id": ORGANIZATION_ID },
   };
+}
+
+export function siteNavigationNodes(
+  destinations: readonly { path: string; name: string }[],
+): JsonLdNode[] {
+  return destinations.map((dest, index) => ({
+    "@type": "SiteNavigationElement",
+    "@id": `${SITE_ORIGIN}/#nav-${index + 1}`,
+    name: dest.name,
+    url: `${SITE_ORIGIN}${dest.path === "/" ? "/" : dest.path}`,
+  }));
 }
 
 export function marketingJsonLd(input: {
   canonical: string;
   title: string;
   description: string;
+  breadcrumbName?: string;
+  primaryDestinations?: readonly { path: string; name: string }[];
   faq?: readonly { question: string; answer: string }[];
 }): JsonLd {
+  const webpageId = `${input.canonical}#webpage`;
   const graph: JsonLdNode[] = [
     organizationNode(),
     websiteNode(),
     {
       "@type": "WebPage",
-      "@id": `${input.canonical}#webpage`,
+      "@id": webpageId,
       url: input.canonical,
       name: input.title,
       description: input.description,
@@ -51,6 +82,31 @@ export function marketingJsonLd(input: {
       about: { "@id": ORGANIZATION_ID },
     },
   ];
+
+  if (input.primaryDestinations && input.primaryDestinations.length > 0) {
+    graph.push(...siteNavigationNodes(input.primaryDestinations));
+  }
+
+  if (input.breadcrumbName) {
+    graph.push({
+      "@type": "BreadcrumbList",
+      "@id": `${input.canonical}#breadcrumb`,
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "بیت‌فیت",
+          item: `${SITE_ORIGIN}/`,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: input.breadcrumbName,
+          item: input.canonical,
+        },
+      ],
+    });
+  }
 
   if (input.faq && input.faq.length > 0) {
     graph.push({

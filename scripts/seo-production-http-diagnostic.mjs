@@ -5,15 +5,15 @@ import { mkdtempSync, readFileSync, existsSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 const execFileAsync=promisify(execFile);
-const slug=encodeURIComponent("زون-های-ضربان-قلب");
+const legacyPersian=encodeURIComponent("زون-های-ضربان-قلب");
 const cases=[
  ["HTTP_APEX_HOME","http://beatfit.ir/"],["HTTPS_APEX_HOME","https://beatfit.ir/"],
  ["HTTP_WWW_HOME","http://www.beatfit.ir/"],["HTTPS_WWW_HOME","https://www.beatfit.ir/"],
  ["HTTP_ROBOTS","http://beatfit.ir/robots.txt"],["HTTPS_ROBOTS","https://beatfit.ir/robots.txt"],
  ["HTTP_SITEMAP","http://beatfit.ir/sitemap.xml"],["HTTPS_SITEMAP","https://beatfit.ir/sitemap.xml"],
  ["HTTP_GYM","http://beatfit.ir/gym"],["HTTPS_GYM","https://beatfit.ir/gym"],
- ["HTTP_ARTICLE","http://beatfit.ir/blog/"+slug],["HTTPS_ARTICLE","https://beatfit.ir/blog/"+slug],
- ["HTTP_ALIAS","http://beatfit.ir/blog/heart-rate-zones"],
+ ["HTTP_ARTICLE","http://beatfit.ir/blog/heart-rate-zones"],["HTTPS_ARTICLE","https://beatfit.ir/blog/heart-rate-zones"],
+ ["HTTP_LEGACY_PERSIAN","http://beatfit.ir/blog/"+legacyPersian],
  ["HTTP_NOT_FOUND","http://beatfit.ir/nonexistent-seo-audit-20261121"]
 ];
 function attr(tag,name){return tag?.match(new RegExp("\\b"+name+"\\s*=\\s*[\"']([^\"']+)[\"']","i"))?.[1]??null;}

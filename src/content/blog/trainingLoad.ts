@@ -124,7 +124,7 @@ export const trainingLoadPost = {
       kind: "paragraph",
       content: [
         { text: "برای شناخت بهتر محدوده‌های شدت، راهنمای «" },
-        { text: "زون‌های ضربان قلب چیست؟", href: "/blog/زون-های-ضربان-قلب", strong: true },
+        { text: "زون‌های ضربان قلب چیست؟", href: "/blog/heart-rate-zones", strong: true },
         { text: "» را بخوانید." },
       ],
     },
@@ -153,7 +153,7 @@ export const trainingLoadPost = {
       kind: "paragraph",
       content: [
         { text: "راهنمای «" },
-        { text: "تاریخچه تمرین", href: "/blog/تاریخچه-تمرین", strong: true },
+        { text: "تاریخچه تمرین", href: "/blog/workout-history-progress", strong: true },
         { text: "» توضیح می‌دهد چطور جلسات مشابه را برای دیدن روند کنار هم بگذارید." },
       ],
     },
