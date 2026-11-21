@@ -21,3 +21,31 @@
 | LIVE-GYM-01 | Deployed HTML/HTTP and version confirmed | BLOCKED — no authoritative live response evidence in audit |
 
 Preflight is not a production validation. Once the PR is created, record its URL, changed lines, review state and exact static checks as a dated addendum or next verification file.
+
+## Feature branch source-diff preflight — 2026-11-21
+
+**Branch:** `seo/gym-hero-clarity-2026-11-21`  
+**Base commit:** `a88c63f84fad968ed5ed7665cac4aacb9a824f85`  
+**Actual file changes:** two string literals in two application source files (`src/content/gym.ts` body and `src/seo/marketing.ts` title). The remaining branch edit is this verification record.  
+**Static check method:** Compare exact pinned source strings and inspect unchanged React/SEO bindings. No build/DOM or production test was executed.
+
+| Check | Outcome | Evidence |
+|---|---|---|
+| Source body previously found once | PASS (static) | `gymHero.body` matched exact original string once |
+| SEO title previously found once | PASS (static) | `gymDocument.title` matched exact original string once |
+| Proposed body and title present once each | PASS (static) | Exact replacements applied once each |
+| Original body/title absent from edited source | PASS (static) | Exact-match old strings removed |
+| Existing H1 unchanged | PASS (static) | `gymHero.title` preserved verbatim |
+| `/gym` route unchanged | PASS (static) | `path: "/gym"` preserved |
+| Visible hero body/SEO description share the same content constant | PASS (static) | Unchanged `GymHero.tsx` binding and `gymDocument.description/summary` |
+| No component or CSS changes | PASS (static) | Proposed source changes are only two content strings |
+| TypeScript compilation | NOT RUN | Checkout/dependency installation unavailable in available container |
+| Full `npm ci && npm run build` | NOT RUN | GitHub hostname unreachable from isolated shell |
+| Generated `route-html/gym.html` | NOT RUN | Requires successful build |
+| Responsive visual/interactive QA | NOT RUN | Requires preview/staging browser |
+| Actual Search Console query/page metrics | BLOCKED | No connected first-party GSC data |
+| Production HTTP/HTTPS and live behavior | BLOCKED | No verified live response evidence |
+
+**Interpretation:** Static checks are useful diff safety checks, not proof of production SEO improvement. **Do not merge/deploy** until relevant build, visual, product-fact and release checks are performed. Proposed text matches capabilities already described elsewhere in the source, but the product owner must confirm actual deployed availability.
+
+**Rollback:** Revert the two string edits; no URL, routing, canonical, schema or design-system change is intended.

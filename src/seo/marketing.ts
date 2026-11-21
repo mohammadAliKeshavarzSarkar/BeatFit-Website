@@ -74,7 +74,7 @@ export const gymDocument = page({
   id: "gym",
   path: "/gym",
   fileId: "gym",
-  title: "پایش زنده تمرین برای باشگاه‌ها | بیت‌فیت",
+  title: "پایش زنده ضربان قلب در باشگاه‌ها | بیت‌فیت",
   description: gymHero.body,
   h1: gymHero.title,
   summary: gymHero.body,
