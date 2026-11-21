@@ -72,6 +72,8 @@
   --bf-pad-inline: clamp(20px, 4vw, 48px);
   --bf-section-gap: clamp(72px, 12vw, 128px);
   --bf-card-pad: clamp(24px, 3vw, 40px);
+  /* Matches .bf-header__inner min-height (desktop 96 / mobile ≤960px → 80) */
+  --bf-header-offset: 96px;
 
   --bf-shadow-soft: 0 8px 32px color-mix(in srgb, var(--bf-forest) 6%, transparent);
 
