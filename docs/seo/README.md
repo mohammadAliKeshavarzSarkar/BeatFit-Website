@@ -9,6 +9,8 @@
 
 This is the **single source of truth for BeatFit-specific SEO documentation**: research, technical audits, evidence, project scope, decisions, implementation plans, verification and activity history. The SEO Engineering repository provides the methodology but is not used for private BeatFit evidence.
 
+**Latest PR state reconciliation:** [2026-11-21 GitHub status](operations/2026-11-21-repository-state-reconciliation.md) — PRs #2, #5, #6, #7 merged; PRs #1, #3, #4, #8 remain open for review. Hosting/GSC not verified.
+
 ## Documentation index
 
 | Area | Document | Purpose |
@@ -21,7 +23,8 @@ This is the **single source of truth for BeatFit-specific SEO documentation**: r
 | Audit | [Heart-rate zones and sensor scientific claim review](audits/2026-11-21-zones-and-sensors-claim-review.md) | 22 evidence-scoped claims, formulas, sensor study limitations |
 | Inventory | [Zones and sensors source-to-claim matrix](inventory/2026-11-21-zones-and-sensors-claim-matrix.csv) | Exact Persian anchors, source URLs, review status and action |
 | Strategy | [Claim-specific review backlog](strategy/2026-11-21-zones-sensors-follow-up-backlog.md) | Scientific/owner verification, scoped SEO copy and implementation gates |
-| Verification | [Draft PR #8 Zone 2 QA record](verification/2026-11-21-zone2-pr8-qa.md) | Exact review revision, evidence and pending operational gate |
+| Verification | [Draft PR #8 Zone 2 QA record](verification/2026-11-21-zone2-pr8-qa.md) | Exact pinned review revision, Build/254 checks/Chromium PASS; scientific review outstanding |
+| Operations | [GitHub PR state reconciliation](operations/2026-11-21-repository-state-reconciliation.md) | Actual merged/open state on 2026-11-21, distinct from deployed release |
 | Inventory | [Article citation register](inventory/2026-11-21-article-citation-register.csv) | 47 source rows / 43 distinct URLs; verification scope explicit |
 | Inventory | [Article editorial metadata](inventory/2026-11-21-article-editorial-inventory.csv) | Dates, FAQ/source counts and unknown reviewer fields |
 | Research | [2026 Google FAQ feature retirement](research/2026-11-21-google-faq-rich-result-retirement.md) | Official Google updates and BeatFit interpretation |
@@ -82,12 +85,12 @@ A bounded Persian public-web discovery sample is now recorded; it is not a geogr
 
 - **Draft [PR #1 — Clarify `/gym` live heart-rate monitoring copy](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/1)**, branch `seo/gym-hero-clarity-2026-11-21`, initial PR commit `ae1b576f89c8cdb21d234064ffa0461f54d817d4`. Two source string values change; H1, layout, routes and canonical are unchanged. Source string/binding checks passed. **Real build, 254 SEO checks and mobile Chromium smoke PASS** on pinned PR #1 commit, [cross-PR QA run](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/44874359478). **Product owner review, production and GSC remain outstanding. Not merged or deployed.**
 
-## Active QA review — Draft PR #2
+## Integrated SEO build verifier — PR #2 merged
 
-- [Draft PR #2 — Verify generated SEO build artifacts](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/2), feature branch `seo/verify-generated-build-2026-11-21`.
+- [Merged PR #2 — Verify generated SEO build artifacts](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/2), merged into main 2026-11-21 06:43:04 UTC. Earlier runs are historical evidence.
 - Adds `npm run test:seo:fixtures` and `npm run test:seo` without modifying the existing build script.
 - **Real CI evidence:** [GitHub Actions run 44873467188](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/44873467188) PASSED: `npm ci`, **10/10 fixture tests**, **real Vite/TypeScript build**, **254 generated SEO artifact checks**, and **clean tracked-public diff**. The earlier failed run exposed and led to correction of a Unicode URL comparison false positive.
-- **Still NOT RUN/BLOCKED:** browser rendering, deployed HTTP/TLS, Search Console and actual demo submission. PR #2 remains draft, **not merged or deployed**. See [the dated CI evidence record](verification/2026-11-21-github-actions-ci-gate.md).
+- **Still NOT RUN/BLOCKED:** browser rendering, deployed HTTP/TLS, Search Console and actual demo submission. PR #2 is **MERGED into main**; the production website deployment and live HTTP response remain unverified. See [the dated CI evidence record](verification/2026-11-21-github-actions-ci-gate.md).
 
 ## Active editorial review — Draft PR #3
 

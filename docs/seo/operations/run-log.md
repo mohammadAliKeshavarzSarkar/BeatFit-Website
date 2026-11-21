@@ -240,3 +240,11 @@ Every new work session will append an entry with exact revision, findings, test 
 - Documentation updated with run ID, job ID, exact content commit and evidence link. Draft PR #8 remains open, unmerged and undeployed.
 
 **Full report:** [Pinned PR #8 QA evidence](../verification/2026-11-21-zone2-pr8-qa.md).
+
+## BF-SEO-RUN-017 — 2026-11-21 — Reconciled GitHub PR states after external merges
+
+- Queried live GitHub PR metadata for #1 through #8 rather than relying on the earlier status snapshots.
+- Found PRs **#2, #5, #6 and #7 are MERGED** into main (merge timestamps 2026-11-21 UTC) by repo activity outside this audit step; #1, #3, #4 and #8 remain open/draft.
+- Corrected `docs/seo/README.md` and BF-SEO-D014 to reflect merged status of the generated SEO checker. Prior status reports remain historical.
+- The website `main` now includes GSC verification assets from a separately authored header/GSC commit. A verification file alone is **not** Search Console search-performance, index or URL Inspection evidence; no property connection was accessed.
+- Recorded [GitHub PR and main reconciliation](2026-11-21-repository-state-reconciliation.md) without merging PRs or publishing the website.
