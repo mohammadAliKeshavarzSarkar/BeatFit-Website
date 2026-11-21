@@ -16,7 +16,7 @@ jobs:
       - name: Check out exact Draft PR 11 revision
         uses: actions/checkout@v4
         with:
-          ref: a0e52a7e7ac3a6e54a6ea639986ef817f45d60e7
+          ref: 87128b6a7744a96d43972024ce78fd77746fe109
           path: site
       - uses: actions/setup-node@v4
         with:

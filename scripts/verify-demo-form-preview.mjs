@@ -32,6 +32,7 @@ try {
  assert.ok((await note.textContent()).includes("ثبت آنلاین درخواست دمو فعلاً فعال نیست"));
  assert.ok((await note.textContent()).includes("اطلاعات تماس خود را در این فرم وارد نکنید"));
  assert.equal(await form.getAttribute("aria-describedby"),"demo-form-availability");
+ assert.equal(await page.getByText("اطلاعات باشگاه خود را ثبت کنید تا برای هماهنگی با شما تماس بگیریم.").count(),0,"The inactive form must not promise a callback");
  const noteBottom=await note.evaluate(el=>el.getBoundingClientRect().bottom);
  const firstTop=await form.locator('input[name="fullName"]').evaluate(el=>el.getBoundingClientRect().top);
  assert.ok(noteBottom<=firstTop,"The warning must be before the first input");
