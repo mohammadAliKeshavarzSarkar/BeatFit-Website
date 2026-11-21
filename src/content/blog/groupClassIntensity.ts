@@ -227,7 +227,7 @@ export const groupClassIntensityPost = {
       title: "منابع و مطالعه بیشتر",
       items: [
         { label: "American Council on Exercise — How to Monitor Participants’ Intensity in Group Fitness Classes", href: "https://www.acefitness.org/continuing-education/prosource/april-2016/5856/how-to-monitor-participants-intensity-in-group-fitness-classes/" },
-        { label: "CDC — Measuring Physical Activity Intensity", href: "https://www.cdc.gov/physicalactivity/basics/measuring/index.html" },
+        { label: "CDC — Measuring Physical Activity Intensity", href: "https://www.cdc.gov/physical-activity-basics/measuring/index.html" },
         { label: "Mayo Clinic — Exercise Intensity: How to Measure It", href: "https://www.mayoclinic.org/healthy-lifestyle/fitness/in-depth/exercise-intensity/art-20046887" },
         { label: "Polar Club — Functions During a Class", href: "https://support.polar.com/uk-en/functions_during_a_session" },
         { label: "Sensor-Based Real-Time Monitoring Approach for Multi-Participant Workout Intensity Management", href: "https://www.mdpi.com/2079-9292/13/18/3687" },
