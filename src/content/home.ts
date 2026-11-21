@@ -15,12 +15,13 @@ export const nav = [
   { href: "/coach", label: "مربیان" },
   { href: "/athlete", label: "ورزشکاران" },
   { href: "/resources", label: "منابع" },
-
+  { href: "/demo", label: "درخواست مشاوره" },
 ] as const;
 
+/** Primary header action — opens the BeatFit product. */
 export const headerCta = {
-  label: "آشنایی با بیت‌فیت",
-  href: "/demo",
+  label: "ورود به بیت‌فیت",
+  href: "https://app.beatfit.ir",
 } as const;
 
 export const headerMenu = {
@@ -38,8 +39,6 @@ export const hero = {
   ],
   ctaLabel: "بیت‌فیت چطور کار می‌کنه؟",
   ctaHref: "#live-class",
-  appLinkLabel: "ورود به اپ بیت‌فیت",
-  appLinkHref: "https://app.beatfit.ir",
   markSrc: "/beatfitImages/hero-mark-b.webp",
   markAlt: "",
   sprinterSrc: "/beatfitImages/hero-sprinter.webp",

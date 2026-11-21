@@ -7,7 +7,7 @@ import target from "react-useanimations/lib/target";
 import thermometer from "react-useanimations/lib/thermometer";
 import trendingUp from "react-useanimations/lib/trendingUp";
 import { hero } from "../content/home";
-import { MarketingCtaIcon, UseAnimationIcon } from "./animations";
+import { UseAnimationIcon } from "./animations";
 import { HeroProofRail } from "./HeroProofRail";
 import { HeroWordmark } from "./HeroWordmark";
 
@@ -111,7 +111,7 @@ export function Hero() {
     const features = root.querySelectorAll<HTMLElement>(".bf-hero-feat");
     const proof = root.querySelectorAll<HTMLElement>(".bf-hero-proof");
     const copy = root.querySelectorAll<HTMLElement>(
-      ".bf-hero__title, .bf-hero__lede, .bf-hero__app-link",
+      ".bf-hero__title, .bf-hero__lede",
     );
 
     if (reduce) {
@@ -293,19 +293,6 @@ export function Hero() {
               </ul>
             </div>
           </div>
-
-          <a
-            className="bf-hero__app-link"
-            href={hero.appLinkHref}
-            dir="rtl"
-          >
-            <span className="bf-hero__app-link-label">
-              {hero.appLinkLabel}
-            </span>
-            <span className="bf-hero__app-link-icon" aria-hidden="true">
-              <MarketingCtaIcon size={16} />
-            </span>
-          </a>
 
           <HeroProofRail />
         </div>

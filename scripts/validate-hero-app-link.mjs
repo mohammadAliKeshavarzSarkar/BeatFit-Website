@@ -13,20 +13,12 @@ try {
   const { Hero } = await vite.ssrLoadModule("/src/components/Hero.tsx");
   const markup = renderToStaticMarkup(React.createElement(Hero));
 
-  const imageIndex = markup.indexOf("bf-hero__sprinter");
-  const linkIndex = markup.indexOf("bf-hero__app-link");
-  const featuresIndex = markup.indexOf("bf-hero__features");
-  const proofIndex = markup.indexOf("bf-hero__proof");
+  assert.ok(markup.includes("bf-hero__sprinter"), "Hero athlete image is missing");
+  assert.ok(markup.includes("bf-hero__proof"), "Hero proof rail is missing");
+  assert.ok(!markup.includes("bf-hero__app-link"), "Hero app link must be removed");
+  assert.ok(!markup.includes("ورود به بیت‌فیت"), "Hero must not show the app-entry label");
 
-  assert.ok(imageIndex >= 0, "Hero athlete image is missing");
-  assert.ok(linkIndex > imageIndex, "App link must render below the hero image");
-  assert.ok(featuresIndex < linkIndex, "App link must render outside the visual composition");
-  assert.ok(proofIndex > linkIndex, "App link must stay between the composition and proof rail");
-  assert.match(markup, /href="https:\/\/app\.beatfit\.ir"/u, "App link destination is incorrect");
-  assert.ok(markup.includes("ورود به اپ بیت‌فیت"), "Persian app-link label is missing");
-  assert.match(markup, /bf-hero__app-link-icon/u, "App link icon is missing");
-
-  console.log("Home hero app-link contract passed.");
+  console.log("Home hero no-app-link contract passed.");
 } finally {
   await vite.close();
 }

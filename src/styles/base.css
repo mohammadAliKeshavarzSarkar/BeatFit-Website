@@ -610,6 +610,10 @@ ul {
   animation-delay: 260ms;
 }
 
+.bf-nav--mobile.is-open .bf-header__menu-item:nth-child(5) {
+  animation-delay: 320ms;
+}
+
 @keyframes bf-menu-item-in {
   to {
     opacity: 1;
@@ -676,7 +680,7 @@ ul {
 .bf-nav--mobile.is-open .bf-header__menu-cta-row {
   opacity: 1;
   transform: translateY(0);
-  transition-delay: 320ms;
+  transition-delay: 380ms;
 }
 
 .bf-nav--mobile.is-open .bf-header__menu-cta:hover {

@@ -178,7 +178,8 @@ export function Header({
           <BeatfitCta
             variant="header-outline"
             className="bf-header__cta"
-            to={headerCta.href}
+            href={headerCta.href}
+            rel="noopener noreferrer"
           >
             {headerCta.label}
           </BeatfitCta>
@@ -221,7 +222,8 @@ export function Header({
             <BeatfitCta
               variant="menu-on-dark"
               className="bf-header__menu-cta"
-              to={headerCta.href}
+              href={headerCta.href}
+              rel="noopener noreferrer"
               dir="rtl"
               onClick={() => setMenuOpen(false)}
             >

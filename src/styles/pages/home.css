@@ -220,60 +220,6 @@
   will-change: opacity, transform;
 }
 
-.bf-hero__app-link {
-  position: absolute;
-  z-index: 4;
-  left: 50%;
-  bottom: 0;
-  translate: -50% 0;
-  direction: rtl;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  width: max-content;
-  max-width: 100%;
-  color: var(--bf-white);
-  font-family: var(--bf-font-text);
-  font-weight: var(--bf-weight-medium);
-  font-size: clamp(0.9rem, 1vw, 1rem);
-  line-height: 1.5;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: color 0.2s ease;
-  will-change: opacity, transform;
-}
-
-.bf-hero__app-link-label,
-.bf-hero__app-link-icon {
-  display: inline-flex;
-  align-items: center;
-}
-
-.bf-hero__app-link-icon {
-  flex: none;
-  width: 16px;
-  height: 16px;
-  line-height: 0;
-}
-
-.bf-hero__app-link-icon [data-useanimations],
-.bf-hero__app-link-icon svg {
-  display: block;
-  width: 16px !important;
-  height: 16px !important;
-}
-
-.bf-hero__app-link:hover {
-  color: var(--bf-lime);
-}
-
-.bf-hero__app-link:focus-visible {
-  color: var(--bf-lime);
-  outline: 2px solid currentColor;
-  outline-offset: 6px;
-}
-
 /*
   Proof rail — Folio/ARCO Flip accordion on the floor (physical left in RTL).
   closed = thin spine pills, one open metric page.
@@ -537,8 +483,7 @@
 .bf-hero.is-entered .bf-hero-feat,
 .bf-hero.is-entered .bf-hero-proof,
 .bf-hero.is-entered .bf-hero__title,
-.bf-hero.is-entered .bf-hero__lede,
-.bf-hero.is-entered .bf-hero__app-link {
+.bf-hero.is-entered .bf-hero__lede {
   will-change: auto;
 }
 
@@ -584,14 +529,6 @@
     text-align: center;
   }
 
-  .bf-hero__app-link {
-    position: relative;
-    inset: auto;
-    order: 3;
-    translate: none;
-    align-self: center;
-  }
-
   .bf-hero__proof {
     display: none;
   }
@@ -621,10 +558,6 @@
 
   .bf-hero__composition {
     width: min(100%, 300px);
-  }
-
-  .bf-hero__app-link {
-    font-size: 0.86rem;
   }
 
   .bf-hero__copy {
