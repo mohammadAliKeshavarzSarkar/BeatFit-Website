@@ -16,3 +16,9 @@
 | BF-CLAIM-08 | Infrastructure | Production Google | Verify hosted page and Search Console selected canonical after owner access exists | Actual live HTTP and first-party property evidence |
 
 **Document constraints:** No fabricated lab accuracy or traffic numbers, no medical prescriptions, no fake publication update date, no automatic PR merge.
+
+## Dated evidence update — 2026-11-21
+
+- `BF-CLAIM-02` (2017 wrist-versus-forearm study): **RESOLVED FOR THE PRECISE SOURCE SENTENCE**. [2017 study resolution](../verification/2026-11-21-sensor-2017-claim-resolution.md) verifies the named-device ranking via PubMed and published scholarly review. This is not an endorsement of untested devices, a full literature review or medical advice.
+- `BF-CLAIM-07` (Zone 2 article CTA): **DRAFT PR #10 CREATED; BUILD/BROWSER TESTED; OWNER APPROVAL PENDING**. Proposed `/athlete` destination, preserving separate `/demo` common footer. [CI evidence](../verification/2026-11-21-zones-cta-pr10-ci.md). Do not claim conversion gains without instrumentation.
+- Parallel Draft PR #8 modifies different article content; both edits require integrated QA on the release candidate if approved.

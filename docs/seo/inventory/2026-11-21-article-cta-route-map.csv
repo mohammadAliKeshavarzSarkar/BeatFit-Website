@@ -1,0 +1,8 @@
+source_module,article_slug,editorial_audience,main_article_cta_main,proposed_article_cta,change_status,shared_template_footer,source_revision
+heartRateZones,زون-های-ضربان-قلب,athlete,/demo,/athlete,PR10_REVIEW_ONLY,/demo,7d5dddbb5636647fe66b7294a8ec890bbb9c508e
+groupClassIntensity,کنترل-شدت-تمرین-در-کلاس-گروهی,coach,/coach,/coach,NO_CHANGE,/demo,7d5dddbb5636647fe66b7294a8ec890bbb9c508e
+gymHeartRateMonitoring,پایش-ضربان-قلب-در-باشگاه,gym_buyer,/demo,/demo,NO_CHANGE,/demo,7d5dddbb5636647fe66b7294a8ec890bbb9c508e
+trainingHistory,تاریخچه-تمرین,athlete,/athlete,/athlete,NO_CHANGE,/demo,7d5dddbb5636647fe66b7294a8ec890bbb9c508e
+trainingLoad,بار-تمرینی-چیست,athlete,/athlete,/athlete,NO_CHANGE,/demo,7d5dddbb5636647fe66b7294a8ec890bbb9c508e
+heartRateSensorComparison,مقایسه-سنسور-ضربان-قلب,athlete,/athlete,/athlete,NO_CHANGE,/demo,7d5dddbb5636647fe66b7294a8ec890bbb9c508e
+groupClassDesign,طراحی-تمرین-گروهی,coach,/coach,/coach,NO_CHANGE,/demo,7d5dddbb5636647fe66b7294a8ec890bbb9c508e

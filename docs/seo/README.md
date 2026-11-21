@@ -24,6 +24,10 @@ This is the **single source of truth for BeatFit-specific SEO documentation**: r
 | Inventory | [Zones and sensors source-to-claim matrix](inventory/2026-11-21-zones-and-sensors-claim-matrix.csv) | Exact Persian anchors, source URLs, review status and action |
 | Strategy | [Claim-specific review backlog](strategy/2026-11-21-zones-sensors-follow-up-backlog.md) | Scientific/owner verification, scoped SEO copy and implementation gates |
 | Verification | [Draft PR #8 Zone 2 QA record](verification/2026-11-21-zone2-pr8-qa.md) | Exact pinned review revision, Build/254 checks/Chromium PASS; scientific review outstanding |
+| Audit | [2017 sensor study + article CTA audit](audits/2026-11-21-2017-study-and-cta-audit.md) | Resolved narrow 2017 comparison and identified athlete CTA routing inconsistency |
+| Verification | [2017 sensor study claim resolution](verification/2026-11-21-sensor-2017-claim-resolution.md) | PubMed/peer-reviewed review comparison and device-specific caveats |
+| Inventory | [Article-specific CTA destination map](inventory/2026-11-21-article-cta-route-map.csv) | All seven article CTAs, unchanged common footer and Draft PR #10 destination |
+| Verification | [Draft PR #10 build/browser evidence](verification/2026-11-21-zones-cta-pr10-ci.md) | 254 generated SEO checks and successful mobile click-through |
 | Operations | [GitHub PR state reconciliation](operations/2026-11-21-repository-state-reconciliation.md) | Actual merged/open state on 2026-11-21, distinct from deployed release |
 | Inventory | [Article citation register](inventory/2026-11-21-article-citation-register.csv) | 47 source rows / 43 distinct URLs; verification scope explicit |
 | Inventory | [Article editorial metadata](inventory/2026-11-21-article-editorial-inventory.csv) | Dates, FAQ/source counts and unknown reviewer fields |
@@ -103,3 +107,8 @@ A bounded Persian public-web discovery sample is now recorded; it is not a geogr
 
 - [Bounded 22-claim physiological/sensor audit](audits/2026-11-21-zones-and-sensors-claim-review.md), [source-to-claim matrix](inventory/2026-11-21-zones-and-sensors-claim-matrix.csv) and [follow-up backlog](strategy/2026-11-21-zones-sensors-follow-up-backlog.md) are recorded. Existing age-based arithmetic is valid as an estimate; device-specific comparisons do not validate BeatFit's own sensor accuracy.
 - [Draft PR #8 — clarify five-zone vs physiological Zone 2](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/8) has **independent real GitHub Actions QA PASS** at exact source commit `1f486da6bc1f17e73452fefcd77c7189991e96c6`: Build PASS, **254 SEO artifact checks PASS**, six-FAQ/source checks PASS, 390px Chromium note/FAQ/citation/canonical PASS, tracked-public drift PASS. [Verified evidence](verification/2026-11-21-zone2-pr8-qa.md). **Still DRAFT / not merged or deployed; scientific/editorial acceptance and production/GSC verification outstanding.**
+
+## Article CTA review — Draft PR #10 (2026-11-21)
+
+- [Draft PR #10 — Align heart-rate-zones article CTA with athlete journey](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/10) changes **one `href`** from `/demo` to `/athlete` while preserving the template's separate `درخواست دمو` link. Exact source commit `a1d7cecea2547b68ff8c293a197856cb1d5968f5` passed independent real CI/254 SEO checks and mobile Chromium click test [44879013001](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/44879013001). **Open Draft, not merged/deployed**. Audience and conversion effect unmeasured.
+- The 2017 wrist-versus-forearm sensor comparison is supported for the named devices, resolving prior S08 at the narrow claim level. [Dated evidence](verification/2026-11-21-sensor-2017-claim-resolution.md). Product-specific sensor validation remains separate.

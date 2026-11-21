@@ -248,3 +248,18 @@ Every new work session will append an entry with exact revision, findings, test 
 - Corrected `docs/seo/README.md` and BF-SEO-D014 to reflect merged status of the generated SEO checker. Prior status reports remain historical.
 - The website `main` now includes GSC verification assets from a separately authored header/GSC commit. A verification file alone is **not** Search Console search-performance, index or URL Inspection evidence; no property connection was accessed.
 - Recorded [GitHub PR and main reconciliation](2026-11-21-repository-state-reconciliation.md) without merging PRs or publishing the website.
+
+## BF-SEO-RUN-018 — 2026-11-21 — 2017 study verification and audience-aligned article CTA
+
+**Source before proposed CTA code change:** `7d5dddbb5636647fe66b7294a8ec890bbb9c508e`; source audit independent of deployed HTTP.
+
+- Revisited Gillinov et al. (2017), PMID 28709155, and compared published review Table 3 to the existing Persian sensor article. The exact cautious claim that **some named wrist devices outperformed a specified optical forearm monitor** is supported: Apple Watch ECG concordance about `r_c=0.92` versus Scosche Rhythm+ forearm about `r_c=0.75` in a 50-person study; Polar H7 chest reference about `0.99`. These are study/device-specific values, not universal accuracy percentages.
+- Marked earlier S08/`BF-CLAIM-02` **resolved narrowly** via a dated addendum; the historical evidence matrix was preserved unchanged. No sensor article source text was modified.
+- Read all seven article CTA blocks, shared `BlogArticle.tsx` footer, `src/content/demo.ts`, `src/components/DemoForm.tsx` and the athlete landing page. Found the zones article athlete-specific CTA pointed to `/demo`'s **gym/club** request form while its peer athlete-focused articles pointed to `/athlete`. The common footer `/demo` link remained a separate existing CTA.
+- Created [Draft PR #10](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/10), exact source commit `a1d7cecea2547b68ff8c293a197856cb1d5968f5`, changing just the zone article `href: "/demo"` to `"/athlete"`. One English preflight document in `docs/seo` was added on that review branch; no meta, Persian text, H1 or date changes.
+- GitHub [standard CI 44878957309](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/44878957309) and independent [pinned Chromium QA 44879013001](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/44879013001) both concluded **SUCCESS**. Actual build PASS, **254 SEO output checks**, clean tracked-public diff, 390×844 browser click to `/athlete`, H1/canonical and preserved `/demo` footer PASS.
+- The demo form still has source `onSubmit={event => event.preventDefault()}` and no apparent network handler in component. Do not claim conversion capture or SEO uplift based on a tested link.
+- PR #8 scientific Zone 2 edits and PR #10 CTA edits touch different lines of one article. They require a separate **combined revision acceptance run** if both are approved.
+- No merge/deploy, production IIS, Google indexing, analytics or product-owner conversion review occurred.
+
+**Artifacts:** [2017 claim and CTA audit](../audits/2026-11-21-2017-study-and-cta-audit.md), [source CTA route map](../inventory/2026-11-21-article-cta-route-map.csv), [PR #10 CI record](../verification/2026-11-21-zones-cta-pr10-ci.md), [2017 study resolution](../verification/2026-11-21-sensor-2017-claim-resolution.md).
