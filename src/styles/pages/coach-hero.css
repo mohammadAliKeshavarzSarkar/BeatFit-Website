@@ -1,0 +1,158 @@
+/* ——— Coach hero ——— */
+/* Figma: copy left 767 top 338 / 518; laptop mockup fully visible on the left */
+.bf-coach-hero {
+  position: relative;
+  overflow: hidden;
+  background: #163a27;
+  color: var(--bf-white);
+}
+
+.bf-coach-hero__stage {
+  position: relative;
+  display: grid;
+  /* Keep laptop left / copy right regardless of page RTL */
+  direction: ltr;
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, 576px);
+  align-items: center;
+  gap: clamp(24px, 4vw, 56px);
+  width: 100%;
+  min-height: 100svh;
+  padding-block: 112px 48px;
+  padding-inline: var(--bf-pad-inline);
+  box-sizing: border-box;
+}
+
+.bf-coach-hero__media {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  max-width: 920px;
+  margin: 0;
+  justify-self: start;
+}
+
+.bf-coach-hero__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: min(72vh, 680px);
+  aspect-ratio: 1553 / 1013;
+  object-fit: contain;
+  object-position: center left;
+  user-select: none;
+  pointer-events: none;
+}
+
+.bf-coach-hero__copy {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 576px;
+  justify-self: end;
+}
+
+.bf-coach-hero__title {
+  margin: 0;
+  font-family: var(--bf-font-display);
+  font-weight: var(--bf-weight-bold);
+  font-size: clamp(1.75rem, calc(100vw * 48 / 1440), 3rem);
+  line-height: calc(75 / 48);
+  text-align: justify;
+  color: #ffffff;
+}
+
+.bf-coach-hero__body {
+  margin: 30px 0 0;
+  max-width: 572px;
+  font-weight: var(--bf-weight-light);
+  font-size: clamp(0.95rem, calc(100vw * 20 / 1440), 1.25rem);
+  line-height: calc(30 / 20);
+  text-align: justify;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+@media (max-width: 960px) {
+  .bf-coach-hero__stage {
+    grid-template-columns: 1fr;
+    justify-content: flex-end;
+    padding-top: 112px;
+    padding-bottom: 36px;
+  }
+
+  .bf-coach-hero__media {
+    order: -1;
+    max-width: 560px;
+    margin-inline: auto;
+  }
+
+  .bf-coach-hero__media img {
+    max-height: 42vh;
+  }
+
+  .bf-coach-hero__copy {
+    justify-self: stretch;
+    max-width: 36rem;
+  }
+
+  .bf-coach-hero__title,
+  .bf-coach-hero__body {
+    text-align: right;
+  }
+}
+
+/* Athlete hero: same shell as coach, phone mockup instead of laptop */
+.bf-athlete-hero .bf-coach-hero__media {
+  max-width: 420px;
+}
+
+.bf-athlete-hero .bf-coach-hero__media img {
+  max-height: min(78vh, 720px);
+  aspect-ratio: 921 / 1708;
+  object-position: center bottom;
+}
+
+@media (max-width: 960px) {
+  .bf-athlete-hero .bf-coach-hero__stage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    gap: clamp(28px, 5vh, 40px);
+    min-height: 100svh;
+    padding: clamp(96px, 14vh, 112px) var(--bf-pad-inline)
+      clamp(28px, 6vh, 48px);
+    box-sizing: border-box;
+  }
+
+  .bf-athlete-hero .bf-coach-hero__copy {
+    order: 1;
+    justify-self: stretch;
+    width: 100%;
+    max-width: none;
+    margin-inline: 0;
+  }
+
+  .bf-athlete-hero .bf-coach-hero__title,
+  .bf-athlete-hero .bf-coach-hero__body {
+    text-align: right;
+    width: 100%;
+    max-width: none;
+  }
+
+  .bf-athlete-hero .bf-coach-hero__body {
+    margin-top: clamp(18px, 4vw, 30px);
+  }
+
+  .bf-athlete-hero .bf-coach-hero__media {
+    order: 2;
+    align-self: center;
+    max-width: min(100%, 320px);
+    margin-inline: auto;
+  }
+
+  .bf-athlete-hero .bf-coach-hero__media img {
+    max-height: min(48vh, 520px);
+    object-fit: contain;
+    object-position: center center;
+  }
+}

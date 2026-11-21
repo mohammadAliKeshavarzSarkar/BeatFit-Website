@@ -1,0 +1,81 @@
+/**
+ * Beat Fit Design System — Source of Truth
+ * Translates Apple Fitness+ layout grammar onto Beat Fit brand tokens.
+ * Do not introduce colors, radii, or stroke weights outside these tokens.
+ */
+
+:root {
+  /* ——— Color ——— */
+  --bf-forest: #163a27;
+  --bf-lime: #c4ff1a;
+  --bf-sage: #bed5cd;
+  --bf-mint: #e3f9f1;
+  --bf-gray: #f2f2f2;
+  --bf-white: #ffffff;
+  --bf-ink: #2a2e2c;
+
+  --bf-text: var(--bf-forest);
+  --bf-text-muted: color-mix(in srgb, var(--bf-forest) 70%, transparent);
+  --bf-text-on-dark: var(--bf-mint);
+  --bf-surface: var(--bf-gray);
+  --bf-well: var(--bf-white);
+  --bf-accent: var(--bf-lime);
+  --bf-line: var(--bf-sage);
+  --bf-fill-dark: var(--bf-forest);
+
+  /* ——— Shape ——— */
+  --bf-radius: 25px;
+
+  /* ——— Stroke (max 3px) ——— */
+  --bf-stroke-1: 1px;
+  --bf-stroke-2: 2px;
+  --bf-stroke-3: 3px;
+
+  /* ——— Typography roles ——— */
+  --bf-font-display: "Dana", system-ui, sans-serif;
+  --bf-font-text: "Dana", system-ui, sans-serif;
+  --bf-font-numeric: "Dana", system-ui, sans-serif;
+
+  --bf-weight-thin: 100;
+  --bf-weight-extralight: 200;
+  --bf-weight-light: 300;
+  --bf-weight-regular: 400;
+  --bf-weight-medium: 500;
+  --bf-weight-demibold: 600;
+  --bf-weight-bold: 700;
+  --bf-weight-extrabold: 800;
+  --bf-weight-black: 900;
+
+  --bf-fs-hero: clamp(2.5rem, 6vw, 4.5rem);
+  --bf-fs-section: clamp(1.4rem, 2.4vw, 2.15rem);
+  --bf-fs-card-title: clamp(1.125rem, 2vw, 1.5rem);
+  --bf-fs-body: clamp(0.95rem, 1.2vw, 1.125rem);
+  --bf-fs-caption: 0.875rem;
+  --bf-fs-metric: clamp(2rem, 4vw, 3.5rem);
+  --bf-fs-metric-label: 0.75rem;
+
+  --bf-lh-tight: 1.15;
+  --bf-lh-body: 1.7;
+
+  /* ——— Layout ——— */
+  --bf-space-1: 8px;
+  --bf-space-2: 16px;
+  --bf-space-3: 24px;
+  --bf-space-4: 32px;
+  --bf-space-5: 40px;
+  --bf-space-6: 64px;
+  --bf-space-7: 96px;
+  --bf-space-8: 128px;
+
+  --bf-content: 1120px;
+  --bf-content-wide: 1280px;
+  --bf-pad-inline: clamp(20px, 4vw, 48px);
+  --bf-section-gap: clamp(72px, 12vw, 128px);
+  --bf-card-pad: clamp(24px, 3vw, 40px);
+
+  --bf-shadow-soft: 0 8px 32px color-mix(in srgb, var(--bf-forest) 6%, transparent);
+
+  /* ——— Motion ——— */
+  --bf-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --bf-duration: 280ms;
+}

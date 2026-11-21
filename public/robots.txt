@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /route-html/
+
+Sitemap: http://beatfit.ir/sitemap.xml

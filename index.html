@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/favicon.png" type="image/png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+
+    <!-- bf:seo -->
+    <title>بیت‌فیت | مانیتورینگ زنده ضربان قلب و مدیریت تمرین</title>
+    <meta
+      name="description"
+      content="بیت‌فیت پلتفرم مانیتورینگ زنده ضربان قلب، زون و شدت تمرین برای ورزشکار، مربی و باشگاه است؛ از تمرین زنده تا تاریخچه و پیشرفت."
+    />
+    <link rel="canonical" href="http://beatfit.ir/" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="بیت‌فیت" />
+    <meta property="og:locale" content="fa_IR" />
+    <meta property="og:title" content="بیت‌فیت | مانیتورینگ زنده ضربان قلب و مدیریت تمرین" />
+    <meta
+      property="og:description"
+      content="بیت‌فیت پلتفرم مانیتورینگ زنده ضربان قلب، زون و شدت تمرین برای ورزشکار، مربی و باشگاه است؛ از تمرین زنده تا تاریخچه و پیشرفت."
+    />
+    <meta property="og:url" content="http://beatfit.ir/" />
+    <meta property="og:image" content="http://beatfit.ir/images/seo/beatfit-og.webp" />
+    <meta property="og:image:alt" content="بیت‌فیت، پایش زنده ضربان قلب و تمرین" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="بیت‌فیت | مانیتورینگ زنده ضربان قلب و مدیریت تمرین" />
+    <meta
+      name="twitter:description"
+      content="بیت‌فیت پلتفرم مانیتورینگ زنده ضربان قلب، زون و شدت تمرین برای ورزشکار، مربی و باشگاه است؛ از تمرین زنده تا تاریخچه و پیشرفت."
+    />
+    <meta name="twitter:image" content="http://beatfit.ir/images/seo/beatfit-og.webp" />
+    <!-- /bf:seo -->
+    <style>
+      /* Pre-React lock: hide home shell/hero from first paint until intro hands off */
+      html.bf-intro-active,
+      html.bf-intro-active body {
+        background: #f2f2f2;
+        overflow: hidden;
+      }
+      html.bf-intro-active .bf-home-shell {
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+      }
+    </style>
+    <script>
+      (function () {
+        try {
+          var path = location.pathname;
+          if (path !== "/" && path !== "") return;
+          if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+          if (sessionStorage.getItem("bf-home-intro-seen") === "1") return;
+          document.documentElement.classList.add("bf-intro-active");
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <!-- bf:static -->
+    <main id="bf-static-seo" lang="fa" dir="rtl">
+      <h1>با بیت فیت ضربان به ضربان، بدنت رو بساز.</h1>
+      <p>ضربان قلبت رو لحظه‌ای ببین و مسیر پیشرفتت رو دنبال کن.</p>
+    </main>
+    <script>var bfStaticSeo=document.getElementById("bf-static-seo");if(bfStaticSeo)bfStaticSeo.remove();</script>
+    <!-- /bf:static -->
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

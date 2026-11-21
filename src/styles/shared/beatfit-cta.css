@@ -1,0 +1,547 @@
+/* Unified CTA control — layout + hovers; page CSS may add margins/size tweaks */
+
+.bf-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  font-family: var(--bf-font-text);
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background 160ms ease,
+    color 160ms ease,
+    opacity 160ms ease,
+    transform 180ms var(--bf-ease);
+}
+
+.bf-cta__label {
+  line-height: 1;
+}
+
+.bf-cta__icon {
+  display: inline-grid;
+  place-items: center;
+  flex-shrink: 0;
+  line-height: 0;
+  --bf-cta-icon-size: 20px;
+  width: var(--bf-cta-icon-size);
+  height: var(--bf-cta-icon-size);
+}
+
+.bf-cta__icon svg,
+.bf-cta__icon [data-useanimations] {
+  display: block;
+  width: var(--bf-cta-icon-size) !important;
+  height: var(--bf-cta-icon-size) !important;
+}
+
+.bf-cta--banner-on-dark .bf-cta__icon,
+.bf-cta--menu-on-dark .bf-cta__icon,
+.bf-cta--closing-forest .bf-cta__icon {
+  --bf-cta-icon-size: 22px;
+}
+
+.bf-cta--blog-foot .bf-cta__icon {
+  --bf-cta-icon-size: 20px;
+}
+
+.bf-gym-banner-b__cta,
+.bf-gym-closing__cta {
+  margin-inline-start: auto;
+}
+
+.bf-gym-closing__cta.bf-cta--closing-forest {
+  direction: ltr;
+}
+
+.bf-cta--icon-leading {
+  flex-direction: row-reverse;
+}
+
+.bf-cta--icon-trailing {
+  flex-direction: row;
+}
+
+/* Dark banner / coach tools pill (outline on image) */
+.bf-cta--banner-on-dark,
+.bf-athlete-banner__cta,
+.bf-gym-banner-b__cta,
+.bf-coach-tools__cta {
+  gap: 14px;
+  width: min(100%, 273px);
+  max-width: 100%;
+  height: 48px;
+  padding: 0 21px;
+  border: 1px solid #ffffff;
+  border-radius: 50px;
+  font-weight: var(--bf-weight-light);
+  font-size: 18px;
+  line-height: 1;
+  color: #ffffff;
+}
+
+.bf-coach-tools__cta {
+  gap: 12px;
+  width: auto;
+  min-width: 168px;
+  font-size: 16px;
+}
+
+/* Outline pill hovers use skew sweep below — no instant fill */
+
+/* Green closing card (filled) */
+.bf-cta--closing-forest,
+.bf-gym-closing__cta {
+  gap: 14px;
+  width: min(100%, 273px);
+  max-width: 100%;
+  height: 48px;
+  padding: 0 21px;
+  border-radius: 50px;
+  background: #163a27;
+  font-weight: var(--bf-weight-light);
+  font-size: 18px;
+  line-height: 1;
+  color: #ffffff;
+}
+
+.bf-cta--closing-forest:hover,
+.bf-gym-closing__cta:hover {
+  background: color-mix(in srgb, #163a27 88%, #000);
+}
+
+/* Header desktop — tone follows .bf-header.is-solid (see bottom of file) */
+.bf-cta--header-outline,
+.bf-header__cta {
+  gap: 0.55rem;
+  min-height: 44px;
+  padding: 0 20px;
+  border: 1.5px solid currentColor;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: var(--bf-weight-medium);
+  color: inherit;
+  background-color: transparent;
+}
+
+/* Transparent header on dark hero / forest page */
+.bf-header:not(.is-solid) .bf-cta--header-outline,
+.bf-header:not(.is-solid) .bf-header__cta,
+.bf-header.bf-header--overlay-mode .bf-cta--header-outline,
+.bf-header.bf-header--overlay-mode .bf-header__cta {
+  color: var(--bf-white);
+  border-color: var(--bf-white);
+}
+
+/* White header bar (scrolled home, resources, inner pages) */
+.bf-header.is-solid .bf-cta--header-outline,
+.bf-header.is-solid .bf-header__cta {
+  color: var(--bf-forest);
+  border-color: var(--bf-forest);
+  background-color: transparent;
+}
+
+/* Mobile menu CTA — drawer styles finalized under .bf-nav--mobile below */
+.bf-cta--menu-on-dark:not(.bf-header__menu-cta) {
+  gap: 14px;
+  width: min(100%, 320px);
+  max-width: 100%;
+  height: 48px;
+  padding: 0 21px;
+  border: 1px solid #ffffff;
+  border-radius: 50px;
+  font-weight: var(--bf-weight-light);
+  font-size: 18px;
+  line-height: 1;
+  color: #ffffff;
+  background-color: transparent;
+}
+
+
+/* Resources / inline text + arrow */
+.bf-cta--inline-more {
+  gap: 18px;
+  padding: 10px;
+  font-weight: var(--bf-weight-light);
+  font-size: 18px;
+  line-height: 27px;
+  color: #000000;
+}
+
+.bf-cta--inline-more:hover {
+  opacity: 0.7;
+}
+
+/*
+ * Article-card CTA — compact outline for home blogs + resources cards.
+ * Distinct from .bf-cta--blog-foot (larger in-article / footer control).
+ */
+.bf-cta--blog-card {
+  gap: 6px;
+  height: 32px;
+  min-height: 32px;
+  padding: 0 12px;
+  border: 1px solid #163a27;
+  border-radius: 999px;
+  background: transparent;
+  color: #163a27;
+  font-size: 0.8125rem;
+  font-weight: var(--bf-weight-medium);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.bf-cta--blog-card .bf-cta__icon {
+  --bf-cta-icon-size: 14px;
+}
+
+.bf-cta--blog-card:focus-visible {
+  outline: var(--bf-stroke-2) solid var(--bf-lime);
+  outline-offset: 3px;
+}
+
+/* Contact form submit */
+.bf-cta--contact-submit,
+.bf-contact__submit {
+  gap: 0.55rem;
+  min-height: 44px;
+  padding: 0 20px;
+  border: 1.5px solid var(--bf-forest);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--bf-forest);
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: var(--bf-weight-medium);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* Blog article footer / in-article CTA — larger than card CTAs */
+.bf-cta--blog-foot,
+.bf-blog-post__foot-cta {
+  gap: 8px;
+  height: 48px;
+  min-height: 48px;
+  padding: 0 28px;
+  border: 1px solid #163a27;
+  border-radius: 50px;
+  background: transparent;
+  font-weight: var(--bf-weight-light);
+  font-size: 18px;
+  line-height: 1;
+  color: #163a27;
+  white-space: nowrap;
+}
+
+/* blog-foot outline hover — skew sweep below */
+
+/* Coach secondary circle */
+.bf-cta--icon-circle,
+.bf-coach-tools__mini-cta {
+  width: 44px;
+  height: 44px;
+  border: 1.5px solid #000;
+  border-radius: 50%;
+  color: #000;
+}
+
+/* Demo form submit */
+.bf-cta--demo-submit,
+.bf-demo__submit {
+  gap: 12px;
+  align-self: flex-start;
+  min-height: 51px;
+  margin-top: 8px;
+  padding: 0 clamp(24px, 4vw, 36px);
+  border-radius: 50px;
+  background: #163a27;
+  color: #ffffff;
+  font-weight: var(--bf-weight-light);
+  font-size: 18px;
+  line-height: 1;
+}
+
+.bf-cta--demo-submit:hover,
+.bf-demo__submit:hover {
+  background: color-mix(in srgb, #163a27 88%, #000);
+}
+
+.bf-cta--demo-submit .bf-cta__icon {
+  --bf-cta-icon-size: 22px;
+}
+
+/* Hero email bar action */
+.bf-cta--hero-signup,
+.bf-hero__signup-go {
+  flex-shrink: 0;
+  gap: 8px;
+  height: 44px;
+  padding: 0 18px;
+  border-radius: 999px;
+  background: var(--bf-white);
+  color: #1a1a1a;
+  font-size: 0.95rem;
+  font-weight: var(--bf-weight-bold);
+  line-height: 1;
+}
+
+.bf-cta--hero-signup:hover,
+.bf-hero__signup-go:hover {
+  background: color-mix(in srgb, var(--bf-white) 88%, var(--bf-gray));
+}
+
+.bf-cta--hero-signup .bf-cta__icon {
+  --bf-cta-icon-size: 18px;
+}
+
+@media (max-width: 520px) {
+  .bf-cta--hero-signup,
+  .bf-hero__signup-go {
+    padding: 0 14px;
+    font-size: 0.875rem;
+  }
+}
+
+/* ——— Outline CTA: skewed fill sweep on hover (filled variants unchanged) ——— */
+
+.bf-cta--banner-on-dark,
+.bf-athlete-banner__cta,
+.bf-gym-banner-b__cta,
+.bf-coach-tools__cta,
+.bf-cta--menu-on-dark,
+.bf-header__menu-cta,
+.bf-cta--contact-submit,
+.bf-contact__submit,
+.bf-cta--blog-card,
+.bf-cta--blog-foot,
+.bf-blog-post__foot-cta,
+.bf-header .bf-cta--header-outline,
+.bf-header .bf-header__cta {
+  position: relative;
+  overflow: hidden;
+  transition:
+    color 0.65s ease,
+    opacity 160ms ease,
+    transform 180ms var(--bf-ease);
+}
+
+.bf-cta--banner-on-dark::before,
+.bf-athlete-banner__cta::before,
+.bf-gym-banner-b__cta::before,
+.bf-coach-tools__cta::before,
+.bf-cta--menu-on-dark::before,
+.bf-header__menu-cta::before,
+.bf-cta--contact-submit::before,
+.bf-contact__submit::before,
+.bf-cta--blog-card::before,
+.bf-cta--blog-foot::before,
+.bf-blog-post__foot-cta::before,
+.bf-header .bf-cta--header-outline::before,
+.bf-header .bf-header__cta::before {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: -2.75rem;
+  width: 0;
+  height: 100%;
+  transform: skewX(45deg);
+  z-index: 0;
+  pointer-events: none;
+  transition: width 0.65s ease;
+}
+
+.bf-cta--banner-on-dark::before,
+.bf-athlete-banner__cta::before,
+.bf-gym-banner-b__cta::before,
+.bf-coach-tools__cta::before,
+.bf-cta--menu-on-dark::before,
+.bf-header__menu-cta::before {
+  background-color: #ffffff;
+}
+
+.bf-cta--contact-submit::before,
+.bf-contact__submit::before,
+.bf-cta--blog-card::before,
+.bf-cta--blog-foot::before,
+.bf-blog-post__foot-cta::before {
+  background-color: #163a27;
+}
+
+.bf-header:not(.is-solid) .bf-cta--header-outline::before,
+.bf-header:not(.is-solid) .bf-header__cta::before {
+  background-color: #ffffff;
+}
+
+.bf-header.is-solid .bf-cta--header-outline::before,
+.bf-header.is-solid .bf-header__cta::before {
+  background-color: var(--bf-forest);
+}
+
+.bf-cta--banner-on-dark .bf-cta__label,
+.bf-cta--banner-on-dark .bf-cta__icon,
+.bf-athlete-banner__cta .bf-cta__label,
+.bf-athlete-banner__cta .bf-cta__icon,
+.bf-gym-banner-b__cta .bf-cta__label,
+.bf-gym-banner-b__cta .bf-cta__icon,
+.bf-coach-tools__cta .bf-cta__label,
+.bf-coach-tools__cta .bf-cta__icon,
+.bf-cta--menu-on-dark .bf-cta__label,
+.bf-cta--menu-on-dark .bf-cta__icon,
+.bf-header__menu-cta .bf-cta__label,
+.bf-header__menu-cta .bf-cta__icon,
+.bf-cta--contact-submit .bf-cta__label,
+.bf-cta--contact-submit .bf-cta__icon,
+.bf-contact__submit .bf-cta__label,
+.bf-contact__submit .bf-cta__icon,
+.bf-cta--blog-card .bf-cta__label,
+.bf-cta--blog-card .bf-cta__icon,
+.bf-cta--blog-foot .bf-cta__label,
+.bf-cta--blog-foot .bf-cta__icon,
+.bf-blog-post__foot-cta .bf-cta__label,
+.bf-blog-post__foot-cta .bf-cta__icon,
+.bf-header .bf-cta--header-outline .bf-cta__label,
+.bf-header .bf-cta--header-outline .bf-cta__icon,
+.bf-header .bf-header__cta .bf-cta__label,
+.bf-header .bf-header__cta .bf-cta__icon {
+  position: relative;
+  z-index: 1;
+}
+
+.bf-cta--banner-on-dark:hover::before,
+.bf-athlete-banner__cta:hover::before,
+.bf-gym-banner-b__cta:hover::before,
+.bf-coach-tools__cta:hover::before,
+.bf-cta--menu-on-dark:hover::before,
+.bf-header__menu-cta:hover::before,
+.bf-nav--mobile.is-open .bf-header__menu-cta:hover::before,
+.bf-cta--contact-submit:hover::before,
+.bf-contact__submit:hover::before,
+.bf-cta--blog-card:hover::before,
+.bf-cta--blog-foot:hover::before,
+.bf-blog-post__foot-cta:hover::before,
+.bf-header .bf-cta--header-outline:hover::before,
+.bf-header .bf-header__cta:hover::before {
+  width: 160%;
+}
+
+.bf-cta--banner-on-dark:hover,
+.bf-athlete-banner__cta:hover,
+.bf-gym-banner-b__cta:hover,
+.bf-coach-tools__cta:hover,
+.bf-cta--menu-on-dark:hover,
+.bf-header__menu-cta:hover,
+.bf-nav--mobile.is-open .bf-header__menu-cta:hover {
+  color: #163a27;
+  background-color: transparent;
+}
+
+.bf-cta--contact-submit:hover,
+.bf-contact__submit:hover,
+.bf-cta--blog-card:hover,
+.bf-cta--blog-foot:hover,
+.bf-blog-post__foot-cta:hover {
+  color: #ffffff;
+  background-color: transparent;
+}
+
+.bf-header:not(.is-solid) .bf-cta--header-outline:hover,
+.bf-header:not(.is-solid) .bf-header__cta:hover {
+  color: var(--bf-forest);
+  border-color: #ffffff;
+  background-color: transparent;
+}
+
+.bf-header.is-solid .bf-cta--header-outline:hover,
+.bf-header.is-solid .bf-header__cta:hover {
+  color: #ffffff;
+  border-color: var(--bf-forest);
+  background-color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bf-cta--banner-on-dark::before,
+  .bf-athlete-banner__cta::before,
+  .bf-gym-banner-b__cta::before,
+  .bf-coach-tools__cta::before,
+  .bf-cta--menu-on-dark::before,
+  .bf-header__menu-cta::before,
+  .bf-cta--contact-submit::before,
+  .bf-contact__submit::before,
+  .bf-cta--blog-card::before,
+  .bf-cta--blog-foot::before,
+  .bf-blog-post__foot-cta::before,
+  .bf-header .bf-cta--header-outline::before,
+  .bf-header .bf-header__cta::before {
+    transition: none;
+  }
+
+  .bf-cta--banner-on-dark:hover::before,
+  .bf-athlete-banner__cta:hover::before,
+  .bf-gym-banner-b__cta:hover::before,
+  .bf-coach-tools__cta:hover::before,
+  .bf-cta--menu-on-dark:hover::before,
+  .bf-header__menu-cta:hover::before,
+  .bf-cta--contact-submit:hover::before,
+  .bf-contact__submit:hover::before,
+  .bf-cta--blog-card:hover::before,
+  .bf-cta--blog-foot:hover::before,
+  .bf-blog-post__foot-cta:hover::before,
+  .bf-header .bf-cta--header-outline:hover::before,
+  .bf-header .bf-header__cta:hover::before {
+    width: 100%;
+    transform: none;
+    inset-inline-start: 0;
+  }
+}
+
+.bf-cta--header-outline .bf-cta__icon,
+.bf-header__cta .bf-cta__icon {
+  --bf-cta-icon-size: 20px;
+}
+
+.bf-cta--menu-on-dark .bf-cta__icon,
+.bf-header__menu-cta .bf-cta__icon {
+  --bf-cta-icon-size: 22px;
+}
+
+/* Mobile drawer CTA: skew sweep lives inside the ring (border must not clip) */
+.bf-nav--mobile .bf-header__menu-cta.bf-cta {
+  box-sizing: border-box;
+  justify-content: center;
+  width: min(100%, 20.5rem);
+  max-width: 100%;
+  min-height: 48px;
+  padding: 0 1.5rem;
+  border: none;
+  border-radius: 50px;
+  box-shadow: inset 0 0 0 1px #ffffff;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.bf-nav--mobile .bf-header__menu-cta::before {
+  inset-block: 0;
+  inset-inline-start: -2.75rem;
+  height: 100%;
+  border-radius: 50px;
+  background-color: #ffffff;
+}
+
+.bf-nav--mobile .bf-header__menu-cta:hover,
+.bf-nav--mobile.is-open .bf-header__menu-cta:hover {
+  color: #163a27;
+  box-shadow: inset 0 0 0 1px #ffffff;
+  background-color: transparent;
+}
+
+.bf-nav--mobile .bf-header__menu-cta .bf-cta__label {
+  font-family: var(--bf-font-text);
+  font-weight: var(--bf-weight-light);
+  white-space: nowrap;
+}

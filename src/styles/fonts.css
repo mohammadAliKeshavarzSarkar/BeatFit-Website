@@ -1,0 +1,98 @@
+/**
+ * Beat Fit type roles
+ * Display  → Dana ExtraBold / Bold / Black (hero & section titles)
+ * Text     → Dana Regular / Medium / Demibold (body, nav, captions)
+ * Numeric  → Dana Bold / ExtraBold (BPM, Zone, time, load)
+ *
+ * Source files: D:\Project\BeatFit\font (Dana family, thin→black, ttf/woff/woff2)
+ */
+
+@font-face {
+  font-family: "Dana";
+  src: url("/font/dana%20thin.woff2") format("woff2"),
+    url("/font/dana%20thin.woff") format("woff"),
+    url("/font/dana%20thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Dana";
+  src: url("/font/dana%20extralight.woff2") format("woff2"),
+    url("/font/dana%20extralight.woff") format("woff"),
+    url("/font/dana%20extralight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Dana";
+  src: url("/font/dana%20light.woff2") format("woff2"),
+    url("/font/dana%20light.woff") format("woff"),
+    url("/font/dana%20light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Dana";
+  src: url("/font/dana%20regular.woff2") format("woff2"),
+    url("/font/dana%20regular.woff") format("woff"),
+    url("/font/dana%20regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Dana";
+  src: url("/font/dana%20medium.woff2") format("woff2"),
+    url("/font/dana%20medium.woff") format("woff"),
+    url("/font/dana%20medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Dana";
+  src: url("/font/dana%20demibold.woff2") format("woff2"),
+    url("/font/dana%20demibold.woff") format("woff"),
+    url("/font/dana%20demibold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Dana";
+  src: url("/font/dana%20bold.woff2") format("woff2"),
+    url("/font/dana%20bold.woff") format("woff"),
+    url("/font/dana%20bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Dana";
+  src: url("/font/dana%20extrabold.woff2") format("woff2"),
+    url("/font/dana%20extrabold.woff") format("woff"),
+    url("/font/dana%20extrabold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Dana";
+  src: url("/font/dana%20black.woff2") format("woff2"),
+    url("/font/dana%20black.woff") format("woff"),
+    url("/font/dana%20black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}

@@ -1,0 +1,14 @@
+/* ——— Live metric animation ——— */
+@keyframes bf-count-glow {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.15);
+  }
+}
+
+.bf-metric__value--live {
+  animation: bf-count-glow 2.4s ease-in-out infinite;
+}

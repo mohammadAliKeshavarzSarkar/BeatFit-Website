@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>بیت‌فیت — کاتالوگ معرفی</title>
+    <style>
+      @font-face {
+        font-family: "Dana";
+        src: url("/font/dana%20regular.woff2") format("woff2"),
+          url("/font/dana%20regular.woff") format("woff");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "Dana";
+        src: url("/font/dana%20medium.woff2") format("woff2"),
+          url("/font/dana%20medium.woff") format("woff");
+        font-weight: 500;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "Dana";
+        src: url("/font/dana%20demibold.woff2") format("woff2"),
+          url("/font/dana%20demibold.woff") format("woff");
+        font-weight: 600;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "Dana";
+        src: url("/font/dana%20bold.woff2") format("woff2"),
+          url("/font/dana%20bold.woff") format("woff");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "Dana";
+        src: url("/font/dana%20extrabold.woff2") format("woff2"),
+          url("/font/dana%20extrabold.woff") format("woff");
+        font-weight: 800;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      :root {
+        --forest: #163a27;
+        --lime: #c4ff1a;
+        --sage: #bed5cd;
+        --mint: #e3f9f1;
+        --gray: #f2f2f2;
+        --white: #ffffff;
+        --muted: color-mix(in srgb, var(--forest) 68%, transparent);
+        --radius: 22px;
+        --page-w: 210mm;
+        --page-h: 297mm;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: #d8d8d8;
+        color: var(--forest);
+        font-family: "Dana", system-ui, sans-serif;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .toolbar {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 20px;
+        background: var(--forest);
+        color: var(--mint);
+        font-size: 0.9rem;
+      }
+
+      .toolbar strong {
+        color: var(--lime);
+        font-weight: 700;
+      }
+
+      .toolbar button {
+        border: 0;
+        border-radius: 999px;
+        padding: 10px 18px;
+        background: var(--lime);
+        color: var(--forest);
+        font: inherit;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .sheet {
+        width: min(920px, calc(100vw - 32px));
+        margin: 28px auto;
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+      }
+
+      .page {
+        width: 100%;
+        aspect-ratio: 210 / 297;
+        background: var(--white);
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 18px 50px rgba(22, 58, 39, 0.18);
+        position: relative;
+        page-break-after: always;
+        break-after: page;
+      }
+
+      .page-inner {
+        position: absolute;
+        inset: 0;
+        padding: 7.5% 8%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .logo {
+        height: 28px;
+        width: auto;
+      }
+
+      .eyebrow {
+        margin: 0 0 10px;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        color: var(--muted);
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin: 0;
+        font-weight: 800;
+        line-height: 1.2;
+      }
+
+      h1 {
+        font-size: clamp(2rem, 5.2vw, 3.2rem);
+      }
+
+      h2 {
+        font-size: clamp(1.55rem, 3.4vw, 2.15rem);
+      }
+
+      h3 {
+        font-size: 1.05rem;
+        font-weight: 700;
+      }
+
+      p {
+        margin: 0;
+        line-height: 1.7;
+        color: var(--muted);
+        font-size: 0.98rem;
+      }
+
+      .lead {
+        margin-top: 14px;
+        max-width: 34ch;
+        font-size: 1.05rem;
+      }
+
+      .spacer {
+        flex: 1;
+      }
+
+      .pill-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 18px;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: var(--lime);
+        color: var(--forest);
+        font-size: 0.82rem;
+        font-weight: 700;
+      }
+
+      .pill--ghost {
+        background: color-mix(in srgb, var(--forest) 8%, transparent);
+      }
+
+      .footer-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        margin-top: auto;
+        padding-top: 18px;
+        font-size: 0.75rem;
+        color: var(--muted);
+      }
+
+      /* —— Cover —— */
+      .page--cover {
+        background: var(--forest);
+        color: var(--mint);
+      }
+
+      .page--cover p {
+        color: color-mix(in srgb, var(--mint) 78%, transparent);
+      }
+
+      .page--cover .eyebrow {
+        color: var(--lime);
+      }
+
+      .cover-hero {
+        margin-top: 28px;
+        flex: 1;
+        border-radius: var(--radius);
+        overflow: hidden;
+        background: #0f281b;
+        position: relative;
+      }
+
+      .cover-hero img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+        opacity: 0.92;
+      }
+
+      .cover-hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          color-mix(in srgb, var(--forest) 75%, transparent),
+          transparent 55%
+        );
+      }
+
+      /* —— Problem —— */
+      .duo {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+        margin-top: 22px;
+        flex: 1;
+        min-height: 0;
+      }
+
+      .athlete {
+        border-radius: var(--radius);
+        overflow: hidden;
+        background: var(--gray);
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+      }
+
+      .athlete img {
+        width: 100%;
+        flex: 1;
+        object-fit: cover;
+        min-height: 0;
+      }
+
+      .athlete-meta {
+        padding: 12px 14px 14px;
+        background: var(--white);
+        border-top: 1px solid color-mix(in srgb, var(--sage) 55%, transparent);
+      }
+
+      .athlete-meta strong {
+        display: block;
+        font-size: 0.92rem;
+        margin-bottom: 6px;
+      }
+
+      .metrics {
+        display: flex;
+        gap: 10px;
+        font-size: 0.78rem;
+        color: var(--muted);
+      }
+
+      .metrics b {
+        color: var(--forest);
+        font-weight: 800;
+      }
+
+      /* —— Product —— */
+      .stack {
+        display: grid;
+        gap: 12px;
+        margin-top: 20px;
+      }
+
+      .feature {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 14px;
+        align-items: center;
+        padding: 14px;
+        border-radius: var(--radius);
+        background: var(--gray);
+      }
+
+      .feature:nth-child(even) {
+        background: var(--mint);
+      }
+
+      .feature img {
+        width: 100%;
+        height: 120px;
+        object-fit: contain;
+        object-position: center;
+        display: block;
+      }
+
+      .feature p {
+        margin-top: 6px;
+        font-size: 0.88rem;
+      }
+
+      .narrative {
+        display: flex;
+        gap: 8px;
+        margin-top: 16px;
+      }
+
+      .narrative span {
+        flex: 1;
+        text-align: center;
+        padding: 10px 8px;
+        border-radius: 14px;
+        background: var(--forest);
+        color: var(--lime);
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+      }
+
+      /* —— Personas —— */
+      .roles {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-top: 22px;
+        flex: 1;
+        min-height: 0;
+      }
+
+      .role {
+        border-radius: var(--radius);
+        background: var(--gray);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+      }
+
+      .role img {
+        width: 100%;
+        height: 58%;
+        object-fit: contain;
+        object-position: center bottom;
+        background: color-mix(in srgb, var(--sage) 28%, var(--white));
+      }
+
+      .role-copy {
+        padding: 12px 12px 14px;
+      }
+
+      .role-copy p {
+        margin-top: 6px;
+        font-size: 0.8rem;
+        line-height: 1.55;
+      }
+
+      /* —— Close —— */
+      .page--close {
+        background:
+          linear-gradient(
+            160deg,
+            color-mix(in srgb, var(--forest) 92%, black),
+            var(--forest)
+          );
+        color: var(--mint);
+      }
+
+      .page--close p {
+        color: color-mix(in srgb, var(--mint) 80%, transparent);
+      }
+
+      .close-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 16px;
+        margin-top: 24px;
+        flex: 1;
+        min-height: 0;
+        align-items: stretch;
+      }
+
+      .close-points {
+        display: grid;
+        gap: 10px;
+        align-content: start;
+      }
+
+      .close-points div {
+        padding: 14px 16px;
+        border-radius: 16px;
+        background: color-mix(in srgb, var(--white) 8%, transparent);
+        border: 1px solid color-mix(in srgb, var(--lime) 22%, transparent);
+      }
+
+      .close-points strong {
+        display: block;
+        color: var(--lime);
+        font-size: 0.92rem;
+        margin-bottom: 4px;
+      }
+
+      .close-points p {
+        font-size: 0.84rem;
+      }
+
+      .close-visual {
+        border-radius: var(--radius);
+        overflow: hidden;
+        background: #0f281b;
+      }
+
+      .close-visual img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .contact {
+        margin-top: 18px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 18px;
+        align-items: center;
+        font-size: 0.88rem;
+        color: var(--mint);
+      }
+
+      .contact b {
+        color: var(--lime);
+      }
+
+      @media print {
+        body {
+          background: white;
+        }
+
+        .toolbar {
+          display: none !important;
+        }
+
+        .sheet {
+          width: auto;
+          margin: 0;
+          gap: 0;
+        }
+
+        .page {
+          width: var(--page-w);
+          height: var(--page-h);
+          aspect-ratio: auto;
+          border-radius: 0;
+          box-shadow: none;
+          margin: 0;
+          overflow: hidden;
+        }
+      }
+
+      @page {
+        size: A4;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="toolbar">
+      <div>
+        کاتالوگ معرفی اولیه بیت‌فیت — <strong>۵ صفحه، خلاصه</strong>
+      </div>
+      <button type="button" onclick="window.print()">چاپ / ذخیره PDF</button>
+    </div>
+
+    <div class="sheet">
+      <!-- 1. Cover -->
+      <section class="page page--cover" aria-label="جلد">
+        <div class="page-inner">
+          <img
+            class="logo"
+            src="/assets/brand/beatfit-logo-lime.svg"
+            alt="بیت‌فیت"
+          />
+          <div class="spacer" style="flex: 0.35"></div>
+          <p class="eyebrow">کاتالوگ معرفی نرم‌افزار</p>
+          <h1>تمرین را زنده ببین.</h1>
+          <p class="lead">
+            بیت‌فیت پلتفرم مانیتورینگ زنده ضربان قلب برای ورزشکار، مربی و باشگاه
+            است.
+          </p>
+          <div class="pill-row">
+            <span class="pill">LIVE</span>
+            <span class="pill">HISTORY</span>
+            <span class="pill">PROGRESS</span>
+          </div>
+          <div class="cover-hero">
+            <img
+              src="/beatfitImages/SportWoman.png"
+              alt=""
+              aria-hidden="true"
+            />
+          </div>
+          <div class="footer-meta" style="color: color-mix(in srgb, #e3f9f1 55%, transparent)">
+            <span>شناخت اولیه محصول</span>
+            <span>۱ / ۵</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. Problem -->
+      <section class="page" aria-label="مسئله">
+        <div class="page-inner">
+          <img
+            class="logo"
+            src="/assets/brand/beatfit-logo-forest.svg"
+            alt=""
+            aria-hidden="true"
+          />
+          <p class="eyebrow" style="margin-top: 28px">مسئله</p>
+          <h2>یک تمرین. دو بدن. دو شدت متفاوت.</h2>
+          <p class="lead">
+            ضربان قلب نشان می‌دهد همان تمرین، برای هر ورزشکار چه شدتی دارد.
+          </p>
+          <div class="duo">
+            <article class="athlete">
+              <img
+                src="/beatfitImages/athlete-training-01.webp"
+                alt=""
+                aria-hidden="true"
+              />
+              <div class="athlete-meta">
+                <strong>ورزشکار ۱</strong>
+                <div class="metrics">
+                  <span>ضربان <b>۱۲۸</b></span>
+                  <span>زون <b>۲</b></span>
+                  <span>شدت <b>۶۷٪</b></span>
+                </div>
+              </div>
+            </article>
+            <article class="athlete">
+              <img
+                src="/beatfitImages/athlete-training-02.webp"
+                alt=""
+                aria-hidden="true"
+              />
+              <div class="athlete-meta">
+                <strong>ورزشکار ۲</strong>
+                <div class="metrics">
+                  <span>ضربان <b>۱۷۶</b></span>
+                  <span>زون <b>۵</b></span>
+                  <span>شدت <b>۹۲٪</b></span>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="footer-meta">
+            <span>بدون داده، شدت تمرین حدس است.</span>
+            <span>۲ / ۵</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Product -->
+      <section class="page" aria-label="محصول">
+        <div class="page-inner">
+          <img
+            class="logo"
+            src="/assets/brand/beatfit-logo-forest.svg"
+            alt=""
+            aria-hidden="true"
+          />
+          <p class="eyebrow" style="margin-top: 24px">محصول</p>
+          <h2>فقط ضربان را نبینید. تمرین را بفهمید.</h2>
+          <p class="lead" style="max-width: 40ch">
+            از اتفاقی که همین حالا می‌افتد تا تغییری که در طول زمان شکل می‌گیرد.
+          </p>
+          <div class="narrative">
+            <span>LIVE</span>
+            <span>HISTORY</span>
+            <span>PROGRESS</span>
+          </div>
+          <div class="stack">
+            <article class="feature">
+              <div>
+                <h3>تمرین را در لحظه ببینید.</h3>
+                <p>ضربان قلب، زون و شدت هر ورزشکار، هم‌زمان با تمرین.</p>
+              </div>
+              <img
+                src="/beatfitImages/mockup1.png"
+                alt="نمای زنده تمرین"
+              />
+            </article>
+            <article class="feature">
+              <div>
+                <h3>مسیر پیشرفت را دنبال کنید.</h3>
+                <p>هر جلسه ثبت می‌شود تا تغییرات تمرین را در طول زمان ببینید.</p>
+              </div>
+              <img
+                src="/beatfitImages/feature.png"
+                alt="نمای پیشرفت تمرین"
+              />
+            </article>
+            <article class="feature">
+              <div>
+                <h3>یک کلاس را، یک‌جا ببینید.</h3>
+                <p>
+                  پنل مربی، Live TV و مدیریت کلاس‌ها و دستگاه‌ها از یک نقطه.
+                </p>
+              </div>
+              <img
+                src="/beatfitImages/DashboardCoach.png"
+                alt="پنل مربی"
+              />
+            </article>
+          </div>
+          <div class="footer-meta">
+            <span>داده تمرین → تصمیم بهتر</span>
+            <span>۳ / ۵</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Personas -->
+      <section class="page" aria-label="مخاطبان">
+        <div class="page-inner">
+          <img
+            class="logo"
+            src="/assets/brand/beatfit-logo-forest.svg"
+            alt=""
+            aria-hidden="true"
+          />
+          <p class="eyebrow" style="margin-top: 28px">برای شما</p>
+          <h2>بیت‌فیت برای شما چه می‌کند؟</h2>
+          <p class="lead" style="max-width: 38ch">
+            ورزشکار، مربی یا مدیر باشگاه؛ مسیر هر نقش ساده و مشخص است.
+          </p>
+          <div class="roles">
+            <article class="role">
+              <img src="/beatfitImages/user2.png" alt="" aria-hidden="true" />
+              <div class="role-copy">
+                <h3>ورزشکار</h3>
+                <p>
+                  تمرین را زنده ببینید، جلسه را مرور کنید و پیشرفتتان را دنبال
+                  کنید.
+                </p>
+              </div>
+            </article>
+            <article class="role">
+              <img src="/beatfitImages/user1.png" alt="" aria-hidden="true" />
+              <div class="role-copy">
+                <h3>مربی</h3>
+                <p>
+                  کلاس را در لحظه ببینید، شدت را هدایت کنید و عملکرد را مرور
+                  کنید.
+                </p>
+              </div>
+            </article>
+            <article class="role">
+              <img src="/beatfitImages/user3.png" alt="" aria-hidden="true" />
+              <div class="role-copy">
+                <h3>مدیر باشگاه</h3>
+                <p>
+                  مربی‌ها، ورزشکاران، کلاس‌ها و دستگاه‌ها را از یک نقطه مدیریت
+                  کنید.
+                </p>
+              </div>
+            </article>
+          </div>
+          <div class="footer-meta">
+            <span>یک محصول · سه زاویه</span>
+            <span>۴ / ۵</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. Close -->
+      <section class="page page--close" aria-label="جمع‌بندی">
+        <div class="page-inner">
+          <img
+            class="logo"
+            src="/assets/brand/beatfit-logo-lime.svg"
+            alt="بیت‌فیت"
+          />
+          <p class="eyebrow" style="margin-top: 28px; color: var(--lime)">
+            جمع‌بندی
+          </p>
+          <h2 style="color: var(--white)">تمرین را جور دیگری ببین.</h2>
+          <p class="lead">
+            بیت‌فیت را در باشگاه خود تجربه کنید — معرفی اولیه، بدون جزئیات فنی
+            اضافه.
+          </p>
+          <div class="close-grid">
+            <div class="close-points">
+              <div>
+                <strong>زنده</strong>
+                <p>وضعیت کلاس و ورزشکار را در لحظه ببینید.</p>
+              </div>
+              <div>
+                <strong>قابل مرور</strong>
+                <p>هر جلسه ثبت می‌شود و قابل بررسی است.</p>
+              </div>
+              <div>
+                <strong>قابل پیگیری</strong>
+                <p>روند تمرین در طول زمان مشخص می‌شود.</p>
+              </div>
+            </div>
+            <div class="close-visual">
+              <img
+                src="/beatfitImages/sessionsCoach2.png"
+                alt=""
+                aria-hidden="true"
+              />
+            </div>
+          </div>
+          <div class="contact">
+            <span><b>وب‌سایت</b> beatfit.ir</span>
+            <span><b>ایمیل</b> hello@beatfit.ir</span>
+            <span><b>درخواست</b> دمو</span>
+          </div>
+          <div
+            class="footer-meta"
+            style="color: color-mix(in srgb, #e3f9f1 55%, transparent)"
+          >
+            <span>کاتالوگ معرفی · نسخه خلاصه</span>
+            <span>۵ / ۵</span>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,1084 @@
+/* ——— Gym leave ——— */
+.bf-gym-leave {
+  background: var(--bf-white);
+  color: #000;
+  padding-block: clamp(64px, 8vw, 96px) clamp(72px, 9vw, 120px);
+}
+
+.bf-gym-leave__shell {
+  width: min(100% - var(--bf-pad-inline) * 2, 1340px);
+  margin-inline: auto;
+}
+
+.bf-gym-leave__title {
+  margin: 0 auto clamp(40px, 5vw, 56px);
+  max-width: 54.5rem;
+  font-family: var(--bf-font-display);
+  font-weight: var(--bf-weight-bold);
+  font-size: clamp(1.75rem, 3.2vw, 3rem);
+  line-height: 1.56;
+  text-align: center;
+  color: #000;
+}
+
+.bf-gym-leave__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 548px);
+  gap: clamp(28px, 4vw, 56px);
+  align-items: center;
+}
+
+.bf-gym-leave__media {
+  width: 100%;
+  aspect-ratio: 548 / 396;
+  border-radius: 50px;
+  background: #d9d9d9;
+
+}
+
+.bf-gym-leave__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.bf-gym-leave__item {
+  padding-block: 28px;
+}
+
+.bf-gym-leave__item + .bf-gym-leave__item {
+  border-top: 1px solid #b5b5b5;
+}
+
+.bf-gym-leave__item-head {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 14px;
+}
+
+.bf-gym-leave__icon {
+  display: inline-grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  color: #000;
+  transition: transform 220ms var(--bf-ease);
+}
+
+.bf-gym-leave__icon svg,
+.bf-gym-leave__icon [data-useanimations] {
+  display: block;
+  width: 22px;
+  height: 22px;
+}
+
+@media (hover: hover) {
+  .bf-gym-leave__item:hover .bf-gym-leave__icon,
+  .bf-gym-leave__item:focus-within .bf-gym-leave__icon {
+    transform: translateY(-2px);
+  }
+}
+
+.bf-gym-leave__item-title {
+  margin: 0;
+  font-size: clamp(1.05rem, 1.4vw, 1.375rem);
+  font-weight: var(--bf-weight-demibold);
+  line-height: 1.55;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.bf-gym-leave__item-body {
+  margin: 12px 0 0;
+  font-size: clamp(0.95rem, 1.2vw, 1.125rem);
+  font-weight: var(--bf-weight-light);
+  line-height: 1.6;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+@media (max-width: 900px) {
+  .bf-gym-leave__layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .bf-gym-leave__media {
+    max-width: 548px;
+    margin-inline: auto;
+  }
+}
+
+/* ——— Gym break banner A ——— */
+.bf-gym-banner {
+  background: var(--bf-white);
+  color: #fff;
+  padding-block: clamp(48px, 5vw, 72px);
+  overflow: visible;
+}
+
+.bf-gym-banner__shell {
+  position: relative;
+  width: min(100% - var(--bf-pad-inline) * 2, 1342px);
+  /* Group 89 */
+  height: 346px;
+  margin-inline: auto;
+  overflow: visible;
+}
+
+.bf-gym-banner__card {
+  position: absolute;
+  left: 0;
+  right: 0;
+  /* Frame 76: 124px below group top, height 222 */
+  top: 124px;
+  height: 222px;
+  box-sizing: border-box;
+  /* LTR so copy sits on the left like the Figma artboard */
+  direction: ltr;
+  padding: 48px 68px;
+  background: #163a27;
+  border-radius: 50px;
+  overflow: visible;
+}
+
+.bf-gym-banner__copy {
+  position: relative;
+  z-index: 1;
+  /* Group 71 — Figma left: 68px inside the card */
+  width: min(100%, 702px);
+  max-width: 702px;
+  direction: rtl;
+}
+
+.bf-gym-banner__title {
+  margin: 0;
+  font-family: var(--bf-font-display);
+  font-weight: var(--bf-weight-bold);
+  font-size: 32px;
+  line-height: 32px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.bf-gym-banner__body {
+  margin: 30px 0 0;
+  font-family: var(--bf-font-text);
+  font-weight: var(--bf-weight-light);
+  font-size: 18px;
+  line-height: 32px;
+  text-align: justify;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.bf-gym-banner__media {
+  position: absolute;
+  z-index: 2;
+  /* Figma: left 823 / width 552 inside 1342 group */
+  top: 0;
+  left: calc(100% * 823 / 1342);
+  width: calc(100% * 552 / 1342);
+  max-width: 552px;
+  margin: 0;
+  pointer-events: none;
+}
+
+.bf-gym-banner__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 552 / 311;
+  object-fit: contain;
+  user-select: none;
+  pointer-events: none;
+}
+
+@media (max-width: 1100px) {
+  .bf-gym-banner__title {
+    font-size: clamp(1.25rem, 2.4vw, 2rem);
+    line-height: 1.25;
+  }
+
+  .bf-gym-banner__body {
+    font-size: clamp(0.9375rem, 1.5vw, 1.125rem);
+    line-height: 1.7;
+  }
+}
+
+@media (max-width: 960px) {
+  .bf-gym-banner {
+    padding-block: clamp(40px, 8vw, 56px) clamp(48px, 8vw, 64px);
+  }
+
+  .bf-gym-banner__shell {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .bf-gym-banner__card {
+    position: relative;
+    top: auto;
+    height: auto;
+    min-height: 0;
+    order: 2;
+    direction: rtl;
+    padding: clamp(72px, 18vw, 96px) clamp(24px, 5vw, 32px)
+      clamp(24px, 5vw, 32px);
+    border-radius: clamp(28px, 8vw, 50px);
+  }
+
+  .bf-gym-banner__copy {
+    max-width: none;
+    width: 100%;
+  }
+
+  .bf-gym-banner__title {
+    text-align: justify;
+    line-height: 1.35;
+  }
+
+  .bf-gym-banner__body {
+    margin-top: clamp(18px, 4vw, 28px);
+    text-align: justify;
+    line-height: 1.75;
+  }
+
+  .bf-gym-banner__media {
+    position: relative;
+    z-index: 2;
+    top: auto;
+    left: auto;
+    order: 1;
+    width: min(100%, 480px);
+    max-width: 100%;
+    margin: 0 auto clamp(-72px, -14vw, -56px);
+  }
+}
+
+/* ——— Gym break banner B ——— */
+.bf-gym-banner-b {
+  background: var(--bf-white);
+  color: #fff;
+  padding-block: clamp(48px, 5vw, 72px);
+  overflow: visible;
+}
+
+.bf-gym-banner-b__shell {
+  position: relative;
+  width: min(100% - var(--bf-pad-inline) * 2, 1342px);
+  /* Group 91 */
+  height: 506px;
+  margin-inline: auto;
+  overflow: visible;
+}
+
+.bf-gym-banner-b__card {
+  position: absolute;
+  left: 0;
+  right: 0;
+  /* Frame 78: 205px below group top, height 301 */
+  top: 205px;
+  height: 301px;
+  box-sizing: border-box;
+  direction: ltr;
+  display: flex;
+  align-items: center;
+  padding: 38px 73px;
+  background: #163a27;
+  border-radius: 50px;
+  overflow: visible;
+}
+
+.bf-gym-banner-b__copy {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 801px);
+  max-width: 801px;
+  direction: rtl;
+}
+
+.bf-gym-banner-b__title {
+  margin: 0;
+  font-family: var(--bf-font-display);
+  font-weight: var(--bf-weight-demibold);
+  font-size: 48px;
+  line-height: 72px;
+  text-align: right;
+  color: #ffffff;
+}
+
+.bf-gym-banner-b__body {
+  margin: 0;
+  max-width: 801px;
+  font-family: var(--bf-font-text);
+  font-weight: var(--bf-weight-light);
+  font-size: 18px;
+  line-height: 32px;
+  text-align: justify;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.bf-gym-banner-b__media {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  /* Figma: image flush to group right — left 937 / width 405 of 1342 */
+  left: calc(100% * 937 / 1342);
+  width: calc(100% * 405 / 1342);
+  max-width: 405px;
+  margin: 0;
+  pointer-events: none;
+}
+
+.bf-gym-banner-b__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 405 / 506;
+  object-fit: contain;
+  object-position: bottom center;
+  user-select: none;
+  pointer-events: none;
+}
+
+@media (max-width: 1100px) {
+  .bf-gym-banner-b__title {
+    font-size: clamp(1.5rem, 3.2vw, 3rem);
+    line-height: 1.35;
+  }
+
+  .bf-gym-banner-b__body {
+    font-size: clamp(0.9375rem, 1.5vw, 1.125rem);
+    line-height: 1.7;
+  }
+}
+
+@media (max-width: 960px) {
+  .bf-gym-banner-b__shell {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    box-sizing: border-box;
+    padding: clamp(32px, 6vw, 44px) 0 0;
+    background: #163a27;
+    border-radius: clamp(28px, 8vw, 50px);
+    overflow: hidden;
+  }
+
+  .bf-gym-banner-b__card {
+    position: relative;
+    top: auto;
+    height: auto;
+    min-height: 0;
+    direction: rtl;
+    display: block;
+    padding: 0 clamp(24px, 5vw, 28px);
+    background: transparent;
+    border-radius: 0;
+  }
+
+  .bf-gym-banner-b__copy {
+    max-width: none;
+  }
+
+  .bf-gym-banner-b__title {
+    text-align: justify;
+  }
+
+  .bf-gym-banner-b__cta {
+    margin-inline: auto 0;
+    margin-top: clamp(20px, 4vw, 28px);
+  }
+
+  .bf-gym-banner-b__media {
+    position: relative;
+    z-index: 1;
+    top: auto;
+    left: auto;
+    flex-shrink: 0;
+    width: 100%;
+    max-width: none;
+    margin: clamp(28px, 6vw, 40px) 0 0;
+    padding: 0;
+    line-height: 0;
+  }
+
+  .bf-gym-banner-b__media img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: min(420px, 52vh);
+    margin: 0;
+    aspect-ratio: auto;
+    object-fit: contain;
+    object-position: bottom center;
+  }
+}
+
+/* ——— Gym closing CTA card ——— */
+.bf-gym-closing {
+  background: var(--bf-white);
+  padding-block: clamp(48px, 6vw, 80px) clamp(72px, 9vw, 120px);
+}
+
+.bf-gym-closing__shell {
+  width: min(100% - var(--bf-pad-inline) * 2, 1339px);
+  margin-inline: auto;
+}
+
+.bf-gym-closing__card {
+  position: relative;
+  box-sizing: border-box;
+  min-height: 744px;
+  padding: clamp(40px, 5vw, 72px) clamp(28px, 4vw, 58px);
+  border-radius: 50px;
+  overflow: hidden;
+  background-color: #f3f3f3;
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-size: cover;
+  direction: ltr;
+}
+
+.bf-gym-closing__copy {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 554px);
+  max-width: 554px;
+  direction: rtl;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.bf-gym-closing__title {
+  margin: 0;
+  max-width: 543px;
+  font-family: var(--bf-font-display);
+  font-weight: var(--bf-weight-bold);
+  font-size: clamp(1.75rem, calc(100vw * 48 / 1440), 3rem);
+  line-height: calc(75 / 48);
+  text-align: justify;
+  color: #000000;
+}
+
+.bf-gym-closing__question {
+  margin: 27px 0 0;
+  max-width: 410px;
+  margin-inline-start: auto;
+  font-family: var(--bf-font-display);
+  font-weight: var(--bf-weight-demibold);
+  font-size: clamp(1.05rem, calc(100vw * 22 / 1440), 1.375rem);
+  line-height: calc(34 / 22);
+  text-align: right;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.bf-gym-closing__body {
+  margin: 30px 0 0;
+  font-family: var(--bf-font-text);
+  font-weight: var(--bf-weight-regular);
+  font-size: clamp(0.9375rem, calc(100vw * 18 / 1440), 1.125rem);
+  line-height: calc(27 / 18);
+  text-align: justify;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.bf-gym-closing__cta {
+  margin-top: 30px;
+}
+
+@media (max-width: 960px) {
+  .bf-gym-banner,
+  .bf-gym-banner-b {
+    overflow-x: clip;
+  }
+
+  .bf-gym-banner__shell,
+  .bf-gym-banner-b__shell {
+    overflow: visible;
+  }
+
+  .bf-gym-closing__card {
+    min-height: 0;
+    padding-block: 40px min(280px, 48vh);
+    border-radius: clamp(28px, 8vw, 50px);
+    background-position: 70% bottom;
+    background-size: auto 55%;
+  }
+
+  .bf-gym-closing__copy {
+    max-width: none;
+    width: 100%;
+  }
+
+  .bf-gym-closing__question {
+    max-width: none;
+  }
+
+  .bf-gym-closing__cta {
+    margin-inline: auto 0;
+  }
+
+  .bf-gym-seen {
+    overflow-x: clip;
+  }
+}
+
+@media (max-width: 520px) {
+  .bf-gym-banner-b__cta,
+  .bf-gym-closing__cta,
+  .bf-athlete-banner__cta {
+    width: 100%;
+    max-width: 100%;
+    margin-inline: 0;
+  }
+
+  .bf-gym-closing__title,
+  .bf-gym-closing__body {
+    text-align: right;
+  }
+}
+
+/* ——— Gym seen (staggered cards + phone) ——— */
+.bf-gym-seen {
+  background: var(--bf-white);
+  color: #000;
+  padding-block: clamp(48px, 6vw, 80px) clamp(64px, 8vw, 100px);
+  overflow: visible;
+}
+
+.bf-gym-seen__shell {
+  width: min(100% - var(--bf-pad-inline) * 2, 1354px);
+  margin-inline: auto;
+}
+
+.bf-gym-seen__title {
+  margin: 0 auto;
+  max-width: 842px;
+  font-family: var(--bf-font-display);
+  font-weight: var(--bf-weight-bold);
+  font-size: clamp(1.75rem, calc(100vw * 48 / 1440), 3rem);
+  line-height: 1.56;
+  text-align: center;
+  color: #000000;
+}
+
+.bf-gym-seen__stage {
+  position: relative;
+  /* Group 90 aspect: 1354 × 917, minus starts ~181px below title band */
+  width: 100%;
+  margin-top: clamp(24px, 3vw, 40px);
+  aspect-ratio: 1354 / 842;
+  overflow: visible;
+}
+
+.bf-gym-seen__media {
+  position: absolute;
+  z-index: 2;
+  /* Figma: left 417 / top 181 relative to group; stage omits title row (~75px) */
+  top: calc(100% * (181 - 75) / (917 - 75));
+  left: calc(100% * 417 / 1354);
+  width: calc(100% * 564 / 1354);
+  margin: 0;
+  pointer-events: none;
+}
+
+.bf-gym-seen__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 564 / 618;
+  object-fit: contain;
+  user-select: none;
+  pointer-events: none;
+}
+
+.bf-gym-seen__card {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  box-sizing: border-box;
+  width: calc(100% * 474 / 1354);
+  min-height: calc(100% * 188 / 842);
+  padding: 20px;
+  gap: 20px;
+  border-radius: 30px;
+}
+
+.bf-gym-seen__card--gray {
+  background: #d9d9d9;
+  color: #000;
+}
+
+.bf-gym-seen__card--green {
+  background: #163a27;
+  color: #fff;
+}
+
+/* Staggered slots — Figma tops relative to group, minus title band (~75px) */
+.bf-gym-seen__card--tl {
+  left: 0;
+  top: calc(100% * (210 - 75) / (917 - 75));
+}
+
+.bf-gym-seen__card--tr {
+  left: calc(100% * 880 / 1354);
+  top: calc(100% * (308 - 75) / (917 - 75));
+}
+
+.bf-gym-seen__card--bl {
+  left: calc(100% * 90 / 1354);
+  top: calc(100% * (671 - 75) / (917 - 75));
+}
+
+.bf-gym-seen__card--br {
+  left: calc(100% * 782 / 1354);
+  top: calc(100% * (729 - 75) / (917 - 75));
+}
+
+.bf-gym-seen__card-title {
+  margin: 0;
+  font-family: var(--bf-font-display);
+  font-weight: var(--bf-weight-demibold);
+  font-size: clamp(1rem, calc(100vw * 22 / 1440), 1.375rem);
+  line-height: calc(32 / 22);
+  text-align: right;
+}
+
+.bf-gym-seen__card--gray .bf-gym-seen__card-title {
+  color: #000000;
+}
+
+.bf-gym-seen__card--green .bf-gym-seen__card-title {
+  color: #ffffff;
+}
+
+.bf-gym-seen__card-body {
+  margin: 0;
+  font-family: var(--bf-font-text);
+  font-weight: var(--bf-weight-light);
+  font-size: clamp(0.875rem, calc(100vw * 18 / 1440), 1.125rem);
+  line-height: calc(32 / 18);
+  text-align: justify;
+}
+
+.bf-gym-seen__card--gray .bf-gym-seen__card-body {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.bf-gym-seen__card--green .bf-gym-seen__card-body {
+  color: #ffffff;
+}
+
+@media (max-width: 960px) {
+  .bf-gym-seen__stage {
+    aspect-ratio: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+  }
+
+  .bf-gym-seen__media {
+    position: relative;
+    top: auto;
+    left: auto;
+    order: -1;
+    width: min(100%, 360px);
+    margin-inline: auto;
+  }
+
+  .bf-gym-seen__card {
+    position: relative;
+    top: auto !important;
+    left: auto !important;
+    width: 100%;
+    min-height: 0;
+  }
+
+  .bf-gym-seen__card--tl {
+    order: 1;
+  }
+
+  .bf-gym-seen__card--tr {
+    order: 2;
+  }
+
+  /* Mobile: swap «تصویر مشترک» (br) before «پیگیری هر جلسه» (bl) */
+  .bf-gym-seen__card--br {
+    order: 3;
+  }
+
+  .bf-gym-seen__card--bl {
+    order: 4;
+  }
+}
+
+/* ——— Gym quote break (mirrors home experience close) ——— */
+.bf-gym-quote {
+  background: var(--bf-white);
+  color: var(--bf-text);
+  padding-block: clamp(72px, 9vw, 120px);
+}
+
+.bf-gym-quote__shell {
+  width: min(100% - var(--bf-pad-inline) * 2, 72rem);
+  margin-inline: auto;
+  text-align: center;
+}
+
+.bf-gym-quote__title {
+  margin: 0 auto clamp(28px, 3vw, 40px);
+  max-width: 42rem;
+  font-family: var(--bf-font-display);
+  font-weight: var(--bf-weight-bold);
+  font-size: clamp(1.75rem, 3.2vw, 3rem);
+  line-height: 1.45;
+  text-wrap: balance;
+  color: #000;
+}
+
+.bf-gym-quote__block {
+  width: min(100%, 72rem);
+  margin: 0 auto;
+  padding: 0;
+  border: 0;
+  text-align: center;
+}
+
+.bf-gym-quote__block p {
+  margin: 0;
+  font-family: var(--bf-font-text);
+  font-weight: var(--bf-weight-medium);
+  font-size: clamp(1.05rem, 1.35vw, 1.5rem);
+  line-height: 1.7;
+  text-align: center;
+  text-wrap: balance;
+  color: var(--bf-text);
+}
+
+.bf-gym-quote__mark {
+  display: inline-block;
+  margin-inline: 0.28em;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  font-size: 4.05em;
+  line-height: 1;
+  vertical-align: middle;
+  color: color-mix(in srgb, var(--bf-forest) 55%, transparent);
+  unicode-bidi: isolate;
+  direction: ltr;
+}
+
+@media (max-width: 720px) {
+  .bf-gym-quote__block p {
+    font-size: 1.125rem;
+  }
+}
+
+/* ——— Gym ecosystem ——— */
+.bf-gym-eco {
+  background: var(--bf-white);
+  color: #000;
+  padding-block: clamp(48px, 6vw, 80px) clamp(32px, 4vw, 56px);
+}
+
+.bf-gym-eco__shell {
+  position: relative;
+  width: min(100% - var(--bf-pad-inline) * 2, 1342px);
+  margin-inline: auto;
+}
+
+.bf-gym-eco__hero {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  min-height: 412px;
+  padding: 52px 48px 220px;
+  background: #163a27;
+  border-radius: 50px;
+  text-align: center;
+}
+
+.bf-gym-eco__title {
+  margin: 0;
+  max-width: 558px;
+  font-family: var(--bf-font-display);
+  font-weight: var(--bf-weight-bold);
+  font-size: clamp(28px, calc(100vw * 48 / 1440), 48px);
+  line-height: 1.56;
+  color: #ffffff;
+}
+
+.bf-gym-eco__lede {
+  margin: 30px auto 0;
+  max-width: 875px;
+  font-family: var(--bf-font-text);
+  font-weight: var(--bf-weight-light);
+  font-size: clamp(15px, calc(100vw * 18 / 1440), 18px);
+  line-height: 32px;
+  color: #ffffff;
+}
+
+.bf-gym-eco__cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 43px;
+  width: min(100%, 1270px);
+  margin: -173px auto 0;
+  padding-inline: 0;
+  direction: rtl;
+}
+
+.bf-gym-eco__card {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  min-height: 453px;
+  padding: 48px 30px 24px;
+  background: #d9d9d9;
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.bf-gym-eco__card-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex: 1 1 auto;
+}
+
+.bf-gym-eco__card-title {
+  margin: 0;
+  font-family: var(--bf-font-display);
+  font-weight: var(--bf-weight-demibold);
+  font-size: 22px;
+  line-height: 1.4;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.bf-gym-eco__card-headline {
+  margin: 20px 0 0;
+  font-family: var(--bf-font-text);
+  font-weight: var(--bf-weight-medium);
+  font-size: 18px;
+  line-height: 32px;
+  text-align: right;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.bf-gym-eco__card--panel .bf-gym-eco__card-headline {
+  text-align: center;
+}
+
+.bf-gym-eco__card-body {
+  margin: 0;
+  font-family: var(--bf-font-text);
+  font-weight: var(--bf-weight-light);
+  font-size: 18px;
+  line-height: 32px;
+  text-align: justify;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.bf-gym-eco__card-media {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  flex: 0 0 auto;
+  margin: 24px 0 0;
+  min-height: 160px;
+}
+
+.bf-gym-eco__card-media img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  max-height: 185px;
+  height: auto;
+  object-fit: contain;
+}
+
+.bf-gym-eco__card--live .bf-gym-eco__card-media img {
+  max-height: 171px;
+}
+
+.bf-gym-eco__card--app .bf-gym-eco__card-media img {
+  max-height: 180px;
+}
+
+.bf-gym-eco__wear {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(200px, 274px);
+  align-items: center;
+  gap: 40px;
+  box-sizing: border-box;
+  width: min(100%, 1270px);
+  min-height: 246px;
+  margin: 36px auto 0;
+  padding: 28px 56px;
+  background: #d9d9d9;
+  border-radius: 50px;
+}
+
+.bf-gym-eco__wear-copy {
+  min-width: 0;
+}
+
+.bf-gym-eco__wear-title {
+  margin: 0;
+  font-family: var(--bf-font-display);
+  font-weight: var(--bf-weight-demibold);
+  font-size: 22px;
+  line-height: 1.4;
+  text-align: right;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.bf-gym-eco__wear-headline {
+  margin: 16px 0 0;
+  font-family: var(--bf-font-text);
+  font-weight: var(--bf-weight-medium);
+  font-size: 22px;
+  line-height: 32px;
+  text-align: right;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.bf-gym-eco__wear-body {
+  margin: 0;
+  max-width: 778px;
+  font-family: var(--bf-font-text);
+  font-weight: var(--bf-weight-light);
+  font-size: 18px;
+  line-height: 32px;
+  text-align: right;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.bf-gym-eco__wear-media {
+  margin: 0;
+  justify-self: center;
+}
+
+.bf-gym-eco__wear-media img {
+  display: block;
+  width: 100%;
+  max-width: 274px;
+  height: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 1100px) {
+  .bf-gym-eco__hero {
+    min-height: 0;
+    padding: 40px 28px 160px;
+  }
+
+  .bf-gym-eco__cards {
+    gap: 20px;
+    margin-top: -120px;
+  }
+
+  .bf-gym-eco__card {
+    min-height: 0;
+    padding: 32px 20px 20px;
+  }
+
+  .bf-gym-eco__card-title {
+    font-size: 18px;
+  }
+
+  .bf-gym-eco__card-headline,
+  .bf-gym-eco__card-body {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .bf-gym-eco__wear {
+    gap: 24px;
+    padding: 24px 32px;
+  }
+
+  .bf-gym-eco__wear-headline {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 960px) {
+  .bf-gym-eco__hero {
+    min-height: 0;
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+    text-align: center;
+    align-items: stretch;
+  }
+
+  .bf-gym-eco__title {
+    max-width: none;
+    margin-inline: auto;
+    color: #000000;
+  }
+
+  .bf-gym-eco__lede {
+    margin: clamp(16px, 4vw, 24px) auto 0;
+    max-width: none;
+    color: rgba(0, 0, 0, 0.7);
+    line-height: 1.75;
+  }
+}
+
+@media (max-width: 860px) {
+  .bf-gym-eco__cards {
+    grid-template-columns: 1fr;
+    margin-top: clamp(28px, 6vw, 40px);
+    gap: 16px;
+  }
+
+  .bf-gym-eco__card {
+    border-radius: 28px;
+  }
+
+  .bf-gym-eco__card-media img {
+    max-height: 200px;
+  }
+
+  .bf-gym-eco__wear {
+    display: flex;
+    flex-direction: column;
+    margin-top: 16px;
+    padding: 28px 22px;
+    border-radius: 28px;
+    text-align: center;
+  }
+
+  .bf-gym-eco__wear-title,
+  .bf-gym-eco__wear-headline,
+  .bf-gym-eco__wear-body {
+    text-align: center;
+  }
+
+  .bf-gym-eco__wear-media {
+    order: 0;
+    margin: 24px 0 0;
+  }
+
+  .bf-gym-eco__wear-media img {
+    max-height: 200px;
+    margin-inline: auto;
+  }
+}

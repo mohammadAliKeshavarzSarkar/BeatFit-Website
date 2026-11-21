@@ -1,0 +1,76 @@
+<style>
+  .bf-choice-title { direction: rtl; text-align: right; }
+  .bf-choice-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px; margin-top:22px; }
+  .bf-choice { border:1px solid #d8e3dc; border-radius:22px; overflow:hidden; background:#fff; cursor:pointer; transition:.22s ease; }
+  .bf-choice:hover { transform:translateY(-3px); box-shadow:0 16px 42px rgba(8,54,37,.14); }
+  .bf-choice.selected { outline:3px solid #22e487; outline-offset:3px; }
+  .bf-preview { position:relative; min-height:470px; overflow:hidden; color:#fff; background:radial-gradient(circle at 68% 44%,rgba(29,180,112,.32),transparent 34%),linear-gradient(145deg,#061b14 0%,#0a3325 52%,#061c15 100%); }
+  .bf-navline { height:54px; display:flex; align-items:center; justify-content:space-between; padding:0 24px; border-bottom:1px solid rgba(255,255,255,.1); direction:rtl; font-size:11px; }
+  .bf-logo { font-weight:900; color:#55f09b; font-size:18px; }
+  .bf-navitems { display:flex; gap:16px; color:#c8d7d0; }
+  .bf-stage { position:relative; height:416px; }
+  .bf-copy { position:absolute; z-index:3; right:24px; top:56px; width:46%; direction:rtl; text-align:right; }
+  .bf-copy h3 { color:#fff; font-size:25px; line-height:1.45; margin:0 0 11px; }
+  .bf-copy p { color:#c8d9d1; font-size:13px; line-height:1.8; margin:0; }
+  .bf-visual { position:absolute; left:10px; bottom:0; width:49%; height:405px; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; }
+  .bf-mark { position:absolute; width:210px; opacity:.34; bottom:95px; filter:hue-rotate(35deg) saturate(1.2); }
+  .bf-athlete { position:relative; z-index:1; height:325px; max-width:100%; object-fit:contain; object-position:bottom; filter:drop-shadow(0 18px 28px rgba(0,0,0,.38)); }
+  .bf-app-cta { position:relative; z-index:4; display:inline-flex; align-items:center; justify-content:center; gap:9px; min-width:174px; height:43px; padding:0 18px; border-radius:999px; direction:rtl; font:700 14px/1 system-ui,sans-serif; margin:3px 0 18px; }
+  .bf-app-cta--solid { color:#032317; background:linear-gradient(135deg,#62f3a6,#25d77d); box-shadow:0 10px 28px rgba(38,226,133,.28); }
+  .bf-app-cta--glass { color:#eafff3; border:1px solid rgba(97,244,165,.58); background:rgba(7,35,25,.58); backdrop-filter:blur(10px); box-shadow:inset 0 0 0 1px rgba(255,255,255,.05); }
+  .bf-choice-meta { padding:16px 18px 18px; direction:rtl; text-align:right; }
+  .bf-choice-meta h3 { margin:0 0 6px; font-size:17px; color:#102a20; }
+  .bf-choice-meta p { margin:0; color:#60726a; font-size:13px; line-height:1.75; }
+  .bf-badge { display:inline-block; padding:4px 9px; border-radius:99px; margin-bottom:9px; background:#dcfbea; color:#087443; font-size:11px; font-weight:800; }
+  @media(max-width:900px){.bf-choice-grid{grid-template-columns:1fr}.bf-preview{min-height:440px}.bf-stage{height:386px}}
+</style>
+
+<div class="bf-choice-title">
+  <h2>دکمه «ورود به اپ بیت‌فیت» زیر تصویر Hero</h2>
+  <p class="subtitle">جای دکمه ثابت است؛ فقط میزان تأکید بصری را انتخاب کنید.</p>
+</div>
+
+<div class="bf-choice-grid cards">
+  <div class="bf-choice card" data-choice="solid" onclick="toggleSelect(this)">
+    <div class="bf-preview">
+      <div class="bf-navline"><span class="bf-logo">بیت‌فیت</span><span class="bf-navitems">باشگاه&nbsp;&nbsp; مربیان&nbsp;&nbsp; ورزشکاران&nbsp;&nbsp; منابع</span></div>
+      <div class="bf-stage">
+        <div class="bf-copy">
+          <h3>با بیت‌فیت ضربان به ضربان، بدنت رو بساز.</h3>
+          <p>ضربان قلبت رو لحظه‌ای ببین و مسیر پیشرفتت رو دنبال کن.</p>
+        </div>
+        <div class="bf-visual">
+          <img class="bf-mark" src="http://127.0.0.1:5173/beatfitImages/hero-mark-b.webp" alt="">
+          <img class="bf-athlete" src="http://127.0.0.1:5173/beatfitImages/hero-sprinter.webp" alt="">
+          <span class="bf-app-cta bf-app-cta--solid">ورود به اپ بیت‌فیت <b>↗</b></span>
+        </div>
+      </div>
+    </div>
+    <div class="bf-choice-meta">
+      <span class="bf-badge">پیشنهاد من</span>
+      <h3>A — دکمه سبز و واضح</h3>
+      <p>برای کاربران فعلی سریع پیدا می‌شود و زیر تصویر به‌عنوان مقصد اصلی اپ دیده می‌شود.</p>
+    </div>
+  </div>
+
+  <div class="bf-choice card" data-choice="glass" onclick="toggleSelect(this)">
+    <div class="bf-preview">
+      <div class="bf-navline"><span class="bf-logo">بیت‌فیت</span><span class="bf-navitems">باشگاه&nbsp;&nbsp; مربیان&nbsp;&nbsp; ورزشکاران&nbsp;&nbsp; منابع</span></div>
+      <div class="bf-stage">
+        <div class="bf-copy">
+          <h3>با بیت‌فیت ضربان به ضربان، بدنت رو بساز.</h3>
+          <p>ضربان قلبت رو لحظه‌ای ببین و مسیر پیشرفتت رو دنبال کن.</p>
+        </div>
+        <div class="bf-visual">
+          <img class="bf-mark" src="http://127.0.0.1:5173/beatfitImages/hero-mark-b.webp" alt="">
+          <img class="bf-athlete" src="http://127.0.0.1:5173/beatfitImages/hero-sprinter.webp" alt="">
+          <span class="bf-app-cta bf-app-cta--glass">ورود به اپ بیت‌فیت <b>↗</b></span>
+        </div>
+      </div>
+    </div>
+    <div class="bf-choice-meta">
+      <h3>B — دکمه شیشه‌ای و آرام‌تر</h3>
+      <p>با ظاهر فعلی Hero هماهنگ‌تر است، اما نسبت به نسخه سبز کمتر جلب توجه می‌کند.</p>
+    </div>
+  </div>
+</div>

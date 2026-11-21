@@ -1,0 +1,62 @@
+{
+  "name": "Beat Fit Design System",
+  "version": "1.0.0",
+  "framework": "react",
+  "bundler": "vite",
+  "language": "typescript",
+  "direction": "rtl",
+  "locale": "fa",
+  "colors": {
+    "forest": "#163A27",
+    "lime": "#C4FF1A",
+    "sage": "#BED5CD",
+    "mint": "#E3F9F1",
+    "gray": "#F2F2F2",
+    "white": "#FFFFFF"
+  },
+  "roles": {
+    "pageBackground": "gray",
+    "cardWell": "white",
+    "text": "forest",
+    "accentSpark": "lime",
+    "strokeDivider": "sage",
+    "filledButton": "forest"
+  },
+  "shape": {
+    "radiusPx": 25
+  },
+  "stroke": {
+    "defaultPx": 1,
+    "interactivePx": 2,
+    "maxPx": 3
+  },
+  "typography": {
+    "family": "Dana",
+    "source": "public/font/",
+    "roles": {
+      "display": { "weights": [700, 800, 900], "usage": "hero and section titles" },
+      "text": { "weights": [400, 500, 600], "usage": "body, nav, captions" },
+      "numeric": { "weights": [700, 800], "usage": "BPM, Zone, time, load" }
+    }
+  },
+  "layout": {
+    "contentMaxPx": 1120,
+    "contentWideMaxPx": 1280,
+    "spaceBasePx": 8,
+    "sectionGapPx": [72, 128]
+  },
+  "conversion": {
+    "primary": "Request a Demo",
+    "secondary": "Contact Us"
+  },
+  "narrative": "LIVE → HISTORY → PROGRESS",
+  "paths": {
+    "cssTokens": "src/styles/tokens.css",
+    "cssFonts": "src/styles/fonts.css",
+    "cssMain": "src/styles/main.css",
+    "reactEntry": "src/main.tsx",
+    "reactApp": "src/App.tsx",
+    "content": "src/content/home.ts",
+    "ui": "src/ui/"
+  }
+}

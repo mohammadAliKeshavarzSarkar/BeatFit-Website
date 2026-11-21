@@ -1,0 +1,1238 @@
+/* ——— Athlete motivation (2×2 cards) ——— */
+.bf-athlete-motivation {
+  background: var(--bf-white);
+  color: #000;
+  padding-block: clamp(56px, 7vw, 96px) clamp(72px, 9vw, 120px);
+}
+
+.bf-athlete-motivation__shell {
+  width: min(100% - var(--bf-pad-inline) * 2, 1342px);
+  margin-inline: auto;
+}
+
+.bf-athlete-motivation__head {
+  max-width: 814px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.bf-athlete-motivation__title {
+  margin: 0 auto;
+  max-width: 747px;
+  font-family: var(--bf-font-display);
+  font-weight: var(--bf-weight-bold);
+  font-size: clamp(1.75rem, calc(100vw * 48 / 1440), 3rem);
+  line-height: calc(75 / 48);
+  text-align: center;
+  color: #000000;
+}
+
+.bf-athlete-motivation__lede {
+  margin: 20px auto 0;
+  max-width: 814px;
+  font-family: var(--bf-font-text);
+  font-weight: var(--bf-weight-light);
+  font-size: clamp(0.95rem, calc(100vw * 18 / 1440), 1.125rem);
+  line-height: 27px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.bf-athlete-motivation__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 639px));
+  justify-content: space-between;
+  gap: 64px;
+  margin-top: clamp(48px, 5vw, 72px);
+  direction: rtl;
+}
+
+.bf-athlete-motivation__card {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 297px) minmax(0, 1fr);
+  align-items: center;
+  column-gap: 24px;
+  box-sizing: border-box;
+  min-height: 241px;
+  padding: 48px 30px;
+  border-radius: 50px;
+  overflow: hidden;
+  isolation: isolate;
+  background: #d9d9d9;
+  transition: color 0.65s ease;
+}
+
+/*
+ * CTA-style skewed forest fill — oversized so wide cards still cover fully
+ * (small pill CTAs only need ~160%; these cards need more or corners stay gray
+ * while text already flips to white → “empty” top-right).
+ */
+.bf-athlete-motivation__card::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  bottom: -20%;
+  inset-inline-start: -40%;
+  width: 0;
+  height: 140%;
+  transform: skewX(28deg);
+  transform-origin: center;
+  z-index: 0;
+  pointer-events: none;
+  background-color: #163a27;
+  transition: width 0.65s ease;
+}
+
+.bf-athlete-motivation__card:hover::before,
+.bf-athlete-motivation__card:focus-within::before {
+  width: 220%;
+}
+
+.bf-athlete-motivation__copy,
+.bf-athlete-motivation__media {
+  position: relative;
+  z-index: 1;
+}
+
+.bf-athlete-motivation__copy {
+  min-width: 0;
+}
+
+.bf-athlete-motivation__card-title {
+  margin: 0;
+  font-family: var(--bf-font-display);
+  font-weight: var(--bf-weight-demibold);
+  font-size: 22px;
+  line-height: 34px;
+  text-align: justify;
+  color: #000000;
+  transition: color 0.65s ease;
+}
+
+.bf-athlete-motivation__card-body {
+  margin: 0;
+  font-family: var(--bf-font-text);
+  font-weight: var(--bf-weight-light);
+  font-size: 18px;
+  line-height: 27px;
+  text-align: justify;
+  color: rgba(0, 0, 0, 0.7);
+  transition: color 0.65s ease;
+}
+
+.bf-athlete-motivation__card:hover .bf-athlete-motivation__card-title,
+.bf-athlete-motivation__card:focus-within .bf-athlete-motivation__card-title {
+  color: #ffffff;
+}
+
+.bf-athlete-motivation__card:hover .bf-athlete-motivation__card-body,
+.bf-athlete-motivation__card:focus-within .bf-athlete-motivation__card-body {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.bf-athlete-motivation__media {
+  margin: 0;
+  width: 100%;
+  min-height: 120px;
+  aspect-ratio: 4 / 3;
+  border-radius: 24px;
+  overflow: hidden;
+  background: transparent;
+}
+
+.bf-athlete-motivation__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bf-athlete-motivation__card::before {
+    transition: none;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+  }
+
+  .bf-athlete-motivation__card:hover::before,
+  .bf-athlete-motivation__card:focus-within::before {
+    inset-inline-start: 0;
+    width: 100%;
+    transform: none;
+  }
+}
+
+@media (max-width: 1100px) {
+  .bf-athlete-motivation__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .bf-athlete-motivation__card {
+    min-height: 0;
+    padding: 36px 24px;
+  }
+
+  .bf-athlete-motivation__card-title {
+    font-size: 18px;
+    line-height: 1.45;
+  }
+
+  .bf-athlete-motivation__card-body {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 720px) {
+  .bf-athlete-motivation__grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .bf-athlete-motivation__card {
+    grid-template-columns: 1fr;
+    padding: 28px 22px;
+    border-radius: 28px;
+  }
+
+  .bf-athlete-motivation__media {
+    display: none;
+  }
+}
+
+/* ——— Athlete progress (dashboard + feature cards) ——— */
+.bf-athlete-progress {
+  background: var(--bf-white);
+  color: #000;
+  padding-block: clamp(56px, 7vw, 96px) clamp(72px, 9vw, 120px);
+  overflow: hidden;
+}
+
+.bf-athlete-progress__shell {
+  width: min(100% - var(--bf-pad-inline) * 2, 1262px);
+  margin-inline: auto;
+}
+
+.bf-athlete-progress__head {
+  max-width: 698px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.bf-athlete-progress__title {
+  margin: 0 auto;
+  max-width: 676px;
+  font-family: var(--bf-font-display);
+  font-weight: var(--bf-weight-bold);
+  font-size: clamp(1.75rem, calc(100vw * 48 / 1440), 3rem);
+  line-height: calc(75 / 48);
+  text-align: center;
+  color: #000000;
+}
+
+.bf-athlete-progress__lede {
+  margin: 0 auto;
+  margin-top: 20px;
+  max-width: 698px;
+  font-family: var(--bf-font-text);
+  font-weight: var(--bf-weight-light);
+  font-size: clamp(0.95rem, calc(100vw * 18 / 1440), 1.125rem);
+  line-height: 27px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.bf-athlete-progress__visual {
+  margin-top: clamp(48px, 5vw, 72px);
+  display: flex;
+  justify-content: center;
+}
+
+.bf-athlete-progress__image {
+  display: block;
+  width: min(100%, 1024px);
+  height: auto;
+  border-radius: 35px;
+  filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.12));
+}
+
+.bf-athlete-progress__cards {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 440px));
+  justify-content: space-between;
+  gap: 0;
+  margin: -38px 0 0;
+  padding: 0;
+  list-style: none;
+  direction: ltr;
+}
+
+.bf-athlete-progress__card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+  min-height: 163px;
+  padding: 38px 52px;
+  border-radius: 35px;
+  direction: ltr;
+}
+
+.bf-athlete-progress__card--green {
+  background: #163a27;
+}
+
+.bf-athlete-progress__card--gray {
+  background: #d9d9d9;
+}
+
+.bf-athlete-progress__card--trend {
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: start;
+}
+
+.bf-athlete-progress__card--history {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: end;
+  margin-top: 10px;
+}
+
+.bf-athlete-progress__card--load {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  justify-self: center;
+  width: min(100%, 440px);
+  margin-top: -47px;
+}
+
+.bf-athlete-progress__copy {
+  max-width: 275px;
+  min-width: 0;
+}
+
+.bf-athlete-progress__card-title {
+  margin: 0;
+  font-family: var(--bf-font-display);
+  font-weight: var(--bf-weight-demibold);
+  font-size: 22px;
+  line-height: 34px;
+  text-align: justify;
+}
+
+.bf-athlete-progress__card--green .bf-athlete-progress__card-title {
+  color: #ffffff;
+}
+
+.bf-athlete-progress__card--gray .bf-athlete-progress__card-title {
+  color: #000000;
+}
+
+.bf-athlete-progress__card-body {
+  margin: 0;
+  font-family: var(--bf-font-text);
+  font-weight: var(--bf-weight-light);
+  font-size: 18px;
+  line-height: 27px;
+  text-align: justify;
+}
+
+.bf-athlete-progress__card--green .bf-athlete-progress__card-body {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.bf-athlete-progress__card--gray .bf-athlete-progress__card-body {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.bf-athlete-progress__icon {
+  display: inline-grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  color: inherit;
+  transition: transform 220ms var(--bf-ease);
+}
+
+.bf-athlete-progress__icon [data-useanimations] {
+  display: block;
+}
+
+.bf-athlete-progress__card--green .bf-athlete-progress__icon {
+  color: #ffffff;
+}
+
+.bf-athlete-progress__card--gray .bf-athlete-progress__icon {
+  color: #000000;
+}
+
+@media (hover: hover) {
+  .bf-athlete-progress__card:hover .bf-athlete-progress__icon,
+  .bf-athlete-progress__card:focus-within .bf-athlete-progress__icon {
+    transform: translateY(-3px);
+  }
+}
+
+@media (max-width: 960px) {
+  .bf-athlete-progress__head {
+    width: 100%;
+    max-width: none;
+    text-align: center;
+  }
+
+  .bf-athlete-progress__title,
+  .bf-athlete-progress__lede {
+    max-width: none;
+    text-align: center;
+    margin-inline: auto;
+  }
+
+  .bf-athlete-progress__cards {
+    grid-template-columns: 1fr;
+    margin-top: 32px;
+    gap: 16px;
+    justify-items: stretch;
+  }
+
+  .bf-athlete-progress__card--trend,
+  .bf-athlete-progress__card--history,
+  .bf-athlete-progress__card--load {
+    grid-column: 1;
+    grid-row: auto;
+    justify-self: stretch;
+    width: 100%;
+    margin-top: 0;
+  }
+
+  .bf-athlete-progress__card--trend {
+    order: 1;
+  }
+
+  .bf-athlete-progress__card--load {
+    order: 2;
+  }
+
+  .bf-athlete-progress__card--history {
+    order: 3;
+  }
+
+  .bf-athlete-progress__card {
+    min-height: 0;
+    padding: 28px 24px;
+  }
+
+  .bf-athlete-progress__card-title {
+    font-size: 18px;
+    line-height: 1.45;
+  }
+
+  .bf-athlete-progress__card-body {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .bf-athlete-progress__image {
+    border-radius: 24px;
+  }
+}
+
+/* ——— Athlete glance (dashboard + callout cards) ——— */
+.bf-athlete-glance {
+  background: var(--bf-white);
+  color: #000;
+  padding-block: clamp(56px, 7vw, 96px) clamp(72px, 9vw, 120px);
+  overflow: hidden;
+}
+
+.bf-athlete-glance__shell {
+  width: min(100% - var(--bf-pad-inline) * 2, 1261px);
+  margin-inline: auto;
+}
+
+.bf-athlete-glance__head {
+  max-width: 900px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.bf-athlete-glance__title {
+  margin: 0 auto;
+  font-family: var(--bf-font-display);
+  font-weight: var(--bf-weight-bold);
+  font-size: clamp(1.75rem, calc(100vw * 48 / 1440), 3rem);
+  line-height: calc(75 / 48);
+  text-align: center;
+  color: #000000;
+}
+
+.bf-athlete-glance__lede {
+  margin: 20px auto 0;
+  max-width: 900px;
+  font-family: var(--bf-font-text);
+  font-weight: var(--bf-weight-light);
+  font-size: clamp(0.95rem, calc(100vw * 18 / 1440), 1.125rem);
+  line-height: 27px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.bf-athlete-glance__stage {
+  position: relative;
+  width: 100%;
+  max-width: 1261px;
+  aspect-ratio: 1261 / 567;
+  margin-top: clamp(40px, 4vw, 56px);
+  direction: ltr;
+}
+
+.bf-athlete-glance__image {
+  position: absolute;
+  left: 50%;
+  top: calc(13 / 567 * 100%);
+  z-index: 1;
+  display: block;
+  width: calc(634 / 1261 * 100%);
+  height: auto;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.18));
+  pointer-events: none;
+}
+
+.bf-athlete-glance__cards {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bf-athlete-glance__card {
+  position: absolute;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  width: calc(364 / 1261 * 100%);
+  min-height: calc(114 / 567 * 100%);
+  padding: clamp(16px, 2.1%, 26px) clamp(16px, 2.2%, 28px);
+  border-radius: clamp(20px, 2.8vw, 35px);
+}
+
+.bf-athlete-glance__card--green {
+  background: #163a27;
+}
+
+.bf-athlete-glance__card--gray {
+  background: #d9d9d9;
+}
+
+.bf-athlete-glance__card--time {
+  left: 0;
+  top: 0;
+}
+
+.bf-athlete-glance__card--chart {
+  right: 0;
+  top: 0;
+}
+
+.bf-athlete-glance__card--calories {
+  left: 0;
+  top: calc(369 / 567 * 100%);
+}
+
+.bf-athlete-glance__card--activity {
+  left: calc(495 / 1261 * 100%);
+  top: calc(453 / 567 * 100%);
+}
+
+.bf-athlete-glance__card--heartrate {
+  left: calc(835 / 1261 * 100%);
+  top: calc(400 / 567 * 100%);
+}
+
+.bf-athlete-glance__copy {
+  width: 100%;
+}
+
+.bf-athlete-glance__card-title {
+  margin: 0;
+  font-family: var(--bf-font-display);
+  font-weight: var(--bf-weight-medium);
+  font-size: 22px;
+  line-height: 34px;
+  text-align: right;
+}
+
+.bf-athlete-glance__card--green .bf-athlete-glance__card-title {
+  color: #ffffff;
+}
+
+.bf-athlete-glance__card--gray .bf-athlete-glance__card-title {
+  color: #000000;
+}
+
+.bf-athlete-glance__card-body {
+  margin: 0;
+  font-family: var(--bf-font-text);
+  font-weight: var(--bf-weight-light);
+  font-size: 18px;
+  line-height: 27px;
+  text-align: right;
+}
+
+.bf-athlete-glance__card--green .bf-athlete-glance__card-body {
+  color: #ffffff;
+}
+
+.bf-athlete-glance__card--green.bf-athlete-glance__card--muted-body
+  .bf-athlete-glance__card-body {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.bf-athlete-glance__card--gray .bf-athlete-glance__card-body {
+  color: #000000;
+}
+
+@media (max-width: 960px) {
+  .bf-athlete-glance__stage {
+    aspect-ratio: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .bf-athlete-glance__image {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: min(100%, 634px);
+    order: 1;
+    transform: none;
+  }
+
+  .bf-athlete-glance__cards {
+    position: relative;
+    inset: auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-content: center;
+    gap: 16px;
+    width: 100%;
+    order: 2;
+  }
+
+  .bf-athlete-glance__card--time {
+    order: 1;
+  }
+
+  .bf-athlete-glance__card--heartrate {
+    order: 2;
+  }
+
+  .bf-athlete-glance__card--chart {
+    order: 3;
+  }
+
+  .bf-athlete-glance__card--calories {
+    order: 4;
+  }
+
+  .bf-athlete-glance__card--activity {
+    order: 5;
+  }
+
+  .bf-athlete-glance__card,
+  .bf-athlete-glance__card--time,
+  .bf-athlete-glance__card--chart,
+  .bf-athlete-glance__card--calories,
+  .bf-athlete-glance__card--activity,
+  .bf-athlete-glance__card--heartrate {
+    position: relative;
+    left: auto;
+    right: auto;
+    top: auto;
+    width: 100%;
+    min-height: 0;
+  }
+
+  .bf-athlete-glance__card--activity {
+    grid-column: 1 / -1;
+    justify-self: center;
+    max-width: 364px;
+  }
+
+  .bf-athlete-glance__card-title {
+    font-size: clamp(16px, 2.2vw, 22px);
+    line-height: 1.45;
+  }
+
+  .bf-athlete-glance__card-body {
+    font-size: clamp(14px, 1.8vw, 18px);
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 720px) {
+  .bf-athlete-glance__cards {
+    grid-template-columns: 1fr;
+  }
+
+  .bf-athlete-glance__card--activity {
+    max-width: none;
+  }
+
+  .bf-athlete-glance__card {
+    min-height: 0;
+    padding: 22px 20px;
+    border-radius: 28px;
+  }
+
+  .bf-athlete-glance__card-title {
+    font-size: 18px;
+    line-height: 1.45;
+  }
+
+  .bf-athlete-glance__card-body {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+}
+
+/* ——— Athlete banner (devices CTA break) ——— */
+.bf-athlete-banner {
+  background: var(--bf-white);
+  color: #fff;
+  padding-block: clamp(48px, 5vw, 72px);
+  overflow: visible;
+}
+
+.bf-athlete-banner__shell {
+  position: relative;
+  width: min(100% - var(--bf-pad-inline) * 2, 1342px);
+  height: 315px;
+  margin-inline: auto;
+  overflow: visible;
+  direction: ltr;
+}
+
+.bf-athlete-banner__card {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 90px;
+  height: 225px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 23px 52px 23px 24px;
+  background: #163a27;
+  border-radius: 50px;
+  overflow: visible;
+}
+
+.bf-athlete-banner__copy {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: min(100%, 749px);
+  max-width: 749px;
+  direction: rtl;
+}
+
+.bf-athlete-banner__title {
+  margin: 0;
+  width: 100%;
+  max-width: 656px;
+  font-family: var(--bf-font-display);
+  font-weight: var(--bf-weight-bold);
+  font-size: clamp(1.5rem, calc(100vw * 48 / 1440), 3rem);
+  line-height: calc(75 / 48);
+  text-align: start;
+  color: #ffffff;
+  unicode-bidi: plaintext;
+}
+
+.bf-athlete-banner__body {
+  margin: 0;
+  width: 100%;
+  max-width: 749px;
+  font-family: var(--bf-font-text);
+  font-weight: var(--bf-weight-light);
+  font-size: clamp(0.95rem, calc(100vw * 18 / 1440), 1.125rem);
+  line-height: 27px;
+  text-align: start;
+  color: rgba(255, 255, 255, 0.7);
+  unicode-bidi: plaintext;
+}
+
+.bf-athlete-banner__media {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: calc(100% * 101 / 1342);
+  width: calc(100% * 420 / 1342);
+  max-width: 420px;
+  margin: 0;
+  pointer-events: none;
+}
+
+.bf-athlete-banner__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 420 / 315;
+  object-fit: contain;
+  object-position: bottom center;
+  user-select: none;
+  pointer-events: none;
+}
+
+@media (max-width: 1100px) {
+  .bf-athlete-banner__title {
+    font-size: clamp(1.5rem, 3.2vw, 3rem);
+    line-height: 1.35;
+  }
+
+  .bf-athlete-banner__body {
+    font-size: clamp(0.9375rem, 1.5vw, 1.125rem);
+    line-height: 1.7;
+  }
+}
+
+@media (max-width: 960px) {
+  .bf-athlete-banner__shell {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    box-sizing: border-box;
+    padding: clamp(32px, 6vw, 44px) 0 0;
+    background: #163a27;
+    border-radius: clamp(28px, 8vw, 50px);
+    overflow: hidden;
+  }
+
+  .bf-athlete-banner__card {
+    position: relative;
+    top: auto;
+    height: auto;
+    min-height: 0;
+    direction: rtl;
+    display: block;
+    padding: 0 clamp(24px, 5vw, 28px);
+    background: transparent;
+    border-radius: 0;
+    justify-content: flex-start;
+  }
+
+  .bf-athlete-banner__copy {
+    max-width: none;
+    width: 100%;
+  }
+
+  .bf-athlete-banner__cta {
+    margin-inline: auto 0;
+    margin-top: clamp(20px, 4vw, 28px);
+  }
+
+  .bf-athlete-banner__media {
+    position: relative;
+    z-index: 1;
+    top: auto;
+    left: auto;
+    flex-shrink: 0;
+    width: 100%;
+    max-width: none;
+    margin: clamp(28px, 6vw, 40px) 0 0;
+    padding: 0;
+    line-height: 0;
+  }
+
+  .bf-athlete-banner__media img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: min(320px, 45vh);
+    margin: 0;
+    aspect-ratio: auto;
+    object-fit: contain;
+    object-position: bottom center;
+  }
+
+  .bf-athlete-banner {
+    overflow-x: clip;
+  }
+}
+
+/* ——— Athlete live awareness (snake + phones) ——— */
+.bf-athlete-live {
+  background: var(--bf-white);
+  color: #000;
+  padding-block: clamp(56px, 7vw, 96px) clamp(72px, 9vw, 120px);
+}
+
+.bf-athlete-live__shell {
+  width: min(100% - var(--bf-pad-inline) * 2, 1118px);
+  margin-inline: auto;
+}
+
+.bf-athlete-live__head {
+  max-width: 814px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.bf-athlete-live__title {
+  margin: 0 auto;
+  max-width: 747px;
+  font-family: var(--bf-font-display);
+  font-weight: var(--bf-weight-bold);
+  font-size: clamp(1.75rem, calc(100vw * 48 / 1440), 3rem);
+  line-height: calc(75 / 48);
+  text-align: center;
+  color: #000000;
+}
+
+.bf-athlete-live__lede {
+  margin: 20px auto 0;
+  max-width: 814px;
+  font-family: var(--bf-font-text);
+  font-weight: var(--bf-weight-light);
+  font-size: clamp(0.95rem, calc(100vw * 18 / 1440), 1.125rem);
+  line-height: 27px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.bf-athlete-live__corsa {
+  position: relative;
+  margin-top: clamp(48px, 5vw, 72px);
+  overflow-x: clip;
+}
+
+.bf-athlete-live__pin {
+  position: relative;
+  width: 100%;
+}
+
+.bf-athlete-live__map {
+  position: relative;
+  direction: ltr;
+}
+
+.bf-athlete-live__path-wrap {
+  position: absolute;
+  left: 50%;
+  top: 223px;
+  z-index: 0;
+  width: min(565px, 50%);
+  aspect-ratio: 565 / 1137;
+  transform: translateX(-50%);
+  pointer-events: none;
+  user-select: none;
+}
+
+.bf-athlete-live__path {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.bf-athlete-live__tip {
+  position: absolute;
+  z-index: 2;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--bf-forest);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--bf-forest) 16%, transparent);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  pointer-events: none;
+  will-change: left, top, opacity;
+}
+
+.bf-athlete-live__steps {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bf-athlete-live__step {
+  display: grid;
+  grid-template-columns: minmax(0, 555px) minmax(0, 1fr);
+  align-items: center;
+  column-gap: clamp(24px, 4vw, 80px);
+  min-height: 468px;
+}
+
+.bf-athlete-live__step + .bf-athlete-live__step {
+  margin-top: -100px;
+}
+
+.bf-athlete-live__step--start .bf-athlete-live__visual {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.bf-athlete-live__step--start .bf-athlete-live__copy {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: end;
+  text-align: right;
+}
+
+.bf-athlete-live__step--end {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 555px);
+}
+
+.bf-athlete-live__step--end .bf-athlete-live__copy {
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: start;
+  text-align: right;
+}
+
+.bf-athlete-live__step--end .bf-athlete-live__visual {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.bf-athlete-live__visual {
+  --bf-live-rise: 0px;
+  --bf-live-pop: 1;
+  position: relative;
+  width: min(100%, 555px);
+  height: 468px;
+  justify-self: center;
+  transform: translate3d(0, var(--bf-live-rise), 0) scale(var(--bf-live-pop));
+  transform-origin: center;
+  will-change: opacity, transform;
+}
+
+.bf-athlete-live__bar {
+  position: absolute;
+  inset-inline: 0;
+  top: 50%;
+  height: 174px;
+  border-radius: 50px;
+  transform: translateY(-50%);
+}
+
+.bf-athlete-live__visual--gray .bf-athlete-live__bar {
+  background: #d9d9d9;
+}
+
+.bf-athlete-live__visual--green .bf-athlete-live__bar {
+  background: #163a27;
+}
+
+.bf-athlete-live__phone {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 252px;
+  height: 468px;
+  object-fit: contain;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.18));
+}
+
+.bf-athlete-live__copy {
+  --bf-live-rise: 0px;
+  --bf-live-shift: 0px;
+  max-width: 483px;
+  transform: translate3d(var(--bf-live-shift), var(--bf-live-rise), 0);
+  will-change: opacity, transform;
+}
+
+.bf-athlete-live__step-title {
+  margin: 0;
+  font-family: var(--bf-font-display);
+  font-weight: var(--bf-weight-demibold);
+  font-size: 22px;
+  line-height: 34px;
+  color: #000000;
+}
+
+.bf-athlete-live__step-body {
+  margin: 0;
+  font-family: var(--bf-font-text);
+  font-weight: var(--bf-weight-light);
+  font-size: 18px;
+  line-height: 27px;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+@media (min-width: 1101px) {
+  .bf-athlete-live__corsa {
+    height: var(--bf-live-ride, auto);
+  }
+
+  .bf-athlete-live__pin {
+    position: sticky;
+    top: var(--bf-live-pin-top, 108px);
+    /* Explicit window height so the section reserves space and pan can reveal every step */
+    height: var(--bf-live-view-h, 70vh);
+    overflow: hidden;
+  }
+
+  .bf-athlete-live__map {
+    transform: translate3d(0, var(--bf-live-pan, 0px), 0);
+    will-change: transform;
+  }
+}
+
+@media (max-width: 1100px) {
+  .bf-athlete-live__corsa {
+    height: auto;
+  }
+
+  .bf-athlete-live__pin {
+    position: relative;
+    top: auto;
+    height: auto;
+  }
+
+  .bf-athlete-live__map {
+    transform: none;
+  }
+
+  .bf-athlete-live__path-wrap,
+  .bf-athlete-live__tip {
+    display: none;
+  }
+
+  .bf-athlete-live__step,
+  .bf-athlete-live__step--end {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    min-height: 0;
+    column-gap: 24px;
+  }
+
+  .bf-athlete-live__step + .bf-athlete-live__step {
+    margin-top: 48px;
+  }
+
+  .bf-athlete-live__visual {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 555 / 468;
+    opacity: 1;
+    transform: none;
+  }
+
+  .bf-athlete-live__copy {
+    opacity: 1;
+    transform: none;
+  }
+
+  .bf-athlete-live__phone {
+    width: min(45%, 180px);
+    height: auto;
+    aspect-ratio: 252 / 468;
+  }
+
+  .bf-athlete-live__bar {
+    height: 37%;
+  }
+
+  .bf-athlete-live__step-title {
+    font-size: 18px;
+    line-height: 1.45;
+  }
+
+  .bf-athlete-live__step-body {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 720px) {
+  .bf-athlete-live__step,
+  .bf-athlete-live__step--end {
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+  }
+
+  .bf-athlete-live__step--start .bf-athlete-live__visual,
+  .bf-athlete-live__step--end .bf-athlete-live__visual,
+  .bf-athlete-live__step--start .bf-athlete-live__copy,
+  .bf-athlete-live__step--end .bf-athlete-live__copy {
+    grid-column: 1;
+  }
+
+  .bf-athlete-live__step--start .bf-athlete-live__visual,
+  .bf-athlete-live__step--end .bf-athlete-live__visual {
+    grid-row: 1;
+  }
+
+  .bf-athlete-live__step--start .bf-athlete-live__copy,
+  .bf-athlete-live__step--end .bf-athlete-live__copy {
+    grid-row: 2;
+    justify-self: stretch;
+    max-width: none;
+    text-align: right;
+  }
+
+  .bf-athlete-live__step + .bf-athlete-live__step {
+    margin-top: 36px;
+  }
+
+  .bf-athlete-live__visual {
+    max-width: 320px;
+    margin-inline: auto;
+  }
+
+  .bf-athlete-live__bar {
+    border-radius: 28px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bf-athlete-live__corsa {
+    height: auto;
+  }
+
+  .bf-athlete-live__pin {
+    position: relative;
+    top: auto;
+    height: auto;
+  }
+
+  .bf-athlete-live__map {
+    transform: none;
+  }
+
+  .bf-athlete-live__tip {
+    display: none;
+  }
+
+  .bf-athlete-live__visual,
+  .bf-athlete-live__copy {
+    opacity: 1;
+    transform: none;
+  }
+}
