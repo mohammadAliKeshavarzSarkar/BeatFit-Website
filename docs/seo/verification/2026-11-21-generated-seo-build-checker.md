@@ -6,7 +6,7 @@
 **Base source revision:** `ed310762d167f36587bbe421155817ab45fdbab4`
 **Proposed branch:** `seo/verify-generated-build-2026-11-21`
 **Intended environment:** Node.js 22+ after `npm run build`
-**Change scope:** `scripts/verify-seo-build.mjs`, `scripts/verify-seo-build.test.mjs`, two new `package.json` scripts, this record.
+**Change scope:** `scripts/verify-seo-build.mjs`, `scripts/verify-seo-build.test.mjs`, two new `package.json` scripts, `.github/workflows/seo-verify.yml`, this record.
 
 ## Purpose and safety boundary
 
@@ -90,4 +90,39 @@ node scripts/verify-seo-build.mjs path/to/dist
 
 After review, verify the actual Vite output with a pinned checkout; check both new package scripts in CI or a trusted environment; resolve any false positives with a recorded explanation; then approve merge separately. Keep deployment and post-release HTTP/Google checks as separate workstreams.
 
-**Follow-up:** Add this checker to a reliable CI gate only after the real project build and regression behavior have been verified; do not assume GitHub Actions CI exists or is configured here.
+**Follow-up:** Review the proposed GitHub Actions workflow in this PR. It runs as a read-only `pull_request` job and checks the actual build, generated files, and tracked-public drift. It never deploys. Record each CI attempt separately below; a successful build alone does not mean every stage passed.
+
+## First real GitHub Actions run — discovered a checker false positive
+
+**Run:** [44873370506](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/44873370506)  
+**PR:** [#2](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/2)  
+**Head tested:** `bf2348b03feef103c76661fa0d8542f5ba1d9e48`  
+**Result:** FAILURE (the checker reported 14 false positives; not a verified SEO problem)
+
+| Gate | Observed CI outcome |
+|---|---|
+| GitHub checkout | PASS |
+| Node.js 22 setup | PASS |
+| `npm ci` | PASS |
+| `npm run test:seo:fixtures` | PASS — original 8 synthetic tests |
+| `npm run build` | **PASS — real TypeScript and Vite build on GitHub Actions** |
+| `npm run test:seo` | **FAIL — 14 false positives, each one of 7 Persian article canonicals and 7 matching Open Graph URLs** |
+| Tracked-public drift gate | SKIPPED due to earlier check failure |
+| Browser, deployed HTTP, GSC | NOT RUN |
+
+### Root cause: byte-string URL comparison
+
+- `src/seo/sitemap.ts` constructs each Sitemap URL with `new URL(...).href` which percent-encodes the Persian slug.
+- `src/config/site.ts` `absoluteUrl()` concatenates a readable Persian slug into the page canonical string.
+- Both forms can refer to **the same URL**, but the first checker compared exact strings, leading to two false-positive failures per article.
+
+**Resolution in the same review branch:**
+- Introduced `normalizedAbsoluteUrl()` using `new URL(value).href` and restricted valid protocols to HTTP(S).
+- Compare normalized canonical and `og:url` against the Sitemap's absolute location.
+- Expanded synthetic fixtures to represent real raw Persian HTML values alongside encoded Sitemap URLs.
+- Added positive percent-encoded equivalence and negative wrong-Persian-target cases.
+- Locally reran Node.js 22 fixture suite: **10/10 tests PASS** with corrected checker. This is **local synthetic verification**, not proof of a passing real-build gate.
+
+**Next CI run after fix:** [44873467188](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/44873467188) — outcome must be fetched and recorded separately. It was in progress when this entry was authored.
+
+**Important:** This is a lesson in regression-check quality, **not evidence of invalid live canonical URLs**. The code that generates SEO canonical/OG metadata was not changed; only the verification comparison logic was corrected.
