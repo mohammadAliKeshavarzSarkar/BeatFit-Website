@@ -1,0 +1,22 @@
+name: BeatFit Postdeploy External HTTP DNS TLS and SEO Probe
+on:
+  push:
+    branches: [seo/live-server-postdeploy-probe-2026-11-21]
+permissions:
+  contents: read
+jobs:
+  read-only-postdeploy:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - name: Checkout exact website source and read-only diagnostics
+        uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: DNS, TCP and certificate handshake
+        run: node scripts/seo-network-diagnostic.mjs
+      - name: Independent 14-request historical-replay HTTP diagnostic
+        run: node scripts/seo-production-http-diagnostic.mjs
+      - name: Post-deployment key pages and SEO metadata, 13 GETs
+        run: node scripts/seo-live-postdeploy-compare.mjs
