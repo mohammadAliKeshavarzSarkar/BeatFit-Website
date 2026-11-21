@@ -1,0 +1,41 @@
+name: SEO Citation PR 4 Pinned Build Review
+on:
+  push:
+    branches: [seo/citation-pr4-qa-2026-11-21]
+permissions:
+  contents: read
+jobs:
+  verify-citation:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - name: Check out independent SEO QA checker
+        uses: actions/checkout@v4
+        with:
+          path: qa
+      - name: Check out exact Draft PR 4 revision
+        uses: actions/checkout@v4
+        with:
+          ref: ed9547d5f675f3aba6ccf8f9dacb5224b763a1ac
+          path: site
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+      - name: Install locked application dependencies
+        working-directory: site
+        run: npm ci
+      - name: Build actual website and SEO output
+        working-directory: site
+        run: npm run build
+      - name: Verify generated SEO artifacts with corrected checker
+        working-directory: site
+        run: node ../qa/scripts/verify-seo-build.mjs dist
+      - name: Verify the intended CDC citation and absence of old URL
+        working-directory: site
+        run: |
+          node --input-type=module -e "import fs from 'node:fs'; import assert from 'node:assert/strict'; const s=fs.readFileSync('src/content/blog/groupClassIntensity.ts','utf8'); const next='https://www.cdc.gov/physical-activity-basics/measuring/index.html'; const old='https://www.cdc.gov/physicalactivity/basics/measuring/index.html'; assert.equal(s.split(next).length-1,1); assert.ok(!s.includes(old)); console.log('PASS single CDC citation URL update');"
+      - name: Check tracked public files for build drift
+        working-directory: site
+        run: git diff --exit-code -- public/robots.txt public/sitemap.xml public/web.config
