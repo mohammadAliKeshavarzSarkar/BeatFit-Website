@@ -120,3 +120,21 @@ Every new work session will append an entry with exact revision, findings, test 
 **PR evidence:** [Draft PR #2](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/2); `docs/seo/verification/2026-11-21-generated-seo-build-checker.md` on its review branch.
 
 **Next gate:** Run trusted actual build and post-build verifier, document any false positives, approve PR #2 separately, then integrate checks into a CI release gate when authorized.
+
+## BF-SEO-RUN-009 — 2026-11-21 — Real GitHub CI execution, Unicode false positive and corrected pass
+
+**PR:** [#2](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/2); review branch `seo/verify-generated-build-2026-11-21`. **Main product code not changed.**
+
+- Added `.github/workflows/seo-verify.yml` to PR #2. The `pull_request` workflow has read-only repository permission, runs Node 22, installs locked dependencies, runs fixtures, builds actual production assets, verifies the generated SEO output and checks tracked-public drift. No deployment or secrets.
+- GitHub Actions **run 44873370506 failed** only at the generated SEO verifier: 14 false positives for seven readable-Persian article canonicals and `og:url` values compared against percent-encoded Sitemap URLs. Checkout, dependency install, original fixture tests and actual Vite build passed.
+- Inspected the source relationship: `src/seo/sitemap.ts` uses `URL.href` encoding while `src/config/site.ts` `absoluteUrl()` preserves readable Persian. Both normalize to equivalent URLs; this is a **verification defect**, not evidence of broken deployed canonicals.
+- Fixed the checker to compare normalized HTTP(S) URL values and updated synthetic fixtures to test readable/encoded equivalence as well as a genuinely wrong Persian target.
+- Local Node.js 22 synthetic fixture suite passed **10/10** after the fix.
+- GitHub Actions **run 44873467188 succeeded** for code commit `00e65353762e58f123a89caf8c9dd1dfd24456d1`: `npm ci`, 10/10 fixtures, actual `npm run build`, **254 generated SEO checks**, and clean tracked-public source diff. Read workflow job steps and logs to confirm.
+- The read-only runner emitted a nonfatal Vite chunk-size advisory, not a measured field performance finding.
+- The checker and workflow remain in **draft PR #2**, not merged or deployed. PR #1 was not built by this run.
+- Production HTTP/TLS, rendered JS/no-JS content, Google Search Console and demo conversion gates remain blocked/not run.
+
+**Canonical evidence:** [CI verification record](../verification/2026-11-21-github-actions-ci-gate.md), [successful run](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/44873467188), [initial failed run](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/44873370506).
+
+**Next:** Review PR #2; after appropriate approval, make the CI gate available to PR #1. Continue separately with source and then deployed rendered-content/link validation.

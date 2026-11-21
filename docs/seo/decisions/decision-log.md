@@ -18,7 +18,7 @@ An approved scope is not permission to deploy; a source observation is not a com
 | BF-SEO-D011 | 2026-11-21 | Evaluate optional heart-rate zone calculator as a product/content enhancement, not an automatic SEO requirement | PROPOSED | Search samples include tools and guides; product, accessibility, science and engineering effort must be approved |
 | BF-SEO-D012 | 2026-11-21 | Do not claim actual Google ranking or search volume from pooled public-web discovery | APPROVED (evidence methodology) | Result provider is not a localized Google SERP; first-party indexing and demand remain unknown |
 | BF-SEO-D013 | 2026-11-21 | Propose a small /gym hero-description and SEO title clarity revision for review | REVIEW — [Draft PR #1](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/1) | Source/product evidence and source diff checked; merge/deploy blocked on build, browser and owner fact review |
-| BF-SEO-D014 | 2026-11-21 | Add post-build integrity checks for SEO shells, Sitemap, robots, IIS map and metadata | REVIEW — [Draft PR #2](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/2) | Synthetic 8/8 tests pass; real build/checker and browser verification required before merge |
+| BF-SEO-D014 | 2026-11-21 | Add post-build integrity checks for SEO shells, Sitemap, robots, IIS map and metadata | REVIEW — [Draft PR #2](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/2) | Real GitHub Actions run 44873467188 passed build, 10 fixture tests, 254 artifact checks and tracked-public diff; browser/production verification and code review remain separate gates |
 
 ## Future decision record standard
 

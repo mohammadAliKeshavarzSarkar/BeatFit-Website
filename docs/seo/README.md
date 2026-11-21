@@ -18,6 +18,7 @@ This is the **single source of truth for BeatFit-specific SEO documentation**: r
 | Audit | [Page intent and conversion review](audits/2026-11-21-page-intent-and-conversion-review.md) | Six marketing pages, seven articles, three further review findings |
 | Inventory | [Source URL inventory](inventory/source-route-inventory.csv) | Six marketing and seven Persian article URLs |
 | Verification | [Source check record](verification/2026-11-21-source-checks.md) | Eleven bounded source observations and outstanding tests |
+| Verification | [Actual GitHub Actions CI evidence](verification/2026-11-21-github-actions-ci-gate.md) | Real build, corrected Persian URL check, 10 fixture tests, 254 assertions |
 | Verification | [Production access attempts and test plan](verification/2026-11-21-production-access-and-test-plan.md) | Blocked live checks plus reproducible HTTP/build/browser gate |
 | Decisions | [Decision log](decisions/decision-log.md) | Approved scope, proposed changes, blockers and review gates |
 | Operations | [Run log](operations/run-log.md) | Dated completed work, blocked tasks and repository writes |
@@ -66,5 +67,5 @@ A bounded Persian public-web discovery sample is now recorded; it is not a geogr
 
 - [Draft PR #2 — Verify generated SEO build artifacts](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/2), feature branch `seo/verify-generated-build-2026-11-21`.
 - Adds `npm run test:seo:fixtures` and `npm run test:seo` without modifying the existing build script.
-- **Fixture-only evidence:** 8/8 Node test cases pass, and the synthetic valid 13-route fixture passes 254 assertions; seven negative fixtures fail as intended.
-- **NOT RUN:** actual BeatFit checkout/build, checker against real dist, rendered browser, deployed HTTP and GSC. The PR is draft and is **not merged or deployed**. Supporting evidence is in the PR at `docs/seo/verification/2026-11-21-generated-seo-build-checker.md`.
+- **Real CI evidence:** [GitHub Actions run 44873467188](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/44873467188) PASSED: `npm ci`, **10/10 fixture tests**, **real Vite/TypeScript build**, **254 generated SEO artifact checks**, and **clean tracked-public diff**. The earlier failed run exposed and led to correction of a Unicode URL comparison false positive.
+- **Still NOT RUN/BLOCKED:** browser rendering, deployed HTTP/TLS, Search Console and actual demo submission. PR #2 remains draft, **not merged or deployed**. See [the dated CI evidence record](verification/2026-11-21-github-actions-ci-gate.md).
