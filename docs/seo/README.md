@@ -72,3 +72,10 @@ A bounded Persian public-web discovery sample is now recorded; it is not a geogr
 - Adds `npm run test:seo:fixtures` and `npm run test:seo` without modifying the existing build script.
 - **Real CI evidence:** [GitHub Actions run 44873467188](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/44873467188) PASSED: `npm ci`, **10/10 fixture tests**, **real Vite/TypeScript build**, **254 generated SEO artifact checks**, and **clean tracked-public diff**. The earlier failed run exposed and led to correction of a Unicode URL comparison false positive.
 - **Still NOT RUN/BLOCKED:** browser rendering, deployed HTTP/TLS, Search Console and actual demo submission. PR #2 remains draft, **not merged or deployed**. See [the dated CI evidence record](verification/2026-11-21-github-actions-ci-gate.md).
+
+## Active editorial review — Draft PR #3
+
+- [Draft PR #3 — Rebalance two Persian articles' related links](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/3), branch `seo/rebalance-related-articles-2026-11-21`.
+- Based on [the source graph audit](audits/2026-11-21-internal-link-source-review.md), changes precisely two `relatedSlugs` arrays: training history → training load and gym monitoring → sensor comparison.
+- Source-only checks and PR diff scope verified. **Build, rendered browser, deployed HTTP and Google indexing tests NOT RUN for PR #3**. PR #2's successful CI does not validate this different branch.
+- Open and draft; **not merged or deployed**.

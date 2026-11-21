@@ -151,3 +151,15 @@ Every new work session will append an entry with exact revision, findings, test 
 - Recorded a 28-edge link graph and acceptance plan; no deployed/browser crawling or GSC evidence collected.
 
 **Artifacts:** [link graph review](../audits/2026-11-21-internal-link-source-review.md), [source edge inventory](../inventory/2026-11-21-article-link-graph.csv), [editorial proposal](../strategy/2026-11-21-related-article-link-proposal.md).
+
+## BF-SEO-RUN-011 — 2026-11-21 — Review-only related-article link PR
+
+- Created `seo/rebalance-related-articles-2026-11-21` from documentation baseline `518cf62bd402b489deac819531f2d599e3e9e9a3`.
+- Edited exactly two `relatedSlugs` arrays in `src/content/blog/trainingHistory.ts` and `src/content/blog/gymHeartRateMonitoring.ts`; recorded static assertions in `docs/seo/verification/2026-11-21-related-article-pr-preflight.md` on the review branch.
+- Opened **[Draft PR #3](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/3)** at commit `ae93c38983870ddd1331e7d5dcbcc58169aba23c`.
+- Independently fetched the PR patch: exactly one `relatedSlugs` line in each article source file and one documentation file changed. No other application files changed.
+- Target slugs are in the seven published-article registry; each article retains two related references; resulting related-card graph has at least one incoming related-card link per article.
+- **No build or browser test for PR #3 has been performed**, and the successful PR #2 GitHub Actions run cannot be reused as verification for PR #3.
+- No main website code modification, production deployment, index submission, redirect, metadata or article text change.
+
+**Next gate:** Editorial review of the two link destinations; run PR #3's own build and browser/rendered-link checks once the verification workflow is available to that branch, then decide on merge separately.
