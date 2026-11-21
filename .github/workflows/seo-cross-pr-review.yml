@@ -1,0 +1,84 @@
+# Dedicated, read-only verification of two pinned SEO content PR revisions.
+# Lives on a QA-only branch; does not merge or deploy any source.
+name: SEO Cross-PR Review (Pinned)
+on:
+  push:
+    branches:
+      - seo/cross-pr-qa-2026-11-21
+
+permissions:
+  contents: read
+
+concurrency:
+  group: seo-cross-pr-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify-proposed-copy-and-links:
+    name: ${{ matrix.label }} / build and preview QA
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - label: gym-copy-pr1
+            kind: gym
+            commit: ae1b576f89c8cdb21d234064ffa0461f54d817d4
+          - label: article-links-pr3
+            kind: article-links
+            commit: ae93c38983870ddd1331e7d5dcbcc58169aba23c
+    steps:
+      - name: Fetch QA tools from this branch
+        uses: actions/checkout@v4
+        with:
+          path: qa
+
+      - name: Check out pinned content PR revision
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ matrix.commit }}
+          path: site
+
+      - name: Node.js 22 with locked dependency cache
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+
+      - name: Install site's locked dependencies
+        working-directory: site
+        run: npm ci
+
+      - name: Build the exact content PR revision
+        working-directory: site
+        run: npm run build
+
+      - name: Verify generated SEO output with corrected checker from PR 2
+        working-directory: site
+        run: node ../qa/scripts/verify-seo-build.mjs dist
+
+      - name: Verify proposed copy and related-link source assertions
+        working-directory: site
+        env:
+          QA_KIND: ${{ matrix.kind }}
+        run: node ../qa/scripts/verify-review-snapshot.mjs
+
+      - name: Confirm generated tracked public artifacts unchanged
+        working-directory: site
+        run: git diff --exit-code -- public/robots.txt public/sitemap.xml public/web.config
+
+      - name: Install isolated browser test dependency (no lockfile changes)
+        working-directory: site
+        run: npm install --no-save --package-lock=false playwright@1.55.0
+
+      - name: Install headless Chromium
+        working-directory: site
+        run: npx playwright install --with-deps chromium
+
+      - name: Verify mobile React DOM and JS-disabled SEO shell
+        working-directory: site
+        env:
+          QA_KIND: ${{ matrix.kind }}
+        run: node ../qa/scripts/verify-preview-browser.mjs
