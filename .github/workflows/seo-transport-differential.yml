@@ -1,0 +1,19 @@
+name: BeatFit External Transport Differential (Read Only)
+on:
+  push:
+    branches: [seo/transport-layer-differential-qa-2026-11-21]
+permissions:
+  contents: read
+jobs:
+  differential:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - name: Check out bounded public diagnostic
+        uses: actions/checkout@v4
+      - name: Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Compare direct HTTP, HTTPS, SNI and TLS variants
+        run: node docs/seo/tools/transport-layer-probe.mjs
