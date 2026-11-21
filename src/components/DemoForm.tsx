@@ -53,6 +53,8 @@ function SelectField({
 }
 
 export function DemoForm() {
+  // No approved lead receiver exists in this website repository.
+  // Keep controls non-interactive until a real server and privacy flow are approved.
   return (
     <section className="bf-demo" aria-labelledby="demo-form-title">
       <div className="bf-demo__card">
@@ -79,13 +81,21 @@ export function DemoForm() {
             <h2 id="demo-form-title" className="bf-demo__form-title">
               {demoPage.formTitle}
             </h2>
-            <p className="bf-demo__form-lede">{demoPage.formLede}</p>
+            <p
+              className="bf-demo__availability-note"
+              id="demo-form-availability"
+              role="status"
+            >
+              ثبت آنلاین درخواست دمو فعلاً فعال نیست؛ لطفاً اطلاعات تماس خود را در این فرم وارد نکنید.
+            </p>
           </header>
 
           <form
             className="bf-demo__form"
+            aria-describedby="demo-form-availability"
             onSubmit={(event) => event.preventDefault()}
           >
+            <fieldset className="bf-demo__disabled-fieldset" disabled>
             <div className="bf-demo__row">
               <label className="bf-demo__field">
                 <span className="bf-demo__label">
@@ -96,6 +106,8 @@ export function DemoForm() {
                   type="text"
                   name="fullName"
                   autoComplete="name"
+                  required
+                  maxLength={100}
                   placeholder={demoPage.fields.fullName.placeholder}
                 />
               </label>
@@ -108,6 +120,8 @@ export function DemoForm() {
                   className="bf-demo__control"
                   type="text"
                   name="gymName"
+                  required
+                  maxLength={100}
                   placeholder={demoPage.fields.gymName.placeholder}
                 />
               </label>
@@ -124,6 +138,9 @@ export function DemoForm() {
                   name="phone"
                   inputMode="tel"
                   autoComplete="tel"
+                  required
+                  minLength={7}
+                  maxLength={20}
                   placeholder={demoPage.fields.phone.placeholder}
                 />
               </label>
@@ -153,6 +170,7 @@ export function DemoForm() {
                 className="bf-demo__control bf-demo__textarea"
                 name="notes"
                 rows={5}
+                maxLength={1000}
                 placeholder={demoPage.fields.notes.placeholder}
               />
             </label>
@@ -164,6 +182,7 @@ export function DemoForm() {
             >
               {demoPage.submitLabel}
             </BeatfitCta>
+            </fieldset>
           </form>
         </div>
       </div>
