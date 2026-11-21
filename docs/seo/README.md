@@ -16,6 +16,9 @@ This is the **single source of truth for BeatFit-specific SEO documentation**: r
 | Scope | [Project brief](project/project-brief.md) | Business and Persian-language SEO boundaries, approval, workflow |
 | Audit | [Baseline Audit 001](audits/2026-11-21-source-baseline.md) | Six findings grounded in a pinned source snapshot |
 | Audit | [Page intent and conversion review](audits/2026-11-21-page-intent-and-conversion-review.md) | Six marketing pages, seven articles, three further review findings |
+| Audit | [Persian article internal-link review](audits/2026-11-21-internal-link-source-review.md) | Validated catalog/home/related source graph and low-inbound related-card articles |
+| Inventory | [Article link graph](inventory/2026-11-21-article-link-graph.csv) | 28 source-declared edges with evidence types |
+| Strategy | [Related-article editorial proposal](strategy/2026-11-21-related-article-link-proposal.md) | Two narrowly scoped, review-only link substitutions |
 | Inventory | [Source URL inventory](inventory/source-route-inventory.csv) | Six marketing and seven Persian article URLs |
 | Verification | [Source check record](verification/2026-11-21-source-checks.md) | Eleven bounded source observations and outstanding tests |
 | Verification | [Actual GitHub Actions CI evidence](verification/2026-11-21-github-actions-ci-gate.md) | Real build, corrected Persian URL check, 10 fixture tests, 254 assertions |

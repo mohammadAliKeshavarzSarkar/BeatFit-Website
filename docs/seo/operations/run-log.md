@@ -138,3 +138,16 @@ Every new work session will append an entry with exact revision, findings, test 
 **Canonical evidence:** [CI verification record](../verification/2026-11-21-github-actions-ci-gate.md), [successful run](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/44873467188), [initial failed run](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/44873370506).
 
 **Next:** Review PR #2; after appropriate approval, make the CI gate available to PR #1. Continue separately with source and then deployed rendered-content/link validation.
+
+## BF-SEO-RUN-010 — 2026-11-21 — Source-level internal article link graph
+
+**Source reference:** `d11130cef8f941f54b06362bb9bd124f89853adb`; read-only link inventory, no live crawler.
+
+- Inspected all seven published article source modules, `src/content/resources.ts`, `src/content/home.ts` and the React `BlogArticle.tsx` renderer.
+- Verified seven source-declared links from `/resources` and seven from the homepage to the articles. Confirmed 14 related-card links (two each, valid targets, no self-links).
+- Related-card incoming counts: zones 6, group intensity 3, gym monitoring 2, history 2, group design 1, training load 0 and sensor comparison 0.
+- Correctly classified training-load and sensor-comparison pages as **not orphaned in source**: both appear in homepage and resource registry; only the related-card subgraph has zero inbound edges.
+- Prepared two narrow editorial substitutions aimed at more relevant cross-article paths. Source-link distribution is not treated as an observed ranking or crawl improvement.
+- Recorded a 28-edge link graph and acceptance plan; no deployed/browser crawling or GSC evidence collected.
+
+**Artifacts:** [link graph review](../audits/2026-11-21-internal-link-source-review.md), [source edge inventory](../inventory/2026-11-21-article-link-graph.csv), [editorial proposal](../strategy/2026-11-21-related-article-link-proposal.md).

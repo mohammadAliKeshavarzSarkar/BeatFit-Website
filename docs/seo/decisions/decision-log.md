@@ -19,6 +19,7 @@ An approved scope is not permission to deploy; a source observation is not a com
 | BF-SEO-D012 | 2026-11-21 | Do not claim actual Google ranking or search volume from pooled public-web discovery | APPROVED (evidence methodology) | Result provider is not a localized Google SERP; first-party indexing and demand remain unknown |
 | BF-SEO-D013 | 2026-11-21 | Propose a small /gym hero-description and SEO title clarity revision for review | REVIEW — [Draft PR #1](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/1) | Source/product evidence and source diff checked; merge/deploy blocked on build, browser and owner fact review |
 | BF-SEO-D014 | 2026-11-21 | Add post-build integrity checks for SEO shells, Sitemap, robots, IIS map and metadata | REVIEW — [Draft PR #2](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/2) | Real GitHub Actions run 44873467188 passed build, 10 fixture tests, 254 artifact checks and tracked-public diff; browser/production verification and code review remain separate gates |
+| BF-SEO-D015 | 2026-11-21 | Balance two related-article links to cover existing underlinked topics | PROPOSED | Two zero-related-inbound articles observed in source, but both are linked from homepage/resources; require editorial/QA approval |
 
 ## Future decision record standard
 
