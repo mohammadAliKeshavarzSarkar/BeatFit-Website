@@ -1,4 +1,4 @@
-name: SEO Demo Form Honest-Submission Draft PR 11 (Pinned QA)
+name: SEO Demo Form Pre-Entry Unavailable Draft PR 11 (Pinned QA)
 on:
   push:
     branches: [seo/demo-form-pr11-qa-2026-11-21]
@@ -16,7 +16,7 @@ jobs:
       - name: Check out exact Draft PR 11 revision
         uses: actions/checkout@v4
         with:
-          ref: 1b9571d03296a14694f97af2c8d68d6838a3df81
+          ref: 87128b6a7744a96d43972024ce78fd77746fe109
           path: site
       - uses: actions/setup-node@v4
         with:
@@ -41,6 +41,6 @@ jobs:
       - name: Install Chromium on supported Ubuntu
         working-directory: site
         run: npx playwright install --with-deps chromium
-      - name: Test validation, explicit status and zero network submit
+      - name: Test upfront notice, disabled controls and zero network submit
         working-directory: site
         run: node ../qa/scripts/verify-demo-form-preview.mjs
