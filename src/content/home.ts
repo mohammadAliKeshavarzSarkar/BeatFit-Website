@@ -2,7 +2,7 @@ import { SITE_URL } from "../config/site";
 import type { JourneyContent, PersonaId } from "../types/persona";
 
 export const site = {
-  title: "بیت‌فیت | مانیتورینگ زنده ضربان قلب و مدیریت تمرین",
+  title: "بیت‌فیت | سیستم پایش زنده ضربان قلب و تمرین گروهی",
   brand: "بیت‌فیت",
   homeAriaLabel: "صفحه اصلی بیت‌فیت",
   email: "mailto:hello@beatfit.ir",
