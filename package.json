@@ -9,6 +9,7 @@
     "build": "tsc -b && vite build",
     "preview": "vite preview",
     "test:seo": "node scripts/verify-seo-build.mjs",
+    "test:seo:links": "node scripts/verify-seo-source-links.mjs",
     "test:seo:fixtures": "node --test scripts/verify-seo-build.test.mjs",
     "test:blog": "node scripts/validate-first-blog.mjs",
     "test:blog:second": "node scripts/validate-second-blog.mjs",
