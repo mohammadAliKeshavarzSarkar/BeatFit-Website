@@ -1,0 +1,45 @@
+name: BeatFit Current Merged Source Build and Browser QA
+on:
+  push:
+    branches: [seo/postdeploy-merged-source-qa-2026-11-21]
+permissions:
+  contents: read
+jobs:
+  merged-source:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Check out independent browser QA script
+        uses: actions/checkout@v4
+        with:
+          path: qa
+      - name: Check out pinned latest main source
+        uses: actions/checkout@v4
+        with:
+          ref: ae2eb506845380bc952d80c372851078b297d44f
+          path: site
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+      - name: Install locked dependencies
+        working-directory: site
+        run: npm ci
+      - name: Build exact current website
+        working-directory: site
+        run: npm run build
+      - name: Check generated SEO metadata and routes
+        working-directory: site
+        run: node scripts/verify-seo-build.mjs dist
+      - name: Check unchanged generated public files
+        working-directory: site
+        run: git diff --exit-code -- public/robots.txt public/sitemap.xml public/web.config
+      - name: Install browser QA only on runner
+        working-directory: site
+        run: |
+          npm install --no-save --package-lock=false playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Test updated routes, CDC citation and disabled form in Chromium
+        working-directory: site
+        run: node ../qa/scripts/seo-review-latest-merged-preview.mjs
