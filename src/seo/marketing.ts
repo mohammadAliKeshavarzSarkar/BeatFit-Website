@@ -100,7 +100,7 @@ export const athleteDocument = page({
   id: "athlete",
   path: "/athlete",
   fileId: "athlete",
-  title: "شدت تمرین، تاریخچه و پیشرفت ورزشکار | بیت‌فیت",
+  title: "پایش ضربان قلب و پیشرفت تمرین ورزشکار | بیت‌فیت",
   description: athleteHero.body,
   h1: athleteHero.title,
   summary: athleteHero.body,
