@@ -1,5 +1,11 @@
-import { useLayoutEffect } from "react";
-import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import { useLayoutEffect, useRef } from "react";
+import {
+  Route,
+  Routes,
+  useLocation,
+  unstable_HistoryRouter as HistoryRouter,
+} from "react-router-dom";
+import type { History } from "@remix-run/router";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { BlogPostPage } from "./pages/BlogPostPage";
@@ -10,6 +16,7 @@ import { GymPage } from "./pages/GymPage";
 import { HomePage } from "./pages/HomePage";
 import { NotFoundPage } from "./pages/NotFoundPage";
 import { ResourcesPage } from "./pages/ResourcesPage";
+import { createReadableBrowserHistory } from "./routing/readableHistory";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -111,8 +118,13 @@ function ScrollToTop() {
 }
 
 export default function App() {
+  const historyRef = useRef<History | null>(null);
+  if (historyRef.current == null) {
+    historyRef.current = createReadableBrowserHistory();
+  }
+
   return (
-    <BrowserRouter>
+    <HistoryRouter history={historyRef.current}>
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -125,6 +137,6 @@ export default function App() {
         <Route path="/demo" element={<DemoPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-    </BrowserRouter>
+    </HistoryRouter>
   );
 }

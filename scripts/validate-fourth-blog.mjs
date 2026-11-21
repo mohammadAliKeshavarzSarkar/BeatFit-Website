@@ -22,13 +22,13 @@ assert.equal((article.match(/kind:\s*["']table["']/g) ?? []).length >= 2, true, 
 assert.match(article, /kind:\s*["']faq["']/, "Training-history FAQ is missing");
 assert.match(article, /kind:\s*["']sources["']/, "Training-history sources are missing");
 assert.equal((article.match(/https:\/\//g) ?? []).length >= 6, true, "Six article sources are required");
-assert.match(article, /href:\s*["']\/blog\/زون-های-ضربان-قلب["']/, "Internal heart-rate-zones link is missing");
+assert.match(article, /href:\s*["']\/blog\/heart-rate-zones["']/, "Internal heart-rate-zones link is missing");
 assert.match(article, /href:\s*["']\/athlete["']/, "Athlete CTA is missing");
 assert.match(article, /\/assets\/product\/class-live-dashboard\.png/, "Inline training-history product image is missing");
 assert.match(home, /image:\s*["']\/beatfitImages\/blog-workout-history\.png["']/, "Homepage history image must remain unchanged");
-assert.match(home, /href:\s*["']\/blog\/تاریخچه-تمرین["']/, "Homepage canonical history link is missing");
+assert.match(home, /href:\s*["']\/blog\/workout-history-progress["']/, "Homepage canonical history link is missing");
 assert.match(resources, /image:\s*["']\/beatfitImages\/articles\/تاریخچه-تمرین\.png["']/, "Resources history hero is missing");
-assert.equal((resources.match(/href:\s*["']\/blog\/تاریخچه-تمرین["']/g) ?? []).length >= 2, true, "Both Resources history links must be canonical");
+assert.equal((resources.match(/href:\s*["']\/blog\/workout-history-progress["']/g) ?? []).length >= 2, true, "Both Resources history links must be canonical");
 
 for (const asset of [
   "public/beatfitImages/articles/تاریخچه-تمرین.png",

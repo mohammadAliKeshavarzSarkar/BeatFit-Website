@@ -104,10 +104,25 @@ export function renderSeoHead(doc: SeoDocument): string {
 }
 
 export function renderSeoBody(doc: SeoDocument): string {
+  const nav =
+    doc.primaryDestinations && doc.primaryDestinations.length > 0
+      ? [
+          `  <nav aria-label="بخش‌های اصلی بیت‌فیت">`,
+          `    <ul>`,
+          ...doc.primaryDestinations.map(
+            (dest) =>
+              `      <li><a href="${escapeHtml(dest.path)}">${escapeHtml(dest.name)}</a></li>`,
+          ),
+          `    </ul>`,
+          `  </nav>`,
+        ]
+      : [];
+
   return [
     `<main id="bf-static-seo" lang="fa" dir="rtl">`,
     `  <h1>${escapeHtml(doc.h1)}</h1>`,
     `  <p>${escapeHtml(doc.summary)}</p>`,
+    ...nav,
     `</main>`,
     `<script>var bfStaticSeo=document.getElementById("bf-static-seo");if(bfStaticSeo)bfStaticSeo.remove();</script>`,
   ].join("\n");

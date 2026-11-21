@@ -141,6 +141,31 @@
   color: #000000;
 }
 
+.bf-demo__availability-note {
+  margin: 20px 0 0;
+  padding-inline-start: 12px;
+  border-inline-start: 2px solid #9a3412;
+  color: #9a3412;
+  font-family: var(--bf-font-text);
+  font-size: 16px;
+  font-weight: var(--bf-weight-medium);
+  line-height: 1.7;
+}
+
+/* Keep original form field layout while disabling all controls natively. */
+.bf-demo__disabled-fieldset {
+  display: contents;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.bf-demo__disabled-fieldset :is(input, select, textarea, button):disabled {
+  cursor: not-allowed;
+  opacity: 0.52;
+}
+
 .bf-demo__form {
   display: flex;
   flex-direction: column;

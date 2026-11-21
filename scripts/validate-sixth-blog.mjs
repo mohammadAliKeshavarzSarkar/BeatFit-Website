@@ -21,8 +21,8 @@ assert.doesNotMatch(article, /kind:\s*["']chart["']/, "Article six must not inve
 assert.match(article, /kind:\s*["']faq["']/, "Sensor FAQ is missing");
 assert.match(article, /kind:\s*["']sources["']/, "Sensor sources are missing");
 assert.equal((article.match(/https:\/\//g) ?? []).length >= 8, true, "Eight sensor-comparison sources are required");
-assert.match(article, /href:\s*["']\/blog\/زون-های-ضربان-قلب["']/, "Internal zones link is missing");
-assert.match(article, /href:\s*["']\/blog\/پایش-ضربان-قلب-در-باشگاه["']/, "Internal gym-monitoring link is missing");
+assert.match(article, /href:\s*["']\/blog\/heart-rate-zones["']/, "Internal zones link is missing");
+assert.match(article, /href:\s*["']\/blog\/connected-training-system["']/, "Internal gym-monitoring link is missing");
 assert.match(article, /href:\s*["']\/athlete["']/, "Athlete CTA is missing");
 assert.match(article, /سنسورهای-ضربان-قلب-بیت-فیت\.png/, "Inline BeatFit sensor image is missing");
 assert.match(article, /کدام حسگر برای نیاز شما مناسب‌تر است\؟/, "Quick-selection guide is missing");
@@ -38,10 +38,10 @@ for (const existingImage of [
 }
 
 assert.match(home, /id:\s*["']sensors["']/, "Sixth homepage card is missing");
-assert.match(home, /href:\s*["']\/blog\/مقایسه-سنسور-ضربان-قلب["']/, "Homepage sensor-comparison link is missing");
+assert.match(home, /href:\s*["']\/blog\/heart-rate-sensor-comparison["']/, "Homepage sensor-comparison link is missing");
 assert.match(resources, /id:\s*["']athlete-sensors["']/, "Resources sensor card is missing");
 assert.match(resources, /image:\s*["']\/beatfitImages\/articles\/مقایسه-سنسور-ضربان-قلب\.png["']/, "Resources sensor hero is missing");
-assert.match(resources, /href:\s*["']\/blog\/مقایسه-سنسور-ضربان-قلب["']/, "Resources sensor link is missing");
+assert.match(resources, /href:\s*["']\/blog\/heart-rate-sensor-comparison["']/, "Resources sensor link is missing");
 
 for (const asset of [
   "public/beatfitImages/articles/مقایسه-سنسور-ضربان-قلب.png",

@@ -234,6 +234,68 @@ Every new work session will append an entry with exact revision, findings, test 
 - Fix: set `HTTPS Redirect` back to `enabled="false"`. Keep HTML/sitemap/robots canonicals on `https://beatfit.ir` (those are correct). Live host already performs HTTP→HTTPS outside this rule.
 - Owner must redeploy at least the fixed `web.config` (or full `dist/`) to restore the site.
 
+## BF-SEO-RUN-017 — 2026-11-21 — Google Search Console ownership verified
+
+- Owner confirmed Search Console verification for resource `https://beatfit.ir/` after publishing DNS TXT `google-site-verification=pryLHfD06lff-cxHVtVxxuNfjwPwWsEh6dgFQ8uSvVs`.
+- T4 ownership gate: **PASS**. Crawl Stats UI is reachable for the property.
+- **Next GSC actions (not done in this run):** submit `https://beatfit.ir/sitemap.xml`; run URL Inspection on `/`, `/gym`, and one Persian article; monitor coverage once data appears.
+- External crawler reachability from outside Iran remains a separate hosting risk for ongoing crawl success.
+
+## BF-SEO-RUN-018 — 2026-11-21 — T4 discovery prep + T6/T7 specs
+
+- Re-probed production from target market: `https://beatfit.ir/sitemap.xml` **200** (13 `<loc>`, HTTPS apex); `robots.txt` **200** with `Sitemap: https://beatfit.ir/sitemap.xml`.
+- Advanced T4 to **PARTIAL** (ownership done; sitemap submit + URL Inspection remain owner GSC clicks).
+- Drafted [T6 demo conversion contract](../strategy/2026-11-21-demo-conversion-contract.md) from current `DemoForm` fields; no endpoint invented; implementation blocked on owner API/CRM/consent (D006).
+- Opened [T7 weekly GSC measurement loop](2026-11-21-gsc-weekly-measurement-loop.md); T7 no longer blocked on ownership.
+- Updated [technical phases snapshot](../strategy/2026-11-21-technical-phases-no-content.md) and README checkpoint.
+
+## BF-SEO-RUN-019 — 2026-11-21 — Alias redirects leak HTTP Location
+
+- GSC sample live matrix (Iran): home/gym/demo/article/sitemap/robots/verification **200**; unknown path **404**.
+- `/blog/heart-rate-zones` returned **301** with `Location: http://beatfit.ir/blog/...` then host upgraded to HTTPS (extra hop / mixed scheme signal).
+- Root cause: relative redirect actions absolutized as HTTP when IIS `{HTTPS}` is off behind TLS offload.
+- Source fix: absolute `https://beatfit.ir/...` targets for trailing-slash, `/blog`→resources, and all five aliases in `public/web.config`; emitter asserts HTTPS alias actions.
+- Evidence: [alias HTTP Location fix](../verification/2026-11-21-alias-http-location-fix.md). **Redeploy `web.config` (or full dist) required** for live PASS.
+
+## BF-SEO-RUN-020 — 2026-11-21 — Alias HTTPS Location live PASS
+
+- Owner uploaded the fixed build/`web.config`.
+- Re-probe: `/blog/heart-rate-zones`, `/blog/live-class-monitoring`, `/blog`, `/gym/` all **301** with `Location: https://beatfit.ir/...` (no `http://` hop).
+- Sample indexables still **200** with HTTPS canonicals; sitemap **200**.
+- T3 alias redirect gate: **LIVE PASS**.
+
+## BF-SEO-RUN-025 — 2026-11-21 — Sync resources hub from SEO team PR #25
+
+- Checked `origin/main` merge `03732ce` / PR #25 resources-hub-discovery.
+- Applied locally: SEO title `آموزش پایش ضربان قلب و تمرین | بیت‌فیت`; intro lede listing subjects; filter `برای باشگاه‌ها` (ZWNJ); sr-only catalog H2 accessibility text. Kept ASCII blog hrefs from earlier local work.
+- Spec: [resources-hub-discovery-optimization](../research/2026-11-21-resources-hub-discovery-optimization.md).
+
+## BF-SEO-RUN-024 — 2026-11-21 — Align on-page SEO to keyword map v2
+
+- Pulled from `origin/main`: page-keyword-map-v2 (113), on-page optimization review, beatfit-brand-search-language.
+- Aligned marketing titles/metas/H1s to owner primary phrases; home title/description per review; coach/athlete/resources/demo titles updated.
+- Gym informational article seoTitle/H1 shifted to «چیست / چگونه کار می‌کند» to separate from `/gym` commercial intent.
+- Brand positioning phrase set on Organization/WebSite schema. Pack doc updated.
+
+## BF-SEO-RUN-023 — 2026-11-21 — Brand sitelinks readiness
+
+- Google sitelinks cannot be forced; improved readiness for brand queries (`بیت فیت`, `beatfit`, …).
+- Organization/WebSite `alternateName` brand variants; home `SiteNavigationElement` + crawlable primary nav in SEO shell; footer lists `/gym` `/coach` `/athlete` `/resources` `/demo`.
+- Spec: [brand-sitelinks-readiness](../strategy/2026-11-21-brand-sitelinks-readiness.md).
+
+## BF-SEO-RUN-022 — 2026-11-21 — Marketing page SEO pack (titles/H1/schema)
+
+- Reworked six marketing pages: unique titles + long-tail meta descriptions from Persian seed clusters; H1s on gym/coach/athlete/resources/demo aligned to short keys.
+- Home title uses پایش + مانیتورینگ باشگاه; BreadcrumbList JSON-LD on non-home marketing pages.
+- Spec: [marketing-page-seo-pack](../strategy/2026-11-21-marketing-page-seo-pack.md). Redeploy for live SERP titles.
+
+## BF-SEO-RUN-021 — 2026-11-21 — ASCII public blog URLs (copy/paste fix)
+
+- Browser clipboard percent-encodes non-ASCII paths even when sitemap/canonicals use Unicode Persian; owner confirmed paste still showed `%D8%...`.
+- Flipped public/canonical article paths to English ASCII slugs (`/blog/heart-rate-zones`, etc.). Persian paths **301** to ASCII. Content language remains Persian.
+- Sitemap locs, internal links, IIS rewrite map, and SEO shells updated. Legacy Persian→ASCII rules in `web.config`.
+- Local: fixtures 10/10; build; **255 SEO checks PASS**. Redeploy required for live copy/paste.
+
 ## BF-SEO-RUN-015 — 2026-11-21 — Two-article physiological and wearable-sensor claim review
 
 **Current source snapshot:** `7dbb283a97681597ee0792dd408f0b0734876a7a`, including subsequent third-party main changes that introduced Google Search Console verification assets. Those files are **not evidence of first-party Search Console data access**.

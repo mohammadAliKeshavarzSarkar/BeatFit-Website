@@ -12,6 +12,13 @@ const INDEX_ROBOTS = "index, follow, max-image-preview:large";
 const OG_IMAGE = "/images/seo/beatfit-og.webp";
 const OG_IMAGE_ALT = "بیت‌فیت، پایش زنده ضربان قلب و تمرین";
 
+/**
+ * Marketing titles/descriptions follow:
+ * - docs/seo/research/2026-11-21-page-keyword-map-v2.csv (113 phrases)
+ * - docs/seo/research/2026-11-21-current-page-onpage-optimization-review.md
+ * - docs/seo/strategy/2026-11-21-beatfit-brand-search-language.md
+ * Qualitative priorities only — no fabricated GSC demand.
+ */
 const HOME_DESCRIPTION =
   "بیت‌فیت سیستم پایش زنده ضربان قلب در تمرین‌های گروهی است؛ با حسگرهای پوشیدنی، نمایشگر کلاس، پنل مربی و تاریخچه جلسات، روند تمرین را بهتر دنبال کنید.";
 
@@ -25,8 +32,8 @@ function page(input: {
   summary: string;
   indexable: boolean;
   robots?: string;
-  changefreq?: "weekly" | "monthly";
-  priority?: string;
+  breadcrumbName?: string;
+  primaryDestinations?: readonly { path: string; name: string }[];
   faq?: readonly { question: string; answer: string }[];
 }): SeoDocument {
   const canonical = input.indexable ? absoluteUrl(input.path) : null;
@@ -43,19 +50,29 @@ function page(input: {
     h1: input.h1,
     summary: input.summary,
     canonical,
+    primaryDestinations: input.primaryDestinations,
     jsonLd: canonical
       ? marketingJsonLd({
           canonical,
           title: input.title,
           description: input.description,
+          breadcrumbName: input.breadcrumbName,
+          primaryDestinations: input.primaryDestinations,
           faq: input.faq,
         })
       : null,
     indexable: input.indexable,
-    changefreq: input.changefreq,
-    priority: input.priority,
   };
 }
+
+/** Brand sitelink destination set (home shell + SiteNavigationElement). */
+export const BRAND_SITELINK_DESTINATIONS = [
+  { path: "/gym", name: "باشگاه‌ها" },
+  { path: "/coach", name: "مربیان" },
+  { path: "/athlete", name: "ورزشکاران" },
+  { path: "/resources", name: "منابع" },
+  { path: "/demo", name: "درخواست دمو" },
+] as const;
 
 export const homeDocument = page({
   id: "home",
@@ -64,9 +81,8 @@ export const homeDocument = page({
   description: HOME_DESCRIPTION,
   h1: hero.title,
   summary: hero.lede,
+  primaryDestinations: BRAND_SITELINK_DESTINATIONS,
   indexable: true,
-  changefreq: "weekly",
-  priority: "1.0",
   faq: faq.items.map((item) => ({ question: item.question, answer: item.answer })),
 });
 
@@ -74,13 +90,13 @@ export const gymDocument = page({
   id: "gym",
   path: "/gym",
   fileId: "gym",
+  // Commercial landing title (on-page review + gym-copy-proposal); distinct from gym guide article.
   title: "پایش زنده ضربان قلب در باشگاه‌ها | بیت‌فیت",
   description: gymHero.body,
   h1: gymHero.title,
   summary: gymHero.body,
+  breadcrumbName: "باشگاه",
   indexable: true,
-  changefreq: "monthly",
-  priority: "0.9",
 });
 
 export const coachDocument = page({
@@ -91,9 +107,8 @@ export const coachDocument = page({
   description: coachHero.body,
   h1: coachHero.title,
   summary: coachHero.body,
+  breadcrumbName: "مربیان",
   indexable: true,
-  changefreq: "monthly",
-  priority: "0.9",
 });
 
 export const athleteDocument = page({
@@ -104,22 +119,21 @@ export const athleteDocument = page({
   description: athleteHero.body,
   h1: athleteHero.title,
   summary: athleteHero.body,
+  breadcrumbName: "ورزشکاران",
   indexable: true,
-  changefreq: "monthly",
-  priority: "0.9",
 });
 
 export const resourcesDocument = page({
   id: "resources",
   path: "/resources",
   fileId: "resources",
+  // Educational-hub purpose explicit (keyword map v2 + SEO team PR #25).
   title: "آموزش پایش ضربان قلب و تمرین | بیت‌فیت",
   description: resourcesHero.lede,
   h1: resourcesHero.title,
   summary: resourcesHero.lede,
+  breadcrumbName: "منابع",
   indexable: true,
-  changefreq: "weekly",
-  priority: "0.8",
 });
 
 export const demoDocument = page({
@@ -130,9 +144,8 @@ export const demoDocument = page({
   description: demoPage.contentBody,
   h1: demoPage.contentTitle,
   summary: demoPage.contentBody,
+  breadcrumbName: "درخواست دمو",
   indexable: true,
-  changefreq: "monthly",
-  priority: "0.7",
 });
 
 export const notFoundDocument = page({

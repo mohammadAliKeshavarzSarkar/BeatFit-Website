@@ -19,15 +19,46 @@ const posts = {
 
 export type BlogSlug = keyof typeof posts;
 
-export const blogAliases = {
+/** ASCII public URL segment for each content slug (copy/paste-safe). */
+export const blogPublicSlugByContentSlug = {
+  "زون-های-ضربان-قلب": "heart-rate-zones",
+  "کنترل-شدت-تمرین-در-کلاس-گروهی": "live-class-monitoring",
+  "پایش-ضربان-قلب-در-باشگاه": "connected-training-system",
+  "تاریخچه-تمرین": "workout-history-progress",
+  "بار-تمرینی-چیست": "live-tv-group-training",
+  "مقایسه-سنسور-ضربان-قلب": "heart-rate-sensor-comparison",
+  "طراحی-تمرین-گروهی": "group-class-design",
+} as const satisfies Record<BlogSlug, string>;
+
+export type BlogPublicSlug =
+  (typeof blogPublicSlugByContentSlug)[BlogSlug];
+
+/** English public slug → Persian content slug. */
+export const blogContentSlugByPublicSlug = {
   "heart-rate-zones": "زون-های-ضربان-قلب",
   "live-class-monitoring": "کنترل-شدت-تمرین-در-کلاس-گروهی",
   "connected-training-system": "پایش-ضربان-قلب-در-باشگاه",
   "workout-history-progress": "تاریخچه-تمرین",
   "live-tv-group-training": "بار-تمرینی-چیست",
-} as const;
+  "heart-rate-sensor-comparison": "مقایسه-سنسور-ضربان-قلب",
+  "group-class-design": "طراحی-تمرین-گروهی",
+} as const satisfies Record<BlogPublicSlug, BlogSlug>;
+
+/** @deprecated Prefer blogContentSlugByPublicSlug; kept for older imports. */
+export const blogAliases = blogContentSlugByPublicSlug;
 
 export const blogPosts = posts;
+
+export function getBlogPublicSlug(contentSlug: BlogSlug): BlogPublicSlug {
+  return blogPublicSlugByContentSlug[contentSlug];
+}
+
+/** Public path for internal links — always ASCII. */
+export function blogPath(slug: string): string {
+  const contentSlug = resolveBlogSlug(slug);
+  if (!contentSlug) return `/blog/${slug}`;
+  return `/blog/${blogPublicSlugByContentSlug[contentSlug]}`;
+}
 
 export function getBlogPost(slug: string): BlogPost | undefined {
   const canonicalSlug = resolveBlogSlug(slug);
@@ -36,9 +67,22 @@ export function getBlogPost(slug: string): BlogPost | undefined {
 }
 
 export function resolveBlogSlug(slug: string): BlogSlug | undefined {
-  if (slug in posts) return slug as BlogSlug;
-  if (slug in blogAliases) {
-    return blogAliases[slug as keyof typeof blogAliases];
+  let normalized = slug;
+  try {
+    normalized = decodeURIComponent(slug);
+  } catch {
+    normalized = slug;
+  }
+  if (normalized in posts) return normalized as BlogSlug;
+  if (normalized in blogContentSlugByPublicSlug) {
+    return blogContentSlugByPublicSlug[
+      normalized as keyof typeof blogContentSlugByPublicSlug
+    ];
+  }
+  if (slug in blogContentSlugByPublicSlug) {
+    return blogContentSlugByPublicSlug[
+      slug as keyof typeof blogContentSlugByPublicSlug
+    ];
   }
   return undefined;
 }

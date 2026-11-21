@@ -25,8 +25,8 @@ assert.match(article, /kind:\s*["']faq["']/, "Gym FAQ is missing");
 assert.match(article, /kind:\s*["']sources["']/, "Gym sources are missing");
 assert.doesNotMatch(article, /kind:\s*["']chart["']/, "Article three must not invent a statistical chart");
 assert.match(article, /سیستم-پایش-زنده-باشگاه-بیت-فیت\.png/, "Inline gym dashboard image is missing");
-assert.match(article, /href:\s*["']\/blog\/زون-های-ضربان-قلب["']/, "Internal link to article one is missing");
-assert.match(article, /href:\s*["']\/blog\/کنترل-شدت-تمرین-در-کلاس-گروهی["']/, "Internal link to article two is missing");
+assert.match(article, /href:\s*["']\/blog\/heart-rate-zones["']/, "Internal link to article one is missing");
+assert.match(article, /href:\s*["']\/blog\/live-class-monitoring["']/, "Internal link to article two is missing");
 assert.match(article, /href:\s*["']\/demo["']/, "Demo CTA is missing");
 assert.equal((article.match(/https:\/\//g) ?? []).length >= 7, true, "Seven gym article sources are required");
 
@@ -34,9 +34,9 @@ assert.match(types, /kind:\s*["']process["']/, "Process block is not typed");
 assert.match(renderer, /bf-blog-block-process/, "Process block is not rendered");
 assert.match(css, /\.bf-blog-block-process/, "Process block is not styled");
 assert.match(home, /image:\s*["']\/beatfitImages\/blog-club-data-flow\.png["']/, "Homepage club image must remain unchanged");
-assert.match(home, /href:\s*["']\/blog\/پایش-ضربان-قلب-در-باشگاه["']/, "Homepage gym article link is missing");
+assert.match(home, /href:\s*["']\/blog\/connected-training-system["']/, "Homepage gym article link is missing");
 assert.match(resources, /image:\s*["']\/beatfitImages\/articles\/پایش-ضربان-قلب-در-باشگاه\.png["']/, "Resources gym image is missing");
-assert.equal((resources.match(/href:\s*["']\/blog\/پایش-ضربان-قلب-در-باشگاه["']/g) ?? []).length >= 2, true, "Both Resources gym links must be canonical");
+assert.equal((resources.match(/href:\s*["']\/blog\/connected-training-system["']/g) ?? []).length >= 2, true, "Both Resources gym links must use the public slug");
 
 for (const asset of [
   "public/beatfitImages/articles/پایش-ضربان-قلب-در-باشگاه.png",

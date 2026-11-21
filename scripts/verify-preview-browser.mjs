@@ -58,8 +58,8 @@ try{
     assert.equal(new Set(blogPaths).size,7,"Seven unique article cards must be rendered on /resources");
     console.log("PASS browser /resources (390px): seven unique article card links");
     const expected={
-      "/blog/تاریخچه-تمرین":["/blog/زون-های-ضربان-قلب","/blog/بار-تمرینی-چیست"],
-      "/blog/پایش-ضربان-قلب-در-باشگاه":["/blog/مقایسه-سنسور-ضربان-قلب","/blog/کنترل-شدت-تمرین-در-کلاس-گروهی"]
+      "/blog/workout-history-progress":["/blog/heart-rate-zones","/blog/live-tv-group-training"],
+      "/blog/connected-training-system":["/blog/heart-rate-sensor-comparison","/blog/live-class-monitoring"]
     };
     for(const [pathname,desired] of Object.entries(expected)){
       await open(page,pathname);
@@ -79,7 +79,7 @@ try{
 
   const noJs=await browserInstance.newContext({javaScriptEnabled:false,locale:"fa-IR",viewport:{width:390,height:844}});
   const noJsPage=await noJs.newPage();
-  const noJsPath=kind==="gym"?"/gym":"/blog/تاریخچه-تمرین";
+  const noJsPath=kind==="gym"?"/gym":"/blog/workout-history-progress";
   await open(noJsPage,noJsPath);
   const main=await noJsPage.locator("#bf-static-seo").count();
   const articleCards=await noJsPage.locator(".bf-blog-post__related-link").count();

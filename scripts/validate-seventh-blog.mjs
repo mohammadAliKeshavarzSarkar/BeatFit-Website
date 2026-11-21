@@ -14,9 +14,9 @@ assert.equal((article.match(/kind:\s*["']table["']/g) ?? []).length, 2, "Article
 assert.equal((article.match(/kind:\s*["']process["']/g) ?? []).length, 1, "Article must contain one class-design process");
 assert.equal((article.match(/kind:\s*["']chart["']/g) ?? []).length, 0, "Article must not invent a chart");
 assert.ok(article.includes("/assets/gym/eco-panel.png"), "Inline coach panel is missing");
-assert.ok(article.includes("/blog/کنترل-شدت-تمرین-در-کلاس-گروهی"), "Intensity article link is missing");
-assert.ok(article.includes("/blog/زون-های-ضربان-قلب"), "Heart-rate-zones link is missing");
-assert.ok(article.includes("/blog/تاریخچه-تمرین"), "Training-history link is missing");
+assert.ok(article.includes("/blog/live-class-monitoring"), "Intensity article link is missing");
+assert.ok(article.includes("/blog/heart-rate-zones"), "Heart-rate-zones link is missing");
+assert.ok(article.includes("/blog/workout-history-progress"), "Training-history link is missing");
 assert.match(article, /href:\s*["']\/coach["']/, "Coach CTA is missing");
 assert.equal((article.match(/question:/g) ?? []).length, 7, "Article must contain seven FAQ items");
 assert.equal((article.match(/href:\s*["']https:\/\//g) ?? []).length, 7, "Article must contain seven external sources");
@@ -35,9 +35,9 @@ for (const image of [
 }
 
 assert.match(home, /id:\s*["']class-design["']/, "Seventh Home card is missing");
-assert.match(home, /href:\s*["']\/blog\/طراحی-تمرین-گروهی["']/, "Seventh Home card link is missing");
+assert.match(home, /href:\s*["']\/blog\/group-class-design["']/, "Seventh Home card link is missing");
 assert.match(resources, /id:\s*["']coach-class-design["']/, "Resources coach card is missing");
-assert.match(resources, /href:\s*["']\/blog\/طراحی-تمرین-گروهی["']/, "Resources coach card link is missing");
+assert.match(resources, /href:\s*["']\/blog\/group-class-design["']/, "Resources coach card link is missing");
 
 assert.ok(existsSync("public/beatfitImages/articles/طراحی-تمرین-گروهی.png"), "Hero asset is missing");
 assert.ok(existsSync("public/assets/gym/eco-panel.png"), "Coach panel asset is missing");

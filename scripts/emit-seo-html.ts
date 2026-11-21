@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import { blogAliases } from "../src/content/blog/posts.ts";
+import { blogPublicSlugByContentSlug } from "../src/content/blog/posts.ts";
 import { applySeoBlocks, escapeHtml, replaceMarkedBlock } from "../src/seo/html.ts";
 import { notFoundDocument } from "../src/seo/marketing.ts";
 import { distHtmlPath, encodedPath, indexableDocuments, rewriteMapEntries } from "../src/seo/routing.ts";
@@ -25,10 +25,13 @@ function assertUnique(docs: ReturnType<typeof indexableDocuments>): void {
 }
 
 function assertAliasRedirects(webConfig: string): void {
-  for (const [alias, slug] of Object.entries(blogAliases)) {
-    const target = encodedPath(`/blog/${slug}`);
-    if (!webConfig.includes(`blog/${alias}`) || !webConfig.includes(target)) {
-      throw new Error(`web.config is missing the 301 for /blog/${alias} -> ${target}`);
+  for (const [contentSlug, publicSlug] of Object.entries(blogPublicSlugByContentSlug)) {
+    const legacyPath = encodedPath(`/blog/${contentSlug}`).replace(/^\//, "");
+    const absolute = `url="https://beatfit.ir/blog/${publicSlug}"`;
+    if (!webConfig.includes(legacyPath) || !webConfig.includes(absolute)) {
+      throw new Error(
+        `web.config is missing the HTTPS 301 for /${legacyPath} -> https://beatfit.ir/blog/${publicSlug}`,
+      );
     }
   }
 }

@@ -68,7 +68,7 @@ export const trainingHistoryPost = {
       kind: "paragraph",
       content: [
         { text: "اگر با این مفهوم آشنایی ندارید، ابتدا مقاله «" },
-        { text: "زون‌های ضربان قلب چیست؟", href: "/blog/زون-های-ضربان-قلب", strong: true },
+        { text: "زون‌های ضربان قلب چیست؟", href: "/blog/heart-rate-zones", strong: true },
         { text: "» را بخوانید." },
       ],
     },

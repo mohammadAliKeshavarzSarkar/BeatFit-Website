@@ -20,6 +20,7 @@ const h3 = (text: string): RichBlogPost["content"][number] => ({
 export const gymHeartRateMonitoringPost = {
   slug: "پایش-ضربان-قلب-در-باشگاه",
   eyebrow: "برای باشگاه",
+  // Educational guide — keep distinct from /gym commercial landing (SEO team PR #22).
   title: "پایش ضربان قلب در باشگاه چیست و چه کاربردی برای مدیران دارد؟",
   summary:
     "با نحوه کار سیستم پایش ضربان قلب گروهی، تجهیزات موردنیاز، کاربردها و نکات انتخاب راهکار مناسب برای باشگاه آشنا شوید.",
@@ -54,7 +55,7 @@ export const gymHeartRateMonitoringPost = {
       kind: "paragraph",
       content: [
         { text: "در مدل‌های مبتنی بر ", strong: false },
-        { text: "زون‌های ضربان قلب", href: "/blog/زون-های-ضربان-قلب", strong: true },
+        { text: "زون‌های ضربان قلب", href: "/blog/heart-rate-zones", strong: true },
         { text: "، شدت فعالیت نسبت به محدوده‌های فردی تفسیر می‌شود؛ بنابراین لازم نیست همه ورزشکاران ضربان قلب یکسانی داشته باشند." },
       ],
     },
@@ -99,7 +100,7 @@ export const gymHeartRateMonitoringPost = {
       kind: "paragraph",
       content: [
         { text: "پایش زنده ضربان قلب می‌تواند اطلاعات بیشتری در اختیار مربی قرار دهد تا در کنار مشاهده حرکت، میزان خستگی و بازخورد ورزشکار، وضعیت افراد را بهتر بررسی کند. برای آشنایی بیشتر، راهنمای ", strong: false },
-        { text: "کنترل شدت تمرین در کلاس گروهی", href: "/blog/کنترل-شدت-تمرین-در-کلاس-گروهی", strong: true },
+        { text: "کنترل شدت تمرین در کلاس گروهی", href: "/blog/live-class-monitoring", strong: true },
         { text: " را بخوانید." },
       ],
     },

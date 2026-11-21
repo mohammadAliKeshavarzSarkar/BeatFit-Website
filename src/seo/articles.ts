@@ -1,34 +1,30 @@
 import { absoluteAsset, absoluteUrl } from "../config/site";
-import { getPublishedBlogPosts, type BlogPost } from "../content/blog";
+import {
+  blogPublicSlugByContentSlug,
+  getPublishedBlogPosts,
+  type BlogPost,
+  type BlogSlug,
+} from "../content/blog";
 import { articleJsonLd } from "./schema";
 import type { SeoDocument } from "./types";
 
 const INDEX_ROBOTS = "index, follow, max-image-preview:large";
 
-/** ASCII shells for IIS. Public URLs stay on the Persian slug. */
-const ARTICLE_FILE_IDS: Record<string, string> = {
-  "زون-های-ضربان-قلب": "heart-rate-zones",
-  "کنترل-شدت-تمرین-در-کلاس-گروهی": "live-class-monitoring",
-  "پایش-ضربان-قلب-در-باشگاه": "connected-training-system",
-  "تاریخچه-تمرین": "workout-history-progress",
-  "بار-تمرینی-چیست": "live-tv-group-training",
-  "مقایسه-سنسور-ضربان-قلب": "heart-rate-sensor-comparison",
-  "طراحی-تمرین-گروهی": "group-class-design",
-};
-
 function articleDocument(post: BlogPost): SeoDocument {
-  const fileId = ARTICLE_FILE_IDS[post.slug];
+  const contentSlug = post.slug as BlogSlug;
+  const fileId = blogPublicSlugByContentSlug[contentSlug];
   if (!fileId) {
-    throw new Error(`Add an ASCII file id for blog slug: ${post.slug}`);
+    throw new Error(`Add a public ASCII slug for blog content: ${post.slug}`);
   }
 
-  const path = `/blog/${post.slug}`;
+  // Public/canonical path is ASCII so copied links stay readable in every browser.
+  const path = `/blog/${fileId}`;
   const canonical = absoluteUrl(path);
   const description = post.metaDescription ?? post.summary;
   const image = absoluteAsset(post.image);
 
   return {
-    id: `blog:${post.slug}`,
+    id: `blog:${contentSlug}`,
     path,
     fileId,
     title: post.seoTitle ?? `${post.title} | بیت‌فیت`,
@@ -43,18 +39,23 @@ function articleDocument(post: BlogPost): SeoDocument {
     canonical,
     jsonLd: articleJsonLd(post, canonical, description, image),
     indexable: true,
+    // datePublished is the known significant-change date until a real dateModified exists.
     lastmod: post.datePublished,
-    changefreq: "monthly",
-    priority: "0.8",
   };
 }
 
 export const articleDocuments: SeoDocument[] = getPublishedBlogPosts()
   .map(articleDocument)
-  .sort((a, b) => (b.lastmod ?? "").localeCompare(a.lastmod ?? "") || a.path.localeCompare(b.path, "fa"));
+  .sort((a, b) => (b.lastmod ?? "").localeCompare(a.lastmod ?? "") || a.path.localeCompare(b.path));
 
-const bySlug = new Map(articleDocuments.map((doc) => [doc.path.slice("/blog/".length), doc]));
+const byPublicSlug = new Map(
+  articleDocuments.map((doc) => [doc.fileId!, doc]),
+);
+const byContentSlug = new Map(
+  articleDocuments.map((doc) => [doc.id.replace(/^blog:/, ""), doc]),
+);
 
+/** Lookup by public ASCII slug or legacy Persian content slug. */
 export function articleDocumentBySlug(slug: string): SeoDocument | undefined {
-  return bySlug.get(slug);
+  return byPublicSlug.get(slug) ?? byContentSlug.get(slug);
 }

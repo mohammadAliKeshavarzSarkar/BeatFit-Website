@@ -43,9 +43,8 @@ function metadata(html, field, value) {
   return findTags(html, 'meta').filter(tag => attribute(tag, field) === value);
 }
 
-// The Sitemap serializes URLs through URL.href (percent-encoding Unicode),
-// while the app's canonical/OG serializer may keep readable Persian slugs.
-// Compare equivalent absolute URL values, not their raw textual form.
+// Sitemap locs and article head URLs both use readable Unicode via absoluteUrl().
+// Compare equivalent absolute URL values (URL.href) so older encoded locs still match.
 function normalizedAbsoluteUrl(value) {
   if (!value) return null;
   try {
@@ -58,13 +57,13 @@ function normalizedAbsoluteUrl(value) {
 
 const requiredMarketing = ['/', '/gym', '/coach', '/athlete', '/resources', '/demo'];
 const requiredArticles = [
-  'زون-های-ضربان-قلب',
-  'کنترل-شدت-تمرین-در-کلاس-گروهی',
-  'پایش-ضربان-قلب-در-باشگاه',
-  'تاریخچه-تمرین',
-  'بار-تمرینی-چیست',
-  'مقایسه-سنسور-ضربان-قلب',
-  'طراحی-تمرین-گروهی',
+  'heart-rate-zones',
+  'live-class-monitoring',
+  'connected-training-system',
+  'workout-history-progress',
+  'live-tv-group-training',
+  'heart-rate-sensor-comparison',
+  'group-class-design',
 ].map(slug => `/blog/${slug}`);
 
 const sitemap = read('sitemap.xml');
@@ -92,6 +91,13 @@ if (sitemap && robots && webConfig) {
   for (const path of [...requiredMarketing, ...requiredArticles]) {
     check(paths.has(path), `Expected source-baseline URL absent from Sitemap: ${path}`);
   }
+  const blogLocs = urls.filter(value => {
+    try { return new URL(value).pathname.includes('/blog/'); } catch { return false; }
+  });
+  check(
+    blogLocs.length > 0 && blogLocs.every(value => !/%[0-9A-Fa-f]{2}/.test(value) && /^https?:\/\/[^/]+\/blog\/[a-z0-9-]+$/i.test(value)),
+    'Sitemap blog <loc> entries must use ASCII public slugs (not percent-encoding)',
+  );
   check(![...paths.keys()].some(path => path.startsWith('/route-html/')), 'Internal HTML shell path must not be an indexable URL');
   if (origin) check(robots.includes(`Sitemap: ${origin}/sitemap.xml`), 'robots.txt Sitemap origin mismatch');
   check(/Disallow:\s*\/route-html\//i.test(robots), 'robots.txt must disallow internal route shell URLs');

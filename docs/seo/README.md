@@ -86,11 +86,11 @@ Future research, content strategy, technical implementation plans and verified o
 ## Current checkpoint
 
 - **Technical phases (no content):** [active plan](strategy/2026-11-21-technical-phases-no-content.md) — content PRs parked.
-- **T1 PASS** on main: SEO build verifier merged; local fixtures + 254 artifact checks pass.
-- **T2 PARTIAL:** Target-market probe sees live HTTPS and HTTP→HTTPS 301; production HTML is still an older 2026-11-15 build with `http://` canonicals.
-- **T3 SOURCE DONE:** Preferred origin set to `https://beatfit.ir` in app/config, generated sitemap/robots, and IIS HTTPS redirect rule. **Deploy required** before VERIFIED.
-- **T4 PENDING:** Google verification meta/file exist in repo/build; must be deployed then verified in Search Console.
-- **Parked:** Draft content PRs #1, #3, #4, #8 and copy backlog.
+- **T1–T3 / T5:** Artifact, live HTTPS (Iran), canonicals, render-shell parity, and alias **301→https** (post-redeploy) recorded on the technical track ([alias fix](verification/2026-11-21-alias-http-location-fix.md)).
+- **T4 PARTIAL:** Search Console property `https://beatfit.ir/` **verified** (DNS TXT). Live `sitemap.xml` returns **200** with **13** URLs; owner must still **submit the sitemap** and sample **URL Inspection**.
+- **T6 SPEC READY:** [Demo conversion contract](strategy/2026-11-21-demo-conversion-contract.md) — form still does not POST; needs approved API/CRM.
+- **T7 READY:** [Weekly GSC measurement loop](operations/2026-11-21-gsc-weekly-measurement-loop.md).
+- **Parked:** Draft content PRs #1, #3, #4, #8, #10 and copy backlog.
 
 ## Next verification gate
 

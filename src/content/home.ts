@@ -4,6 +4,8 @@ import type { JourneyContent, PersonaId } from "../types/persona";
 export const site = {
   title: "بیت‌فیت | سیستم پایش زنده ضربان قلب و تمرین گروهی",
   brand: "بیت‌فیت",
+  /** Positioning modifier for branded search (see brand-search-language doc). */
+  categoryPhrase: "سیستم پایش زنده ضربان قلب و تمرین گروهی",
   homeAriaLabel: "صفحه اصلی بیت‌فیت",
   email: "mailto:hello@beatfit.ir",
   url: SITE_URL,
@@ -461,7 +463,7 @@ export const blogs = {
         "با پنج زون ضربان قلب، کاربرد هرکدام و روش محاسبه شدت تمرین آشنا شوید.",
       image: "/beatfitImages/articles/زون-های-ضربان-قلب.webp",
       imageAlt: "ورزشکار در حال تمرین با حسگر ضربان قلب نصب‌شده روی بازو",
-      href: "/blog/زون-های-ضربان-قلب",
+      href: "/blog/heart-rate-zones",
       /** Set true only when the article page is live — unpublished cards are hidden */
       published: true,
     },
@@ -473,7 +475,7 @@ export const blogs = {
         "روش‌های مشاهده، RPE، آزمون صحبت و پایش ضربان قلب را برای هدایت بهتر کلاس بشناسید.",
       image: "/beatfitImages/articles/کنترل-شدت-تمرین-در-کلاس-گروهی.webp",
       imageAlt: "مربی در حال گفت‌وگو با ورزشکار و بررسی اهداف تمرینی در بیت‌فیت",
-      href: "/blog/کنترل-شدت-تمرین-در-کلاس-گروهی",
+      href: "/blog/live-class-monitoring",
       published: true,
     },
     {
@@ -484,7 +486,7 @@ export const blogs = {
         "با نحوه کار سیستم پایش گروهی، تجهیزات موردنیاز و نکات انتخاب راهکار مناسب برای باشگاه آشنا شوید.",
       image: "/beatfitImages/articles/پایش-ضربان-قلب-در-باشگاه.webp",
       imageAlt: "کلاس گروهی ورزشی با حسگرهای ضربان قلب بیت‌فیت روی بازوی ورزشکاران",
-      href: "/blog/پایش-ضربان-قلب-در-باشگاه",
+      href: "/blog/connected-training-system",
       published: true,
     },
     {
@@ -495,7 +497,7 @@ export const blogs = {
         "با مقایسه جلسات مشابه، ضربان قلب، زون‌ها و بار تمرینی، مسیر فعالیت خود را دقیق‌تر بشناسید.",
       image: "/beatfitImages/articles/تاریخچه-تمرین.webp",
       imageAlt: "ورزشکار در حال دویدن با حسگر ضربان قلب روی بازو",
-      href: "/blog/تاریخچه-تمرین",
+      href: "/blog/workout-history-progress",
       published: true,
     },
     {
@@ -506,7 +508,7 @@ export const blogs = {
         "تفاوت حجم، شدت و بار تمرینی را بشناسید و عدد فشار هر جلسه را دقیق‌تر تفسیر کنید.",
       image: "/beatfitImages/articles/بار-تمرینی-چیست.webp",
       imageAlt: "ورزشکار پس از تمرین با حسگر بیت‌فیت و نمایش اطلاعات بار تمرینی",
-      href: "/blog/بار-تمرینی-چیست",
+      href: "/blog/live-tv-group-training",
       published: true,
     },
     {
@@ -517,7 +519,7 @@ export const blogs = {
         "فناوری، دقت، راحتی و کاربرد سه روش رایج پایش ضربان قلب را هنگام ورزش مقایسه کنید.",
       image: "/beatfitImages/articles/مقایسه-سنسور-ضربان-قلب.webp",
       imageAlt: "مقایسه ساعت هوشمند، سنسور ضربان قلب بازویی و بند سینه‌ای ورزشی",
-      href: "/blog/مقایسه-سنسور-ضربان-قلب",
+      href: "/blog/heart-rate-sensor-comparison",
       published: true,
     },
     {
@@ -528,7 +530,7 @@ export const blogs = {
         "با نسخه‌های جایگزین حرکات، تنظیم شدت و نمونه کامل کلاس ۴۵دقیقه‌ای، برنامه‌ای منعطف‌تر بسازید.",
       image: "/beatfitImages/articles/طراحی-تمرین-گروهی.webp",
       imageAlt: "ورزشکار در حال آماده‌سازی حسگرهای ضربان قلب پیش از تمرین قدرتی",
-      href: "/blog/طراحی-تمرین-گروهی",
+      href: "/blog/group-class-design",
       published: true,
     },
   ],
@@ -627,13 +629,14 @@ export const footer = {
         { href: "/gym", label: "باشگاه‌ها" },
         { href: "/coach", label: "مربیان" },
         { href: "/athlete", label: "ورزشکاران" },
-
+        { href: "/resources", label: "منابع" },
+        { href: "/demo", label: "درخواست دمو" },
       ],
     },
     {
       title: "بیشتر بدانید",
       links: [
-        { href: "/#blogs", label: "بلاگ و منابع" },
+        { href: "/resources", label: "بلاگ و منابع" },
         { href: "/demo", label: "درخواست دمو" },
       ],
     },

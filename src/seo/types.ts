@@ -24,9 +24,13 @@ export type SeoDocument = {
   canonical: string | null;
   jsonLd: JsonLd | null;
   indexable: boolean;
+  /** Significant content change date (YYYY-MM-DD). Omit when unknown — never use build time. */
   lastmod?: string;
-  changefreq?: "weekly" | "monthly";
-  priority?: string;
+  /**
+   * Important destinations for brand sitelink readiness (home).
+   * Rendered in the JS-off SEO shell and SiteNavigationElement JSON-LD.
+   */
+  primaryDestinations?: readonly { path: string; name: string }[];
 };
 
 export type HeadTag =
