@@ -34,7 +34,7 @@ export function ResourcesCatalog() {
       aria-labelledby="resources-catalog-title"
     >
       <h2 id="resources-catalog-title" className="sr-only">
-        فهرست مطالب
+        مقالات و راهنماهای تمرین و پایش ضربان قلب
       </h2>
 
       <div className="bf-resources-catalog__shell">
