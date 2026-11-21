@@ -86,6 +86,7 @@ export const heartRateZonesPost = {
     p("تمرین در این محدوده می‌تواند به توسعه استقامت هوازی و ایجاد پایه آمادگی جسمانی کمک کند."),
     p("برای بعضی ورزشکاران، پیاده‌روی تند در این زون قرار می‌گیرد؛ در حالی که فردی با آمادگی بیشتر ممکن است با دویدن آرام به همین محدوده برسد."),
     p("زون ۲ بخش مهمی از بسیاری از برنامه‌های استقامتی است، اما لازم نیست تمام جلسات ورزشی در این محدوده انجام شوند."),
+    { kind: "paragraph", tone: "note", content: "در این راهنما، «زون ۲» به بازه ۶۰ تا ۷۰ درصد HRmax در مدل پنج‌زونی اشاره دارد. در روش‌های مبتنی بر آستانه‌های تهویه‌ای یا لاکتات، محدوده‌ای که زون ۲ نامیده می‌شود ممکن است متفاوت باشد؛ بنابراین این درصد ثابت را نباید برای همه افراد معادل یک آستانه فیزیولوژیک مشخص دانست." },
 
     h3("زون ۳؛ تمرین با شدت متوسط"),
     { kind: "paragraph", content: [{ text: "۷۰ تا ۸۰ درصد حداکثر ضربان قلب", strong: true }] },
@@ -239,7 +240,7 @@ export const heartRateZonesPost = {
       items: [
         { question: "زون ضربان قلب چیست؟", answer: "زون ضربان قلب محدوده‌ای از تعداد ضربان قلب در دقیقه است که برای نمایش شدت فعالیت ورزشی استفاده می‌شود. در مدل پنج‌زونی رایج، این محدوده‌ها بر اساس درصدی از حداکثر ضربان قلب فرد تعیین می‌شوند." },
         { question: "چند زون ضربان قلب وجود دارد؟", answer: "یکی از مدل‌های متداول دارای پنج زون است؛ از زون ۱ با شدت بسیار سبک تا زون ۵ با شدت بسیار شدید. بعضی روش‌های تمرینی ممکن است تعداد یا مرزهای متفاوتی داشته باشند." },
-        { question: "زون ۲ ضربان قلب چیست؟", answer: "در مدل پنج‌زونی مبتنی بر HRmax، زون ۲ معمولاً بین ۶۰ تا ۷۰ درصد حداکثر ضربان قلب قرار دارد و در تمرین‌های سبک و توسعه استقامت هوازی کاربرد دارد." },
+        { question: "زون ۲ ضربان قلب چیست؟", answer: "در مدل پنج‌زونی مبتنی بر HRmax که این مقاله توضیح می‌دهد، زون ۲ حدود ۶۰ تا ۷۰ درصد حداکثر ضربان قلب است. در روش‌های مبتنی بر آستانه‌های فیزیولوژیک، مرز این محدوده ممکن است متفاوت باشد." },
         { question: "ضربان قلب مناسب هنگام ورزش چقدر است؟", answer: "یک عدد ثابت برای همه افراد وجود ندارد. محدوده مناسب به سن، حداکثر ضربان قلب واقعی، شرایط جسمانی، آمادگی ورزشی و هدف تمرین بستگی دارد." },
         { question: "آیا باید در تمام تمرین‌ها به زون ۴ یا ۵ برسیم؟", answer: "خیر. حضور در زون‌های بالا برای تمام جلسات ضروری نیست. بسیاری از تمرین‌های مؤثر با شدت سبک یا متوسط انجام می‌شوند." },
         { question: "آیا ضربان قلب بالاتر نشانه تمرین بهتر است؟", answer: "خیر. ضربان قلب بالاتر معمولاً می‌تواند نشان‌دهنده فشار قلبی‌عروقی بیشتر در همان شرایط باشد، اما به‌تنهایی معیار کیفیت تمرین یا میزان پیشرفت نیست." },
@@ -265,6 +266,7 @@ export const heartRateZonesPost = {
         { label: "American Heart Association — Target Heart Rates", href: "https://www.heart.org/en/healthy-living/exercise-and-physical-activity/fitness-basics/target-heart-rates/" },
         { label: "CDC — How to Measure Physical Activity Intensity", href: "https://www.cdc.gov/physical-activity-basics/measuring/index.html" },
         { label: "Tanaka et al. — Age-Predicted Maximal Heart Rate Revisited", href: "https://pubmed.ncbi.nlm.nih.gov/11153730/" },
+        { label: "Zone 2 Intensity — Individual Variability in Exercise Intensity Boundaries", href: "https://pubmed.ncbi.nlm.nih.gov/40225831/" },
         { label: "Polar — Training Load Pro", href: "https://support.polar.com/uk-en/training-load-pro" },
         { label: "Cleveland Clinic — Fat-Burning Heart Rate", href: "https://health.clevelandclinic.org/fat-burning-heart-rate" },
       ],
