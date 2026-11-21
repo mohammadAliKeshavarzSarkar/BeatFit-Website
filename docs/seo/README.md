@@ -21,7 +21,13 @@ This is the **single source of truth for BeatFit-specific SEO documentation**: r
 | Verification | [Production access attempts and test plan](verification/2026-11-21-production-access-and-test-plan.md) | Blocked live checks plus reproducible HTTP/build/browser gate |
 | Decisions | [Decision log](decisions/decision-log.md) | Approved scope, proposed changes, blockers and review gates |
 | Operations | [Run log](operations/run-log.md) | Dated completed work, blocked tasks and repository writes |
-| Research | [Persian search-intent seed map](research/2026-11-21-persian-intent-seed-map.md) | Candidate queries and existing-page ownership, not SERP evidence |
+| Research | [Persian search-intent seed map](research/2026-11-21-persian-intent-seed-map.md) | Earlier source-derived hypotheses only |
+| Research | [Public-web search discovery 001](research/2026-11-21-persian-search-discovery.md) | Sampled result types, intent evidence and limits |
+| Research | [Exact sampled queries](research/2026-11-21-sampled-search-queries.csv) | 17 query strings submitted to discovery |
+| Research | [Representative result register](research/2026-11-21-search-evidence-register.csv) | 22 linked samples with review depth; not ranked SERP |
+| Research | [Keyword-to-page map](research/2026-11-21-keyword-to-page-map.csv) | 36 candidate phrases, source/variant status and existing URL ownership |
+| Competitors | [Competitor page-type patterns](research/2026-11-21-competitor-page-type-review.md) | Observable content and format comparisons |
+| Strategy | [Proposed content backlog](strategy/2026-11-21-content-priority-backlog.md) | Reviewable actions; implementation unapproved |
 | References | [Research Playbook — 2026-11-18](references/2026-11-18-research-playbook.md) | Original English playbook, retained as historical research |
 
 Future research, content strategy, technical implementation plans and verified outcomes belong in appropriately dated Markdown/CSV documents within this folder, with an entry in this index and the activity log.
@@ -47,4 +53,4 @@ Future research, content strategy, technical implementation plans and verified o
 
 ## Next verification gate
 
-Determine live TLS/canonical behavior, confirm valid HTTP statuses and server redirects, test representative route-specific built and rendered HTML, and verify the real demo submission path. Only then assert production SEO readiness or choose larger architecture changes.
+A bounded Persian public-web discovery sample is now recorded; it is not a geographically controlled Google SERP or first-party GSC export. Confirm query/page measurements and ownership before asserting search demand or creating new URLs. Separately determine live TLS/canonical behavior, confirm valid HTTP statuses and server redirects, test representative route-specific built and rendered HTML, and verify the real demo submission path. Only then assert production SEO readiness or choose larger architecture changes.

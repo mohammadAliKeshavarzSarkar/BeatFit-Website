@@ -1,0 +1,37 @@
+keyword_id,cluster_id,candidate_query,audience,provisional_intent,current_primary_path,proposed_action,qualitative_priority,query_origin,qualification
+K01,C01,سیستم پایش ضربان قلب باشگاه,gym_owner,commercial_solution,/gym,review_existing,P1,sampled_topic,exact commercial demand unknown
+K02,C01,مانیتورینگ ضربان قلب در باشگاه,gym_owner,commercial_solution,/gym,review_existing,P1,sampled_topic,assess transliteration versus Persian language
+K03,C01,پایش ضربان قلب گروهی,gym_owner,commercial_solution,/gym,review_existing,P1,proposed_variant,compare with group equipment results
+K04,C01,نمایش زنده ضربان قلب ورزشکاران,gym_owner,commercial_feature,/gym,review_existing,P1,proposed_variant,qualify real large-screen capability
+K05,C01,سیستم مانیتورینگ تمرین گروهی,gym_owner,commercial_solution,/gym,review_existing,P1,proposed_variant,verify natural phrase with localized SERP
+K06,C01,تجهیزات پایش ضربان قلب باشگاه,gym_owner,mixed_equipment,/blog/پایش-ضربان-قلب-در-باشگاه,support_primary,P2,proposed_variant,avoid product specs without validation
+K07,C01,سیستم کنترل ضربان قلب باشگاه,gym_owner,mixed_solution_medical,/gym,validate_intent,P3,proposed_variant,may imply medical control rather than display
+K08,C02,زون ضربان قلب چیست,athlete,informational_definition,/blog/زون-های-ضربان-قلب,improve_existing,P2,sampled_topic,add clear worked example
+K09,C02,زون های ضربان قلب,athlete,informational_definition,/blog/زون-های-ضربان-قلب,same_page_variant,P2,sampled_topic,preserve ZWNJ raw variants
+K10,C02,محاسبه زون ضربان قلب,athlete,informational_tool,/blog/زون-های-ضربان-قلب,tool_feasibility,P2,proposed_variant,tool and explanation coexist
+K11,C02,زون 2 ضربان قلب چیست,athlete,informational_zone2,/blog/زون-های-ضربان-قلب,expand_subsection,P3,sampled_topic,new page only if distinct intent confirmed
+K12,C02,محاسبه زون ۲,athlete,informational_tool,/blog/زون-های-ضربان-قلب,validate_intent,P3,proposed_variant,caution individual formula limits
+K13,C03,کنترل شدت تمرین گروهی,coach,coaching_how_to,/blog/کنترل-شدت-تمرین-در-کلاس-گروهی,improve_existing,P2,sampled_topic,HR plus RPE talk test
+K14,C03,پایش ضربان قلب در کلاس گروهی,coach,mixed_software_how_to,/blog/کنترل-شدت-تمرین-در-کلاس-گروهی,improve_existing,P2,sampled_topic,link /coach contextual
+K15,C03,پنل مربی پایش تمرین,coach,commercial_coach,/coach,validate_intent,P3,proposed_variant,confirm buyer role
+K16,C03,چطور شدت تمرین را اندازه بگیریم,coach,informational_method,/blog/کنترل-شدت-تمرین-در-کلاس-گروهی,support_primary,P2,proposed_variant,overly general query may require broader research
+K17,C04,مقایسه سنسور ضربان قلب بازویی مچی سینه ای,athlete,comparison,/blog/مقایسه-سنسور-ضربان-قلب,improve_existing,P2,sampled_topic,use defensible science
+K18,C04,سنسور بازویی یا بند سینه ای,athlete,comparison,/blog/مقایسه-سنسور-ضربان-قلب,same_page_variant,P2,sampled_topic,no blanket accuracy claim
+K19,C04,ساعت هوشمند یا بند سینه ای,athlete,comparison,/blog/مقایسه-سنسور-ضربان-قلب,same_page_variant,P2,proposed_variant,review use-case specificity
+K20,C04,خرید سنسور ضربان قلب,athlete,transactional_purchase,none_verified,do_not_target_without_product_offer,P3,proposed_variant,retail results differ from BeatFit system offer
+K21,C05,تاریخچه تمرین,athlete,informational_progress,/blog/تاریخچه-تمرین,improve_existing,P2,sampled_topic,distinguish session HR data from strength sets
+K22,C05,پیگیری پیشرفت تمرین,athlete,informational_progress,/blog/تاریخچه-تمرین,same_page_variant,P2,sampled_topic,example comparisons with caveats
+K23,C05,تحلیل جلسات تمرینی,athlete,informational_product_feature,/athlete,validate_intent,P3,proposed_variant,may be broad
+K24,C06,طراحی تمرین گروهی,coach,informational_programming,/blog/طراحی-تمرین-گروهی,improve_existing,P2,sampled_topic,keep mixed-ability flow
+K25,C06,طراحی کلاس گروهی برای سطوح متفاوت,coach,informational_programming,/blog/طراحی-تمرین-گروهی,same_page_variant,P2,sampled_topic,consider sports-specific intent
+K26,C06,برنامه تمرین گروهی ۴۵ دقیقه ای,coach,informational_programming,/blog/طراحی-تمرین-گروهی,validate_intent,P3,proposed_variant,current content includes example
+K27,C07,بار تمرینی چیست,athlete_coach,informational_definition,/blog/بار-تمرینی-چیست,improve_existing,P2,sampled_topic,internal and external load distinction
+K28,C07,محاسبه بار تمرینی sRPE,coach,informational_calculation,/blog/بار-تمرینی-چیست,improve_existing,P2,sampled_topic,illustrative formula with safety caveats
+K29,C07,فشار تمرین چیست,athlete_coach,informational_definition,/blog/بار-تمرینی-چیست,validate_intent,P3,proposed_variant,avoid confusing exertion with injury prediction
+K30,C08,بیت فیت,brand,navigational,/,retain_existing,P1,proposed_variant,indexed status GSC unknown
+K31,C08,بیت‌فیت,brand,navigational,/,same_page_variant,P1,proposed_variant,keep original spelling variants
+K32,C08,دمو بیت فیت,gym_owner,branded_transactional,/demo,fix_lead_flow,P1,proposed_variant,form in reviewed source does not submit
+K33,C01,پایش ضربان قلب در باشگاه چیست,gym_owner,informational_buying,/blog/پایش-ضربان-قلب-در-باشگاه,improve_existing,P2,sampled_topic,support /gym conversion
+K34,C03,مربیگری کلاس گروهی با ضربان قلب,coach,informational_method,/coach,validate_intent,P3,proposed_variant,needs Persian SERP validation
+K35,C02,محدوده ضربان قلب تمرین هوازی,athlete,informational_calculation,/blog/زون-های-ضربان-قلب,same_page_variant,P3,proposed_variant,explain HRmax uncertainty
+K36,C04,دقت سنسور ضربان قلب بازویی,athlete,informational_accuracy,/blog/مقایسه-سنسور-ضربان-قلب,validate_intent,P3,sampled_topic,device-specific evidence required

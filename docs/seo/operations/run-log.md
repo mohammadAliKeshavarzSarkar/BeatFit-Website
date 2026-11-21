@@ -60,3 +60,21 @@ Every new work session will append an entry with exact revision, findings, test 
 **New artifacts:** [page-intent audit](../audits/2026-11-21-page-intent-and-conversion-review.md), [production test plan](../verification/2026-11-21-production-access-and-test-plan.md), [Persian seed map](../research/2026-11-21-persian-intent-seed-map.md).
 
 **Next gate:** Acquire independently usable authorized production/preview evidence, measure actual HTTP/JS behavior, and proceed from provisional queries to real Persian SERP/GSC research.
+
+## BF-SEO-RUN-005 — 2026-11-21 — Persian public-web discovery and existing-page mapping
+
+**Website code reference:** `d11130cef8f941f54b06362bb9bd124f89853adb`. **Work mode:** Read-only external search/source comparison; SEO documentation writes only.
+
+- Sampled 17 exact Persian and index-discovery query strings using grouped public-web search queries.
+- Catalogued 22 representative result URLs across gym monitoring, heart-rate zones, coaching intensity, sensor comparison, workout history, class programming and training load.
+- Reviewed search snippets and available source pages; **did not capture exact localized Google SERP positions** or first-party query volume. Result-provider output pooled batched queries, preventing reliable per-query ranking assertions.
+- Separated commercial solution, calculator, retailer/product, educational and specialist-research page types.
+- Compared sampled page types against six current marketing pages and seven published Persian article topics in the pinned website source.
+- Created a 36-row candidate keyword-to-existing-page map. Some strings were sampled; the others are explicitly labeled *proposed variants* rather than validated queries.
+- Produced a competitor/page-type review and proposed existing-page-first content backlog. No new public SEO pages or website code changes.
+- The lack of dependable `site:beatfit.ir` discovery results was classified INCONCLUSIVE, not indexing failure.
+- Continued production HTTP, GSC and conversion-verification workstreams as BLOCKED/NOT RUN where evidence remains absent.
+
+**Artifacts:** [research report](../research/2026-11-21-persian-search-discovery.md), [query register](../research/2026-11-21-sampled-search-queries.csv), [result register](../research/2026-11-21-search-evidence-register.csv), [keyword map](../research/2026-11-21-keyword-to-page-map.csv), [competitor review](../research/2026-11-21-competitor-page-type-review.md), [proposed backlog](../strategy/2026-11-21-content-priority-backlog.md).
+
+**Next:** Collect localized and reproducible Google Search page-type observations and first-party GSC query/page evidence; gain review approval for one page improvement at a time; preserve outstanding server/browser verification gates.

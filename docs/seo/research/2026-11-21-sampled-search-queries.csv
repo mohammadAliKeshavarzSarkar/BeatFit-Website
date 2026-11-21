@@ -1,0 +1,18 @@
+query_id,cluster_id,exact_sampled_query,search_task,method,date,results_are_ranked
+Q01,C01,سیستم پایش ضربان قلب باشگاه کلاس گروهی نمایش زنده,solution_selection,public_web_discovery_batch,2026-11-21,false
+Q02,C01,مانیتورینگ ضربان قلب در باشگاه ورزشی سیستم نمایشگر,solution_selection,public_web_discovery_batch,2026-11-21,false
+Q03,C01,سیستم پایش ضربان قلب گروهی باشگاه myzone فارسی,solution_selection,public_web_discovery_batch,2026-11-21,false
+Q04,C01,پایش ضربان قلب باشگاه سیستم نرم افزار سنسور گروهی نمایشگر,solution_selection,public_web_discovery_batch,2026-11-21,false
+Q05,C02,زون ضربان قلب چیست ۵ زون تمرینی,definition_and_calculation,public_web_discovery_batch,2026-11-21,false
+Q06,C02,زون 2 ضربان قلب چیست محاسبه,zone2,public_web_discovery_batch,2026-11-21,false
+Q07,C03,کنترل شدت تمرین در کلاس گروهی مربی,coach_guidance,public_web_discovery_batch,2026-11-21,false
+Q08,C03,پایش ضربان قلب ورزشکاران کلاس گروهی نرم افزار,coach_software,public_web_discovery_batch,2026-11-21,false
+Q09,C04,سنسور ضربان قلب بازویی یا بند سینه ای ساعت هوشمند,comparison,public_web_discovery_batch,2026-11-21,false
+Q10,C04,مقایسه دقت سنسور ضربان قلب بازویی مچی سینه‌ای,accuracy_comparison,public_web_discovery_batch,2026-11-21,false
+Q11,C05,تاریخچه تمرین پیشرفت ورزشی ثبت جلسات تمرین تحلیل,progress_tracking,public_web_discovery_batch,2026-11-21,false
+Q12,C06,طراحی کلاس تمرین گروهی مربی سطوح مختلف آمادگی,group_class_programming,public_web_discovery_batch,2026-11-21,false
+Q13,C06,طراحی تمرین گروهی برای افراد با آمادگی متفاوت مربی,mixed_ability,public_web_discovery_batch,2026-11-21,false
+Q14,C07,بار تمرینی چیست محاسبه فشار تمرین,training_load_explainer,public_web_discovery_batch,2026-11-21,false
+Q15,C07,بار تمرینی چیست محاسبه بار تمرینی sRPE,training_load_calculation,public_web_discovery_batch,2026-11-21,false
+Q16,C08,site:beatfit.ir,brand_index_discovery,public_web_discovery_batch,2026-11-21,false
+Q17,C08,site:beatfit.ir/blog,article_index_discovery,public_web_discovery_batch,2026-11-21,false
