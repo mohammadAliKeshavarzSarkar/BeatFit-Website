@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { BeatfitCta } from "./BeatfitCta";
 import type { BlogPost } from "../content/blog";
 import { getBlogPost } from "../content/blog";
 import { BlogContentBlocks } from "./BlogContentBlocks";
@@ -98,13 +97,6 @@ export function BlogArticle({ post }: BlogArticleProps) {
           <Link className="bf-blog-post__foot-link" to="/resources">
             بازگشت به منابع
           </Link>
-          <BeatfitCta
-            variant="blog-foot"
-            className="bf-blog-post__foot-cta"
-            to="/demo"
-          >
-            درخواست دمو
-          </BeatfitCta>
         </footer>
       </div>
     </article>
