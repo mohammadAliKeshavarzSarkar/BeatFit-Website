@@ -28,6 +28,9 @@ This is the **single source of truth for BeatFit-specific SEO documentation**: r
 | Research | [Keyword-to-page map](research/2026-11-21-keyword-to-page-map.csv) | 36 candidate phrases, source/variant status and existing URL ownership |
 | Competitors | [Competitor page-type patterns](research/2026-11-21-competitor-page-type-review.md) | Observable content and format comparisons |
 | Strategy | [Proposed content backlog](strategy/2026-11-21-content-priority-backlog.md) | Reviewable actions; implementation unapproved |
+| Research | [Focused /gym intent qualification](research/2026-11-21-gym-focused-intent-check.md) | Specialist monitoring vs generic gym management |
+| Strategy | [Controlled /gym copy proposal](strategy/2026-11-21-gym-copy-proposal.md) | Exact before/after Persian copy and merge gate |
+| Verification | [Gym copy preflight](verification/2026-11-21-gym-copy-preflight.md) | Source binding, build, browser and GSC check states |
 | References | [Research Playbook — 2026-11-18](references/2026-11-18-research-playbook.md) | Original English playbook, retained as historical research |
 
 Future research, content strategy, technical implementation plans and verified outcomes belong in appropriately dated Markdown/CSV documents within this folder, with an entry in this index and the activity log.

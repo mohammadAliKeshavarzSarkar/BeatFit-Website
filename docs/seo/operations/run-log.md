@@ -78,3 +78,16 @@ Every new work session will append an entry with exact revision, findings, test 
 **Artifacts:** [research report](../research/2026-11-21-persian-search-discovery.md), [query register](../research/2026-11-21-sampled-search-queries.csv), [result register](../research/2026-11-21-search-evidence-register.csv), [keyword map](../research/2026-11-21-keyword-to-page-map.csv), [competitor review](../research/2026-11-21-competitor-page-type-review.md), [proposed backlog](../strategy/2026-11-21-content-priority-backlog.md).
 
 **Next:** Collect localized and reproducible Google Search page-type observations and first-party GSC query/page evidence; gain review approval for one page improvement at a time; preserve outstanding server/browser verification gates.
+
+## BF-SEO-RUN-006 — 2026-11-21 — Focused gym intent review and PR preparation
+
+**Source reference:** `d11130cef8f941f54b06362bb9bd124f89853adb`. **Scope:** `/gym` page only; source content review and proposal; no production deployment.
+
+- Re-sampled Persian phrases concerning group heart-rate monitoring, live display and coaching, plus a negative-control query for generic membership/attendance gym-management software.
+- Reviewed representative specialist pages (FitMao, Chileaf, Pulses) and general management pages (Gymona, Pakoob); documented that these are different product categories.
+- Confirmed current BeatFit gym H1 and hero copy and traced source bindings from `src/content/gym.ts` to `GymHero.tsx` and `gymDocument` SEO metadata.
+- Prepared a two-string change proposal: preserve brand H1, clarify visible paragraph and explicitly name heart-rate monitoring in the SEO title.
+- Defined source-diff, build, browser, product-fact, HTTPS/canonical and Search Console gates. Actual GSC access is not connected; no first-party queries or live ranks were retrieved.
+- Recorded this intent qualification and copy proposal in English under `docs/seo/`. A separate feature-branch PR is planned for review, not merged or deployed as part of this documentation commit.
+
+**Artifacts:** [gym intent check](../research/2026-11-21-gym-focused-intent-check.md), [copy proposal](../strategy/2026-11-21-gym-copy-proposal.md), [preflight](../verification/2026-11-21-gym-copy-preflight.md).

@@ -17,6 +17,7 @@ An approved scope is not permission to deploy; a source observation is not a com
 | BF-SEO-D010 | 2026-11-21 | Improve existing Persian page ownership before generating spelling-variant/duplicate intent URLs | PROPOSED | Exploratory discovery shows mixed intents; current pages already cover seven clusters; need localized SERP/GSC validation |
 | BF-SEO-D011 | 2026-11-21 | Evaluate optional heart-rate zone calculator as a product/content enhancement, not an automatic SEO requirement | PROPOSED | Search samples include tools and guides; product, accessibility, science and engineering effort must be approved |
 | BF-SEO-D012 | 2026-11-21 | Do not claim actual Google ranking or search volume from pooled public-web discovery | APPROVED (evidence methodology) | Result provider is not a localized Google SERP; first-party indexing and demand remain unknown |
+| BF-SEO-D013 | 2026-11-21 | Propose a small /gym hero-description and SEO title clarity revision for review | PROPOSED | Source product facts and exploratory search evidence; do not merge/deploy without build, browser and fact review |
 
 ## Future decision record standard
 
