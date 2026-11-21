@@ -1,3 +1,4 @@
+import { useState, type FormEvent } from "react";
 import { BeatfitCta } from "./BeatfitCta";
 import {
   DEMO_FEATURE_ANIM,
@@ -53,6 +54,15 @@ function SelectField({
 }
 
 export function DemoForm() {
+  // No approved lead receiver exists in this website repository.
+  // Never tell visitors a request was submitted until the server confirms it.
+  const [submissionAttempted, setSubmissionAttempted] = useState(false);
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setSubmissionAttempted(true);
+  };
+
   return (
     <section className="bf-demo" aria-labelledby="demo-form-title">
       <div className="bf-demo__card">
@@ -84,7 +94,7 @@ export function DemoForm() {
 
           <form
             className="bf-demo__form"
-            onSubmit={(event) => event.preventDefault()}
+            onSubmit={handleSubmit}
           >
             <div className="bf-demo__row">
               <label className="bf-demo__field">
@@ -96,6 +106,8 @@ export function DemoForm() {
                   type="text"
                   name="fullName"
                   autoComplete="name"
+                  required
+                  maxLength={100}
                   placeholder={demoPage.fields.fullName.placeholder}
                 />
               </label>
@@ -108,6 +120,8 @@ export function DemoForm() {
                   className="bf-demo__control"
                   type="text"
                   name="gymName"
+                  required
+                  maxLength={100}
                   placeholder={demoPage.fields.gymName.placeholder}
                 />
               </label>
@@ -124,6 +138,9 @@ export function DemoForm() {
                   name="phone"
                   inputMode="tel"
                   autoComplete="tel"
+                  required
+                  minLength={7}
+                  maxLength={20}
                   placeholder={demoPage.fields.phone.placeholder}
                 />
               </label>
@@ -153,6 +170,7 @@ export function DemoForm() {
                 className="bf-demo__control bf-demo__textarea"
                 name="notes"
                 rows={5}
+                maxLength={1000}
                 placeholder={demoPage.fields.notes.placeholder}
               />
             </label>
@@ -164,6 +182,12 @@ export function DemoForm() {
             >
               {demoPage.submitLabel}
             </BeatfitCta>
+
+            {submissionAttempted ? (
+              <p className="bf-demo__submission-status" role="alert">
+                ثبت آنلاین درخواست دمو هنوز فعال نیست؛ اطلاعات فرم ارسال نشده‌اند.
+              </p>
+            ) : null}
           </form>
         </div>
       </div>
