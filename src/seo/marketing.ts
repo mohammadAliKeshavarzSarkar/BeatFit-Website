@@ -87,7 +87,7 @@ export const coachDocument = page({
   id: "coach",
   path: "/coach",
   fileId: "coach",
-  title: "دید زنده از کلاس برای مربی | بیت‌فیت",
+  title: "پایش زنده ضربان قلب ورزشکاران برای مربی | بیت‌فیت",
   description: coachHero.body,
   h1: coachHero.title,
   summary: coachHero.body,
