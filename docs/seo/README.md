@@ -57,3 +57,7 @@ Future research, content strategy, technical implementation plans and verified o
 ## Next verification gate
 
 A bounded Persian public-web discovery sample is now recorded; it is not a geographically controlled Google SERP or first-party GSC export. Confirm query/page measurements and ownership before asserting search demand or creating new URLs. Separately determine live TLS/canonical behavior, confirm valid HTTP statuses and server redirects, test representative route-specific built and rendered HTML, and verify the real demo submission path. Only then assert production SEO readiness or choose larger architecture changes.
+
+## Active review-only implementation
+
+- **Draft [PR #1 — Clarify `/gym` live heart-rate monitoring copy](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/1)**, branch `seo/gym-hero-clarity-2026-11-21`, initial PR commit `ae1b576f89c8cdb21d234064ffa0461f54d817d4`. Two source string values change; H1, layout, routes and canonical are unchanged. Source-level string/binding checks passed. **Build, browser, product confirmation and GSC are outstanding. Not merged or deployed.**
