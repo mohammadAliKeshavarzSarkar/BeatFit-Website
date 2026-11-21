@@ -1,39 +1,46 @@
-# BeatFit SEO Documentation Hub
+# BeatFit SEO — Documentation Hub
 
 **Website:** beatfit.ir  
-**Target SEO language:** Persian (`fa-IR`), RTL  
+**Target search/content language:** Persian (`fa-IR`), RTL  
 **Documentation language:** English  
-**Repository:** `mohammadAliKeshavarzSarkar/BeatFit-Website`  
+**Established:** 2026-11-21  
+**Baseline source:** [`d11130c`](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/commit/d11130cef8f941f54b06362bb9bd124f89853adb)  
 **Methodology:** [SEO Engineering](https://github.com/mohammadAliKeshavarzSarkar/SEO-Engineering)
 
-This folder is the canonical home for all BeatFit-specific SEO research, technical audits, implementation proposals, verification, decisions, and activity logs.
+This is the **single source of truth for BeatFit-specific SEO documentation**: research, technical audits, evidence, project scope, decisions, implementation plans, verification and activity history. The SEO Engineering repository provides the methodology but is not used for private BeatFit evidence.
 
 ## Documentation index
 
-- [Project brief](project/project-brief.md) — scope, audiences, assumptions, authority, and gates.
-- [Baseline source audit](audits/2026-11-21-source-baseline.md) — source observations, findings, severity and outstanding live tests.
-- [Source verification](verification/2026-11-21-source-checks.md) — limited reproducible source checks, not production results.
-- [URL inventory](inventory/source-route-inventory.csv) — source-declared marketing pages and Persian article URLs.
-- [Decision log](decisions/decision-log.md) — recorded approvals, proposals, risks and dependencies.
-- [Activity log](operations/run-log.md) — what was actually done and not done.
-- [Historical playbook](../SEO-RESEARCH-PLAYBOOK.md) — research completed on 2026-11-18; prior findings must be revalidated.
+| Area | Document | Purpose |
+|---|---|---|
+| Scope | [Project brief](project/project-brief.md) | Business and Persian-language SEO boundaries, approval, workflow |
+| Audit | [Baseline Audit 001](audits/2026-11-21-source-baseline.md) | Six findings grounded in a pinned source snapshot |
+| Inventory | [Source URL inventory](inventory/source-route-inventory.csv) | Six marketing and seven Persian article URLs |
+| Verification | [Source check record](verification/2026-11-21-source-checks.md) | Eleven bounded source observations and outstanding tests |
+| Decisions | [Decision log](decisions/decision-log.md) | Approved scope, proposed changes, blockers and review gates |
+| Operations | [Run log](operations/run-log.md) | Dated completed work, blocked tasks and repository writes |
+| References | [Research Playbook — 2026-11-18](references/2026-11-18-research-playbook.md) | Original English playbook, retained as historical research |
 
-## Rules
+Future research, content strategy, technical implementation plans and verified outcomes belong in appropriately dated Markdown/CSV documents within this folder, with an entry in this index and the activity log.
 
-1. All documentation structure, filenames, headings and explanatory prose are **English**. Original Persian website text, keywords, article titles, search strings and URL slugs remain Persian when quoted as evidence.
-2. Every report cites the inspected commit or deployed environment, date, evidence and verification status.
-3. Keep source inspection, built output, live HTTP, rendered browser, Search Console indexing and measured business conversions distinct. Do not claim that a static presence check is a production PASS.
-4. Use **PASS / FAIL / BLOCKED / NOT RUN / N/A** for actual tests and **observed / hypothesis / unknown** for evidence types.
-5. Decisions are not implementation or verification. Changes to website source, production deployment, domains, tracking or private accounts require scoped authorization.
-6. Do not publish secrets, user or athlete health data, lead records, analytics exports or private operational logs in this public repository.
-7. Add every future BeatFit SEO work product to `docs/seo/` and update this index and the activity log.
+## Documentation conventions
 
-## Initial evidence checkpoint
+1. **All document names, folder structure, headings, explanations, decisions, status labels and prose are English.** Preserve literal Persian keywords, original UI text, article names and URL slugs as primary evidence.
+2. The website targets Persian search only. English SEO pages, translated campaigns and artificial hreflang entries are not in scope.
+3. Tie every finding and test to a specific source commit, sampled URL, date, environment, evidence and confidence.
+4. Distinguish source evidence, built output, rendered browser DOM, production HTTP behavior, platform indexing data and measured business conversions. A source pattern is not a production test PASS.
+5. Use PASS / FAIL / BLOCKED / NOT RUN / N/A for tests, and keep hypotheses explicitly separate from observations.
+6. Decisions follow proposed → reviewed → approved → implemented → verified → superseded. Any website code change, deployment, hosting modification, analytics activation or external submission needs separate authorization.
+7. Never publish secrets, athlete/user information, customer leads, private analytics or server logs to this public repository.
+8. Preserve dated audit history. Supersede findings rather than silently rewriting old evidence.
 
-**Source revision:** `d11130cef8f941f54b06362bb9bd124f89853adb` (2026-11-21)
+## Current checkpoint
 
-The repository declares six indexable marketing URLs and seven Persian articles, with 13 sitemap entries and 12 non-home rewrite entries. Eleven limited source checks were recorded. No complete build, deployed response audit, Google indexing inspection, or successful demo conversion test was performed as part of that source-only checkpoint.
+- **Completed:** Source review at `d11130cef8f941f54b06362bb9bd124f89853adb`; 13 declared Sitemap URLs; seven Persian articles; 12 non-home IIS rewrite entries; eleven static source checks; six source findings.
+- **Not verified:** Production HTTP/TLS, actual server redirects, build output, browser JS-off/rendered parity, Search Console indexing, field Core Web Vitals, successful lead submissions and conversions.
+- **Current documentation status:** GitHub writing restored on 2026-11-21. This folder is maintained directly in the website repository.
+- **Application code changes:** None as part of this documentation setup.
 
 ## Next verification gate
 
-Validate TLS and canonical origin, HTTP status/redirect chains, route-specific built HTML and rendered content, and production demo lead submission before claiming production SEO readiness.
+Determine live TLS/canonical behavior, confirm valid HTTP statuses and server redirects, test representative route-specific built and rendered HTML, and verify the real demo submission path. Only then assert production SEO readiness or choose larger architecture changes.

@@ -1,0 +1,14 @@
+route_id,path,template,intended_indexability,language,source_origin,source_revision,deployed_http_status
+BF-URL-001,/,home,index,fa-IR,http://beatfit.ir,d11130cef8f941f54b06362bb9bd124f89853adb,not_verified
+BF-URL-002,/gym,gym,index,fa-IR,http://beatfit.ir,d11130cef8f941f54b06362bb9bd124f89853adb,not_verified
+BF-URL-003,/coach,coach,index,fa-IR,http://beatfit.ir,d11130cef8f941f54b06362bb9bd124f89853adb,not_verified
+BF-URL-004,/athlete,athlete,index,fa-IR,http://beatfit.ir,d11130cef8f941f54b06362bb9bd124f89853adb,not_verified
+BF-URL-005,/resources,resources,index,fa-IR,http://beatfit.ir,d11130cef8f941f54b06362bb9bd124f89853adb,not_verified
+BF-URL-006,/demo,demo,index,fa-IR,http://beatfit.ir,d11130cef8f941f54b06362bb9bd124f89853adb,not_verified
+BF-URL-007,/blog/زون-های-ضربان-قلب,article,index,fa-IR,http://beatfit.ir,d11130cef8f941f54b06362bb9bd124f89853adb,not_verified
+BF-URL-008,/blog/کنترل-شدت-تمرین-در-کلاس-گروهی,article,index,fa-IR,http://beatfit.ir,d11130cef8f941f54b06362bb9bd124f89853adb,not_verified
+BF-URL-009,/blog/پایش-ضربان-قلب-در-باشگاه,article,index,fa-IR,http://beatfit.ir,d11130cef8f941f54b06362bb9bd124f89853adb,not_verified
+BF-URL-010,/blog/تاریخچه-تمرین,article,index,fa-IR,http://beatfit.ir,d11130cef8f941f54b06362bb9bd124f89853adb,not_verified
+BF-URL-011,/blog/بار-تمرینی-چیست,article,index,fa-IR,http://beatfit.ir,d11130cef8f941f54b06362bb9bd124f89853adb,not_verified
+BF-URL-012,/blog/مقایسه-سنسور-ضربان-قلب,article,index,fa-IR,http://beatfit.ir,d11130cef8f941f54b06362bb9bd124f89853adb,not_verified
+BF-URL-013,/blog/طراحی-تمرین-گروهی,article,index,fa-IR,http://beatfit.ir,d11130cef8f941f54b06362bb9bd124f89853adb,not_verified
