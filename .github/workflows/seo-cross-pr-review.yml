@@ -16,7 +16,7 @@ concurrency:
 jobs:
   verify-proposed-copy-and-links:
     name: ${{ matrix.label }} / build and preview QA
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 20
     strategy:
       fail-fast: false
