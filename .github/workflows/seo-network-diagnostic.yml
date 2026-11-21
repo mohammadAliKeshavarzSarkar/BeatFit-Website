@@ -1,0 +1,17 @@
+name: BeatFit Public DNS TCP TLS Diagnostic (Read Only)
+on:
+  push:
+    branches: [seo/dns-tcp-diagnostics-2026-11-21]
+permissions:
+  contents: read
+jobs:
+  connection-check:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Observe public DNS, TCP and TLS without changing hosting
+        run: node scripts/seo-network-diagnostic.mjs
