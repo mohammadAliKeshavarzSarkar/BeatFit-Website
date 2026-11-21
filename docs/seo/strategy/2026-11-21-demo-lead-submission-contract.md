@@ -114,3 +114,11 @@ The business should separately measure qualified leads, meeting scheduling and a
 ## 8. Non-goals
 
 This document does not choose a CRM vendor, implement a real API, supply a domain certificate, legal advice, Google Analytics credentials, a production email destination, or a live lead. It provides verifiable engineering gates to prevent a UI-only success claim.
+
+## 9. Interim unavailability UX and approved fallback
+
+The Draft PR #11 submission guard shows a truthful **not sent** alert after a browser-valid attempt. This is a good regression-testable integrity check but **not necessarily an acceptable public experience**: it may lead prospects to enter private details before learning the form is unavailable.
+
+Before shipping any interim guard, the product owner should prefer a pre-entry availability notice or disable the form and present a verified contact alternative. The footer currently advertises `mailto:hello@beatfit.ir` in source, but receipt, business ownership and response SLA were not validated; do not promise that a mailbox or team will respond until approved. An alternative mailto request is a **user-initiated** opt-in outside this form's automated lead funnel; it should not be measured as a confirmed server-submitted lead.
+
+Once a real backend is approved, remove the interim no-delivery state and replace it with the explicit idle/submitting/confirmed/unconfirmed states above. Do not leave a nonworking submit control next to any copy that promises a successful callback request.

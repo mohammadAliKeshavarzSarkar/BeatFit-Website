@@ -311,3 +311,13 @@ Every new work session will append an entry with exact revision, findings, test 
 **Artifacts:** [funnel audit](../audits/2026-11-21-demo-request-funnel-audit.md), [secure receiver contract](../strategy/2026-11-21-demo-lead-submission-contract.md), [acceptance matrix](../verification/2026-11-21-demo-funnel-acceptance-matrix.csv), [PR #11 QA](../verification/2026-11-21-demo-form-pr11-qa.md).
 
 **Next owner gate:** Approve source-to-recipient service, HTTPS and privacy terms before a real intake PR. Never call a frontend-only status transition a successful conversion.
+
+## BF-SEO-RUN-021 — 2026-11-21 — Completed actual Draft PR #11 form integrity QA
+
+- [Standard GitHub PR CI 44880438660](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/44880438660) concluded SUCCESS for exact draft code commit `1b9571d03296a14694f97af2c8d68d6838a3df81`.
+- [Pinned GitHub runner 44880488104](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/44880488104), job `136774519308`, completed **SUCCESS**: `npm ci`, real TypeScript/Vite Build, **254 SEO artifact checks**, clean generated tracked-public diff.
+- Headless Chromium at 390×844 verified original six input/select/textarea controls, three essential required fields, native empty-form invalid blocking, new explicit `role=alert` not-sent warning after synthetic test fields and **zero non-GET requests**; /demo canonical remained valid, no JS pageerror.
+- Test input used fictional QA name/gym/phone only within a local Vite Preview browser and was not sent to a real endpoint or logged as a lead.
+- Product UX release gate: consider pre-entry notice or disabled form and a verified optional contact alternative; the current interim warning appears after data entry and may be inappropriate for live acquisition.
+- **No backend, privacy notice, recipient/CRM, HTTPS verification, conversion analytics, merge or deployment is established by CI.** All successful checks are for an isolated Draft PR frontend.
+- [Full verification](../verification/2026-11-21-demo-form-pr11-qa.md), [backend contract](../strategy/2026-11-21-demo-lead-submission-contract.md).

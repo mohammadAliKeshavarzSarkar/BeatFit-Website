@@ -10,6 +10,6 @@ DEMO-008,privacy policy,"real accurate notice, not # placeholder",PLACEHOLDER,NO
 DEMO-009,errors and retries,safe 422/429/503/timeout handling,NOT_IMPLEMENTED,NOT_IMPLEMENTED,YES,staging integration
 DEMO-010,rate limit and spam controls,server-side abuse protection,NOT_IMPLEMENTED,NOT_IMPLEMENTED,YES,security
 DEMO-011,measurement without PII,confirmed event only after server receipt,NOT_IMPLEMENTED,NOT_IMPLEMENTED,YES,analytics
-DEMO-012,generated SEO unchanged,"254 post-build checks, no public drift",PRIOR_VERIFIER_AVAILABLE,PENDING_CI,NO,github actions
-DEMO-013,mobile Chromium native validation,"empty blocked, valid shows truthful alert",NOT_RUN,PENDING_CI,NO,playwright
-DEMO-014,rendered page canonical,/demo canonical still correct,SOURCE_CONFIGURED,PENDING_CI,NO,playwright
+DEMO-012,generated SEO unchanged,"254 post-build checks, no public drift",PRIOR_VERIFIER_AVAILABLE,PASS_RUN_44880488104,NO,github actions
+DEMO-013,mobile Chromium native validation,"empty blocked, valid shows truthful alert",NOT_RUN,PASS_RUN_44880488104,NO,playwright
+DEMO-014,rendered page canonical,/demo canonical still correct,SOURCE_CONFIGURED,PASS_RUN_44880488104,NO,playwright

@@ -32,7 +32,7 @@ This is the **single source of truth for BeatFit-specific SEO documentation**: r
 | Audit | [Demo request source funnel audit](audits/2026-11-21-demo-request-funnel-audit.md) | Six-field silent submit no-op, missing backend, privacy/HTTPS gates |
 | Strategy | [Proposed secure demo lead API contract](strategy/2026-11-21-demo-lead-submission-contract.md) | First-party/CRM owner choice, validation, consent/privacy, delivery, failure and analytics rules |
 | Verification | [Demo funnel acceptance matrix](verification/2026-11-21-demo-funnel-acceptance-matrix.csv) | 14 checks separating source, browser and missing server implementation |
-| Verification | [Draft PR #11 demo form guard](verification/2026-11-21-demo-form-pr11-qa.md) | Accessible truthful interim state, no PII network, build/browser verification status |
+| Verification | [Draft PR #11 demo form guard](verification/2026-11-21-demo-form-pr11-qa.md) | Real Build, 254 SEO checks, 390px Chromium native validation and zero non-GET requests PASS |
 | Operations | [GitHub PR state reconciliation](operations/2026-11-21-repository-state-reconciliation.md) | Actual merged/open state on 2026-11-21, distinct from deployed release |
 | Inventory | [Article citation register](inventory/2026-11-21-article-citation-register.csv) | 47 source rows / 43 distinct URLs; verification scope explicit |
 | Inventory | [Article editorial metadata](inventory/2026-11-21-article-editorial-inventory.csv) | Dates, FAQ/source counts and unknown reviewer fields |
@@ -122,3 +122,8 @@ A bounded Persian public-web discovery sample is now recorded; it is not a geogr
 ## Combined editorial PR #8 + PR #10 compatibility gate
 
 - [Independent GitHub Actions run 44879300759](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/44879300759) **SUCCESS**. PR #8 pinned source + exact PR #10 one-line overlay in temporary CI checkout passed real TypeScript/Vite build, **254 SEO checks**, tracked-public drift, new Zone 2 note/FAQ/reference and actual Chromium click to `/athlete` with separate `/demo` footer retained. The PRs themselves remain **open Draft, unmerged and undeployed**; author/editorial approval, final integration release test, production and GSC remain separate. [Full exact evidence](verification/2026-11-21-zone2-cta-combined-qa.md).
+
+## Conversion integrity — Draft PR #11 demo form (2026-11-21)
+
+- [Draft PR #11](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/11) addresses the **source-only silent no-op** form: required fields for name/gym/phone and an accessible truthful **not sent** warning, no new destination or PII transport. Standard [CI 44880438660](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/44880438660) and pinned mobile [CI 44880488104](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/44880488104) **PASS**, including real Build, **254 generated SEO checks**, six-field/three-required Chromium checks, no non-GET request and correct /demo canonical. [Detailed verification](verification/2026-11-21-demo-form-pr11-qa.md).
+- This **is not a working lead receiver**. No HTTPS, policy, actual CRM/server delivery or live conversion verified. Product owner must approve the interim UX and then choose a real secure lead endpoint with an accessible privacy notice. PR #11 remains Draft and unmerged/undeployed.
