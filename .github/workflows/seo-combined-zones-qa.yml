@@ -1,0 +1,49 @@
+name: BeatFit Zones Article Combined Draft PR 8 and 10 QA
+on:
+  push:
+    branches: [seo/combined-zones-editorial-qa-2026-11-21]
+permissions:
+  contents: read
+jobs:
+  verify-combined:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Check out isolated corrected checker and combined browser test
+        uses: actions/checkout@v4
+        with:
+          path: qa
+      - name: Check out exact Draft PR 8 application revision
+        uses: actions/checkout@v4
+        with:
+          ref: 1f486da6bc1f17e73452fefcd77c7189991e96c6
+          path: site
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+      - name: Overlay exact one-line Draft PR 10 CTA change in temp CI checkout
+        working-directory: site
+        run: |
+          node --input-type=module -e "import fs from 'node:fs'; import assert from 'node:assert/strict'; const p='src/content/blog/heartRateZones.ts'; const original=fs.readFileSync(p,'utf8'); const a='label: \"آشنایی با بیت‌فیت\",\\n      href: \"/demo\"'; const b='label: \"آشنایی با بیت‌فیت\",\\n      href: \"/athlete\"'; assert.equal(original.split(a).length-1,1); assert.ok(original.includes('https://pubmed.ncbi.nlm.nih.gov/40225831/')); fs.writeFileSync(p,original.replace(a,b)); assert.equal(fs.readFileSync(p,'utf8').split(b).length-1,1); console.log('PASS exact one-line PR 10 overlay on PR 8');"
+      - name: Install locked dependencies
+        working-directory: site
+        run: npm ci
+      - name: Build combined temporary source
+        working-directory: site
+        run: npm run build
+      - name: Verify generated SEO artifacts
+        working-directory: site
+        run: node ../qa/scripts/verify-seo-build.mjs dist
+      - name: Confirm tracked generated-public files unchanged
+        working-directory: site
+        run: git diff --exit-code -- public/robots.txt public/sitemap.xml public/web.config
+      - name: Install temporary Playwright and Chromium
+        working-directory: site
+        run: |
+          npm install --no-save --package-lock=false playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Test combined article and athlete navigation in browser
+        working-directory: site
+        run: node ../qa/scripts/verify-zones-combined-preview.mjs
