@@ -1,4 +1,3 @@
-import { useState, type FormEvent } from "react";
 import { BeatfitCta } from "./BeatfitCta";
 import {
   DEMO_FEATURE_ANIM,
@@ -55,14 +54,7 @@ function SelectField({
 
 export function DemoForm() {
   // No approved lead receiver exists in this website repository.
-  // Never tell visitors a request was submitted until the server confirms it.
-  const [submissionAttempted, setSubmissionAttempted] = useState(false);
-
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setSubmissionAttempted(true);
-  };
-
+  // Keep controls non-interactive until a real server and privacy flow are approved.
   return (
     <section className="bf-demo" aria-labelledby="demo-form-title">
       <div className="bf-demo__card">
@@ -90,12 +82,21 @@ export function DemoForm() {
               {demoPage.formTitle}
             </h2>
             <p className="bf-demo__form-lede">{demoPage.formLede}</p>
+            <p
+              className="bf-demo__availability-note"
+              id="demo-form-availability"
+              role="status"
+            >
+              ثبت آنلاین درخواست دمو فعلاً فعال نیست؛ لطفاً اطلاعات تماس خود را در این فرم وارد نکنید.
+            </p>
           </header>
 
           <form
             className="bf-demo__form"
-            onSubmit={handleSubmit}
+            aria-describedby="demo-form-availability"
+            onSubmit={(event) => event.preventDefault()}
           >
+            <fieldset className="bf-demo__disabled-fieldset" disabled>
             <div className="bf-demo__row">
               <label className="bf-demo__field">
                 <span className="bf-demo__label">
@@ -182,12 +183,7 @@ export function DemoForm() {
             >
               {demoPage.submitLabel}
             </BeatfitCta>
-
-            {submissionAttempted ? (
-              <p className="bf-demo__submission-status" role="alert">
-                ثبت آنلاین درخواست دمو هنوز فعال نیست؛ اطلاعات فرم ارسال نشده‌اند.
-              </p>
-            ) : null}
+            </fieldset>
           </form>
         </div>
       </div>
