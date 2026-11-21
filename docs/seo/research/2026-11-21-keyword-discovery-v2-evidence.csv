@@ -1,0 +1,18 @@
+evidence_id,theme,url,sample_class,observed_page_pattern,caveat
+S01,product_positioning,https://www.fitmao.com/web/heart-rate-training-system?lang=fa,specialist Persian product result,commercial solution page describes live class screens and group HR,Good category terminology example; not BeatFit performance evidence
+S02,product_positioning,https://pulsemonitor.net/,specialist group HR software result,gym group HR + live screen + class report intent,Supports separation from generic gym administration
+S03,product_positioning,https://www.chileaf.com/fa/news/,Persian vendor/category result,"group live HR, coaches and wearable device vocabulary",Marketing page not trustworthy for quantified benefits
+S04,product_positioning,https://www.getpulsesapp.com/teams-heart-rate-tracking,team-specific product,live heart-rate / team comparison / session storage terminology,Not verified Iranian search demand
+S05,training_zones,https://fitova.ir/tools/heart-rate-zones,Persian interactive zone calculator,separate tool/calculation intent alongside article intent,Do not assume a new calculator page is required
+S06,training_zones,https://docharkhehmag.ir/training-zones-cycling/,Persian zone guide,five-zone explanatory article format,Not a page ranking claim
+S07,training_zones,https://mojekooh.com/zone-2-training-guide-what-is-it-benefits/,Persian Zone 2 guide,focused zone2 explainer intent,Physiology claims require expert review
+S08,sensor_comparison,https://www.technolife.com/category/health-beauty/health/health-measurement/heart-rate-monitors,Persian retailer category,commercial shopping intent differs from sensor explainer,Do not target sensor shopping without approved offer
+S09,sensor_comparison,https://varzeshcast.ir/article/sports-smartwatch-buying-guide,Persian comparison guide,wearable selection and placement terms,Third-party scientific claims not automatic evidence
+S10,athlete_tracking,https://www.progym.ir/mag/%DA%86%D8%B7%D9%88%D8%B1-%D9%BE%DB%8C%D8%B4%D8%B1%D9%81%D8%AA-%D8%AA%D9%85%D8%B1%DB%8C%D9%86-%D8%B1%D8%A7-%D8%A7%D9%86%D8%AF%D8%A7%D8%B2%D9%87-%D8%A8%DA%AF%DB%8C%D8%B1%DB%8C%D9%85-%D8%B1%DA%A9%D9%88%D8%B1%D8%AF%D9%87%D8%A7-%D8%A7%D9%86%D8%AF%D8%A7%D8%B2%D9%87-%D9%87%D8%A7-%D9%88-%D8%B9%DA%A9%D8%B3,Persian progress article,general workout log intent often means sets/weight/body photos,Qualify BeatFit HR-session-history angle
+S11,coaching,https://workoutingym.com/fa/articles/session-planning-framework-top-trainers,Persian coaching guide,session design intent exists alongside HR-intensity approach,Not a commercial software result
+S12,brand,https://beatfit.ch/,unrelated same-name product,English BeatFit naming collision,"Foreign brand, not BeatFit.ir owner proof"
+S13,brand,https://www.beatfit.co.uk/,unrelated same-name workout/music app,English-brand collision,Do not conflate products
+S14,brand,https://beatfit.jp/,unrelated same-name brand,English brand collision,Do not claim domain authority implications
+S15,guideline,https://developers.google.com/search/docs/appearance/title-link,Google Search Central title guidance,descriptive concise unique titles,Google may rewrite the displayed title
+S16,guideline,https://developers.google.com/search/docs/appearance/snippet,Google Search Central snippet guidance,unique accurate descriptions; snippet dynamically selected,meta description not guaranteed to be shown
+S17,guideline,https://developers.google.com/search/docs/fundamentals/seo-starter-guide,Google SEO Starter Guide,Google does not use meta keywords tag,Do not add meta keywords or density quotas

@@ -1,0 +1,14 @@
+path,page_type,current_seo_title,current_primary_h1,proposed_seo_title_or_status,next_action,qualitative_priority
+/,marketing,بیت‌فیت | مانیتورینگ زنده ضربان قلب و مدیریت تمرین,با بیت فیت ضربان به ضربان، بدنت رو بساز.,بیت‌فیت | سیستم پایش زنده ضربان قلب و تمرین گروهی,Keep emotive H1; refine title/description only first,P1
+/gym,marketing,پایش زنده ضربان قلب در باشگاه‌ها | بیت‌فیت,تجربه‌ای بسازید که اعضا ارزشش را در هر جلسه ببینند.,KEEP,Commercial copy was recently revised; avoid duplicate /blog page intent,P1
+/coach,marketing,دید زنده از کلاس برای مربی | بیت‌فیت,دید زنده از وضعیت کلاس، برای تصمیم‌های روشن‌تر مربی,پایش زنده ضربان قلب ورزشکاران برای مربی | بیت‌فیت,Candidate only; review product owner/editorial,P2
+/athlete,marketing,شدت تمرین، تاریخچه و پیشرفت ورزشکار | بیت‌فیت,از لحظه تمرین تا مسیر پیشرفت، همراهت هستیم.,پایش ضربان قلب و پیشرفت تمرین ورزشکار | بیت‌فیت,Candidate only; avoid generic fitness app keyword mismatch,P2
+/resources,marketing,منابع تمرین و پایش ضربان قلب | بیت‌فیت,برای بهتر تمرین‌کردن، بیشتر بدانید.,KEEP,Hub targets broad learning; specific answers stay on articles,P2
+/demo,marketing,درخواست دمو بیت‌فیت برای باشگاه | بیت‌فیت,تجربه بیت فیت را در باشگاه خود ببینید.,KEEP_UNTIL_RECEIVER,"Form disabled, do not optimize page as a functioning booking service",P1_BLOCKED
+/blog/زون-های-ضربان-قلب,article,زون ضربان قلب چیست؟ معرفی ۵ زون و نحوه محاسبه,زون‌های ضربان قلب چیست؟ راهنمای ۵ زون تمرینی و روش محاسبه آن‌ها,KEEP,Educational guide owns concept and worked example; calculator intent distinct,P2
+/blog/کنترل-شدت-تمرین-در-کلاس-گروهی,article,کنترل شدت تمرین در کلاس گروهی | راهنمای مربیان,چطور شدت تمرین ورزشکاران را در کلاس‌های گروهی کنترل کنیم؟,KEEP,Method guide only; /coach owns live product,P2
+/blog/پایش-ضربان-قلب-در-باشگاه,article,سیستم پایش ضربان قلب در باشگاه | کاربردها و تجهیزات,پایش ضربان قلب در باشگاه چیست و چه کاربردی برای مدیران دارد؟,REVIEW_DIFFERENTIATE_INTENT,Risk same words as /gym; keep how-it-works education focus,P1
+/blog/تاریخچه-تمرین,article,تاریخچه تمرین چیست؟ بررسی روند پیشرفت ورزشی,چطور با بررسی تاریخچه تمرین، روند پیشرفت خود را بشناسیم؟,KEEP,Clarify HR sessions not generic sets/weight log,P2
+/blog/بار-تمرینی-چیست,article,بار تمرینی چیست؟ روش محاسبه و تفسیر فشار تمرین,بار تمرینی چیست و چطور به شناخت فشار تمرین کمک می‌کند؟,KEEP,Medical/overtraining predictions not established,P2
+/blog/مقایسه-سنسور-ضربان-قلب,article,مقایسه سنسور ضربان قلب بازویی، مچی و سینه‌ای,سنسور ضربان قلب بازویی، ساعت هوشمند یا بند سینه‌ای؛ کدام بهتر است؟,KEEP,No universal sensor superiority or storefront conversion,P2
+/blog/طراحی-تمرین-گروهی,article,طراحی تمرین گروهی برای سطوح مختلف آمادگی | راهنمای مربی,چطور برای ورزشکاران با آمادگی متفاوت یک کلاس گروهی طراحی کنیم؟,KEEP,Educational programming /coach product,P2
