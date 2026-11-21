@@ -692,6 +692,10 @@ ul {
 }
 
 @media (max-width: 960px) {
+  :root {
+    --bf-header-offset: 80px;
+  }
+
   .bf-header__inner {
     min-height: 80px;
     grid-template-columns: 1fr auto;

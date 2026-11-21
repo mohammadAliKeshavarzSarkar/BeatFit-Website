@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // Validate literal editorial links and related article references against the
 // published source registry. This is source integrity, NOT browser/crawler QA.
+// After BF-SEO-D025, public hrefs use ASCII slugs; relatedSlugs stay content slugs.
 import { readFileSync } from "node:fs";
 import path from "node:path";
 
@@ -29,7 +30,31 @@ for (const { slug, symbol } of entries) {
   assert(source.includes(`slug: "${slug}"`), `Canonical slug differs from registry in ${file}`);
   assert(/published:\s*true/.test(source), `Registry article is not published: ${file}`);
 }
-const slugs = new Set(entries.map(x => x.slug));
+const contentSlugs = new Set(entries.map(x => x.slug));
+
+// Public ASCII slug map from blogPublicSlugByContentSlug only (D025).
+const publicMapBlock = registry.match(
+  /export const blogPublicSlugByContentSlug\s*=\s*\{([\s\S]*?)\}\s*as const/,
+)?.[1] ?? "";
+const publicByContent = new Map(
+  [...publicMapBlock.matchAll(/^\s*["']([^"'\n]+)["']:\s*["']([a-z0-9-]+)["'],\s*$/gm)]
+    .map(match => [match[1], match[2]]),
+);
+const contentByPublic = new Map(
+  [...publicByContent.entries()].map(([content, pub]) => [pub, content]),
+);
+assert(
+  publicByContent.size === contentSlugs.size,
+  `Expected ${contentSlugs.size} public ASCII slug mappings, found ${publicByContent.size}`,
+);
+for (const slug of contentSlugs) {
+  assert(publicByContent.has(slug), `Missing public ASCII slug for content slug ${slug}`);
+}
+
+function isAsciiPublicSegment(segment) {
+  return /^[a-z0-9-]+$/.test(segment);
+}
+
 const allowedMarketing = new Set(["/", "/gym", "/coach", "/athlete", "/resources", "/demo"]);
 
 let hrefs = 0;
@@ -44,10 +69,20 @@ for (const { file, source, slug } of [
     const href = match[1];
     hrefs++;
     const [pathname] = href.split(/[?#]/);
-    const valid = pathname.startsWith("/blog/")
-      ? slugs.has(pathname.slice("/blog/".length))
-      : allowedMarketing.has(pathname);
-    assert(valid, `Unregistered internal href ${href} in ${file}`);
+    if (pathname.startsWith("/blog/")) {
+      const segment = pathname.slice("/blog/".length);
+      // Public hrefs must use ASCII slugs (D025). relatedSlugs stay content slugs.
+      assert(
+        isAsciiPublicSegment(segment),
+        `Non-ASCII blog href ${href} in ${file} — use public ASCII slug`,
+      );
+      assert(
+        contentByPublic.has(segment),
+        `Unregistered internal href ${href} in ${file}`,
+      );
+    } else {
+      assert(allowedMarketing.has(pathname), `Unregistered internal href ${href} in ${file}`);
+    }
   }
   if (!slug) continue;
   const relatedMatch = source.match(/\brelatedSlugs:\s*\[([\s\S]*?)\]/);
@@ -58,16 +93,20 @@ for (const { file, source, slug } of [
   assert(new Set(relatedSlugs).size === relatedSlugs.length, `Repeated related article in ${file}`);
   for (const target of relatedSlugs) {
     related++;
-    assert(slugs.has(target), `Unregistered related slug ${target} in ${file}`);
+    assert(contentSlugs.has(target), `Unregistered related slug ${target} in ${file}`);
     assert(target !== slug, `Self-referential related article in ${file}`);
   }
 }
 
-// Ensure both discovery surfaces retain all published articles.
+// Discovery surfaces must expose every published article via its public ASCII path.
 for (const file of ["src/content/resources.ts", "src/content/home.ts"]) {
   const source = read(file);
-  for (const slug of slugs) {
-    assert(source.includes(`href: "/blog/${slug}"`), `Published article ${slug} missing discovery href in ${file}`);
+  for (const contentSlug of contentSlugs) {
+    const publicSlug = publicByContent.get(contentSlug);
+    assert(
+      source.includes(`href: "/blog/${publicSlug}"`),
+      `Published article ${contentSlug} missing ASCII discovery href /blog/${publicSlug} in ${file}`,
+    );
   }
 }
 if (failures.length) {
