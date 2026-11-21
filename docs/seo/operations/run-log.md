@@ -213,3 +213,19 @@ Every new work session will append an entry with exact revision, findings, test 
 - Production DNS/HTTP/SSL/GSC blockers remain separate and unresolved.
 
 **Artifacts:** [editorial audit](../audits/2026-11-21-article-editorial-evidence-audit.md), [reference register](../inventory/2026-11-21-article-citation-register.csv), [FAQ guidance](../research/2026-11-21-google-faq-rich-result-retirement.md), [CI record](../verification/2026-11-21-cdc-citation-ci-evidence.md), [editorial backlog](../strategy/2026-11-21-editorial-evidence-backlog.md).
+
+## BF-SEO-RUN-015 — 2026-11-21 — Two-article physiological and wearable-sensor claim review
+
+**Current source snapshot:** `7dbb283a97681597ee0792dd408f0b0734876a7a`, including subsequent third-party main changes that introduced Google Search Console verification assets. Those files are **not evidence of first-party Search Console data access**.
+**Scope:** `/blog/زون-های-ضربان-قلب` and `/blog/مقایسه-سنسور-ضربان-قلب`.
+
+- Read both full TypeScript article sources and verified age-30 `220 - age = 190` and `208 - 0.7*age = 187`, with 190-bpm zone cutoffs 95/114/133/152/171/190. AHA and Tanaka provide the supporting age-estimate caveat.
+- Compared the fixed `60–70% HRmax` five-zone convention to a 2025 50-cyclist study of Zone 2 physiological thresholds. Classed fixed percentages as a useful teaching model **not equivalent for all people** to ventilatory/lactate-based physiological boundaries.
+- Audited sensor claims against Neudorfer (2024), Schweizer and Gilgen-Ammann (2025), anatomical placement (online late 2025), and INTERLIVE expert guidance. Classed device-placement benefits as model- and activity-specific; no BeatFit hardware accuracy data was found.
+- Produced a CSV with 22 bounded claim records, evidence references, support/caveats and required editorial/product actions; preserved unresolved 2017-device-comparison and metabolism-source attribution for review rather than calling them false.
+- Created **[Draft PR #8](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/8)** at `1f486da6bc1f17e73452fefcd77c7189991e96c6` with exactly three source edits in HR zones article: explanatory note, matching FAQ answer, one PubMed reference. Existing H1, URL, main five-zone table, date and SEO metadata unchanged.
+- Prepared separate pinned GitHub QA branch `seo/zone2-pr8-qa-2026-11-21`, workflow [44877833723](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/44877833723) for real build/254 generated artifact checks and mobile Chromium review; **do not mark final CI PASS without actual completed result**.
+- Source inspection found the main repository includes new Search Console verification assets from separate code changes; no GSC impressions, indexing or owner-access result was retrieved.
+- No site deployment, PR merge, authoritative scientific signoff or lab accuracy certification occurred.
+
+**Artifacts:** [scientific claim review](../audits/2026-11-21-zones-and-sensors-claim-review.md), [claim matrix](../inventory/2026-11-21-zones-and-sensors-claim-matrix.csv), [claim backlog](../strategy/2026-11-21-zones-sensors-follow-up-backlog.md), [PR #8 QA record](../verification/2026-11-21-zone2-pr8-qa.md).
