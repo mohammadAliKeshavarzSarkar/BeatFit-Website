@@ -44,4 +44,4 @@ The `.github/workflows/seo-verify.yml` review-only workflow runs the added synth
 | Marketing UI click and anchor resolution | NOT RUN | Separate browser review for relevant CTAs |
 | Production transport, conversions and indexing | NOT RUN | Live HTTP/HTTPS, owner-backed API, Search Console as applicable |
 
-**Unrelated gate:** URL topic mismatch at `/blog/live-tv-group-training` remains documented separately in [URL identity review](../audits/2026-11-23-article-url-identity-and-gym-intent-review.md) on separate Draft PR #40. This change does not alter that URL or approve a migration.
+**Unrelated gate:** URL topic mismatch at `/blog/live-tv-group-training` remains documented separately in [URL identity review — Draft PR #40](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/40) on separate Draft PR #40. This change does not alter that URL or approve a migration.
