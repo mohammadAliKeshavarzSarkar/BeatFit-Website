@@ -1,6 +1,7 @@
 #!/usr/bin/env node
-// Validate literal editorial links and related article references against the
-// published source registry. This is source integrity, NOT browser/crawler QA.
+// Validate literal editorial / marketing links, CTAs, and related article
+// references against the published source registry. This is source integrity,
+// NOT browser/crawler QA or proof a conversion service actually works.
 // After BF-SEO-D025, public hrefs use ASCII slugs; relatedSlugs stay content slugs.
 import { readFileSync } from "node:fs";
 import path from "node:path";
@@ -44,6 +45,10 @@ const contentByPublic = new Map(
   [...publicByContent.entries()].map(([content, pub]) => [pub, content]),
 );
 assert(
+  contentByPublic.size === publicByContent.size,
+  "Duplicate public ASCII slug assignments: two articles share one URL",
+);
+assert(
   publicByContent.size === contentSlugs.size,
   `Expected ${contentSlugs.size} public ASCII slug mappings, found ${publicByContent.size}`,
 );
@@ -61,13 +66,22 @@ let hrefs = 0;
 let related = 0;
 for (const { file, source, slug } of [
   ...articleFiles,
-  { file: "src/content/resources.ts", source: read("src/content/resources.ts") },
-  { file: "src/content/home.ts", source: read("src/content/home.ts") },
+  ...["home", "gym", "coach", "athlete", "resources", "demo"].map(name => ({
+    file: `src/content/${name}.ts`,
+    source: read(`src/content/${name}.ts`),
+  })),
 ]) {
-  // Literal hrefs cover editorial cards, inline rich-text links and article CTAs.
-  for (const match of source.matchAll(/\bhref:\s*["'](\/[^"'\n]*)["']/g)) {
+  // Check literal article/marketing href and CTA destinations. External URLs,
+  // same-page fragments and contact schemes are out of this route-ownership check.
+  // This is NOT a test of whether a destination's service (e.g. /demo) works.
+  for (const match of source.matchAll(/\b(?:href|ctaHref):\s*["']([^"'\n]*)["']/g)) {
     const href = match[1];
+    if (/^(?:https?:\/\/|mailto:|tel:|#)/i.test(href)) continue;
     hrefs++;
+    if (!href.startsWith("/")) {
+      assert(false, `Unrecognized or relative link ${href} in ${file} — use a registered absolute site path`);
+      continue;
+    }
     const [pathname] = href.split(/[?#]/);
     if (pathname.startsWith("/blog/")) {
       const segment = pathname.slice("/blog/".length);
