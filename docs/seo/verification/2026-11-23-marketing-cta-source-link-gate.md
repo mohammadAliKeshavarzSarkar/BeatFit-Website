@@ -22,9 +22,10 @@ External absolute HTTP(S) links, `mailto:`, `tel:` and hash-only fragment destin
 ## Repeatable commands
 
 ```sh
+npm ci
+npm run test:seo:fixtures
 npm run test:seo:links:fixtures
 npm run test:seo:links
-npm ci
 npm run build
 npm run test:seo
 ```
@@ -33,14 +34,25 @@ The new `scripts/verify-seo-source-links.test.mjs` creates three synthetic artic
 
 The `.github/workflows/seo-verify.yml` review-only workflow runs the added synthetic fixture suite before invoking the real source-link validator and the existing TypeScript/Vite build and SEO output checks. CI is the acceptance gate; new coverage alone is not validation of the deployed server or search indexing.
 
+## Exact GitHub Actions verification
+
+- **Exact tested PR source commit:** `d628587e8a89a027ca4524d801ce85ae466ea0fa`.
+- **Run:** [SEO Build Verification #39 — 45127419031](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/45127419031), completed **SUCCESS** on 2026-11-23, hosted Ubuntu/Node.js 22, job `137534864446`.
+- Existing SEO build-checker fixtures: **10 tests, 10 passed, 0 failed**.
+- New source-link fixtures: **7 tests, 7 passed, 0 failed**.
+- Real source-link validator: **PASSED** for seven registered articles, 14 related-slug references and 62 internal links/CTAs in the script's declared literal scope.
+- Real dependency installation and TypeScript/Vite `npm run build`: **PASS**.
+- Generated SEO build verifier: **255 checks, PASS**. Public tracked artifact drift: **PASS**.
+- These results apply to the **tested PR commit**, not any untested later edits or a production deployment. Subsequent documentation-only commits do not change the tested implementation but must not be called CI on a new exact revision.
+
 ## Acceptance
 
-| Gate | Status at authoring | Evidence required |
+| Gate | Result at tested revision | Evidence |
 |---|---|---|
-| Change scope / diff | PROPOSED | `scripts/verify-seo-source-links.mjs`, fixture test, `package.json`, CI workflow, this document |
-| Seven isolated fixture cases | NOT RUN | Actual Node test output, zero failures |
-| Real current source-link check | NOT RUN | Actual result for current `main`-based branch |
-| Built SEO routes / generated integrity | NOT RUN | CI `npm ci`, `npm run build`, `npm run test:seo` |
+| Change scope / diff | PASS (reviewable) | Validator, fixture test, package script, CI workflow, this document |
+| Seven isolated fixture cases | PASS | GitHub run 45127419031: 7/7 |
+| Real current source-link check | PASS (source) | 7 articles, 14 references, 62 internal links |
+| Built SEO routes / generated integrity | PASS (source/build) | Actual Node 22/Vite build and 255 checks |
 | Marketing UI click and anchor resolution | NOT RUN | Separate browser review for relevant CTAs |
 | Production transport, conversions and indexing | NOT RUN | Live HTTP/HTTPS, owner-backed API, Search Console as applicable |
 
