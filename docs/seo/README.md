@@ -11,6 +11,12 @@ This is the **single source of truth for BeatFit-specific SEO documentation**: r
 
 **Current verified status, 2026-11-21:** SEO PRs **#1, #3, #4, #8, #10 and #11 are MERGED** into `main`, as confirmed from GitHub PR records. Historical sections below may refer to earlier Draft states; use [current post-deployment audit](verification/2026-11-21-post-deployment-public-server-audit.md) instead. The merged source build, 254 SEO checks and mobile route review PASS; **public HTTP/TLS, deployed revision, redirects and Google indexing have NOT been verified**.
 
+## 2026-11-24 — Demo SEO and rendered-navigation verification
+
+- [Draft PR #43](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/43): fixes repeated-brand and inactive-form promise in `/demo` SEO metadata; adds real mobile-browser source QA for gym/coach/athlete CTA navigation, resources article discovery and the no-JS article shell observation.
+- [Exact verification report](verification/2026-11-24-demo-metadata-and-rendered-navigation.md): GitHub Actions [SEO Build 45383503214](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/45383503214) and [Chromium 45383503232](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/45383503232) both PASS at exact tested code commit `95832be4c308084ac8ff27dcedb8c37739b485fc`.
+- **This does not activate the form or prove Google rendering/indexing.** Live Google URL Inspection, Google-selected canonical, first-party queries and a real approved lead receiver remain owner-driven gates.
+
 ## Review-only engineering checkpoint — 2026-11-23
 
 - [Draft PR #41 — marketing CTA and article source-link integrity](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/41): the targeted source validator now checks landing-page `ctaHref` and article/public-URL uniqueness. [Exact CI 45127419031](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/45127419031) succeeded on code revision `d628587e8a89a027ca4524d801ce85ae466ea0fa`: seven new fixture tests, 62 source internal links, real Vite/TypeScript build and 255 generated SEO checks. **Draft, not merged or deployed.** [Verification record](verification/2026-11-23-marketing-cta-source-link-gate.md).
