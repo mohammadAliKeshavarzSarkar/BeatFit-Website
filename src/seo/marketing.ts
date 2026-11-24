@@ -140,8 +140,9 @@ export const demoDocument = page({
   id: "demo",
   path: "/demo",
   fileId: "demo",
-  title: "درخواست دمو بیت‌فیت برای باشگاه | بیت‌فیت",
-  description: demoPage.contentBody,
+  // Informational while online requests remain unavailable.
+  title: "آشنایی با دموی سیستم پایش ضربان قلب | بیت‌فیت",
+  description: "با قابلیت‌های پایش زنده ضربان قلب، نمایشگر کلاس و پنل مربی بیت‌فیت برای باشگاه آشنا شوید. ثبت آنلاین درخواست دمو فعلاً فعال نیست.",
   h1: demoPage.contentTitle,
   summary: demoPage.contentBody,
   breadcrumbName: "درخواست دمو",
