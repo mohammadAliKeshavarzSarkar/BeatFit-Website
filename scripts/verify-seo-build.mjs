@@ -61,7 +61,7 @@ const requiredArticles = [
   'live-class-monitoring',
   'connected-training-system',
   'workout-history-progress',
-  'live-tv-group-training',
+  'training-load',
   'heart-rate-sensor-comparison',
   'group-class-design',
 ].map(slug => `/blog/${slug}`);
@@ -91,6 +91,7 @@ if (sitemap && robots && webConfig) {
   for (const path of [...requiredMarketing, ...requiredArticles]) {
     check(paths.has(path), `Expected source-baseline URL absent from Sitemap: ${path}`);
   }
+  check(!paths.has('/blog/live-tv-group-training'), 'Previous training-load URL must not be in Sitemap');
   const blogLocs = urls.filter(value => {
     try { return new URL(value).pathname.includes('/blog/'); } catch { return false; }
   });
