@@ -30,21 +30,20 @@ assert.equal((article.match(/https:\/\//g) ?? []).length >= 6, true, "Six traini
 assert.match(article, /href:\s*["']\/blog\/heart-rate-zones["']/, "Internal zones link is missing");
 assert.match(article, /href:\s*["']\/blog\/workout-history-progress["']/, "Internal history link is missing");
 assert.match(article, /href:\s*["']\/athlete["']/, "Athlete CTA is missing");
-assert.match(article, /\/beatfitImages\/blog-workout-history\.png/, "Portrait product image is missing");
+assert.match(article, /\/beatfitImages\/articles\/بار-تمرینی-چیست\.webp/, "Portrait product image is missing");
 assert.match(article, /layout:\s*["']portrait["']/, "Portrait layout is not selected");
 
 assert.match(types, /layout\?:\s*["']default["']\s*\|\s*["']portrait["']/, "Portrait figure layout is not typed");
 assert.match(renderer, /bf-blog-block-figure--/, "Figure layout modifier is not rendered");
 assert.match(css, /\.bf-blog-block-figure--portrait/, "Portrait figure layout is not styled");
 
-assert.match(home, /image:\s*["']\/beatfitImages\/blog-live-tv\.png["']/, "Homepage fifth-card image must remain unchanged");
+assert.match(home, /image:\s*["']\/beatfitImages\/articles\/بار-تمرینی-چیست\.webp["']/, "Homepage fifth-card image must remain unchanged");
 assert.match(home, /href:\s*["']\/blog\/training-load["']/, "Homepage training-load link is missing");
-assert.match(resources, /image:\s*["']\/beatfitImages\/articles\/بار-تمرینی-چیست\.png["']/, "Resources training-load hero is missing");
+assert.match(resources, /image:\s*["']\/beatfitImages\/articles\/بار-تمرینی-چیست\.webp["']/, "Resources training-load hero is missing");
 assert.match(resources, /href:\s*["']\/blog\/training-load["']/, "Resources training-load link is missing");
 
 for (const asset of [
-  "public/beatfitImages/articles/بار-تمرینی-چیست.png",
-  "public/beatfitImages/blog-workout-history.png",
+  "public/beatfitImages/articles/بار-تمرینی-چیست.webp",
 ]) {
   assert.equal(existsSync(resolve(root, asset)), true, `Missing article-five asset: ${asset}`);
 }
