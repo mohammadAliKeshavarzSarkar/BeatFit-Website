@@ -1,7 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import { blogPublicSlugByContentSlug, getPublishedBlogPosts } from "../src/content/blog/posts.ts";
-import { renderStaticArticle } from "../src/seo/article-static.ts";
+
 import { applySeoBlocks, escapeHtml, replaceMarkedBlock } from "../src/seo/html.ts";
 import { notFoundDocument } from "../src/seo/marketing.ts";
 import { distHtmlPath, encodedPath, indexableDocuments, rewriteMapEntries } from "../src/seo/routing.ts";
@@ -33,6 +32,24 @@ function assertAliasRedirects(webConfig: string): void {
       throw new Error(
         `web.config is missing the HTTPS 301 for /${legacyPath} -> https://beatfit.ir/blog/${publicSlug}`,
       );
+    }
+  }
+  // This historical English URL must permanently redirect instead of emitting a
+  // second indexable article. IIS rule must be before generic slash normalization.
+  for (const [legacySlug, contentSlug] of Object.entries(legacyEnglishBlogAliases)) {
+    const publicSlug = blogPublicSlugByContentSlug[
+      contentSlug as keyof typeof blogPublicSlugByContentSlug
+    ];
+    const start = webConfig.indexOf('<rule name="Legacy ASCII training-load path"');
+    const end = start >= 0 ? webConfig.indexOf("</rule>", start) : -1;
+    const rule = end > start ? webConfig.slice(start, end + "</rule>".length) : "";
+    if (
+      !rule.includes(`<match url="^blog/${legacySlug}/?$" />`) ||
+      !rule.includes(`url="https://beatfit.ir/blog/${publicSlug}"`) ||
+      !rule.includes('redirectType="Permanent"') ||
+      !rule.includes('appendQueryString="true"')
+    ) {
+      throw new Error(`Missing one-hop HTTPS 301 for historical ASCII blog URL: ${legacySlug}`);
     }
   }
 }

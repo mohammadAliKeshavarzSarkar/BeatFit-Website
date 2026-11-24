@@ -58,7 +58,7 @@ try{
     assert.equal(new Set(blogPaths).size,7,"Seven unique article cards must be rendered on /resources");
     console.log("PASS browser /resources (390px): seven unique article card links");
     const expected={
-      "/blog/workout-history-progress":["/blog/heart-rate-zones","/blog/live-tv-group-training"],
+      "/blog/workout-history-progress":["/blog/heart-rate-zones","/blog/training-load"],
       "/blog/connected-training-system":["/blog/heart-rate-sensor-comparison","/blog/live-class-monitoring"]
     };
     for(const [pathname,desired] of Object.entries(expected)){

@@ -50,6 +50,9 @@ jobs:
       - name: Verify editorial and marketing source link targets
         run: npm run test:seo:links
 
+      - name: Verify training-load article and route link contract
+        run: npm run test:blog:fifth
+
       - name: Build website and generated SEO shells
         run: npm run build
 

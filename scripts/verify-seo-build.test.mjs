@@ -13,7 +13,7 @@ const publishedPaths = [
   ...[
     'heart-rate-zones', 'live-class-monitoring',
     'connected-training-system', 'workout-history-progress',
-    'live-tv-group-training', 'heart-rate-sensor-comparison',
+    'training-load', 'heart-rate-sensor-comparison',
     'group-class-design',
   ].map(slug => `/blog/${slug}`),
 ];
