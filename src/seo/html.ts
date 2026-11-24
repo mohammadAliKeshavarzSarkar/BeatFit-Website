@@ -103,7 +103,7 @@ export function renderSeoHead(doc: SeoDocument): string {
   return headTags(doc).map(renderTag).join("\n");
 }
 
-export function renderSeoBody(doc: SeoDocument): string {
+export function renderSeoBody(doc: SeoDocument, articleHtml = ""): string {
   const nav =
     doc.primaryDestinations && doc.primaryDestinations.length > 0
       ? [
@@ -123,6 +123,9 @@ export function renderSeoBody(doc: SeoDocument): string {
     `  <h1>${escapeHtml(doc.h1)}</h1>`,
     `  <p>${escapeHtml(doc.summary)}</p>`,
     ...nav,
+    // This HTML is generated from trusted published source blocks with all text
+    // escaped. It remains readable if the client never executes JavaScript.
+    ...(articleHtml ? [articleHtml] : []),
     `</main>`,
     `<script>var bfStaticSeo=document.getElementById("bf-static-seo");if(bfStaticSeo)bfStaticSeo.remove();</script>`,
   ].join("\n");
@@ -143,7 +146,7 @@ function indentBlock(block: string): string {
     .join("\n");
 }
 
-export function applySeoBlocks(html: string, doc: SeoDocument): string {
+export function applySeoBlocks(html: string, doc: SeoDocument, articleHtml = ""): string {
   const withHead = replaceMarkedBlock(html, "seo", indentBlock(renderSeoHead(doc)));
-  return replaceMarkedBlock(withHead, "static", indentBlock(renderSeoBody(doc)));
+  return replaceMarkedBlock(withHead, "static", indentBlock(renderSeoBody(doc, articleHtml)));
 }
