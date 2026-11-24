@@ -11,11 +11,20 @@ This is the **single source of truth for BeatFit-specific SEO documentation**: r
 
 **Current verified status, 2026-11-21:** SEO PRs **#1, #3, #4, #8, #10 and #11 are MERGED** into `main`, as confirmed from GitHub PR records. Historical sections below may refer to earlier Draft states; use [current post-deployment audit](verification/2026-11-21-post-deployment-public-server-audit.md) instead. The merged source build, 254 SEO checks and mobile route review PASS; **public HTTP/TLS, deployed revision, redirects and Google indexing have NOT been verified**.
 
+<<<<<<< seo/2026-11-24-demo-truthful-metadata
 ## 2026-11-24 — Demo SEO and rendered-navigation verification
 
 - [Draft PR #43](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/43): fixes repeated-brand and inactive-form promise in `/demo` SEO metadata; adds real mobile-browser source QA for gym/coach/athlete CTA navigation, resources article discovery and the no-JS article shell observation.
 - [Exact verification report](verification/2026-11-24-demo-metadata-and-rendered-navigation.md): GitHub Actions [SEO Build 45383503214](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/45383503214) and [Chromium 45383503232](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/45383503232) both PASS at exact tested code commit `95832be4c308084ac8ff27dcedb8c37739b485fc`.
 - **This does not activate the form or prove Google rendering/indexing.** Live Google URL Inspection, Google-selected canonical, first-party queries and a real approved lead receiver remain owner-driven gates.
+=======
+## All-page keyword-source reconciliation — 2026-11-24
+
+- [Current 13-page Persian keyword readiness audit](audits/2026-11-24-all-page-persian-keyword-readiness-audit.md): 13 distinct source titles/descriptions, commercial vs informational intent boundaries, true issues/approval gates, and GSC-first follow-up.
+- [Canonical public keyword map v3 — 113 candidate rows](research/2026-11-24-canonical-keyword-map-v3.csv): derived from the historical v2 map and actual published ASCII blog slug registry; all 13 page owners preserved, old research URLs retained for traceability. **No GSC query volume/rank evidence attached.**
+- [Exact current source SEO metadata inventory](inventory/2026-11-24-current-13-page-meta-keyword-inventory.csv): page URL, SEO title, meta description, H1, assigned research keyword, character counts, content source and pinned file blob SHA.
+- **Keep** existing page titles pending first-party search signals; **review** `/demo` promise while form is disabled and `/blog/live-tv-group-training` slug-topic mismatch. The owner reports Search Console sitemap fetch success, but no live URL Inspection, query/page report or Google-selected canonical was independently available to this source review. A separate remote request did not produce usable live HTML; do not infer global outage or failed Google crawling from that alone.
+>>>>>>> main
 
 ## Review-only engineering checkpoint — 2026-11-23
 
