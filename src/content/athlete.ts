@@ -1,7 +1,7 @@
 export const athleteHero = {
   // Visible H1 stays editorial; product intent lives in title/meta (SEO team PR #24).
   title: "از لحظه تمرین تا مسیر پیشرفت، همراهت هستیم.",
-  body: "با بیت‌فیت، ضربان قلب و زون تمرینی‌ات را هنگام تمرین به‌صورت زنده ببین؛ بعد از هر جلسه هم نتیجه و تاریخچه تمرین‌هایت را در اپلیکیشن مرور کن تا روند فعالیتت را بهتر بشناسی.",
+  body: "با اپلیکیشن بیت‌فیت، ضربان قلب و زون تمرینی‌ات را هنگام ورزش به‌صورت زنده ببین و با مرور تاریخچه جلسات، مسیر پیشرفتت را بهتر بشناس.",
   image: "/assets/contact/app-mockup.webp",
   imageAlt: "پنل ورزشکار بیت‌فیت روی گوشی",
 } as const;
@@ -46,7 +46,7 @@ export const athleteMotivation = {
 } as const;
 
 export const athleteLive = {
-  title: "در هر لحظه، از تمرینت باخبر باش",
+  title: "ضربان قلبت را در هر لحظه تمرین ببین",
   lede: "با بیت‌فیت، اطلاعات تمرینت را همان لحظه روی نمایشگر کلاس و در اپلیکیشن خودت می‌بینی تا با شناخت بیشتری تمرین کنی",
   path: "/assets/athlete/live-path.svg",
   phone: "/assets/athlete/iphone-mockup.webp",
@@ -85,7 +85,7 @@ export const athleteLive = {
 
 export const athleteProgress = {
   title: "هر جلسه، بخشی از پیشرفت توست",
-  lede: "بیت‌فیت نتیجه تمرین‌هایت را ثبت می‌کند تا مسیر ورزشی‌ات فقط به احساس همان روز محدود نماند",
+  lede: "بیت‌فیت تاریخچه تمرین‌هایت را ثبت می‌کند تا تغییرات شدت تمرین و روند فعالیتت را در طول زمان بهتر بشناسی.",
   image: "/assets/athlete/progress-dashboard.webp",
   imageAlt: "کارت ترکیب روزانه وزن ۱۰ روز اخیر",
   cards: [

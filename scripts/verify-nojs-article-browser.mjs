@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 // Browser QA of the actual generated route-specific article shell.
-// Vite preview does not reproduce IIS rewrites, so no-JS checks directly open
-// /route-html/blog/*.html and JS-enabled checks use public /blog/* routes.
+// Exercise Vite's route-aware preview middleware, not the production IIS host.
 import assert from "node:assert/strict";
 import { spawn } from "node:child_process";
 import { createRequire } from "node:module";
@@ -46,6 +45,12 @@ async function visit(page, pathname) {
 
 try {
   await ready();
+  // Verify the preview server's actual canonical redirect and query preservation.
+  for (const legacy of ["/blog/live-tv-group-training", "/blog/" + encodeURIComponent("بار-تمرینی-چیست")]) {
+    const response = await fetch(origin + legacy + "?utm_source=seo-test", { redirect: "manual" });
+    assert.equal(response.status, 301, `Legacy path must redirect: ${legacy}`);
+    assert.equal(response.headers.get("location"), "/blog/training-load?utm_source=seo-test");
+  }
   browser = await chromium.launch({ headless: true, args: ["--no-sandbox"] });
   const noJs = await browser.newContext({
     javaScriptEnabled: false, locale: "fa-IR",
@@ -55,8 +60,8 @@ try {
   const expectedTitles = new Map();
 
   for (const slug of slugs) {
-    // This is the exact initial HTML that IIS should rewrite the public URL to.
-    await visit(noJsPage, `/route-html/blog/${slug}.html`);
+    // Use the actual public route through the project's preview rewrite middleware.
+    await visit(noJsPage, `/blog/${slug}`);
     const article = noJsPage.locator('[data-bf-static-article="true"]');
     await article.waitFor({ state: "visible", timeout: 15000 });
     const text = await article.innerText();
@@ -73,6 +78,23 @@ try {
   }
   await noJs.close();
 
+  // A browser that allows JavaScript but cannot download the bundle must
+  // retain the actual article rather than losing its content before React mounts.
+  const failedBundle = await browser.newContext({ locale: "fa-IR", viewport: { width: 390, height: 844 } });
+  try {
+    const failedPage = await failedBundle.newPage();
+    await failedPage.route("**/assets/*.js", route => route.abort());
+    await visit(failedPage, "/blog/training-load");
+    const fallback = failedPage.locator('[data-bf-static-article="true"]');
+    await fallback.waitFor({ state: "visible", timeout: 15000 });
+    assert.ok((await fallback.innerText()).length > 3000);
+    assert.equal(await failedPage.locator(".bf-blog-post__body").count(), 0);
+    console.log("PASS blocked client bundle: initial article remains visible");
+  } finally {
+    await failedBundle.close();
+  }
+
+
   const normal = await browser.newContext({
     locale: "fa-IR", viewport: { width: 390, height: 844 },
     reducedMotion: "reduce",
@@ -80,7 +102,7 @@ try {
   const normalPage = await normal.newPage();
   const pageErrors = [];
   normalPage.on("pageerror", error => pageErrors.push(error.message));
-  for (const slug of ["heart-rate-zones", "connected-training-system"]) {
+  for (const slug of slugs) {
     await visit(normalPage, `/blog/${slug}`);
     await normalPage.locator(".bf-blog-post__body").waitFor({ state: "visible", timeout: 15000 });
     assert.equal((await normalPage.locator(".bf-blog-post__title").textContent())?.trim(), expectedTitles.get(slug));

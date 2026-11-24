@@ -7,7 +7,7 @@ import { escapeHtml } from "./html.ts";
 function safeUrl(url: string): string {
   // Published content provides trusted links, but fail the build if a new
   // unsafe protocol or scheme-relative URL enters the source content.
-  if (!(url.startsWith("/") && !url.startsWith("//")) && !/^https:\/\//i.test(url)) {
+  if (/[\\\x00-\x20\x7f]/.test(url) || (!(url.startsWith("/") && !url.startsWith("//")) && !/^https:\/\//i.test(url))) {
     throw new Error(`Static article contains unsafe or relative URL: ${url}`);
   }
   return escapeHtml(url);

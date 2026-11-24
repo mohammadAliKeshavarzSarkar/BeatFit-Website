@@ -21,7 +21,7 @@ for (const filename of files) {
   assert.ok((article.match(/<a href="(?:\/|https:\/\/)/g) ?? []).length >= 4, `Article source/internal links missing: ${filename}`);
   assert.equal((main.match(/<h1\b/g) ?? []).length, 1, `Expected only one H1 in initial article: ${filename}`);
   assert.ok(!/<script\b|onerror\s*=|onload\s*=|href="javascript:/i.test(article), `Unexpected executable markup in article HTML: ${filename}`);
-  assert.ok(html.includes('bfStaticSeo.remove()'), `Client hydration shell cleanup missing: ${filename}`);
+  assert.ok(!html.includes('bfStaticSeo.remove()'), `Article fallback must remain until the React article commits: ${filename}`);
   assert.ok(Buffer.byteLength(html, "utf8") < 350_000, `Unreasonably large initial HTML page: ${filename}`);
   console.log(`PASS static article ${filename}: ${article.length} chars, no JavaScript required for full text`);
 }
