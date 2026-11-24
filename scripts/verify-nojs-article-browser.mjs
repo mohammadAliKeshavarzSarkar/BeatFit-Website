@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 // Browser QA of the actual generated route-specific article shell.
-// Vite preview does not reproduce IIS rewrites, so no-JS checks directly open
-// /route-html/blog/*.html and JS-enabled checks use public /blog/* routes.
+// Exercise Vite's route-aware preview middleware, not the production IIS host.
 import assert from "node:assert/strict";
 import { spawn } from "node:child_process";
 import { createRequire } from "node:module";
@@ -46,6 +45,12 @@ async function visit(page, pathname) {
 
 try {
   await ready();
+  // Verify the preview server's actual canonical redirect and query preservation.
+  for (const legacy of ["/blog/live-tv-group-training", "/blog/" + encodeURIComponent("بار-تمرینی-چیست")]) {
+    const response = await fetch(origin + legacy + "?utm_source=seo-test", { redirect: "manual" });
+    assert.equal(response.status, 301, `Legacy path must redirect: ${legacy}`);
+    assert.equal(response.headers.get("location"), "/blog/training-load?utm_source=seo-test");
+  }
   browser = await chromium.launch({ headless: true, args: ["--no-sandbox"] });
   const noJs = await browser.newContext({
     javaScriptEnabled: false, locale: "fa-IR",
@@ -55,8 +60,8 @@ try {
   const expectedTitles = new Map();
 
   for (const slug of slugs) {
-    // This is the exact initial HTML that IIS should rewrite the public URL to.
-    await visit(noJsPage, `/route-html/blog/${slug}.html`);
+    // Use the actual public route through the project's preview rewrite middleware.
+    await visit(noJsPage, `/blog/${slug}`);
     const article = noJsPage.locator('[data-bf-static-article="true"]');
     await article.waitFor({ state: "visible", timeout: 15000 });
     const text = await article.innerText();
