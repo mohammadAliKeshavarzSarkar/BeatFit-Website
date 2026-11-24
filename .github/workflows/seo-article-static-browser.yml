@@ -1,0 +1,50 @@
+# Review-only browser check for generated blog HTML / no JavaScript users.
+name: SEO Article Static HTML Browser QA
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/seo/**'
+      - 'src/content/blog/**'
+      - 'scripts/emit-seo-html.ts'
+      - 'scripts/verify-nojs-article-browser.mjs'
+      - 'scripts/verify-static-article-shells.mjs'
+      - '.github/workflows/seo-article-static-browser.yml'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'vite.config.ts'
+      - 'index.html'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: seo-article-static-browser-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  static-article-browser:
+    name: Chromium no-JS article and React hydration
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Build website with source-derived article HTML
+        run: npm run build
+      - name: Verify seven generated static article shells
+        run: npm run test:seo:static-articles
+      - name: Verify general SEO artifacts
+        run: npm run test:seo
+      - name: Install pinned browser QA tool on runner only
+        run: |
+          npm install --no-save --package-lock=false playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Verify no-JS body and JS hydration at mobile width
+        run: node scripts/verify-nojs-article-browser.mjs
