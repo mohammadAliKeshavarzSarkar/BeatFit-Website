@@ -20,7 +20,7 @@ const OG_IMAGE_ALT = "بیت‌فیت، پایش زنده ضربان قلب و �
  * Qualitative priorities only — no fabricated GSC demand.
  */
 const HOME_DESCRIPTION =
-  "بیت‌فیت سیستم پایش زنده ضربان قلب در تمرین‌های گروهی است؛ با حسگرهای پوشیدنی، نمایشگر کلاس، پنل مربی و تاریخچه جلسات، روند تمرین را بهتر دنبال کنید.";
+  "بیت‌فیت (BeatFit)، سیستم هوشمند پایش زنده ضربان قلب در ورزش؛ با حسگرهای پوشیدنی، نمایشگر کلاس، پنل مربی و اپلیکیشن ورزشکار.";
 
 function page(input: {
   id: string;
@@ -91,7 +91,7 @@ export const gymDocument = page({
   path: "/gym",
   fileId: "gym",
   // Commercial landing title (on-page review + gym-copy-proposal); distinct from gym guide article.
-  title: "پایش زنده ضربان قلب در باشگاه‌ها | بیت‌فیت",
+  title: "سیستم پایش ضربان قلب باشگاه و تمرین گروهی | بیت‌فیت",
   description: gymHero.body,
   h1: gymHero.title,
   summary: gymHero.body,
@@ -115,7 +115,7 @@ export const athleteDocument = page({
   id: "athlete",
   path: "/athlete",
   fileId: "athlete",
-  title: "پایش ضربان قلب و پیشرفت تمرین ورزشکار | بیت‌فیت",
+  title: "اپلیکیشن پایش ضربان قلب و پیشرفت تمرین | بیت‌فیت",
   description: athleteHero.body,
   h1: athleteHero.title,
   summary: athleteHero.body,
@@ -140,8 +140,9 @@ export const demoDocument = page({
   id: "demo",
   path: "/demo",
   fileId: "demo",
-  title: "درخواست دمو بیت‌فیت برای باشگاه | بیت‌فیت",
-  description: demoPage.contentBody,
+  // Informational while online requests remain unavailable.
+  title: "آشنایی با دموی سیستم پایش ضربان قلب | بیت‌فیت",
+  description: "با قابلیت‌های پایش زنده ضربان قلب، نمایشگر کلاس و پنل مربی بیت‌فیت برای باشگاه آشنا شوید. ثبت آنلاین درخواست دمو فعلاً فعال نیست.",
   h1: demoPage.contentTitle,
   summary: demoPage.contentBody,
   breadcrumbName: "درخواست دمو",

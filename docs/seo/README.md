@@ -11,14 +11,18 @@ This is the **single source of truth for BeatFit-specific SEO documentation**: r
 
 **Current verified status, 2026-11-21:** SEO PRs **#1, #3, #4, #8, #10 and #11 are MERGED** into `main`, as confirmed from GitHub PR records. Historical sections below may refer to earlier Draft states; use [current post-deployment audit](verification/2026-11-21-post-deployment-public-server-audit.md) instead. The merged source build, 254 SEO checks and mobile route review PASS; **public HTTP/TLS, deployed revision, redirects and Google indexing have NOT been verified**.
 
-onfirms **source/build/browser-preview content accessibility**. It is **not** live IIS rewrite verification, Google-selected canonical, GSC indexing proof, ranking lift, or deployment. PR #44's proposed training-load URL migration remains independent and must be retested against any merge order.
-=======
 
-## Review-only engineering checkpoint — 2026-11-23
+## Integrated release review — 2026-11-24
 
-- [Draft PR #41 — marketing CTA and article source-link integrity](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/41): the targeted source validator now checks landing-page `ctaHref` and article/public-URL uniqueness. [Exact CI 45127419031](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/45127419031) succeeded on code revision `d628587e8a89a027ca4524d801ce85ae466ea0fa`: seven new fixture tests, 62 source internal links, real Vite/TypeScript build and 255 generated SEO checks. **Draft, not merged or deployed.** [Verification record](verification/2026-11-23-marketing-cta-source-link-gate.md).
-- [Draft PR #40 — source URL identity review](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/40): the live-TV-named public slug points to the training-load article. A redirect-safe migration is **proposed, not approved or implemented**. The /gym versus educational guide SEO titles are already distinct in current source.
-- Historical 2026-11-21 status below is revision-scoped. Latest review-only CI is **not** a production reachability, Search Console, demo lead-receipt or ranking verification.
+- **Merged into main:** [PR #42 — keyword inventory](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/42), [PR #44 — training-load canonical](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/44), [PR #45 — initial article HTML](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/45). PR #43 remained open with a documentation merge conflict at the time of this review.
+- **Integrated repair (review branch, not deployed):** restore lost imports in the generated SEO build; align all browser tests with the current canonical URL; carry forward the truthful demo metadata and navigation checks; preserve initial article text until React commits; repair documentation merge debris.
+- **Current review-branch keyword inventory:** [113 candidate queries, v4](research/2026-11-24-canonical-keyword-map-v4.csv) and [13-page integrated metadata inventory](inventory/2026-11-24-integrated-13-page-meta-keyword-inventory.csv). The v3 map and original metadata inventory are historical snapshots before the training-load canonical move. Eight candidate rows now target /blog/training-load; all query evidence statuses remain unverified by GSC.
+- **Evidence:** [integrated release review and acceptance report](verification/2026-11-24-integrated-release-review.md). Prior separate-PR green CI is not evidence of the combined build. Public IIS responses, indexing, ranking, selected canonicals, and lead delivery remain unverified.
+- **Historical reports:** [original keyword audit](audits/2026-11-24-all-page-persian-keyword-readiness-audit.md), [URL migration](migrations/2026-11-24-training-load-url-migration.md), [static article HTML](verification/2026-11-24-full-article-static-html-readiness.md), [demo metadata and navigation](verification/2026-11-24-demo-metadata-and-rendered-navigation.md).
+
+## Historical engineering checkpoint — 2026-11-23
+
+- PRs #40 and #41 documented URL intent and marketing CTA/source-link integrity. Their historical reports remain available; see the current integrated review above for the authoritative status.
 
 ## Documentation index
 
