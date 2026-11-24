@@ -30,13 +30,20 @@ The current fifth article is a training-load definition and sRPE explainer, but 
 4. **Before production merge:** obtain owner Search Console URL Inspection for old URL (Google-selected canonical, indexing state, available links); review relevant backlinks, analytics and campaign URLs and confirm whether migration timing is appropriate while indexing requests are pending.
 5. **After authorized deployment:** verify exact HTTP 301 Location, status 200 final HTML, HTTPS transport, live canonical, sitemap, OG URL, no chains/loops and live navigation. Submit/inspect only the new canonical in Google Search Console; monitor page/query results, redirects and coverage after propagation. Do not declare success from source/build CI alone.
 
+## Actual review-only CI evidence
+
+- **Exact tested code/document revision:** `10d91e77042402a6e7d8d4e9015c92856c67bd93`.
+- **GitHub Actions:** [SEO Build Verification 45383412585](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/45383412585), job `138408034260`, concluded **SUCCESS**.
+- **Passed:** 10/10 generated-SEO fixture tests; 7/7 adversarial source-link fixtures; 7 articles, 14 related-slug references and 62 declared source links; Node.js 22 locked install + TypeScript/Vite build; 256 post-build SEO output checks; tracked `public/robots.txt`, `public/sitemap.xml`, `public/web.config` consistency.
+- These checks do **not** emulate live IIS 301 responses or demonstrate the new Google-selected canonical. They are exact-commit source/build evidence, not deployment approval.
+
 ## Decision gates
 
 | Gate | Current status |
 |---|---|
 | Source migration changes | Draft PR / reviewable |
 | Current GSC indexing & backlinks | NOT AVAILABLE in this session |
-| Build and fixture tests | Pending GitHub Actions |
+| Build and fixture tests | PASS at pinned source revision (see run above) |
 | Public redirect and canonical | NOT DEPLOYED / NOT VERIFIED |
 | Indexing and ranking outcomes | NOT CLAIMED |
 
