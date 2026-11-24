@@ -1,0 +1,48 @@
+# Review-only browser QA. Does not deploy, crawl production or send leads.
+name: SEO Rendered Navigation QA
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/seo-rendered-navigation.yml'
+      - 'src/**'
+      - 'scripts/verify-seo-browser-journeys.mjs'
+      - 'public/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'vite.config.ts'
+      - 'index.html'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: seo-rendered-navigation-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  browser-navigation:
+    name: Mobile rendered navigation and demo integrity
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install exact locked website dependencies
+        run: npm ci
+      - name: Build static HTML and website bundle
+        run: npm run build
+      - name: Verify SEO output shells
+        run: npm run test:seo
+      - name: Keep generated public files checked in
+        run: git diff --exit-code -- public/robots.txt public/sitemap.xml public/web.config
+      - name: Install browser QA tool only on CI
+        run: |
+          npm install --no-save --package-lock=false playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Test real mobile clicks, metadata and JavaScript-rendered articles
+        run: node scripts/verify-seo-browser-journeys.mjs
