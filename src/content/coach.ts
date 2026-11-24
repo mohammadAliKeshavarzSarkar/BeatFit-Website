@@ -1,7 +1,7 @@
 export const coachHero = {
   // Visible H1 stays editorial; live-HR intent lives in title/meta (SEO team PR #23).
   title: "دید زنده از وضعیت کلاس، برای تصمیم‌های روشن‌تر مربی",
-  body: "با پنل مربی بیت‌فیت، پایش زنده ضربان قلب، زون و شدت تمرین ورزشکاران متصل را در یک نمای مشترک انجام دهید و نتیجه هر جلسه را مرور کنید.",
+  body: "با پنل مربی بیت‌فیت، ضربان قلب، زون و شدت تمرین ورزشکاران متصل را به‌صورت زنده پایش کنید و نتیجه هر جلسه را مرور کنید.",
   image: "/assets/coach/dashboard-laptop.webp",
   imageAlt: "داشبورد مربی بیت‌فیت روی لپ‌تاپ",
 } as const;
