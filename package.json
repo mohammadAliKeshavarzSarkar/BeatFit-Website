@@ -19,7 +19,8 @@
     "test:blog:sixth": "node scripts/validate-sixth-blog.mjs",
     "test:blog:seventh": "node scripts/validate-seventh-blog.mjs",
     "test:hero-app-link": "node scripts/validate-hero-app-link.mjs",
-    "test:seo:links:fixtures": "node --test scripts/verify-seo-source-links.test.mjs"
+    "test:seo:links:fixtures": "node --test scripts/verify-seo-source-links.test.mjs",
+    "test:seo:static-articles": "node scripts/verify-static-article-shells.mjs"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",

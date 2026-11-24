@@ -56,6 +56,9 @@ jobs:
       - name: Build website and generated SEO shells
         run: npm run build
 
+      - name: Verify full article HTML is readable without JavaScript
+        run: npm run test:seo:static-articles
+
       - name: Verify generated SEO artifacts
         run: npm run test:seo
 
