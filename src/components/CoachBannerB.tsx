@@ -25,8 +25,8 @@ export function CoachBannerB() {
           <img
             src={coachBannerB.image}
             alt={coachBannerB.imageAlt}
-            width={405}
-            height={506}
+            width={810}
+            height={1067}
             decoding="async"
             loading="lazy"
           />

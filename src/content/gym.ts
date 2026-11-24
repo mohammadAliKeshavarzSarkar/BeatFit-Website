@@ -8,6 +8,8 @@ export const gymHero = {
 
 export const gymLeave = {
   title: "بعضی اعضا قبل از اینکه دلیل ماندنشان را پیدا کنند، باشگاه را ترک می‌کنند",
+  image: "/assets/gym/instructor-wearables.webp",
+  imageAlt: "مربی بیت‌فیت با حسگرهای ضربان قلب پوشیدنی و تبلت",
   points: [
     {
       id: "path",

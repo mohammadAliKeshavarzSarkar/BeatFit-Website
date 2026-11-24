@@ -527,19 +527,15 @@
 }
 
 @media (max-width: 640px) {
-  .bf-footer__lead {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .bf-footer__logo {
-    width: 112px;
-  }
-
   .bf-footer__groups {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--bf-space-4);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    justify-content: stretch;
+  }
+
+  .bf-footer__group--contact {
+    grid-column: 1 / -1;
   }
 
   .bf-showcase-card {
@@ -686,5 +682,106 @@
   .bf-footer__bottom {
     align-items: flex-start;
     gap: var(--bf-space-2);
+  }
+}
+
+@media (max-width: 640px) {
+  .bf-footer {
+    padding-block: 40px 20px;
+  }
+
+  .bf-footer__main {
+    gap: 28px;
+    padding-bottom: 28px;
+  }
+
+  .bf-footer__lead {
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    text-align: center;
+  }
+
+  .bf-footer__logo {
+    width: 96px;
+  }
+
+  .bf-footer__headline,
+  .bf-footer__sub {
+    text-align: center;
+  }
+
+  .bf-footer__headline {
+    margin-bottom: 6px;
+    font-size: clamp(1.2rem, 5vw, 1.4rem);
+  }
+
+  .bf-footer__sub {
+    max-width: 18rem;
+    margin-inline: auto;
+    line-height: 1.7;
+  }
+
+  .bf-footer__groups {
+    gap: 24px 20px;
+    padding-top: 24px;
+  }
+
+  .bf-footer__group-title {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+  }
+
+  .bf-footer__group-list a {
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
+
+  .bf-footer__group--contact {
+    text-align: center;
+  }
+
+  .bf-footer__group--contact .bf-footer__group-title,
+  .bf-footer__group--contact .bf-footer__group-copy {
+    text-align: center;
+  }
+
+  .bf-footer__group--contact .bf-footer__group-copy {
+    max-width: none;
+    margin-inline: 0;
+    padding-inline: 0;
+  }
+
+  .bf-footer__group--contact .bf-footer__social {
+    justify-content: center;
+    gap: 16px;
+    margin-top: 16px;
+  }
+
+  .bf-footer__social-link {
+    width: 28px;
+    height: 28px;
+  }
+
+  .bf-footer__social-link svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .bf-footer__bottom {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding-top: 20px;
+    text-align: center;
+  }
+
+  .bf-footer__copyright {
+    max-width: 22rem;
+  }
+
+  .bf-footer__legal-links {
+    justify-content: center;
   }
 }

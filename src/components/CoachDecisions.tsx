@@ -6,6 +6,64 @@ import { coachDecisions } from "../content/coach";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
+type DecisionIconId = (typeof coachDecisions.steps)[number]["icon"];
+
+function DecisionStepIcon({ icon }: { icon: DecisionIconId }) {
+  const common = {
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: 2,
+    strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const,
+  };
+
+  return (
+    <svg
+      className="bf-coach-decisions__step-glyph"
+      viewBox="0 0 24 24"
+      width="22"
+      height="22"
+      aria-hidden="true"
+      focusable="false"
+    >
+      {icon === "eye" ? (
+        <>
+          <path
+            {...common}
+            d="M2.5 12s3.5-6.5 9.5-6.5S21.5 12 21.5 12s-3.5 6.5-9.5 6.5S2.5 12 2.5 12Z"
+          />
+          <circle {...common} cx="12" cy="12" r="2.75" />
+        </>
+      ) : null}
+      {icon === "activity" ? (
+        <>
+          <rect {...common} x="3.5" y="4.5" width="17" height="15" rx="2" />
+          <path {...common} d="M7.5 12h2.2l1.6 4 1.7-8 1.6 4H16.5" />
+        </>
+      ) : null}
+      {icon === "radar" ? (
+        <>
+          <path {...common} d="M12 13V4l7 3.5L12 13Z" />
+          <path
+            {...common}
+            d="M16.7 13.2a5.2 5.2 0 1 1-8.8-3.6"
+          />
+          <path
+            {...common}
+            d="M14.8 12.4a2.8 2.8 0 1 1-4.7-2"
+          />
+        </>
+      ) : null}
+      {icon === "flags" ? (
+        <path
+          {...common}
+          d="M5.5 20V7.5M5.5 7.5V4.5c0-.2.1-.4.2-.5A4.2 4.2 0 0 1 8.6 3c2.4 0 3.8 1.5 5.6 1.5 1.1 0 2-.2 2.6-.5.4-.2.9 0 1.1.4.1.2.2.4.2.6v7.2c0 .2-.1.4-.2.5a4.2 4.2 0 0 1-2.9 1.1c-2.4 0-3.8-1.5-5.6-1.5-1.2 0-2.3.4-3.1 1.2"
+        />
+      ) : null}
+    </svg>
+  );
+}
+
 const P0 = 0.06;
 const P1 = 0.9;
 const SCRUB = 0.55;
@@ -374,6 +432,12 @@ export function CoachDecisions() {
                       top: `${step.y * 100}%`,
                     }}
                   >
+                    <span
+                      className="bf-coach-decisions__step-icon"
+                      aria-hidden="true"
+                    >
+                      <DecisionStepIcon icon={step.icon} />
+                    </span>
                     <span className="bf-coach-decisions__step-label">{step.label}</span>
                   </li>
                 ))}

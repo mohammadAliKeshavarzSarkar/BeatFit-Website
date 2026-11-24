@@ -35,7 +35,17 @@ export function GymLeave() {
             ))}
           </ul>
 
-          <div className="bf-gym-leave__media" aria-hidden="true" />
+          <figure className="bf-gym-leave__media">
+            <img
+              className="bf-gym-leave__image"
+              src={gymLeave.image}
+              alt={gymLeave.imageAlt}
+              width={1064}
+              height={1402}
+              decoding="async"
+              loading="lazy"
+            />
+          </figure>
         </div>
       </div>
     </section>
