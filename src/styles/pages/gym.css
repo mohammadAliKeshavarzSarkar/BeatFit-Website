@@ -23,17 +23,29 @@
 
 .bf-gym-leave__layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(260px, 548px);
+  /* Media column capped so 3:4 stays portrait (not stretched by max-height). */
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 420px);
   gap: clamp(28px, 4vw, 56px);
   align-items: center;
 }
 
 .bf-gym-leave__media {
   width: 100%;
-  aspect-ratio: 548 / 396;
-  border-radius: 50px;
-  background: #d9d9d9;
+  margin: 0;
+  /* Cutout sits on the white section — no filled media plate. */
+  aspect-ratio: 3 / 4;
+  overflow: visible;
+  background: transparent;
+  justify-self: stretch;
+}
 
+.bf-gym-leave__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+  user-select: none;
 }
 
 .bf-gym-leave__list {
@@ -106,7 +118,8 @@
   }
 
   .bf-gym-leave__media {
-    max-width: 548px;
+    max-width: 360px;
+    max-height: none;
     margin-inline: auto;
   }
 }

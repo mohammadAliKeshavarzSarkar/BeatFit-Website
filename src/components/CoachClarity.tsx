@@ -44,6 +44,18 @@ export function CoachClarity() {
               </span>
               <h3 className="bf-coach-clarity__card-title">{card.title}</h3>
               <p className="bf-coach-clarity__card-body">{card.body}</p>
+
+              <figure className="bf-coach-clarity__media">
+                <img
+                  className="bf-coach-clarity__image"
+                  src={card.image}
+                  alt={card.imageAlt}
+                  width={card.imageWidth}
+                  height={card.imageHeight}
+                  decoding="async"
+                  loading="lazy"
+                />
+              </figure>
             </article>
           ))}
         </div>

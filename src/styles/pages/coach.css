@@ -270,13 +270,14 @@
 .bf-coach-clarity__card {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: stretch;
   box-sizing: border-box;
   width: 100%;
   min-height: 561px;
-  padding: 38px 34px 40px;
+  padding: 38px 34px 0;
   border-radius: 30px;
   direction: rtl;
+  overflow: hidden;
 }
 
 .bf-coach-clarity__card--gray {
@@ -290,7 +291,34 @@
 }
 
 .bf-coach-clarity__card--featured {
-  min-height: 633px;
+  min-height: 680px;
+}
+
+.bf-coach-clarity__media {
+  margin: auto 0 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  line-height: 0;
+  pointer-events: none;
+}
+
+.bf-coach-clarity__image {
+  display: block;
+  width: min(100%, 300px);
+  height: auto;
+  max-height: 380px;
+  object-fit: contain;
+  object-position: bottom center;
+  user-select: none;
+  /* Nudge ~6px past the card floor. */
+  transform: translateY(6px);
+}
+
+.bf-coach-clarity__card--featured .bf-coach-clarity__image {
+  width: min(100%, 360px);
+  max-height: 480px;
 }
 
 .bf-coach-clarity__icon {
@@ -352,6 +380,12 @@
   color: rgba(255, 255, 255, 0.7);
 }
 
+.bf-coach-clarity__icon,
+.bf-coach-clarity__card-title,
+.bf-coach-clarity__card-body {
+  align-self: flex-start;
+}
+
 @media (max-width: 1100px) {
   .bf-coach-clarity__grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -361,7 +395,17 @@
   .bf-coach-clarity__card,
   .bf-coach-clarity__card--featured {
     min-height: 0;
-    padding: 28px 24px 32px;
+    padding: 28px 24px 0;
+  }
+
+  .bf-coach-clarity__image {
+    width: min(100%, 260px);
+    max-height: 340px;
+  }
+
+  .bf-coach-clarity__card--featured .bf-coach-clarity__image {
+    width: min(100%, 300px);
+    max-height: 400px;
   }
 }
 
@@ -373,6 +417,14 @@
 
   .bf-coach-clarity__card--featured {
     order: -1;
+  }
+
+  .bf-coach-clarity__card {
+    min-height: 480px;
+  }
+
+  .bf-coach-clarity__card--featured {
+    min-height: 560px;
   }
 }
 
@@ -400,26 +452,25 @@
 }
 
 .bf-coach-tools__stage {
-  --bf-coach-tools-primary-h: 340px;
-  display: grid;
-  /* Cards top-aligned; controls sit under secondaries at primary bottom */
-  grid-template-columns: auto minmax(0, 1fr);
-  grid-template-rows: auto 1fr;
-  grid-template-areas:
-    "secondaries primary"
-    "controls primary";
-  align-items: start;
-  column-gap: clamp(16px, 2vw, 28px);
-  height: var(--bf-coach-tools-primary-h);
+  --bf-coach-tools-primary-h: 420px;
+  --bf-coach-tools-sec-w: clamp(180px, 18vw, 240px);
+  --bf-coach-tools-deck-gap: clamp(16px, 2vw, 28px);
+  position: relative;
+  display: block;
+  min-height: var(--bf-coach-tools-primary-h);
 }
 
-.bf-coach-tools__secondaries {
-  grid-area: secondaries;
+.bf-coach-tools__deck {
   display: flex;
   flex-direction: row;
-  align-items: stretch;
-  gap: clamp(16px, 2vw, 28px);
-  align-self: start;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--bf-coach-tools-deck-gap);
+  width: 100%;
+  min-height: var(--bf-coach-tools-primary-h);
+  /* LTR: [left gray][middle gray][primary green on the right] */
+  direction: ltr;
 }
 
 .bf-coach-tools__card {
@@ -428,50 +479,149 @@
   border: 0;
   border-radius: 40px;
   text-align: right;
-  transition:
-    flex-basis 320ms ease,
-    min-width 320ms ease,
-    height 320ms ease,
-    background 220ms ease,
-    color 220ms ease;
+  overflow: hidden;
+  /* No CSS size transitions — Flip owns the morph. */
+  transition: none;
 }
 
-.bf-coach-tools__card--primary {
-  grid-area: primary;
+.bf-coach-tools__card.is-primary {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: stretch;
   justify-content: space-between;
-  align-self: stretch;
+  gap: clamp(16px, 2vw, 28px);
+  flex: 1 1 auto;
   min-width: min(100%, 560px);
-  height: 100%;
+  height: var(--bf-coach-tools-primary-h);
   min-height: var(--bf-coach-tools-primary-h);
-  padding: 40px 44px;
+  order: 3;
+  padding: 36px 40px 0;
   background: #163a27;
   color: #fff;
+  cursor: default;
 }
 
-.bf-coach-tools__card--secondary {
+.bf-coach-tools__card.is-secondary {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  flex: 0 0 clamp(180px, 18vw, 240px);
-  width: clamp(180px, 18vw, 240px);
-  /* Half the primary card height */
+  flex: 0 0 var(--bf-coach-tools-sec-w);
+  width: var(--bf-coach-tools-sec-w);
   height: 170px;
   min-height: 170px;
+  order: 1;
   padding: 24px 22px;
   background: #d9d9d9;
   color: #000;
   cursor: pointer;
 }
 
-.bf-coach-tools__card--secondary:hover {
+/* Park at secondary box size so Flip never does a 0→100 grow into a gray slot. */
+.bf-coach-tools__card.is-offstage {
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0;
+  flex: 0 0 var(--bf-coach-tools-sec-w);
+  width: var(--bf-coach-tools-sec-w);
+  height: 170px;
+  min-height: 170px;
+  padding: 24px 22px;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bf-coach-tools__card.is-secondary:hover {
   background: #cfcfcf;
 }
 
-.bf-coach-tools__card--secondary:focus-visible {
+.bf-coach-tools__card.is-secondary:focus-visible {
   outline: 2px solid var(--bf-lime);
   outline-offset: 3px;
+}
+
+.bf-coach-tools__primary-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1 1 auto;
+  min-width: 0;
+  padding-bottom: 36px;
+}
+
+.bf-coach-tools__card.is-secondary .bf-coach-tools__primary-main {
+  flex: 1 1 auto;
+  padding-bottom: 0;
+}
+
+.bf-coach-tools__primary-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.bf-coach-tools__mask {
+  overflow: hidden;
+  clip-path: inset(0% 0% 0% 0%);
+}
+
+.bf-coach-tools__mask--cta {
+  align-self: flex-start;
+}
+
+.bf-coach-tools__media {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  align-self: stretch;
+  width: min(42%, 240px);
+  margin: 0;
+  line-height: 0;
+  pointer-events: none;
+  overflow: hidden;
+  isolation: isolate;
+  contain: paint;
+}
+
+.bf-coach-tools__media-frame {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  line-height: 0;
+  overflow: hidden;
+  transform-origin: center bottom;
+}
+
+.bf-coach-tools__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: calc(var(--bf-coach-tools-primary-h) - 24px);
+  object-fit: contain;
+  object-position: bottom center;
+  user-select: none;
+  transform: translateY(6px);
+  transform-origin: center bottom;
+}
+
+/* Keep detail nodes in DOM for Flip leave/enter — hide without display:none. */
+.bf-coach-tools__card.is-secondary [data-tools-detail] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.bf-coach-tools__card.is-primary .bf-coach-tools__mini-cta {
+  display: none;
+}
+
+.bf-coach-tools__card.is-secondary .bf-coach-tools__mini-cta {
+  display: inline-grid;
 }
 
 .bf-coach-tools__card-title {
@@ -482,11 +632,11 @@
   line-height: 1.4;
 }
 
-.bf-coach-tools__card--primary .bf-coach-tools__card-title {
+.bf-coach-tools__card.is-primary .bf-coach-tools__card-title {
   color: #fff;
 }
 
-.bf-coach-tools__card--secondary .bf-coach-tools__card-title {
+.bf-coach-tools__card.is-secondary .bf-coach-tools__card-title {
   color: #000;
   font-size: clamp(1.05rem, 1.5vw, 1.35rem);
 }
@@ -502,11 +652,11 @@
 
 .bf-coach-tools__cta {
   align-self: flex-start;
-  margin-top: 36px;
+  margin-top: 28px;
 }
 
 .bf-coach-tools__mini-cta {
-  display: inline-grid;
+  display: none;
   place-items: center;
   align-self: flex-start;
   width: 44px;
@@ -518,14 +668,22 @@
 }
 
 .bf-coach-tools__controls {
-  grid-area: controls;
+  /* Sit under the two gray cards, bottom-aligned with the green card. */
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  align-self: end;
   gap: 12px;
-  width: 100%;
+  box-sizing: border-box;
+  width: calc(
+    (var(--bf-coach-tools-sec-w) * 2) + var(--bf-coach-tools-deck-gap)
+  );
+  max-width: calc(100% - min(100%, 560px) - var(--bf-coach-tools-deck-gap));
   margin: 0;
+  padding-block: 4px;
 }
 
 .bf-coach-tools__nav {
@@ -577,48 +735,62 @@
 }
 
 @media (max-width: 900px) {
-  .bf-coach-tools__stage {
-    height: auto;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    grid-template-areas:
-      "primary"
-      "secondaries"
-      "controls";
-    align-items: stretch;
-    row-gap: 16px;
+  .bf-coach-tools {
+    display: none;
   }
 
-  .bf-coach-tools__card--primary {
+  .bf-coach-tools__stage {
+    min-height: 0;
+  }
+
+  .bf-coach-tools__deck {
+    flex-wrap: wrap;
+    min-height: 0;
+  }
+
+  .bf-coach-tools__card.is-primary {
     width: 100%;
     min-width: 0;
+    flex: 1 1 100%;
+    order: 1 !important;
     height: auto;
-    min-height: 280px;
+    min-height: 320px;
+    flex-direction: column;
+    padding: 32px 28px 0;
   }
 
-  .bf-coach-tools__secondaries {
-    width: 100%;
+  .bf-coach-tools__primary-main {
+    padding-bottom: 8px;
   }
 
-  .bf-coach-tools__card--secondary {
-    flex: 1 1 0;
+  .bf-coach-tools__media {
+    width: min(56%, 220px);
+    align-self: center;
+  }
+
+  .bf-coach-tools__image {
+    max-height: 280px;
+  }
+
+  .bf-coach-tools__card.is-secondary {
+    flex: 1 1 calc(50% - 12px);
     width: auto;
+    order: 2 !important;
     height: 150px;
     min-height: 150px;
   }
 
   .bf-coach-tools__controls {
-    align-self: stretch;
+    position: static;
+    width: 100%;
+    max-width: none;
+    margin-top: 12px;
   }
 }
 
 @media (max-width: 520px) {
-  .bf-coach-tools__secondaries {
-    flex-direction: column;
-  }
-
-  .bf-coach-tools__card--secondary {
-    flex: none;
+  .bf-coach-tools__card.is-secondary {
+    flex: 1 1 100%;
     width: 100%;
     height: auto;
     min-height: 120px;
@@ -630,9 +802,15 @@
     align-self: stretch;
   }
 
-  .bf-coach-tools__card--primary {
+  .bf-coach-tools__card.is-primary {
     padding: 28px 22px;
     border-radius: clamp(28px, 8vw, 40px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bf-coach-tools__card {
+    transition: background 160ms ease, color 160ms ease;
   }
 }
 
@@ -755,6 +933,14 @@
   );
 }
 
+.bf-coach-decisions__step-icon {
+  display: none;
+}
+
+.bf-coach-decisions__step-glyph {
+  display: block;
+}
+
 .bf-coach-decisions__step-label {
   display: block;
   font-family: var(--bf-font-text);
@@ -816,12 +1002,34 @@
     position: relative;
     left: auto !important;
     top: auto !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     width: auto;
-    padding: 14px 16px;
-    border-radius: 18px;
-    background: rgba(217, 217, 217, 0.45);
+    padding: 8px 4px;
+    border-radius: 0;
+    background: transparent;
     opacity: 1;
     transform: none;
+  }
+
+  .bf-coach-decisions__step-icon {
+    display: inline-grid;
+    place-items: center;
+    flex: 0 0 auto;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #d9d9d9;
+    color: #000;
+  }
+
+  .bf-coach-decisions__step-label {
+    flex: 0 1 auto;
+    max-width: 22rem;
+    text-align: center;
   }
 
   .bf-coach-decisions__path {
