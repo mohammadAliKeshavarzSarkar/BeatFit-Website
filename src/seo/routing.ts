@@ -2,6 +2,7 @@ import { SITE_ORIGIN } from "../config/site";
 import {
   blogContentSlugByPublicSlug,
   blogPublicSlugByContentSlug,
+  legacyEnglishBlogAliases,
   type BlogSlug,
 } from "../content/blog";
 import { articleDocumentBySlug, articleDocuments } from "./articles";
@@ -74,6 +75,16 @@ export function classifyAppPath(pathname: string): AppRoute | null {
       const publicSlug =
         blogPublicSlugByContentSlug[slug as BlogSlug];
       return { kind: "redirect", url: `/blog/${publicSlug}` };
+    }
+
+    // Historical English slug: a single permanent hop to its topical canonical.
+    if (slug in legacyEnglishBlogAliases) {
+      const contentSlug =
+        legacyEnglishBlogAliases[slug as keyof typeof legacyEnglishBlogAliases];
+      return {
+        kind: "redirect",
+        url: `/blog/${blogPublicSlugByContentSlug[contentSlug]}`,
+      };
     }
 
     if (slug in blogContentSlugByPublicSlug) {

@@ -7,6 +7,7 @@ export {
   getBlogPost,
   getBlogPublicSlug,
   getPublishedBlogPosts,
+  legacyEnglishBlogAliases,
   resolveBlogSlug,
   type BlogPublicSlug,
   type BlogSlug,

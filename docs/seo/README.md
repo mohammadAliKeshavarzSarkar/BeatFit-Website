@@ -11,12 +11,7 @@ This is the **single source of truth for BeatFit-specific SEO documentation**: r
 
 **Current verified status, 2026-11-21:** SEO PRs **#1, #3, #4, #8, #10 and #11 are MERGED** into `main`, as confirmed from GitHub PR records. Historical sections below may refer to earlier Draft states; use [current post-deployment audit](verification/2026-11-21-post-deployment-public-server-audit.md) instead. The merged source build, 254 SEO checks and mobile route review PASS; **public HTTP/TLS, deployed revision, redirects and Google indexing have NOT been verified**.
 
-## All-page keyword-source reconciliation — 2026-11-24
 
-- [Current 13-page Persian keyword readiness audit](audits/2026-11-24-all-page-persian-keyword-readiness-audit.md): 13 distinct source titles/descriptions, commercial vs informational intent boundaries, true issues/approval gates, and GSC-first follow-up.
-- [Canonical public keyword map v3 — 113 candidate rows](research/2026-11-24-canonical-keyword-map-v3.csv): derived from the historical v2 map and actual published ASCII blog slug registry; all 13 page owners preserved, old research URLs retained for traceability. **No GSC query volume/rank evidence attached.**
-- [Exact current source SEO metadata inventory](inventory/2026-11-24-current-13-page-meta-keyword-inventory.csv): page URL, SEO title, meta description, H1, assigned research keyword, character counts, content source and pinned file blob SHA.
-- **Keep** existing page titles pending first-party search signals; **review** `/demo` promise while form is disabled and `/blog/live-tv-group-training` slug-topic mismatch. The owner reports Search Console sitemap fetch success, but no live URL Inspection, query/page report or Google-selected canonical was independently available to this source review. A separate remote request did not produce usable live HTML; do not infer global outage or failed Google crawling from that alone.
 
 ## Review-only engineering checkpoint — 2026-11-23
 

@@ -78,7 +78,7 @@ export const resourcesCatalog = {
       body: "با تفاوت بار داخلی و خارجی، حجم و شدت تمرین و روش‌های تفسیر فشار هر جلسه آشنا شوید.",
       image: "/beatfitImages/articles/بار-تمرینی-چیست.webp",
       imageAlt: "ورزشکار پس از تمرین با حسگر بیت‌فیت و نمایش اطلاعات بار تمرینی",
-      href: "/blog/live-tv-group-training",
+      href: "/blog/training-load",
     },
     {
       id: "athlete-sensors",
