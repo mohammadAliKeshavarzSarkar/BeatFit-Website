@@ -73,9 +73,9 @@ try {
   const fieldset = page.locator(".bf-demo__disabled-fieldset");
   assert.equal(await fieldset.count(), 1);
   assert.equal(await fieldset.isDisabled(), true);
-  assert.equal(await fieldset.locator("input, select, textarea, button").count(), 6);
+  assert.equal(await fieldset.locator("input, select, textarea, button").count(), 7);
   assert.equal(nonGet.length, 0, "Unexpected data-submitting request during disabled demo journey");
-  console.log("PASS browser /demo: truthful SEO metadata, pre-entry notice, disabled six controls, no non-GET");
+  console.log("PASS browser /demo: truthful SEO metadata, pre-entry notice, disabled six fields plus submit, no non-GET");
 
   await open(page, "/resources");
   const cards = page.locator(".bf-resources-card__title a");
