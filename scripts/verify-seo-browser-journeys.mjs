@@ -72,7 +72,9 @@ try {
   assert.match(await note.textContent(), /فعلاً فعال نیست/);
   const fieldset = page.locator(".bf-demo__disabled-fieldset");
   assert.equal(await fieldset.count(), 1);
-  assert.equal(await fieldset.isDisabled(), true);
+  assert.notEqual(await fieldset.getAttribute("disabled"), null, "Form fieldset lacks disabled attribute");
+  assert.equal(await fieldset.locator("input").first().isDisabled(), true, "First input not disabled");
+  assert.equal(await fieldset.locator('button[type="submit"]').isDisabled(), true, "Submit button not disabled");
   assert.equal(await fieldset.locator("input, select, textarea, button").count(), 7);
   assert.equal(nonGet.length, 0, "Unexpected data-submitting request during disabled demo journey");
   console.log("PASS browser /demo: truthful SEO metadata, pre-entry notice, disabled six fields plus submit, no non-GET");
