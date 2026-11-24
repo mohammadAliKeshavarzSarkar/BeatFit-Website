@@ -11,6 +11,12 @@ This is the **single source of truth for BeatFit-specific SEO documentation**: r
 
 **Current verified status, 2026-11-21:** SEO PRs **#1, #3, #4, #8, #10 and #11 are MERGED** into `main`, as confirmed from GitHub PR records. Historical sections below may refer to earlier Draft states; use [current post-deployment audit](verification/2026-11-21-post-deployment-public-server-audit.md) instead. The merged source build, 254 SEO checks and mobile route review PASS; **public HTTP/TLS, deployed revision, redirects and Google indexing have NOT been verified**.
 
+## Article HTML without JavaScript — 2026-11-24
+
+- [Draft PR #45 — full initial HTML for the seven published articles](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/45): source-derived headings, paragraphs, FAQs, citations and links appear in every generated no-JavaScript article shell, with the normal React experience preserved on hydration.
+- [Verification record](verification/2026-11-24-full-article-static-html-readiness.md): [SEO Build 45386243445](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/45386243445) SUCCESS (255 checks); [Chromium 45386243535](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/45386243535) SUCCESS (seven no-JS route-specific article shells and two hydrated React article journeys).
+- This confirms **source/build/browser-preview content accessibility**. It is **not** live IIS rewrite verification, Google-selected canonical, GSC indexing proof, ranking lift, or deployment. PR #44's proposed training-load URL migration remains independent and must be retested against any merge order.
+
 ## Review-only engineering checkpoint — 2026-11-23
 
 - [Draft PR #41 — marketing CTA and article source-link integrity](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/41): the targeted source validator now checks landing-page `ctaHref` and article/public-URL uniqueness. [Exact CI 45127419031](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/45127419031) succeeded on code revision `d628587e8a89a027ca4524d801ce85ae466ea0fa`: seven new fixture tests, 62 source internal links, real Vite/TypeScript build and 255 generated SEO checks. **Draft, not merged or deployed.** [Verification record](verification/2026-11-23-marketing-cta-source-link-gate.md).
