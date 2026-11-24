@@ -15,7 +15,7 @@ const slugs = [
   "live-class-monitoring",
   "connected-training-system",
   "workout-history-progress",
-  "live-tv-group-training",
+  "training-load",
   "heart-rate-sensor-comparison",
   "group-class-design",
 ];
@@ -80,7 +80,7 @@ try {
   const normalPage = await normal.newPage();
   const pageErrors = [];
   normalPage.on("pageerror", error => pageErrors.push(error.message));
-  for (const slug of ["heart-rate-zones", "connected-training-system"]) {
+  for (const slug of slugs) {
     await visit(normalPage, `/blog/${slug}`);
     await normalPage.locator(".bf-blog-post__body").waitFor({ state: "visible", timeout: 15000 });
     assert.equal((await normalPage.locator(".bf-blog-post__title").textContent())?.trim(), expectedTitles.get(slug));
