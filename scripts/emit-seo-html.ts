@@ -40,7 +40,9 @@ function assertAliasRedirects(webConfig: string): void {
     const publicSlug = blogPublicSlugByContentSlug[
       contentSlug as keyof typeof blogPublicSlugByContentSlug
     ];
-    const rule = webConfig.match(/<rule name="Legacy ASCII training-load path"[^>]*>[\\s\\S]*?<\\/rule>/)?.[0] ?? "";
+    const start = webConfig.indexOf('<rule name="Legacy ASCII training-load path"');
+    const end = start >= 0 ? webConfig.indexOf("</rule>", start) : -1;
+    const rule = end > start ? webConfig.slice(start, end + "</rule>".length) : "";
     if (
       !rule.includes(`<match url="^blog/${legacySlug}/?$" />`) ||
       !rule.includes(`url="https://beatfit.ir/blog/${publicSlug}"`) ||
