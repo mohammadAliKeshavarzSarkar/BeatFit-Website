@@ -36,9 +36,9 @@ assert.match(renderer, /bf-blog-block-figure--/, "Figure layout modifier is not 
 assert.match(css, /\.bf-blog-block-figure--portrait/, "Portrait figure layout is not styled");
 
 assert.match(home, /image:\s*["']\/beatfitImages\/blog-live-tv\.png["']/, "Homepage fifth-card image must remain unchanged");
-assert.match(home, /href:\s*["']\/blog\/live-tv-group-training["']/, "Homepage training-load link is missing");
+assert.match(home, /href:\s*["']\/blog\/training-load["']/, "Homepage training-load link is missing");
 assert.match(resources, /image:\s*["']\/beatfitImages\/articles\/بار-تمرینی-چیست\.png["']/, "Resources training-load hero is missing");
-assert.match(resources, /href:\s*["']\/blog\/live-tv-group-training["']/, "Resources training-load link is missing");
+assert.match(resources, /href:\s*["']\/blog\/training-load["']/, "Resources training-load link is missing");
 
 for (const asset of [
   "public/beatfitImages/articles/بار-تمرینی-چیست.png",
