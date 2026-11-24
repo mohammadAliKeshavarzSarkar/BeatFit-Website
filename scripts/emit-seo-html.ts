@@ -37,7 +37,9 @@ function assertAliasRedirects(webConfig: string): void {
   // This historical English URL must permanently redirect instead of emitting a
   // second indexable article. IIS rule must be before generic slash normalization.
   for (const [legacySlug, contentSlug] of Object.entries(legacyEnglishBlogAliases)) {
-    const publicSlug = blogPublicSlugByContentSlug[contentSlug];
+    const publicSlug = blogPublicSlugByContentSlug[
+      contentSlug as keyof typeof blogPublicSlugByContentSlug
+    ];
     const rule = webConfig.match(/<rule name="Legacy ASCII training-load path"[^>]*>[\\s\\S]*?<\\/rule>/)?.[0] ?? "";
     if (
       !rule.includes(`<match url="^blog/${legacySlug}/?$" />`) ||
