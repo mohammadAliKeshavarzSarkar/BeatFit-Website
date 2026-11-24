@@ -3,7 +3,7 @@
 **Date:** 2026-11-24  
 **Record:** BF-SEO-ARTICLE-STATIC-001  
 **Scope:** Seven published article route HTML shells; no new URLs, no content rewriting, no Google Search Console account access.  
-**Status:** Review-only implementation, pending exact-commit CI and live Google-rendered inspection.
+**Status:** Review-only implementation, exact-commit source/build and browser CI PASS; live Google-rendered/indexing inspection NOT RUN.
 
 ## Observed gap
 
@@ -17,6 +17,14 @@ Before this change, `src/seo/html.ts` generated only `<h1>` plus the article sum
 - Existing pre-React cleanup script removes `#bf-static-seo` when JavaScript executes, so the normal React article renderer remains the sole visible body on hydrated pages. With JavaScript disabled, the semantically complete static body is readable.
 - A new `scripts/verify-static-article-shells.mjs` checks **exactly seven** generated route HTML files with one H1 each, at least five H2s, nine paragraphs, four links, substantive article text, no executable inline article markup and a bounded HTML response size.
 - CI runs the static content gate after the real TypeScript/Vite build, before existing SEO artifact tests. A passing CI is evidence of **build output**, not proof of live server rewrites or Googlebot indexing.
+
+## Exact successful GitHub CI evidence
+
+- **Tested code commit:** `1cd4ef29c03307d5b8d0e4ec0abdb576413e770c`.
+- [SEO Build Verification 45386243445](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/45386243445): SUCCESS. Ten existing SEO fixture tests, seven link fixtures, 62 literal internal links, locked build, seven complete static article shells, 255 generated artifact checks and tracked-public consistency all passed.
+- [SEO Article Static HTML Browser QA 45386243535](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/45386243535): SUCCESS, job `138417788463`. Actual headless Chromium / mobile 390px / Persian locale validated **7/7 JavaScript-disabled generated article HTML route shells**. Each had 14,465–16,742 readable text characters plus H2s, links and correct canonical. Two representative public SPA routes (heart-rate zones, gym monitoring guide) passed JS-enabled React hydration, removal of `#bf-static-seo`, title consistency and canonical checks.
+- The JavaScript-disabled browser inspected the generated **route HTML shell files** under Vite Preview, not a deployed IIS rewrite response. That distinction is intentional: Vite Preview's generic fallback is not evidence of how production IIS rewrites `/blog/...`. Production response/Google URL Inspection gates below remain open.
+- The later documentation-only commit that records this result is **not** represented as a re-run on its new exact head; the implementation code was already tested at the pinned revision above.
 
 ## QA / acceptance
 
