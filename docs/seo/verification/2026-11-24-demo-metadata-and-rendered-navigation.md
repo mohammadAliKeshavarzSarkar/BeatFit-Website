@@ -26,14 +26,25 @@ New read-only Chromium script `scripts/verify-seo-browser-journeys.mjs`, run thr
 
 No production domain, Google bot, real user data, CRM, live form submission, live Google canonical/indexing, or actual search result snippet is covered. Google may write its own search-result title/description. Approval of a lead receiver, privacy notice and test evidence remains required before activating request submission.
 
+## Exact successful CI
+
+**Tested source SHA:** `95832be4c308084ac8ff27dcedb8c37739b485fc`.  
+- [SEO Build Verification 45383503214](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/45383503214): **SUCCESS** (real locked build, fixtures, source links and SEO artifacts).
+- [SEO Rendered Navigation QA 45383503232](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/45383503232), job `138408356926`: **SUCCESS** (390px Chromium, Persian locale, Vite production preview).
+- **Observed browser PASS:** `/gym → /demo`; `/coach → /demo`; `/athlete → /resources`; `/resources → article`. CTA navigation, rendered H1, canonical, seven resource anchors, article body and absence of unhandled JavaScript exceptions were checked.
+- `/demo` visibly warns about unavailable submission; all six form fields and submit remain disabled; no non-GET requests were made. Corrected regression test checks the disabled input and button rather than assuming Playwright reports fieldset disability on the fieldset node itself.
+- **Observed no-JavaScript limitation:** article HTML supplies the SEO heading shell, *not* its full educational body. This is an observation from the preview, **not a claim about Googlebot**. Google URL Inspection rendered HTML remains an essential live validation.
+
+The initial browser workflow [45382894144](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/45382894144) failed on the test's fieldset-state assertion after all three initial CTA clicks passed. The site already had a disabled fieldset; the test semantics were corrected, then independently re-run and passed as above. No user-facing form state was changed.
+
 ## Evidence ledger
 
 | Item | State | Meaning |
 |---|---|---|
 | Exact changed metadata | Proposed | Review code diff |
-| Source SEO build and metadata integrity | CI pending | Verify SEO Build Verification workflow |
-| JS-enabled CTA/Article browser test | CI pending | SEO Rendered Navigation QA workflow |
-| JS-disabled shell diagnostic | CI pending | Preview-only behavior |
+| Source SEO build and metadata integrity | PASS — 45383503214 | Verify SEO Build Verification workflow |
+| JS-enabled CTA/Article browser test | PASS — 45383503232 | SEO Rendered Navigation QA workflow |
+| JS-disabled shell diagnostic | PASS (risk observed) — 45383503232 | Preview-only behavior |
 | Public deploy and Google indexing | Not performed | Needs owner-provided evidence |
 
 **Separate work:** Training-load URL identity and new canonical migration require an independent review-only PR and first-party GSC canonical/backlink checks before deployment.
