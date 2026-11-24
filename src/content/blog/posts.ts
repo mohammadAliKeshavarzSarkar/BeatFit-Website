@@ -25,7 +25,7 @@ export const blogPublicSlugByContentSlug = {
   "کنترل-شدت-تمرین-در-کلاس-گروهی": "live-class-monitoring",
   "پایش-ضربان-قلب-در-باشگاه": "connected-training-system",
   "تاریخچه-تمرین": "workout-history-progress",
-  "بار-تمرینی-چیست": "live-tv-group-training",
+  "بار-تمرینی-چیست": "training-load",
   "مقایسه-سنسور-ضربان-قلب": "heart-rate-sensor-comparison",
   "طراحی-تمرین-گروهی": "group-class-design",
 } as const satisfies Record<BlogSlug, string>;
@@ -39,13 +39,21 @@ export const blogContentSlugByPublicSlug = {
   "live-class-monitoring": "کنترل-شدت-تمرین-در-کلاس-گروهی",
   "connected-training-system": "پایش-ضربان-قلب-در-باشگاه",
   "workout-history-progress": "تاریخچه-تمرین",
-  "live-tv-group-training": "بار-تمرینی-چیست",
+  "training-load": "بار-تمرینی-چیست",
   "heart-rate-sensor-comparison": "مقایسه-سنسور-ضربان-قلب",
   "group-class-design": "طراحی-تمرین-گروهی",
 } as const satisfies Record<BlogPublicSlug, BlogSlug>;
 
-/** @deprecated Prefer blogContentSlugByPublicSlug; kept for older imports. */
-export const blogAliases = blogContentSlugByPublicSlug;
+/** Legacy English URLs must resolve in the app but not appear as indexed pages. */
+export const legacyEnglishBlogAliases = {
+  "live-tv-group-training": "بار-تمرینی-چیست",
+} as const;
+
+/** @deprecated Includes both current and historical aliases for older imports. */
+export const blogAliases = {
+  ...blogContentSlugByPublicSlug,
+  ...legacyEnglishBlogAliases,
+} as const;
 
 export const blogPosts = posts;
 
@@ -77,6 +85,11 @@ export function resolveBlogSlug(slug: string): BlogSlug | undefined {
   if (normalized in blogContentSlugByPublicSlug) {
     return blogContentSlugByPublicSlug[
       normalized as keyof typeof blogContentSlugByPublicSlug
+    ];
+  }
+  if (normalized in legacyEnglishBlogAliases) {
+    return legacyEnglishBlogAliases[
+      normalized as keyof typeof legacyEnglishBlogAliases
     ];
   }
   if (slug in blogContentSlugByPublicSlug) {
