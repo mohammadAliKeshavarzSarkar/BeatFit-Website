@@ -15,7 +15,7 @@ const slugs = [
   "live-class-monitoring",
   "connected-training-system",
   "workout-history-progress",
-  "live-tv-group-training",
+  "training-load",
   "heart-rate-sensor-comparison",
   "group-class-design",
 ];

@@ -1,6 +1,12 @@
 import fs from "node:fs";
 import path from "node:path";
 
+import {
+  blogPublicSlugByContentSlug,
+  getPublishedBlogPosts,
+  legacyEnglishBlogAliases,
+} from "../src/content/blog/posts.ts";
+import { renderStaticArticle } from "../src/seo/article-static.ts";
 import { applySeoBlocks, escapeHtml, replaceMarkedBlock } from "../src/seo/html.ts";
 import { notFoundDocument } from "../src/seo/marketing.ts";
 import { distHtmlPath, encodedPath, indexableDocuments, rewriteMapEntries } from "../src/seo/routing.ts";

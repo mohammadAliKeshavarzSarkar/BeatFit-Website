@@ -9,16 +9,16 @@
 
 This is the **single source of truth for BeatFit-specific SEO documentation**: research, technical audits, evidence, project scope, decisions, implementation plans, verification and activity history. The SEO Engineering repository provides the methodology but is not used for private BeatFit evidence.
 
-**Current verified status, 2026-11-21:** SEO PRs **#1, #3, #4, #8, #10 and #11 are MERGED** into `main`, as confirmed from GitHub PR records. Historical sections below may refer to earlier Draft states; use [current post-deployment audit](verification/2026-11-21-post-deployment-public-server-audit.md) instead. The merged source build, 254 SEO checks and mobile route review PASS; **public HTTP/TLS, deployed revision, redirects and Google indexing have NOT been verified**.
+**Current verified status, 2026-11-24:** SEO PRs **#39–#42, #44 and #45 are MERGED** into `main` (plus earlier technical SEO merges). Source build, **256** generated SEO checks, marketing/article link gates, and 7 full no-JS article shells PASS locally after the emit-import fix. **Public HTTP/TLS, live IIS rewrite behavior, Google-selected canonicals and ranking lift remain unverified** unless separately proven in production.
 
-onfirms **source/build/browser-preview content accessibility**. It is **not** live IIS rewrite verification, Google-selected canonical, GSC indexing proof, ranking lift, or deployment. PR #44's proposed training-load URL migration remains independent and must be retested against any merge order.
-=======
+Merged recent work includes ASCII blog link integrity (#39), URL-identity audit (#40), marketing CTA source-link gate (#41), 13-page keyword reconciliation docs (#42), canonical `/blog/training-load` with one-hop 301 from `live-tv-group-training` (#44), and source-derived full article HTML in route shells (#45). Historical sections below may still say Draft; prefer dated verification/audit files for evidence.
 
-## Review-only engineering checkpoint — 2026-11-23
+## Review-only engineering checkpoint — 2026-11-24
 
-- [Draft PR #41 — marketing CTA and article source-link integrity](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/41): the targeted source validator now checks landing-page `ctaHref` and article/public-URL uniqueness. [Exact CI 45127419031](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/45127419031) succeeded on code revision `d628587e8a89a027ca4524d801ce85ae466ea0fa`: seven new fixture tests, 62 source internal links, real Vite/TypeScript build and 255 generated SEO checks. **Draft, not merged or deployed.** [Verification record](verification/2026-11-23-marketing-cta-source-link-gate.md).
-- [Draft PR #40 — source URL identity review](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/40): the live-TV-named public slug points to the training-load article. A redirect-safe migration is **proposed, not approved or implemented**. The /gym versus educational guide SEO titles are already distinct in current source.
-- Historical 2026-11-21 status below is revision-scoped. Latest review-only CI is **not** a production reachability, Search Console, demo lead-receipt or ranking verification.
+- [PR #41 — marketing CTA and article source-link integrity](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/41): **MERGED**. Source validator covers landing-page `ctaHref`, article/public-URL uniqueness and adversarial fixtures. [Verification record](verification/2026-11-23-marketing-cta-source-link-gate.md).
+- [PR #40 — source URL identity review](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/40): **MERGED** as audit; training-load migration later landed in [PR #44](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/44).
+- [PR #45 — full article static HTML shells](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/45): **MERGED**. [Readiness record](verification/2026-11-24-full-article-static-html-readiness.md).
+- Historical 2026-11-21 status below is revision-scoped. Latest source CI is **not** production reachability, Search Console or demo lead-receipt proof.
 
 ## Documentation index
 
