@@ -430,6 +430,15 @@ Every new work session will append an entry with exact revision, findings, test 
 - Separate [Draft PR #40](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/40) records source URL identity, including the training-load article under `/blog/live-tv-group-training`. No slug migration/redirect changes were made.
 - **Not established:** public HTTP/TLS availability, deployed revision, Search Console indexing/query overlap, working lead receiver, hash-fragment targets, actual browser-click operation, or SEO traffic lift. PR #41 is draft and unmerged; no production code or publishing action taken.
 
+## BF-SEO-RUN-027 — 2026-11-24 — Full thirteen-page Persian keyword/source reconciliation
+
+- Re-read current website `main`: six marketing page content modules, `src/seo/marketing.ts`, all seven published article title/description/H1 sources, ASCII public slug registry, prior source research and decision records. Confirmed 13 unique source SEO titles and descriptions and differentiated commercial/product/informational intent; no blanket page-copy rewrite warranted.
+- Reconciled all **113** historical phrase candidate rows with seven actual public English article slugs, preserving historical research page IDs and all 13 page owners in [canonical map v3](../research/2026-11-24-canonical-keyword-map-v3.csv). Candidate phrases are not measured Google query data.
+- Created [13-page metadata inventory](../inventory/2026-11-24-current-13-page-meta-keyword-inventory.csv) with source title, description, H1, focus keyword, character counts, and exact content-source file blob SHA. Identified long-ish marketing descriptions as mobile snippet review candidates, not mechanical truncation failures.
+- Added [all-page readiness report](../audits/2026-11-24-all-page-persian-keyword-readiness-audit.md). Main open owner issues: `/demo` promises a demo while the form is disabled; training-load article canonical source path `/blog/live-tv-group-training` is semantically mismatched; article full body requires JS after the initial SEO shell, so obtain Google-rendered content evidence before making an indexing claim. Existing scientific limitations must remain intact.
+- Public research used Google Search Central documentation and sampled Persian search terms qualitatively. Attempted `https://beatfit.ir/` and `https://beatfit.ir/sitemap.xml` through an independent web surface; it did not return usable content. Owner reports Search Console sitemap fetched; no direct GSC impressions, URL Inspection or selected-canonical data accessible in this session.
+- **Not performed:** website source-copy or URL/redirect changes, production deployment, Google Console actions, exact Googlebot HTML inspection, keyword volume/ranking attribution, new release CI. The documentation PR is review-only. Next needed input is first-party query + landing-page performance and URL Inspection outcomes.
+
 ## BF-SEO-RUN-028 — 2026-11-24 — Full initial article HTML independent of JavaScript
 
 - Verified the baseline issue: all seven blog route HTML shells initially contained only an H1 and summary, while substantive educational content appeared only after React hydration. This is a crawler-resilience gap, **not** evidence that Google has failed to index the site.
@@ -437,3 +446,10 @@ Every new work session will append an entry with exact revision, findings, test 
 - [SEO Build 45386243445](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/45386243445) SUCCESS on implementation revision `1cd4ef29c03307d5b8d0e4ec0abdb576413e770c`: ten existing synthetic checks, seven source-link fixtures, 62 source links, real TypeScript/Vite build, seven complete initial HTML article checks, 255 generated SEO output checks, no tracked public drift.
 - [Chromium 45386243535](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/45386243535) SUCCESS on same implementation revision: seven built route-specific pages remained visibly readable without JavaScript at 390px, each with >14,000 text characters and multiple headings/links; heart-rate-zones and gym monitoring article hydrated to React with the static shell removed, correct H1 and canonical.
 - Exact [verification report](../verification/2026-11-24-full-article-static-html-readiness.md). This PR does **not** deploy or update Google Search Console. Browser preview tests cannot prove IIS public-route rewrites; actual production indexed URL, rendered HTML and Google-selected canonical remain unverified. PR #44 URL migration is separate and must be retested after any merge.
+
+
+## BF-SEO-RUN-029 — 2026-11-24 — Integrated review and repair of SEO PRs #42–45
+
+- Confirmed #42, #44 and #45 merged, #43 open and conflicting. Detected lost emitter imports, obsolete browser URL, documentation merge debris and stale keyword inventory. Reconciled all four PRs on a new review branch, including demo metadata and browser QA, source registry and no-JS fallback improvements.
+- Preserved 113 keyword candidates, 13 distinct public paths and previous snapshots; eight rows now map to /blog/training-load. Search Console query metrics remain unverified.
+- See [integrated release review](../verification/2026-11-24-integrated-release-review.md) for current CI and remaining deployment gates. No production deployment or Search Console action performed.
