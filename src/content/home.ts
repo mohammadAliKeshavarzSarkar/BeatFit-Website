@@ -508,7 +508,7 @@ export const blogs = {
         "تفاوت حجم، شدت و بار تمرینی را بشناسید و عدد فشار هر جلسه را دقیق‌تر تفسیر کنید.",
       image: "/beatfitImages/articles/بار-تمرینی-چیست.webp",
       imageAlt: "ورزشکار پس از تمرین با حسگر بیت‌فیت و نمایش اطلاعات بار تمرینی",
-      href: "/blog/live-tv-group-training",
+      href: "/blog/training-load",
       published: true,
     },
     {
