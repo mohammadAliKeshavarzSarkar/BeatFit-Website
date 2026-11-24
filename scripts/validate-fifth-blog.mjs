@@ -19,6 +19,8 @@ const resources = read("src/content/resources.ts");
 
 assert.match(posts, /["']بار-تمرینی-چیست["']\s*:/, "Canonical training-load slug is missing");
 assert.match(posts, /live-tv-group-training["']\s*:\s*["']بار-تمرینی-چیست/, "Legacy fifth-article alias is missing");
+assert.match(posts, /["']بار-تمرینی-چیست["']:\s*["']training-load["']/, "Canonical training-load public slug is missing");
+assert.match(posts, /["']training-load["']:\s*["']بار-تمرینی-چیست["']/, "Reverse training-load public slug mapping is missing");
 assert.match(article, /seoTitle:\s*["']بار تمرینی چیست\؟ روش محاسبه و تفسیر فشار تمرین["']/, "Training-load SEO title is missing");
 assert.equal((article.match(/kind:\s*["']table["']/g) ?? []).length >= 2, true, "Two training-load tables are required");
 assert.match(article, /kind:\s*["']chart["']/, "Session RPE chart is missing");
