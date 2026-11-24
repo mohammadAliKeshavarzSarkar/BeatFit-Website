@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
-import { blogPublicSlugByContentSlug } from "../src/content/blog/posts.ts";
+import { blogPublicSlugByContentSlug, getPublishedBlogPosts } from "../src/content/blog/posts.ts";
+import { renderStaticArticle } from "../src/seo/article-static.ts";
 import { applySeoBlocks, escapeHtml, replaceMarkedBlock } from "../src/seo/html.ts";
 import { notFoundDocument } from "../src/seo/marketing.ts";
 import { distHtmlPath, encodedPath, indexableDocuments, rewriteMapEntries } from "../src/seo/routing.ts";
@@ -40,9 +41,14 @@ export function emitSeoFiles(outDir: string, projectRoot: string): void {
   const template = fs.readFileSync(path.join(outDir, "index.html"), "utf8");
   const docs = indexableDocuments();
   assertUnique(docs);
+  const articles = new Map(getPublishedBlogPosts().map(post => [`blog:${post.slug}`, post]));
 
   for (const doc of [...docs, notFoundDocument]) {
-    const html = applySeoBlocks(template, doc);
+    const post = articles.get(doc.id);
+    if (doc.path.startsWith("/blog/") && !post) {
+      throw new Error(`Missing source content for article SEO shell: ${doc.id}`);
+    }
+    const html = applySeoBlocks(template, doc, post ? renderStaticArticle(post) : "");
     if (!html.includes(`<title>${escapeHtml(doc.title)}</title>`)) {
       throw new Error(`Built HTML is missing the title for ${doc.path}`);
     }
