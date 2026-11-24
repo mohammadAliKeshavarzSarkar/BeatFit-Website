@@ -11,6 +11,12 @@ This is the **single source of truth for BeatFit-specific SEO documentation**: r
 
 **Current verified status, 2026-11-21:** SEO PRs **#1, #3, #4, #8, #10 and #11 are MERGED** into `main`, as confirmed from GitHub PR records. Historical sections below may refer to earlier Draft states; use [current post-deployment audit](verification/2026-11-21-post-deployment-public-server-audit.md) instead. The merged source build, 254 SEO checks and mobile route review PASS; **public HTTP/TLS, deployed revision, redirects and Google indexing have NOT been verified**.
 
+## 2026-11-24 — Training-load URL migration (proposed; release blocked)
+
+- [Draft PR #44](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/44): move the training-load article's public canonical from `/blog/live-tv-group-training` to `/blog/training-load` using a direct HTTPS 301 and preserving the legacy Persian redirect. Keep one indexed URL and 13 total Sitemap destinations. **Do not deploy until Google-selected canonical/index state, backlink review and server verification are approved.**
+- [Migration acceptance evidence](migrations/2026-11-24-training-load-url-migration.md): [finalized CI 45383938079](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/45383938079) PASS — fifth-article contract, 10 SEO fixtures, 7 source-link fixtures, 62 literal links, TypeScript/Vite build, 256 generated output checks and clean tracked-public outputs.
+- Coordinate the [PR #42 canonical keyword inventory](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/42) with the final decided URL before it becomes authoritative. This PR has not merged, deployed, or updated Search Console.
+
 ## Review-only engineering checkpoint — 2026-11-23
 
 - [Draft PR #41 — marketing CTA and article source-link integrity](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/41): the targeted source validator now checks landing-page `ctaHref` and article/public-URL uniqueness. [Exact CI 45127419031](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/45127419031) succeeded on code revision `d628587e8a89a027ca4524d801ce85ae466ea0fa`: seven new fixture tests, 62 source internal links, real Vite/TypeScript build and 255 generated SEO checks. **Draft, not merged or deployed.** [Verification record](verification/2026-11-23-marketing-cta-source-link-gate.md).
