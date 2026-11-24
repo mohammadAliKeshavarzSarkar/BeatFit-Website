@@ -127,7 +127,8 @@ export function renderSeoBody(doc: SeoDocument, articleHtml = ""): string {
     // escaped. It remains readable if the client never executes JavaScript.
     ...(articleHtml ? [articleHtml] : []),
     `</main>`,
-    `<script>var bfStaticSeo=document.getElementById("bf-static-seo");if(bfStaticSeo)bfStaticSeo.remove();</script>`,
+    // Articles retain their readable fallback until BlogArticle commits.
+    ...(articleHtml ? [] : [`<script>var bfStaticSeo=document.getElementById("bf-static-seo");if(bfStaticSeo)bfStaticSeo.remove();</script>`]),
   ].join("\n");
 }
 
@@ -136,7 +137,7 @@ export function replaceMarkedBlock(source: string, name: string, inner: string):
   if (!pattern.test(source)) {
     throw new Error(`Missing <!-- bf:${name} --> block`);
   }
-  return source.replace(pattern, `<!-- bf:${name} -->\n${inner}\n    <!-- /bf:${name} -->`);
+  return source.replace(pattern, () => `<!-- bf:${name} -->\n${inner}\n    <!-- /bf:${name} -->`);
 }
 
 function indentBlock(block: string): string {
