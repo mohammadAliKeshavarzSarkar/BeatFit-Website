@@ -1,3 +1,4 @@
+import { useLayoutEffect } from "react";
 import { Link } from "react-router-dom";
 import type { BlogPost } from "../content/blog";
 import { blogPath, getBlogPost } from "../content/blog";
@@ -8,6 +9,11 @@ type BlogArticleProps = {
 };
 
 export function BlogArticle({ post }: BlogArticleProps) {
+  // Only discard the static article after its React replacement has committed.
+  useLayoutEffect(() => {
+    document.getElementById("bf-static-seo")?.remove();
+  }, []);
+
   const publishedDate = new Intl.DateTimeFormat("fa-IR-u-ca-persian", {
     dateStyle: "long",
   }).format(new Date(`${post.datePublished}T12:00:00Z`));
