@@ -37,13 +37,21 @@ The current fifth article is a training-load definition and sRPE explainer, but 
 - **Passed:** 10/10 generated-SEO fixture tests; 7/7 adversarial source-link fixtures; 7 articles, 14 related-slug references and 62 declared source links; Node.js 22 locked install + TypeScript/Vite build; 256 post-build SEO output checks; tracked `public/robots.txt`, `public/sitemap.xml`, `public/web.config` consistency.
 - These checks do **not** emulate live IIS 301 responses or demonstrate the new Google-selected canonical. They are exact-commit source/build evidence, not deployment approval.
 
+## Additional article-contract CI (current tested revision)
+
+- **Source commit:** `67c5b96bd7e6e4821feb40a3694cdeb107b14173`.
+- **Latest [GitHub Actions 45383938079](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/45383938079)**, job `138409848706`, concluded **SUCCESS**.
+- **PASSED:** 10/10 generated SEO fixture tests; 7/7 source-link fixtures; 7 published articles/14 related references/62 internal literal links; the **fifth training-load article contract**; actual TypeScript/Vite build; **256 generated SEO checks**; public tracked asset consistency.
+- An intermediate run [45383682450](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/actions/runs/45383682450) exposed obsolete PNG test expectations inherited from a pre-WebP article asset. The test was corrected to match current published WebP sources without changing the website images or article text. The latest complete run above passed.
+- A successful build verifies intended source and artifact consistency, **not** the actual IIS 301 or Google-selected canonical. GSC and live deployment gates below remain blocked.
+
 ## Decision gates
 
 | Gate | Current status |
 |---|---|
 | Source migration changes | Draft PR / reviewable |
 | Current GSC indexing & backlinks | NOT AVAILABLE in this session |
-| Build and fixture tests | PASS at pinned source revision (see run above) |
+| Build and fifth-article contract tests | PASS at pinned source revision (see latest run above) |
 | Public redirect and canonical | NOT DEPLOYED / NOT VERIFIED |
 | Indexing and ranking outcomes | NOT CLAIMED |
 
