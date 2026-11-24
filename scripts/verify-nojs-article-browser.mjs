@@ -78,6 +78,23 @@ try {
   }
   await noJs.close();
 
+  // A browser that allows JavaScript but cannot download the bundle must
+  // retain the actual article rather than losing its content before React mounts.
+  const failedBundle = await browser.newContext({ locale: "fa-IR", viewport: { width: 390, height: 844 } });
+  try {
+    const failedPage = await failedBundle.newPage();
+    await failedPage.route("**/assets/*.js", route => route.abort());
+    await visit(failedPage, "/blog/training-load");
+    const fallback = failedPage.locator('[data-bf-static-article="true"]');
+    await fallback.waitFor({ state: "visible", timeout: 15000 });
+    assert.ok((await fallback.innerText()).length > 3000);
+    assert.equal(await failedPage.locator(".bf-blog-post__body").count(), 0);
+    console.log("PASS blocked client bundle: initial article remains visible");
+  } finally {
+    await failedBundle.close();
+  }
+
+
   const normal = await browser.newContext({
     locale: "fa-IR", viewport: { width: 390, height: 844 },
     reducedMotion: "reduce",
