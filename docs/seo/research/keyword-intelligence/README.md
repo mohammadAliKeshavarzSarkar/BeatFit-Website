@@ -10,8 +10,8 @@
 | 02 Language expansion | [Report](02-language-expansion/README.md), [253 variant mappings](02-language-expansion/variants.csv) | Initial pass complete |
 | 03 Search behavior | [Report](03-search-behavior/README.md), [66 candidates](03-search-behavior/queries.csv), [15 sources](03-search-behavior/sources.csv), [22-seed capture queue](03-search-behavior/capture-queue.csv), [Google observations](03-search-behavior/google-observations.csv) | Partial; direct Google evidence blocked/pending |
 | 04 Competitor discovery | [Report](04-competitor-discovery/README.md), [27 competitor cases](04-competitor-discovery/competitors.csv), [34 evidence records](04-competitor-discovery/evidence.csv) | Initial pass complete |
-| 05 Competitor keyword research | Page/phrase evidence and competitor topic matrix | Next |
-| 06 Search demand | Location/date-scoped metrics and data-source limits | Pending |
+| 05 Competitor keyword research | [Report](05-competitor-keyword-research/README.md), [27 page attempts](05-competitor-keyword-research/pages.csv), [183 phrase rows](05-competitor-keyword-research/phrases.csv), [110 derived candidates](05-competitor-keyword-research/candidate-delta.csv), [12-topic matrix](05-competitor-keyword-research/topic-matrix.csv) | Initial pass complete; one blocked and eight excerpt-only cases |
+| 06 Search demand | Location/date-scoped metrics and data-source limits | Next |
 | 07 Search intent | Intent labels and mixed-intent flags | Pending |
 | 08 SERP and competition | Localized SERP captures and competitive assessment | Pending |
 | 09 Semantic research | Concept/relationship inventory and evidence | Pending |
