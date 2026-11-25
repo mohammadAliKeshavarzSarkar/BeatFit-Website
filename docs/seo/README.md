@@ -20,6 +20,13 @@ Merged recent work includes ASCII blog link integrity (#39), URL-identity audit 
 - [PR #45 — full article static HTML shells](https://github.com/mohammadAliKeshavarzSarkar/BeatFit-Website/pull/45): **MERGED**. [Readiness record](verification/2026-11-24-full-article-static-html-readiness.md).
 - Historical 2026-11-21 status below is revision-scoped. Latest source CI is **not** production reachability, Search Console or demo lead-receipt proof.
 
+## Persian keyword intelligence — phased research (2026-11-25)
+
+- [Research roadmap and developer handoff](research/keyword-intelligence/README.md): numbered deliverables for all 14 phases; research-only scope.
+- Phase 01: 462 raw seed phrases, including prior canonical keyword and priority registers. Phase 02: 253 language-variant mappings.
+- Phase 03: 66 candidate queries, 15 source records, 22 Google capture seeds; direct Autocomplete access blocked for two seeds, no captured Google suggestions or measured demand. See the phase report for acceptance limitations.
+- Future research goes in the numbered phase folders. Historical keyword inventories remain unchanged; no website implementation is authorized by these records.
+
 ## Documentation index
 
 | Area | Document | Purpose |
