@@ -1,0 +1,8 @@
+attempt_id,method,query_or_scope,result_status,limitation,date
+"BF-SB01","PUBLIC_WEB_MULTI_QUERY","""بیت فیت"" ورزش ضربان قلب|""بیتفیت""|""بیت فیت""|پایش ضربان قلب|دستگاه هوشمند پایش قلب|سنسور ضربان قلب|سیستم پایش ضربان قلب باشگاه|باشگاه هوشمند","PUBLIC_EXCERPTS_RETURNED","Mixed response; per-query attribution and result positions unavailable","2026-11-25"
+"BF-SB02","PUBLIC_WEB_SINGLE_QUERY","بیت فیت بیتفیت BeatFit beatfit.ir","PUBLIC_EXCERPTS_RETURNED","Combined diagnostic string is not an exact individual brand query; no verified BeatFit first-party result in returned sample","2026-11-25"
+"BF-SB03","PUBLIC_WEB_MULTI_QUERY","ضربان قلب هنگام ورزش محاسبه زون ضربان قلب|خرید بازوبند ضربان قلب ورزشی بند سینه ای|اپلیکیشن پایش ضربان قلب ورزشکاران پنل مربی|مانیتورینگ ضربان قلب تمرین گروهی نمایشگر باشگاه","PUBLIC_EXCERPTS_RETURNED","Mixed response; no per-query attribution or rank","2026-11-25"
+"BF-SB04","DIRECT_GOOGLE_REQUEST","بیت فیت","ACCESS_BLOCKED","hl=fa/gl=ir requested; actual geography, device and positions not established","2026-11-25"
+"BF-SB05","DIRECT_GOOGLE_REQUEST","سنسور ضربان قلب","ACCESS_BLOCKED","hl=fa/gl=ir requested; actual geography, device and positions not established","2026-11-25"
+"BF-SB06","DIRECT_SITE_REQUEST","https://beatfit.ir/","ACCESS_BLOCKED","Tool could not access homepage; not an HTTP status or Googlebot diagnosis","2026-11-25"
+"BF-SB07","PUBLIC_WEB_SITE_OPERATOR","site:beatfit.ir","NO_RESULTS_RETURNED","Empty public tool sample; not Google index count or deindexing proof","2026-11-25"

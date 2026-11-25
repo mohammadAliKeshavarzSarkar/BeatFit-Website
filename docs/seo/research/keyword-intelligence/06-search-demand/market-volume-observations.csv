@@ -1,0 +1,1 @@
+observation_id,demand_id,query_raw,provider,geo_scope,language_scope,network,window_start,window_end,monthly_search_estimate,monthly_lower_bound,monthly_upper_bound,currency,advertiser_competition,value_status,export_date,evidence_ref,method_notes
