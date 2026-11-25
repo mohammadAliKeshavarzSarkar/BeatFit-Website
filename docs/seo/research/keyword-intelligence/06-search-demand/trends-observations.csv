@@ -1,0 +1,1 @@
+observation_id,batch_id,demand_id,query_raw,geo_observed,search_type,category,query_mode,window_start,window_end,interval_start,interval_end,relative_index_raw,value_status,export_date,evidence_ref
