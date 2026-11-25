@@ -16,8 +16,8 @@
 | 08 SERP and competition | [Report](08-serp-competition/README.md), [28 public evidence records](08-serp-competition/public-result-evidence.csv), [eight topic assessments](08-serp-competition/competition-assessment.csv), [capture queue](08-serp-competition/serp-capture-queue.csv) | Partial; localized Google capture blocked/pending |
 | 09 Semantic research | [Report](09-semantic-research/README.md), [41 concepts](09-semantic-research/concepts.csv), [60 relationships](09-semantic-research/relationships.csv), [120 candidates](09-semantic-research/semantic-candidates.csv), [904 mappings](09-semantic-research/existing-keyword-concept-map.csv) | Initial pass complete; empirical verification pending |
 | 10 Clustering | [Report](10-keyword-clustering/README.md), [41 clusters](10-keyword-clustering/clusters.csv), [1,024 memberships](10-keyword-clustering/cluster-membership.csv), [91 intent tracks](10-keyword-clustering/intent-tracks.csv), [24 lexical groups](10-keyword-clustering/orthographic-variants.csv) | Initial editorial pass complete; empirical validation pending |
-| 11 Keyword gap and page mapping | Current page inventory, gap decisions | Next |
-| 12 Prioritization | Transparent scoring, missing-data handling | Pending |
+| 11 Keyword gap and page mapping | [Report](11-page-mapping/README.md), [13 existing pages](11-page-mapping/page-inventory.csv), [1,024 dispositions](11-page-mapping/keyword-page-map.csv), [11 gaps](11-page-mapping/gap-register.csv), [legacy reconciliation](11-page-mapping/legacy-reconciliation.csv), [overlap review](11-page-mapping/overlap-review.csv) | Initial editorial pass complete; live and SERP verification pending |
+| 12 Prioritization | Transparent scoring, missing-data handling | Next |
 | 13 Master database | Deduplicated inventory, provenance and schema validation | Pending |
 | 14 Ranking measurement | Query-page baseline, monitoring protocol | Pending |
 
