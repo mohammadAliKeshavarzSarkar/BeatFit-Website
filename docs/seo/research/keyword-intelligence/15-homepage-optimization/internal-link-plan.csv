@@ -1,0 +1,8 @@
+"anchor","target","surface","gate"
+"سیستم پایش ضربان قلب باشگاه","/gym","persona club","EXISTING_SOURCE_ROUTE"
+"پنل مربی بیت‌فیت","/coach","persona coach","EXISTING_SOURCE_ROUTE"
+"اپلیکیشن ورزشکار بیت‌فیت","/athlete","persona athlete","EXISTING_SOURCE_ROUTE"
+"راهنمای زون‌های ضربان قلب","/blog/heart-rate-zones","resources/FAQ","EXISTING_SOURCE_ROUTE"
+"مقایسه حسگرهای ضربان قلب","/blog/heart-rate-sensor-comparison","resources","EXISTING_SOURCE_ROUTE"
+"آموزش پایش ضربان قلب و تمرین","/resources","resources","EXISTING_SOURCE_ROUTE"
+"آشنایی با دموی بیت‌فیت","/demo","CTA","INFO_ONLY"
