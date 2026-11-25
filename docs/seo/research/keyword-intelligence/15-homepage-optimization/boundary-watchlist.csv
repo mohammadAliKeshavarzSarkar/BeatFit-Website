@@ -1,0 +1,8 @@
+"keyword_id","query_raw","disposition","existing_path","proposed_path","research_priority"
+"BF-D0001","بیت","MONITOR_ONLY","","","P0"
+"BF-D0002","فیت","MONITOR_ONLY","","","P0"
+"BF-D0010","دستگاه بیت فیت","PROPOSED_GAP_CANDIDATE","","/devices","P1"
+"BF-D0012","اپلیکیشن بیت فیت","EXISTING_PAGE_CANDIDATE","/athlete","","P1"
+"BF-D0023","ضربان قلب","MONITOR_ONLY","","","P1"
+"BF-D0024","پایش ضربان قلب","PROPOSED_GAP_CANDIDATE","","/blog/heart-rate-monitoring","P1"
+"BF-D0048","دستگاه هوشمند پایش قلب","MONITOR_ONLY","","","P1"
