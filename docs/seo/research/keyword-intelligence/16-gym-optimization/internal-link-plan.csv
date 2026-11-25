@@ -1,0 +1,8 @@
+"anchor","path","placement","status"
+"پنل مربی بیت‌فیت","/coach","Ecosystem or live card","PROPOSED_EXISTING_ROUTE"
+"اپلیکیشن ورزشکار بیت‌فیت","/athlete","App card","PROPOSED_EXISTING_ROUTE"
+"راهنمای پایش ضربان قلب در باشگاه","/blog/connected-training-system","FAQ or ecosystem","PROPOSED_EXISTING_ROUTE"
+"کنترل شدت تمرین در کلاس گروهی","/blog/live-class-monitoring","Live feedback card","PROPOSED_EXISTING_ROUTE"
+"مقایسه حسگرهای ضربان قلب","/blog/heart-rate-sensor-comparison","Wearables card","PROPOSED_EXISTING_ROUTE"
+"آشنایی با فرایند راه‌اندازی","/demo","Banner and closing","RETAIN_INFO_ONLY"
+"سیستم پایش زنده ضربان قلب بیت‌فیت","/","Optional contextual brand link","PROPOSED_EXISTING_ROUTE"
