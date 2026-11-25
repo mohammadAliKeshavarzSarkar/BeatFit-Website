@@ -17,9 +17,9 @@
 | 09 Semantic research | [Report](09-semantic-research/README.md), [41 concepts](09-semantic-research/concepts.csv), [60 relationships](09-semantic-research/relationships.csv), [120 candidates](09-semantic-research/semantic-candidates.csv), [904 mappings](09-semantic-research/existing-keyword-concept-map.csv) | Initial pass complete; empirical verification pending |
 | 10 Clustering | [Report](10-keyword-clustering/README.md), [41 clusters](10-keyword-clustering/clusters.csv), [1,024 memberships](10-keyword-clustering/cluster-membership.csv), [91 intent tracks](10-keyword-clustering/intent-tracks.csv), [24 lexical groups](10-keyword-clustering/orthographic-variants.csv) | Initial editorial pass complete; empirical validation pending |
 | 11 Keyword gap and page mapping | [Report](11-page-mapping/README.md), [13 existing pages](11-page-mapping/page-inventory.csv), [1,024 dispositions](11-page-mapping/keyword-page-map.csv), [11 gaps](11-page-mapping/gap-register.csv), [legacy reconciliation](11-page-mapping/legacy-reconciliation.csv), [overlap review](11-page-mapping/overlap-review.csv) | Initial editorial pass complete; live and SERP verification pending |
-| 12 Prioritization | Transparent scoring, missing-data handling | Next |
-| 13 Master database | Deduplicated inventory, provenance and schema validation | Pending |
-| 14 Ranking measurement | Query-page baseline, monitoring protocol | Pending |
+| 12 Prioritization | [Report](12-keyword-prioritization/README.md) | Initial editorial pass complete |
+| 13 Master database | [Report](13-master-database/README.md), [validation addendum](13-master-database/validation-addendum.md) | Consolidated; evidence reference audit documented |
+| 14 Ranking measurement | [Protocol](14-ranking-measurement/README.md), [measurement queue](14-ranking-measurement/measurement-queue.csv) | Framework documented; observations pending |
 
 ## Handoff contract
 
