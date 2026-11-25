@@ -15,8 +15,8 @@
 | 07 Search intent | [Report](07-search-intent/README.md), [904 classifications](07-search-intent/intent-classification.csv), [summary](07-search-intent/intent-summary.csv), [334 review records](07-search-intent/intent-review-queue.csv) | Initial qualitative pass complete; SERP validation pending |
 | 08 SERP and competition | [Report](08-serp-competition/README.md), [28 public evidence records](08-serp-competition/public-result-evidence.csv), [eight topic assessments](08-serp-competition/competition-assessment.csv), [capture queue](08-serp-competition/serp-capture-queue.csv) | Partial; localized Google capture blocked/pending |
 | 09 Semantic research | [Report](09-semantic-research/README.md), [41 concepts](09-semantic-research/concepts.csv), [60 relationships](09-semantic-research/relationships.csv), [120 candidates](09-semantic-research/semantic-candidates.csv), [904 mappings](09-semantic-research/existing-keyword-concept-map.csv) | Initial pass complete; empirical verification pending |
-| 10 Clustering | Stable topic IDs, exact-variant membership | Next |
-| 11 Keyword gap and page mapping | Current page inventory, gap decisions | Pending |
+| 10 Clustering | [Report](10-keyword-clustering/README.md), [41 clusters](10-keyword-clustering/clusters.csv), [1,024 memberships](10-keyword-clustering/cluster-membership.csv), [91 intent tracks](10-keyword-clustering/intent-tracks.csv), [24 lexical groups](10-keyword-clustering/orthographic-variants.csv) | Initial editorial pass complete; empirical validation pending |
+| 11 Keyword gap and page mapping | Current page inventory, gap decisions | Next |
 | 12 Prioritization | Transparent scoring, missing-data handling | Pending |
 | 13 Master database | Deduplicated inventory, provenance and schema validation | Pending |
 | 14 Ranking measurement | Query-page baseline, monitoring protocol | Pending |
