@@ -12,8 +12,8 @@
 | 04 Competitor discovery | [Report](04-competitor-discovery/README.md), [27 competitor cases](04-competitor-discovery/competitors.csv), [34 evidence records](04-competitor-discovery/evidence.csv) | Initial pass complete |
 | 05 Competitor keyword research | [Report](05-competitor-keyword-research/README.md), [27 page attempts](05-competitor-keyword-research/pages.csv), [183 phrase rows](05-competitor-keyword-research/phrases.csv), [110 derived candidates](05-competitor-keyword-research/candidate-delta.csv), [12-topic matrix](05-competitor-keyword-research/topic-matrix.csv) | Initial pass complete; one blocked and eight excerpt-only cases |
 | 06 Search demand | [Report](06-search-demand/README.md), [904 exact queries](06-search-demand/demand-queue.csv), [14 comparison groups](06-search-demand/trends-comparison-plan.csv), [sources](06-search-demand/sources.csv), [attempts](06-search-demand/measurement-attempts.csv) | Partial; no numeric observations; Trends blocked and owner exports required |
-| 07 Search intent | Intent labels and mixed-intent flags | Next |
-| 08 SERP and competition | Localized SERP captures and competitive assessment | Pending |
+| 07 Search intent | [Report](07-search-intent/README.md), [904 classifications](07-search-intent/intent-classification.csv), [summary](07-search-intent/intent-summary.csv), [334 review records](07-search-intent/intent-review-queue.csv) | Initial qualitative pass complete; SERP validation pending |
+| 08 SERP and competition | Localized SERP captures and competitive assessment | Next |
 | 09 Semantic research | Concept/relationship inventory and evidence | Pending |
 | 10 Clustering | Stable topic IDs, exact-variant membership | Pending |
 | 11 Keyword gap and page mapping | Current page inventory, gap decisions | Pending |
