@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef } from "react";
+import { lazy, Suspense, useLayoutEffect, useRef } from "react";
 import {
   Route,
   Routes,
@@ -8,15 +8,28 @@ import {
 import type { History } from "@remix-run/router";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { BlogPostPage } from "./pages/BlogPostPage";
-import { AthletePage } from "./pages/AthletePage";
-import { CoachPage } from "./pages/CoachPage";
-import { DemoPage } from "./pages/DemoPage";
-import { GymPage } from "./pages/GymPage";
 import { HomePage } from "./pages/HomePage";
 import { NotFoundPage } from "./pages/NotFoundPage";
-import { ResourcesPage } from "./pages/ResourcesPage";
 import { createReadableBrowserHistory } from "./routing/readableHistory";
+
+const GymPage = lazy(() =>
+  import("./pages/GymPage").then((module) => ({ default: module.GymPage })),
+);
+const CoachPage = lazy(() =>
+  import("./pages/CoachPage").then((module) => ({ default: module.CoachPage })),
+);
+const AthletePage = lazy(() =>
+  import("./pages/AthletePage").then((module) => ({ default: module.AthletePage })),
+);
+const ResourcesPage = lazy(() =>
+  import("./pages/ResourcesPage").then((module) => ({ default: module.ResourcesPage })),
+);
+const BlogPostPage = lazy(() =>
+  import("./pages/BlogPostPage").then((module) => ({ default: module.BlogPostPage })),
+);
+const DemoPage = lazy(() =>
+  import("./pages/DemoPage").then((module) => ({ default: module.DemoPage })),
+);
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -126,17 +139,18 @@ export default function App() {
   return (
     <HistoryRouter history={historyRef.current}>
       <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/gym" element={<GymPage />} />
-        <Route path="/coach" element={<CoachPage />} />
-        <Route path="/athlete" element={<AthletePage />} />
-        <Route path="/resources" element={<ResourcesPage />} />
-        <Route path="/blog/:slug" element={<BlogPostPage />} />
-
-        <Route path="/demo" element={<DemoPage />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
+      <Suspense fallback={<p className="sr-only">در حال بارگذاری</p>}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/gym" element={<GymPage />} />
+          <Route path="/coach" element={<CoachPage />} />
+          <Route path="/athlete" element={<AthletePage />} />
+          <Route path="/resources" element={<ResourcesPage />} />
+          <Route path="/blog/:slug" element={<BlogPostPage />} />
+          <Route path="/demo" element={<DemoPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </Suspense>
     </HistoryRouter>
   );
 }

@@ -93,5 +93,22 @@ export default defineConfig({
     assetsDir: "assets",
     sourcemap: false,
     emptyOutDir: true,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (!id.includes("node_modules")) return;
+          if (id.includes("gsap")) return "gsap";
+          if (id.includes("react-useanimations")) return "icons";
+          if (
+            id.includes("react-dom") ||
+            id.includes("react-router") ||
+            id.includes("@remix-run") ||
+            id.includes(`${path.sep}react${path.sep}`)
+          ) {
+            return "react";
+          }
+        },
+      },
+    },
   },
 });
