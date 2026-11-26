@@ -1,0 +1,3 @@
+# Visual review — priority batch 01
+
+Five original WebP assets retrieved successfully using repository file retrieval with base64 encoding, pinned to main 3c9d2a1a208fa5639733808621b1b9daec1bdb8b. This supersedes the previous binary retrieval blocker for these five files only. See visual-review-priority-01.csv for exact blob IDs and observed content. Suggested ALT is not a production change. The progress metric and sensor model still need owner confirmation. Coach screenshots do not substantiate several current surrounding claims; review image selection, not just ALT. Check sample personal data in coach screenshots. Remaining assets have not yet undergone pixel verification. No new ranking claims.
