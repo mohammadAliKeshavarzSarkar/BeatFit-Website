@@ -1,7 +1,5 @@
 import fs from "node:fs";
 import path from "node:path";
-import { blogPublicSlugByContentSlug, legacyEnglishBlogAliases, getPublishedBlogPosts } from "../src/content/blog/posts.ts";
-import { renderStaticArticle } from "../src/seo/article-static.ts";
 
 import {
   blogPublicSlugByContentSlug,
